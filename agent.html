@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情报智能体 · 建筑智能化政策与技术情报站</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2c4d'/%3E%3Crect x='14' y='16' width='36' height='6' rx='3' fill='%231e6fd9'/%3E%3Crect x='14' y='28' width='24' height='6' rx='3' fill='%235b9bd5'/%3E%3Crect x='14' y='40' width='30' height='6' rx='3' fill='%230e7490'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="agent">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="logo">情</span>建筑智能化情报站</a>
+    <a class="link" href="index.html">情报看板</a>
+    <a class="link" href="items.html">条目库</a>
+    <a class="link" href="briefs.html">简报归档</a>
+    <a class="link on" href="agent.html">智能体</a>
+    <a class="gh" href="https://github.com/Bossquare/policy-intel" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<header class="hero" style="padding:34px 0 42px">
+  <div class="wrap">
+    <span class="tag">HOW THE AGENT WORKS</span>
+    <h1 style="font-size:26px">政策与技术情报智能体</h1>
+    <p class="sub" style="font-size:15px">每周自动采集行业主管部门政策文件、标准发布与技术动态，完成摘要提取、相关性判定与三档分类，产出可归档的情报简报</p>
+  </div>
+</header>
+
+<main class="wrap" style="margin-top:26px">
+
+  <section style="padding-top:0">
+    <div class="sec-head"><h2>运行周期</h2></div>
+    <div class="overview" style="margin:14px 0 0">
+      <div class="ov-card">
+        <div class="n">每周</div><div class="l">采集周期</div>
+        <div class="d">每周一定时运行，覆盖上一自然周的全部公开信息</div>
+      </div>
+      <div class="ov-card">
+        <div class="n">4 层</div><div class="l">采集层级</div>
+        <div class="d">国家 · 重点省市 · 其他省市 · 行业组织与头部企业</div>
+      </div>
+      <div class="ov-card">
+        <div class="n">6 条</div><div class="l">主营赛道</div>
+        <div class="d">用于相关性判定的业务口径，可在配置中调整</div>
+      </div>
+      <div class="ov-card">
+        <div class="n">3 档</div><div class="l">分类推送</div>
+        <div class="d">重点关注 · 持续跟踪 · 一般了解</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>处理流程</h2><span class="hint">从原始信息到可归档简报</span></div>
+    <div class="flow">
+      <div class="step">
+        <div class="sn">STEP 01</div>
+        <h4>定向采集</h4>
+        <p>按配置的源清单抓取住建部、国新办、重点省市住建部门、行业协会与头部企业的信息发布栏目，按发布时间窗口过滤。</p>
+      </div>
+      <div class="step">
+        <div class="sn">STEP 02</div>
+        <h4>摘要提取</h4>
+        <p>对每条原文提取发布机构、成文/公开日期、文件形式、文号与 3–5 条核心要点，保留原文链接以便溯源。</p>
+      </div>
+      <div class="step">
+        <div class="sn">STEP 03</div>
+        <h4>相关性判定</h4>
+        <p>把条目内容与六条主营赛道做关键词与语义双重匹配，命中越多、层级越高，相关性得分越高。</p>
+      </div>
+      <div class="step">
+        <div class="sn">STEP 04</div>
+        <h4>三档分类</h4>
+        <p>依据层级、形式、是否含强制要求或量化指标，归入重点关注 / 持续跟踪 / 一般了解，并标注判定依据。</p>
+      </div>
+      <div class="step">
+        <div class="sn">STEP 05</div>
+        <h4>成稿归档</h4>
+        <p>对强相关条目输出影响分析与应对建议，合并为核心结论、影响分析与趋势展望，生成当期简报并冻结归档。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>三档分类口径</h2><span class="hint">判定规则公开、可复核</span></div>
+    <div class="intel-grid g3">
+      <div class="intel tier-focus">
+        <div><span class="badge tier-focus">重点关注</span></div>
+        <h3>与主营赛道强相关</h3>
+        <p class="sum">国家层面发布且命中核心赛道（BIM/CIM、智能建造、AI+建筑等）；或地方层面发布、命中核心赛道且含强制要求、量化指标、可考核目标的条目。此类条目均同步出具影响分析与应对建议。</p>
+        <div class="intel-foot"><span>建议本周内研读并落到具体动作</span></div>
+      </div>
+      <div class="intel tier-track">
+        <div><span class="badge tier-track">持续跟踪</span></div>
+        <h3>相关但暂不紧急</h3>
+        <p class="sum">标准征求意见稿、地方规划与试点名单、非重点省市的实施方案等。此类条目多数带有明确的后续节点（反馈截止、实施日期），适合列入跟踪清单，等后续文件出台再评估。</p>
+        <div class="intel-foot"><span>纳入跟踪清单，关注后续节点</span></div>
+      </div>
+      <div class="intel tier-watch">
+        <div><span class="badge tier-watch">一般了解</span></div>
+        <h3>行业氛围与生态信息</h3>
+        <p class="sum">展会论坛、企业动态、人事调整、协会名单等。用于把握行业风向与竞品动作，不作为决策依据。</p>
+        <div class="intel-foot"><span>了解即可</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>主营赛道口径</h2><span class="hint">相关性判定的业务基准</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th style="width:16%">赛道</th><th style="width:44%">口径说明</th><th style="width:40%">典型命中关键词</th></tr></thead>
+        <tbody id="track-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>采集源清单</h2><span class="hint">全部为公开信息发布渠道</span></div>
+    <div class="intel-grid g3" id="sources"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>数据与可信度</h2></div>
+    <div class="notice">
+      <div>
+        <b>可信度标注规则</b><br>
+        每条情报均保留原始来源链接与检索状态。<b>已查证</b> 表示已比对官方原文；
+        <b>一方报道</b> 表示目前仅权威媒体单一来源；<b>待核实 / 附件待核</b> 表示正文或附件尚未逐条核验。
+        对未核实内容不做推测性补充，宁缺勿滥。
+      </div>
+    </div>
+    <div class="notice" style="background:#eef6ff;border-color:#c5d9f2;color:#1a4f9c">
+      <div>
+        <b>免责与使用边界</b><br>
+        本站情报用于内部研判与选题参考，不构成对外承诺。涉及具体项目的决策，请以官方发布的正式文件为准。
+        影响分析与应对建议为基于当期政策信号的判断，可能随后续文件调整。
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>本地运行与更新</h2><span class="hint">工程说明</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th style="width:34%">命令</th><th>作用</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">python3 agent/extract_seed.py</td><td>从原始报告抽取结构化条目，自动打上赛道标签与三档分级</td></tr>
+          <tr><td class="mono">python3 agent/build_data.py</td><td>合并人工影响分析、报告叙述，生成站点数据（<span class="mono">assets/data/</span>）</td></tr>
+          <tr><td class="mono">python3 agent/run_weekly.py</td><td>每周流水线入口：采集 → 摘要 → 判定 → 分档 → 成稿 → 构建站点数据</td></tr>
+          <tr><td class="mono">python3 -m http.server 8000</td><td>本地预览站点，浏览器打开 http://localhost:8000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-desc" style="margin-top:14px">
+      站点为纯静态页面，数据由构建脚本生成，可直接托管在 GitHub Pages。
+      人工撰写的影响分析位于 <span class="mono">agent/insights.json</span>，与自动产出分离，保证判断类内容的可追溯性。
+    </p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b>建筑智能化政策与技术情报站</b></div>
+    <div>采集源均为公开渠道，判断类内容与自动产出分离可追溯</div>
+  </div>
+</footer>
+
+<script src="assets/data/site-data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var S = window.INTEL_SITE; if(!S) return;
+  var TR = S.index.tracks;
+  var kw = {
+    "smart-building":"智慧建筑、智能家居、数字家庭、楼宇、好房子",
+    "bim-cim":"BIM、CIM、数字孪生、实景三维、电子文件、建模算量、赋码",
+    "intelligent-construction":"智能建造、建筑机器人、装配式、模块化、智慧工地、智能装备",
+    "green-smart":"绿色建造、绿色建筑、双化协同、低碳、能耗、碳达峰",
+    "urban-renewal":"城市更新、老旧小区、城市生命线、韧性城市、新城建",
+    "ai-building":"人工智能、大模型、Agent、辅助评标、智能审查、机器视觉"
+  };
+  var tb = document.getElementById("track-table");
+  if(tb) tb.innerHTML = Object.keys(TR).map(function(k){
+    return "<tr><td><b>"+TR[k].label+"</b></td><td>"+TR[k].desc+"</td><td style='color:var(--muted)'>"+(kw[k]||"")+"</td></tr>";
+  }).join("");
+
+  var src = [
+    ["国家部委","住房和城乡建设部 / 国新办 / 中央网信办 / 国家标准委","政策发布、标准定额、工作动态、新闻发布会"],
+    ["重点省市","上海 · 北京 · 广州 · 深圳 · 江苏/南京 · 浙江/杭州","规范性文件、地方标准、试点名单、规划公示"],
+    ["其他省市","西安 · 新疆 · 成都 · 重庆 · 湖北 · 湖南 · 福建 · 安徽 · 河南 · 山东","住建厅局政策栏目与意见征集"],
+    ["行业组织","中国建筑业协会 · 中国房地产业协会 · 省级行业协会","团体标准、评价体系、专家组织"],
+    ["头部企业","广联达 · 中国建研院(PKPM) 等","产品发布、技术路线、行业大会"]
+  ];
+  var box = document.getElementById("sources");
+  if(box) box.innerHTML = src.map(function(r){
+    return '<div class="intel tier-track"><div><span class="badge nat">'+r[0]+'</span></div>'+
+      '<h3>'+r[1]+'</h3><p class="sum">'+r[2]+'</p></div>';
+  }).join("");
+})();
+</script>
+</body>
+</html>

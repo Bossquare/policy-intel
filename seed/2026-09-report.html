@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年9月建筑智能化市场信息报告</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2c4d'/%3E%3Crect x='14' y='16' width='36' height='6' rx='3' fill='%231e6fd9'/%3E%3Crect x='14' y='28' width='24' height='6' rx='3' fill='%235b9bd5'/%3E%3Crect x='14' y='40' width='30' height='6' rx='3' fill='%230e7490'/%3E%3C/svg%3E">
+<style>
+:root{
+  --navy:#0f2c4d;
+  --navy-2:#163e6b;
+  --blue:#1e6fd9;
+  --blue-soft:#e8f1fc;
+  --blue-line:#c5d9f2;
+  --teal:#0e7490;
+  --ink:#1f2937;
+  --ink-2:#4b5563;
+  --muted:#6b7280;
+  --bg:#f5f8fc;
+  --card:#ffffff;
+  --border:#e3e9f2;
+  --gold:#b8860b;
+  --shadow:0 2px 10px rgba(15,44,77,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ===== 封面 ===== */
+.hero{background:linear-gradient(135deg,#0f2c4d 0%,#163e6b 55%,#1e5aa8 100%);color:#fff;padding:64px 0 56px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:380px;height:380px;border:1px solid rgba(255,255,255,.08);border-radius:50%}
+.hero::before{content:"";position:absolute;right:-30px;bottom:-120px;width:300px;height:300px;border:1px solid rgba(255,255,255,.06);border-radius:50%}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:4px 14px;border-radius:20px;font-size:13px;letter-spacing:1px;margin-bottom:18px}
+.hero h1{font-size:38px;font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3}
+.hero .sub{font-size:17px;opacity:.85;margin-bottom:26px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px;opacity:.9}
+.hero .meta b{font-weight:600}
+
+/* 核心结论 */
+.concl{background:#fff;border-radius:10px;box-shadow:var(--shadow);padding:28px 30px;margin:-34px auto 0;position:relative;z-index:2}
+.concl h2{font-size:18px;color:var(--navy);border-left:4px solid var(--blue);padding-left:12px;margin-bottom:16px}
+.concl ol{list-style:none;counter-reset:c}
+.concl li{counter-increment:c;padding:10px 0 10px 42px;position:relative;border-bottom:1px dashed var(--border);font-size:14.5px}
+.concl li:last-child{border-bottom:none}
+.concl li::before{content:counter(c);position:absolute;left:0;top:10px;width:28px;height:28px;background:var(--blue);color:#fff;border-radius:50%;text-align:center;line-height:28px;font-weight:600;font-size:14px}
+
+/* 章节通用 */
+section{padding:48px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-no{font-size:15px;color:var(--blue);font-weight:700;letter-spacing:2px}
+.sec-head h2{font-size:26px;color:var(--navy);font-weight:700}
+.sec-desc{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+/* 卡片 */
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;color:var(--navy);margin-bottom:8px}
+.card .date{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.card p,.card li{font-size:13.8px;color:var(--ink-2)}
+.card ul{padding-left:18px;margin-top:6px}
+.card li{margin-bottom:4px}
+.badge{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:4px;font-weight:600;margin-right:6px}
+.b-nat{background:var(--blue-soft);color:var(--blue)}
+.b-loc{background:#e6f4ea;color:#1a7f37}
+.b-ind{background:#fef3e2;color:#b5651d}
+.b-hot{background:#fde8e8;color:#c0392b}
+.tag-warn{color:#b5651d;font-size:12.5px;font-style:italic}
+
+/* 头条深度解读 */
+.headline{background:linear-gradient(135deg,#fff 0%,#f0f6ff 100%);border:1px solid var(--blue-line);border-left:5px solid var(--blue);border-radius:10px;padding:28px 30px;margin-bottom:22px}
+.headline .kicker{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:2px;margin-bottom:8px}
+.headline h3{font-size:22px;color:var(--navy);margin-bottom:14px}
+.headline .pts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;margin-top:14px}
+.headline .pt{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 16px}
+.headline .pt b{color:var(--navy);display:block;margin-bottom:4px;font-size:14px}
+.headline .pt span{font-size:13.3px;color:var(--ink-2)}
+
+/* 统计条 */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
+.stat{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.stat .num{font-size:32px;font-weight:700;color:var(--blue);line-height:1.1}
+.stat .lbl{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* CSS 条形图 */
+.bar-chart{background:#fff;border:1px solid var(--border);border-radius:10px;padding:22px 26px;box-shadow:var(--shadow)}
+.bar-chart h4{font-size:15px;color:var(--navy);margin-bottom:16px}
+.bar-row{display:grid;grid-template-columns:110px 1fr 46px;align-items:center;gap:10px;margin-bottom:10px;font-size:13px}
+.bar-row .bl{color:var(--ink-2);text-align:right}
+.bar-track{background:#eef3fa;border-radius:4px;height:20px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--navy),var(--blue))}
+.bar-row .bv{font-weight:600;color:var(--navy)}
+
+/* 时间轴 */
+.tl{position:relative;padding-left:0}
+.tl::before{content:"";position:absolute;top:16px;bottom:16px;left:calc(90px + 13px);width:2px;background:var(--blue-line)}
+.tl-item{display:grid;grid-template-columns:90px 28px 1fr;align-items:start;margin-bottom:4px;position:relative}
+.tl-date{text-align:right;padding-top:14px;font-size:13px;color:var(--muted);font-weight:600}
+.tl-axis{display:flex;justify-content:center;padding-top:18px;position:relative;z-index:1}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 0 0 2px var(--blue);z-index:2}
+.tl-body{padding:8px 0 16px 16px}
+.tl-body .t{font-size:14px;font-weight:600;color:var(--navy)}
+.tl-body .d{font-size:13px;color:var(--ink-2);margin-top:2px}
+
+/* 表格 */
+.tbl-wrap{overflow-x:auto;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:13.3px;table-layout:fixed;min-width:820px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);word-wrap:break-word}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:13px}
+tr:nth-child(even) td{background:#f8fafd}
+td a{word-break:break-all}
+
+/* 影响矩阵 */
+.matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mx{background:#fff;border:1px solid var(--border);border-top:4px solid var(--blue);border-radius:10px;padding:18px 20px}
+.mx h4{color:var(--navy);font-size:15.5px;margin-bottom:8px}
+.mx .lv{font-size:12px;color:var(--muted);margin-bottom:10px}
+.mx p{font-size:13.5px;color:var(--ink-2)}
+.mx ul{padding-left:16px;margin-top:6px}
+.mx li{font-size:13px;color:var(--ink-2);margin-bottom:3px}
+
+/* 展望 */
+.future{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.fc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px 16px;text-align:center}
+.fc .fn{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;line-height:38px;margin:0 auto 10px;font-weight:700}
+.fc h4{font-size:14px;color:var(--navy);margin-bottom:6px}
+.fc p{font-size:12.5px;color:var(--ink-2)}
+
+/* 附录 */
+.foot{background:var(--navy);color:#cfdcec;padding:36px 0;margin-top:48px;font-size:13px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.src-list{font-size:12px;color:var(--muted);margin-top:6px;word-break:break-all}
+.src-list a{color:var(--blue)}
+.region-block{margin-bottom:10px}
+.region-block>h4{font-size:15px;color:var(--navy);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--blue)}
+@media(max-width:900px){
+  .g3,.g2,.matrix,.future{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .headline .pts{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+  .bar-row{grid-template-columns:80px 1fr 40px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">MONTHLY POLICY INTELLIGENCE</span>
+    <h1>2026年9月<br>建筑智能化市场信息报告</h1>
+    <p class="sub">政策全景 · 地方落地 · 产业影响 · 趋势研判</p>
+    <div class="meta">
+      <span><b>时间窗口</b>　2026-09-01 至 2026-09-18</span>
+      <span><b>收录条目</b>　45 条（去重后）</span>
+      <span><b>覆盖层级</b>　国家 / 重点省市 / 其他省市与行业</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 核心结论 ===================== -->
+<div class="wrap">
+  <div class="concl">
+    <h2>核心结论</h2>
+    <ol>
+      <li><b>顶层定调明确，"数智住建"正式成为建筑业十五五主线。</b>9月18日国新办住建部专场发布会首次披露"十五五"时期将制定"数智住建"发展工作方案，与"智能化、绿色化、融合化"三化转型同频，AI 在智慧城市、智能建造、智能家居的应用上升为部本级部署。</li>
+      <li><b>标准密集落地，"数据底座+数字孪生"进入工程化阶段。</b>9月3日住建部同日挂出三项标准征求意见（排水电气与智能化、城市更新规划编制、便携式管线探测），叠加北京电子文件单套制、河南 CIM 两项地标、成都实景三维底座，BIM/CIM 从试点走向强制约束。</li>
+      <li><b>智能建造由"试点示范"转向"规模化推广"。</b>南京发文明确2万㎡以上项目强制嵌入智能建造要求、江苏第五批一次性推出117个试点、湖北122个绿色智能建造试点、深圳33个试点，各地从"批名单"转向"定门槛、给费用、管平台"。</li>
+      <li><b>AI+建筑从概念走向招投标与监管一线。</b>广州10月1日起3000万元以下施工总承包项目全面 AI 辅助评标，北京征集住建领域创新场景清单，福建公布第一批 AI 应用场景解决方案，AI 开始进入招标、审图、造价、工地识别等高频业务环节。</li>
+      <li><b>上海发布十五五量化指标，本地市场机会窗口清晰。</b>上海"十五五"规划锚定到2030年累计120个智能建造项目、建筑机器人应用不少于600万㎡、装配式占比≥90%，是长三角智能建造与机器人装备市场最明确的量化牵引。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===================== 一、政策总览 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">01</span><h2>政策总览</h2></div>
+  <p class="sec-desc">2026年9月1—18日，建筑智能化相关政策与行业动态呈"国家级定调、地方密集落地、行业同步造势"三层叠加态势。</p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">45</div><div class="lbl">去重后收录条目</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">国家层面</div></div>
+    <div class="stat"><div class="num">17</div><div class="lbl">重点省市</div></div>
+    <div class="stat"><div class="num">18</div><div class="lbl">其他省市与行业</div></div>
+  </div>
+
+  <div class="grid g2" style="margin-bottom:22px">
+    <div class="bar-chart">
+      <h4>按层级分布（条）</h4>
+      <div class="bar-row"><div class="bl">国家层面</div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><div class="bv">10</div></div>
+      <div class="bar-row"><div class="bl">重点省市</div><div class="bar-track"><div class="bar-fill" style="width:94%"></div></div><div class="bv">17</div></div>
+      <div class="bar-row"><div class="bl">其他省市</div><div class="bar-track"><div class="bar-fill" style="width:67%"></div></div><div class="bv">12</div></div>
+      <div class="bar-row"><div class="bl">行业层面</div><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><div class="bv">6</div></div>
+    </div>
+    <div class="bar-chart">
+      <h4>重点省市按地区分布（条）</h4>
+      <div class="bar-row"><div class="bl">广东/广深</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bv">7</div></div>
+      <div class="bar-row"><div class="bl">江苏/南京</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bv">3</div></div>
+      <div class="bar-row"><div class="bl">浙江/杭州</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bv">3</div></div>
+      <div class="bar-row"><div class="bl">上海</div><div class="bar-track"><div class="bar-fill" style="width:29%"></div></div><div class="bv">2</div></div>
+      <div class="bar-row"><div class="bl">北京</div><div class="bar-track"><div class="bar-fill" style="width:29%"></div></div><div class="bv">2</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:17px;color:var(--navy);margin:18px 0 14px">9月关键事件时间轴</h3>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-date">09-01</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">北京 BIM 深化设计细度标准实施；广东质量月启动；中建协智慧工地评价标准施行</div><div class="d">三项标准/活动同日落地，标志着"标准+评价"体系开始运转</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-03</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">住建部三项标准同日征求意见；深圳33个智能建造试点；重庆试点名单与城市更新规划</div><div class="d">本月政策密度最高日：国家行标+地方试点同步释放</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-04</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">房屋建筑赋码到套导则发布；七部门双化协同方案；福建第一批 AI 场景清单</div><div class="d">"数字底座"与"绿色+智能"双线推进</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-08</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">国务院第二十一次专题学习聚焦城市更新；西安智能建造能力指南；湖北122个试点</div><div class="d">高层定调城市更新，省级试点批量落地</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-09</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">服贸会工程咨询与建筑服务专题展开幕；北京电子文件应用获住建部转载；新疆推进会</div><div class="d">智能建造全产业链集中亮相</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-10</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">广州 AI 招投标通知；江苏第五批117个试点；浙江模块化导则；湖南好房子行动</div><div class="d">AI 进入招投标一线，试点规模扩容</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-16</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">河南 CIM 两项地方标准征求意见；广州模块化方案指南转发；成都新城建方案住建部转载</div><div class="d">CIM/数字孪生底座在多地进入标准制定阶段</div></div></div>
+    <div class="tl-item"><div class="tl-date">09-18</div><div class="tl-axis"><div class="tl-dot"></div></div><div class="tl-body"><div class="t">国新办住建部发布会披露"数智住建"方案；工程数字化大会发布 PKPM 2027</div><div class="d">本月政策顶点：部本级顶层设计正式亮相</div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 二、国家层面重点文件解读 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">02</span><h2>国家层面重点文件解读</h2></div>
+  <p class="sec-desc">9月国家层面共10条，以9月18日国新办发布会为头条，辅以数据底座、标准征求意见、跨部门协同与高层定调。</p>
+
+  <!-- 头条 -->
+  <div class="headline">
+    <div class="kicker">本月头条 · 深度解读</div>
+    <h3>国新办"开局起步'十五五'"发布会：住建部首次披露"数智住建"发展工作方案</h3>
+    <p style="font-size:14px;color:var(--ink-2)"><span class="badge b-nat">国家</span>2026-09-18 上午10时　国务院新闻办公室 / 住房和城乡建设部</p>
+    <p style="font-size:14px;color:var(--ink-2);margin-top:10px">住建部副部长、新闻发言人陈绍旺将"十五五"住建事业新形势概括为"两个转向、两个转变、<b style="color:var(--navy)">三化转型</b>"——建筑业向<b>智能化、绿色化、融合化</b>转型。最具增量信息的是：住建部已制定"十五五"时期<b>"数智住建"发展工作方案</b>（多家权威媒体原文为"数智住建"，非"数字住建"），推动人工智能等新一代信息技术在智慧城市、智能建造、智能家居等领域应用。</p>
+    <div class="pts">
+      <div class="pt"><b>智慧城市与 CIM</b><span>城市进入"三分建、七分治"时期，将完善城市信息模型（CIM）和城市运行管理服务平台。</span></div>
+      <div class="pt"><b>建筑业新质生产力</b><span>培育绿色建造、智能建造等新型建造方式，完善现代化建筑业产业链。</span></div>
+      <div class="pt"><b>城市生命线数智化</b><span>城市管理监督局局长张强：用好数智化手段，对运行风险实时监测、动态预警、有效处置，加快城市更新立法。</span></div>
+      <div class="pt"><b>"好房子"全链条</b><span>从好标准、好设计、好材料、好建造、好运维全生命周期推进；层高2.8米提至3米，4层及以上加装电梯。</span></div>
+    </div>
+    <p class="src-list">来源：<a href="http://www.scio.gov.cn/live/2026/39448/index_m.html">国新办直播页</a>；<a href="http://news.china.com.cn/2026-09/18/content_118702153.html">中国网</a>；<a href="http://www.chinanews.com.cn/cj/2026/09-18/10698770.shtml">中新网</a>；<a href="https://www.cqcb.com/news/64/2026-09-18/6221963.html">上游新闻·数智住建方案</a></p>
+  </div>
+
+  <!-- 国家条目卡片 -->
+  <div class="grid g2">
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-loc">数据底座</span>
+      <h3>《房屋建筑赋码到套（户）导则（试行）》</h3>
+      <div class="date">建办厅函〔2026〕187号　|　2026-09-04公开（落款07-31）　|　住建部办公厅</div>
+      <ul>
+        <li>推进房屋建筑"一楼一码、到套到户"，统一代码制度落地的操作层文件。</li>
+        <li>已赋码地区须按导则完成机制调整与成果转换。</li>
+        <li>同步探索市政工程（道路、桥梁、给排水、燃气、供热）赋码落图。</li>
+        <li>甘肃、湖南、毕节等地已启动部署，与国家房屋建筑和市政设施基础信息库衔接。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html">住建部官网</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-ind">标准征求意见</span>
+      <h3>《城镇排水工程电气与智能化系统技术标准》（修订征求意见稿）</h3>
+      <div class="date">2026-09-03公开（发文09-01）　|　住建部标准定额司　|　反馈截止10-08</div>
+      <ul>
+        <li>由上海市城市建设设计研究总院（集团）主编，修订排水工程电气与智能化系统技术要求。</li>
+        <li>反映市政基础设施智能化、运维数字化的更新需求。</li>
+        <li>同批另有《城镇排水管道检测与评估技术标准》修订征求意见。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html">住建部官网</a>　<span class="tag-warn">（标准正文为PDF附件，未逐条核验）</span></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-ind">标准征求意见</span>
+      <h3>《城市更新规划编制标准（征求意见稿）》</h3>
+      <div class="date">2026-09-03公开　|　住建部标准定额司　|　反馈截止10-08</div>
+      <ul>
+        <li>城市更新领域<b>首部规划编制行业标准</b>，填补规划编制技术规范空白。</li>
+        <li>中国城市规划设计研究院牵头，与国务院《城市更新"十五五"规划》配套。</li>
+        <li>将规划层面"10项指标、23项任务、14项工程"转化为可操作的编制技术要求。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html">住建部官网</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-ind">标准征求意见</span>
+      <h3>《便携式管线探测设备技术要求（征求意见稿）》</h3>
+      <div class="date">2026-09-03公开　|　国家标准委计划　|　反馈截止10-08</div>
+      <ul>
+        <li>中国建筑标准设计研究院牵头，规范便携式地下管线探测设备技术要求。</li>
+        <li>支撑城市地下市政基础设施智能化普查、探测、建档。</li>
+        <li>与城市生命线安全工程、地下管网数字化改造直接相关。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_396a333e810a49b1bf5eb1e797a28f3f.html">住建部官网</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-loc">跨部门协同</span>
+      <h3>七部门《促进数字化绿色化协同转型发展实施方案（2026—2030年）》</h3>
+      <div class="date">2026-09-04　|　中央网信办、发改委、工信部、生态环境部、住建部等七部门</div>
+      <ul>
+        <li>"双化协同"总体部署，紧扣2030碳达峰目标，坚持智能化、绿色化、融合化方向。</li>
+        <li>4方面14项任务：数智绿色技术融合、新兴领域用能效率、重点领域双化协同、基础支撑。</li>
+        <li>深化<b>城市运行</b>等领域数字化绿色化和生态环境智能化治理；发展绿色高效 AI。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm">中央网信办</a>；<a href="http://www.xinhuanet.com/politics/20260904/04a5597bfff74bbdbf05b7a0719d010d/c.html">新华网</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-loc">高层定调</span>
+      <h3>国务院第二十一次专题学习：高质量推进城市更新</h3>
+      <div class="date">2026-09-08学习 / 09-09《人民日报》报道　|　李强总理主持，杨保军讲解</div>
+      <ul>
+        <li>将城市更新定位为"现阶段城市工作的重要抓手"，建立可持续更新模式。</li>
+        <li>以"六张网"建设为契机，提高重要城市关键基础设施设防标准。</li>
+        <li>适时调整优化规划、用地、财税、金融政策与标准规范，强化法治保障。</li>
+        <li>为9月18日发布会及城市更新标准密集出台提供顶层背景。</li>
+      </ul>
+      <p class="src-list"><a href="http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html">人民网</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-loc">地方实践（住建部转载）</span>
+      <h3>北京全面开展建设工程电子文件应用（BIM + 数字孪生）</h3>
+      <div class="date">京建发〔2026〕389号　|　成文08-18，09-09住建部/中国建设报专题报道</div>
+      <ul>
+        <li>在电子档案单套制接收试点基础上全市推开，推动工程建设项目全生命周期数字化管理。</li>
+        <li>推动电子化工程资料与 BIM、智慧工地平台信息互联、数据互通，开展基于 BIM 的数字孪生应用与数字化交付。</li>
+        <li>安全合规前提下探索 AI + 工程电子文件；实施单套制移交项目纳入智能建造试点并给予信用激励。</li>
+      </ul>
+      <p class="src-list"><a href="https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/744104301/index.shtml">北京市住建委原文</a>；<a href="https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_74ed4cae5b6640caab55f6caea3a2a7e.html">住建部转载</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge b-ind">展会</span>
+      <h3>2026服贸会工程咨询与建筑服务专题展</h3>
+      <div class="date">2026-09-09至09-13　|　住建部、北京市政府</div>
+      <ul>
+        <li>设智能绿色建造区，展示智能建造全产业链、绿色低碳体系、新型建筑工业化。</li>
+        <li>集中展示建筑机器人、无人施工装备、AI隐患识别、工地数字地图、地下空间大数据底座。</li>
+        <li>BIM、物联网、大数据、AI大模型深度赋能勘察、施工、运维全流程。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html">住建部官网</a></p>
+    </div>
+
+    <div class="card">
+      <span class="badge b-nat">国家</span><span class="badge">科技治理</span>
+      <h3>住建部科学技术委员会组成人员名单调整</h3>
+      <div class="date">建人〔2026〕51号　|　09-15公开（发文09-09）</div>
+      <ul>
+        <li>调整部科技委组成人员，作为工程建设、智能建造、绿色建筑、信息化领域科技决策咨询支撑。</li>
+        <li>与9月18日"数智住建"方案形成治理层面配套，属间接相关条目。</li>
+      </ul>
+      <p class="src-list"><a href="https://www.mohurd.gov.cn/gongkai/fdzdgknr/gkml/index.html">住建部官网</a></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 三、重点省市动态 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">03</span><h2>重点省市动态</h2></div>
+  <p class="sec-desc">按上海（加重）、北京、广东/广深、江苏/南京、浙江/杭州分组，呈现9月地方落地节奏。</p>
+
+  <!-- 上海头条 -->
+  <div class="region-block">
+    <h4>上海市（重点）</h4>
+    <div class="headline" style="border-left-color:#b8860b;background:linear-gradient(135deg,#fff 0%,#fdf8ec 100%)">
+      <div class="kicker" style="color:#b8860b">上海头条 · 量化指标牵引</div>
+      <h3>《上海市住房和城乡建设管理"十五五"规划》（沪建综规〔2026〕362号）</h3>
+      <p style="font-size:14px;color:var(--ink-2)"><span class="badge b-loc">上海</span>成文2026-08-25　|　网站主动公开2026-09-03　|　上海市住建管理委</p>
+      <div class="pts">
+        <div class="pt"><b>智能建造量化指标</b><span>到2030年累计完成智能建造项目<b>120个</b>，累计推动建筑机器人应用规模不少于<b>600万㎡</b>（预期性指标）。</span></div>
+        <div class="pt"><b>装配式与绿建</b><span>装配式建筑占新建建筑比例≥90%；新建民用建筑执行三星级绿建标准规模平均占比20%。</span></div>
+        <div class="pt"><b>技术方向</b><span>推动智能装备与建筑机器人在"危、繁、脏、重"场景应用，深化 BIM 全生命周期集成应用。</span></div>
+        <div class="pt"><b>城市更新</b><span>至2030年实施老旧小区改造3000万—4000万㎡、商办楼宇更新150栋、城中村整体改造认定12个。</span></div>
+      </div>
+      <p class="src-list">来源：<a href="https://zjw.sh.gov.cn/jsgl/20260902/652ccdc1039e4514a90e02c0e1e0bc98.html">上海市住建管理委官网</a></p>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <span class="badge b-loc">上海</span><h3>加快推动工程建设项目远程异地评标</h3>
+      <div class="date">市住建管理委09-18 / 澎湃新闻09-17</div>
+      <ul>
+        <li>依法必招项目及智慧监管平台预警较多的招标人项目实行远程异地评标。</li>
+        <li>2026年底市、区50%以上依法必招项目远程异地评标；2027年底达70%以上。</li>
+        <li>与6月"国际一流营商环境行动方案"中"AI辅助评标、智慧清标、招标文件合规检测"一脉相承。</li>
+      </ul>
+      <p class="src-list"><a href="https://zjw.sh.gov.cn/gzdt/">市住建管理委工作动态</a>；<a href="https://m.thepaper.cn/newsDetail_forward_34093520">澎湃新闻</a></p>
+    </div>
+  </div>
+
+  <!-- 北京 -->
+  <div class="region-block">
+    <h4>北京市</h4>
+    <div class="grid g2">
+      <div class="card">
+        <span class="badge b-loc">北京</span><span class="badge b-hot">AI+建筑</span>
+        <h3>征集住建领域创新应用场景（京建发〔2026〕432号）</h3>
+        <div class="date">成文09-02 / 发布09-09　|　申报截止10-10</div>
+        <ul>
+          <li>"数字智能融合"方向含 BIM、数字孪生、全流程数字化交付、智慧设计、数字化审图。</li>
+          <li>"AI+建筑"方向：计算机视觉工地识别、AI规划设计、人机协同施工、AI造价算量、施工图合规自动审查、建筑能耗优化。</li>
+          <li>产业基础含装配式、模块化、施工机器人、塔机/升降机智能管控、建筑产业互联网平台。</li>
+        </ul>
+        <p class="src-list"><a href="https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/744118225/index.shtml">北京市住建委官网</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">北京</span><span class="badge b-ind">标准实施</span>
+        <h3>DB11/T 1610-2026《民用建筑信息模型深化设计建模细度标准》实施</h3>
+        <div class="date">2026-09-01实施（5-28批准发布）　|　北京市市监局、市住建委</div>
+        <ul>
+          <li>替代DB11/T 1610-2018，为民用建筑 BIM 深化设计建模细度提供统一标准。</li>
+          <li>与电子文件应用、创新场景征集形成"标准+应用+场景"配套。</li>
+        </ul>
+        <p class="src-list"><a href="https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html">北京市市监局标准公告</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 广东/广深 -->
+  <div class="region-block">
+    <h4>广东省 / 广州市 / 深圳市</h4>
+    <div class="grid g3">
+      <div class="card">
+        <span class="badge b-loc">广州</span>
+        <h3>房屋建筑项目智能建造评价（穗建筑〔2026〕529号）</h3>
+        <div class="date">2026-09-02</div>
+        <ul>
+          <li>采用《广州市智能建造项目评价指引（2.0版）》，全流程线上评价。</li>
+          <li>未落实智能建造方案、违反评价承诺的项目按规定处理。</li>
+        </ul>
+        <p class="src-list"><a href="https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html">广州市住建局</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">广州</span><span class="badge b-hot">AI招投标</span>
+        <h3>推广人工智能在招投标领域应用（穗建筑〔2026〕543号）</h3>
+        <div class="date">成文09-08 / 发布09-10</div>
+        <ul>
+          <li>招标文件"先体检、再发布"，自动识别违法违规、错敏词。</li>
+          <li>10月1日起，3000万元以下施工总承包、1000万元以下专业承包项目全面 AI 辅助评标。</li>
+          <li>视觉识别、语音转文字对评标异常行为实时预警，从事后查处转向事前预警。</li>
+        </ul>
+        <p class="src-list"><a href="https://zfcj.gz.gov.cn/gkmlpt/policy">广州市住建局政策目录</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">广州</span>
+        <h3>数字勘察技术试点项目（穗建技〔2026〕546号）</h3>
+        <div class="date">2026-09-10</div>
+        <ul>
+          <li>确定大岗先进制造产业园消防站等13个项目为数字勘察技术试点。</li>
+          <li>落实住建部《智能建造技术导则（试行）》"数字勘察"章节要求。</li>
+        </ul>
+        <p class="src-list"><a href="https://zfcj.gz.gov.cn/gkmlpt/content/11/11000/post_11000121.html">广州市住建局</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">广州</span>
+        <h3>模块化建筑生产/施工方案编制指南转发（穗建筑〔2026〕553号）</h3>
+        <div class="date">成文09-12 / 发布09-16</div>
+        <ul>
+          <li>转发协会编制的两项模块化建筑方案编制指南。</li>
+          <li>与6月技术体系指南、7月设计管理要求、8月监理指引形成全链条制度闭环。</li>
+        </ul>
+        <p class="src-list"><a href="https://zfcj.gz.gov.cn/gkmlpt/policy">广州市住建局政策目录</a>　<span class="tag-warn">（指南附件正文待下载核实）</span></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">广东</span>
+        <h3>2026年"质量月"活动与现场观摩交流会</h3>
+        <div class="date">2026-09-01</div>
+        <ul>
+          <li>围绕智能建造、绿色建造、装配式、BIM应用开展经验交流。</li>
+          <li>主会场设中国人工智能（广州）产业园项目，深圳、珠海、东莞、惠州设分会场。</li>
+        </ul>
+        <p class="src-list"><a href="https://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4949664.html">广东省住建厅</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">深圳</span>
+        <h3>2026年度智能建造试点项目（33个）</h3>
+        <div class="date">2026-09-03</div>
+        <ul>
+          <li>经征集遴选公布33个试点项目，按《深圳市智能建造技术目录（第四版）》细化实施路径。</li>
+          <li>要求及时报送实施情况，形成可复制可推广经验。</li>
+        </ul>
+        <p class="src-list"><a href="https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12965835.html">深圳市住建局</a></p>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <span class="badge b-loc">深圳</span><span class="badge b-ind">标准征求意见</span>
+        <h3>建筑机器人标准 + 轨交BIM算量标准征求意见</h3>
+        <div class="date">09-03 / 09-10</div>
+        <ul>
+          <li>《建筑机器人应用通用技术标准》征求意见至10-07。</li>
+          <li>《城市轨道交通工程信息模型算量标准》为 BIM 深化应用配套。</li>
+          <li>SJG 232.1-2026 BIM构件库标准第1部分将于09-30实施。</li>
+        </ul>
+        <p class="src-list"><a href="https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/mobile/52610">机器人标准</a>；<a href="https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/mobile/52762">轨交BIM标准</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 江苏/南京 -->
+  <div class="region-block">
+    <h4>江苏省 / 南京市</h4>
+    <div class="grid g2">
+      <div class="card">
+        <span class="badge b-loc">南京</span><span class="badge b-hot">规模化推广</span>
+        <h3>《关于进一步加强智能建造技术应用的通知》</h3>
+        <div class="date">印发09-02 / 宣贯会09-15 / 省报09-17—18</div>
+        <ul>
+          <li>三大方向：工业化技术、基于 BIM 的智能建造综合管理平台、智能化装备（智能塔吊、轻型造楼机、3D打印、抹灰/地坪/墙板安装机器人）。</li>
+          <li>新开工总建筑面积2万㎡以上、市政造价2000万元以上政府投资项目须在可研、设计、招标文件中明确智能建造要求。</li>
+          <li>政府/国企投资项目按江苏省智能建造补充定额足额编列费用；机器人操作人员经培训可上岗。</li>
+          <li>南京为全国首批智能建造试点城市，本文件标志由试点示范转入规模化推广。</li>
+        </ul>
+        <p class="src-list"><a href="http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html">南京市建委</a>；<a href="http://www.jiangsu.gov.cn/art/2026/9/17/art_93371_11830971.html">江苏省政府网站</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">江苏</span>
+        <h3>2026年智能建造试点项目（第五批，117个）</h3>
+        <div class="date">苏建函建管〔2026〕187号　|　2026-09-10</div>
+        <ul>
+          <li>确认117个项目为江苏省智能建造试点项目，试点期至竣工。</li>
+          <li>四季度起须通过"江苏智建平台"对接 BIM模型、建筑机器人及智能装备，每季度上传成效。</li>
+          <li>江苏目标到2030年末智能建造适用技术在大中型项目应用占比达70%左右。</li>
+        </ul>
+        <p class="src-list"><a href="https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html">江苏省住建厅</a></p>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <span class="badge b-loc">南京</span>
+        <h3>下达2026年度南京市建设科技计划项目</h3>
+        <div class="date">2026-09-15</div>
+        <ul>
+          <li>列入市建委通知公告栏目；具体清单是否含智能建造/BIM/数字孪生专项课题<span class="tag-warn">待核实（本批检索未抓取正文）</span>。</li>
+        </ul>
+        <p class="src-list"><a href="https://sjw.nanjing.gov.cn/tzgg/">南京市建委通知公告</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 浙江/杭州 -->
+  <div class="region-block">
+    <h4>浙江省 / 杭州市</h4>
+    <div class="grid g3">
+      <div class="card">
+        <span class="badge b-loc">浙江</span>
+        <h3>《浙江省混凝土模块化建筑技术导则》（浙建管发〔2026〕118号）</h3>
+        <div class="date">2026-09-10</div>
+        <ul>
+          <li>指导混凝土模块化建筑建造，浙大建筑设计研究院负责技术解释。</li>
+          <li>与广州、深圳模块化标准形成长三角+珠三角联动。</li>
+        </ul>
+        <p class="src-list"><a href="https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html">浙江省住建厅</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">浙江</span>
+        <h3>申报2026年度省建设厅建筑工程科创中心</h3>
+        <div class="date">2026-09-04</div>
+        <ul>
+          <li>为智能建造、BIM、AI+建筑技术研发提供平台载体。</li>
+          <li><span class="tag-warn">申报指南具体方向待核实</span>。</li>
+        </ul>
+        <p class="src-list"><a href="https://jst.zj.gov.cn/col/col1229159347/index.html">浙江省住建厅科技设计处</a></p>
+      </div>
+      <div class="card">
+        <span class="badge b-loc">杭州</span>
+        <h3>市建委9月栏目核查</h3>
+        <div class="date">核查窗口09-01至09-18</div>
+        <ul>
+          <li>09-16转发国家重点研发计划"城镇可持续发展关键技术与装备"重点专项申报（含智能建造/数字化方向）。</li>
+          <li>9月未见新发智能建造专项规范性文件，既有《加快推进智能建造指导意见》为2025年9月印发。</li>
+        </ul>
+        <p class="src-list"><a href="https://cxjw.hangzhou.gov.cn/col/col1692623/index.html">杭州市建委通知公告</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 四、其他省市与行业动态 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">04</span><h2>其他省市与行业动态</h2></div>
+  <p class="sec-desc">覆盖西安、新疆、成都、重庆、湖北、湖南、福建、安徽、河南、山东、北京（协会）及广联达、PKPM 等产业侧动态。</p>
+
+  <h3 style="font-size:16px;color:var(--navy);margin-bottom:12px">其他省市</h3>
+  <div class="grid g3">
+    <div class="card"><span class="badge b-loc">西安</span><h3>建筑业企业智能建造能力建设指南</h3><div class="date">市建发〔2026〕124号　|　2026-09-08</div><ul><li>按"组织制度、基础能力、业务能力、人才培养、科技创新"五维设能力标尺。</li><li>业务能力嵌入 BIM、建筑机器人、数据贯通、绿色低碳运维要求。</li></ul><p class="src-list"><a href="http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html">西安市住建局</a></p></div>
+    <div class="card"><span class="badge b-loc">新疆</span><h3>自治区智能建造工作推进会</h3><div class="date">会议09-09 / 官网发布09-16</div><ul><li>14部门协同构建"技术、推广、产业、监管"四大体系；乌鲁木齐完成国家试点。</li><li>刚性落实政府投资重大项目 BIM 全生命周期应用；筹建产学研推广中心，夯实 CIM+ 数字底座。</li></ul><p class="src-list"><a href="https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml">新疆住建厅</a></p></div>
+    <div class="card"><span class="badge b-loc">成都</span><h3>新城建打造韧性城市实施方案</h3><div class="date">09-11媒体报道 / 住建部09-17转载</div><ul><li>以"实景三维成都"为数字底座，到2027年城市运行基本"一网统管"。</li><li>试点无人机巡飞、机器狗巡检、AI识别远程监管高处作业；完善 CIM 平台，深化 CIM+ 政务、防灾、生命线应用。</li></ul><p class="src-list"><a href="https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html">住建部转载</a></p></div>
+    <div class="card"><span class="badge b-loc">重庆</span><h3>第六批试点企业 / 第七批试点项目</h3><div class="date">渝建科〔2026〕19号　|　公布09-03</div><ul><li>确定中建桥梁等2家企业、7个项目为本批试点。</li><li>要求试点企业配置专业人才与专项资金，试点项目统筹建设、设计、施工、监理。</li></ul><p class="src-list"><a href="https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260903_16027723_jlb.html">重庆市住建委</a></p></div>
+    <div class="card"><span class="badge b-loc">重庆</span><h3>"十五五"城市更新规划（征求意见稿）</h3><div class="date">2026-09-03公开征求意见</div><ul><li>推动 BIM、CIM、GIS 深度融合，形成全市统一高精度数字孪生智能时空底座。</li><li>完善 CIM 基础数据库，推进房屋建筑和市政设施赋码。</li></ul><p class="src-list"><a href="https://zfcxjw.cq.gov.cn/hdjl_166/yjzj/202609/P020260903641402930130.pdf">重庆市住建委PDF</a></p></div>
+    <div class="card"><span class="badge b-loc">山东泰安</span><h3>建筑业数智化转型工作方案</h3><div class="date">泰政办字〔2026〕7号　|　08-27印发，9月宣贯</div><ul><li>按2026/2028/2030梯次目标推广 BIM 全生命周期"一模到底"。</li><li>升级智慧工地监管平台，规模以上项目数字化监管全覆盖。</li></ul><p class="src-list"><a href="https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_8b392a454cac4be8b2918da7d0636c64.html">住建部转载</a></p></div>
+    <div class="card"><span class="badge b-loc">湖北</span><h3>2026年绿色智能建造试点项目（122个）</h3><div class="date">2026-09-08</div><ul><li>确定中建壹品·光谷元著等122个项目为省级绿色智能建造试点。</li><li>依托"湖北省智能建造产业互联网平台"按季度报送进展。</li></ul><p class="src-list"><a href="http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml">湖北省住建厅</a></p></div>
+    <div class="card"><span class="badge b-loc">湖南</span><h3>打造"好房子"五年行动</h3><div class="date">09-10 / 09-16党媒报道</div><ul><li>深化 BIM、"AI+设计"全流程应用；制定数字家庭标准，2030年数字家庭配套率达60%。</li><li>3年评选约150个省级"好房子"示范项目。</li></ul><p class="src-list"><a href="https://www.hunantoday.cn/news/xhn/202609/33724760.html">新湖南</a>　<span class="tag-warn">（红头文件原文待核实）</span></p></div>
+    <div class="card"><span class="badge b-loc">福建</span><h3>住建领域 AI 应用场景解决方案（第一批）</h3><div class="date">闽建科函〔2026〕30号　|　09-04公布</div><ul><li>经公开征集、专家评审确定第一批 AI 应用场景解决方案清单。</li><li>要求各地加强供需对接，抄送省工信厅推动数智赋能。</li></ul><p class="src-list"><a href="https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm">福建省住建厅</a>　<span class="tag-warn">（场景清单明细附件未逐条展开）</span></p></div>
+    <div class="card"><span class="badge b-loc">安徽</span><h3>《安徽省城市更新"十五五"规划》</h3><div class="date">2026-09-09媒体报道</div><ul><li>持续支持中国建造（安徽）互联网平台，深化 BIM、物联网在改造项目集成应用。</li><li>培育现代化建筑产业链，推动智能建造与建筑工业协同发展。</li></ul><p class="src-list"><a href="https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml.md">新浪财经转载</a>　<span class="tag-warn">（省厅原文链接待核实）</span></p></div>
+    <div class="card"><span class="badge b-loc">河南</span><h3>CIM 平台两项地方标准征求意见</h3><div class="date">2026-09-16</div><ul><li>《CIM平台汇聚BIM数据标准》《CIM平台共享交换标准》征求意见。</li><li>规范 CIM 基础平台异构数据入库、更新、交换、共享与协同应用。</li></ul><p class="src-list"><a href="https://hnjs.henan.gov.cn/xxgk/xxgkml/zcfg/bzgg/yjzj/">河南省住建厅意见征集</a></p></div>
+    <div class="card"><span class="badge b-loc">郑州</span><h3>建筑业"十五五"发展规划（征求意见稿）</h3><div class="date">2026-09-14</div><ul><li>拟联合中建七局、河南五建组建"郑州市智能建造研究院"。</li><li>攻关 BIM 全流程、数字孪生工地、智能施工设备，5年突破20项关键技术。</li></ul><p class="src-list"><a href="https://www.zzsjzyxh.com/zj/2026091414540566.pdf">郑州市建筑业协会PDF</a></p></div>
+  </div>
+
+  <h3 style="font-size:16px;color:var(--navy);margin:28px 0 12px">行业层面</h3>
+  <div class="grid g3">
+    <div class="card"><span class="badge b-ind">协会标准</span><h3>《建筑业企业智慧工地评价标准》施行</h3><div class="date">T/CCIAT 0121-2026　|　2026-09-01实施</div><ul><li>中国建筑业协会团体标准，为智慧工地建设与评价提供统一依据。</li><li>与《建筑业企业数字化转型建设标准》配套，进入落地应用阶段。</li></ul><p class="src-list"><a href="http://www.zgjzy.org.cn/menu19/newsDetail/11876.html">中国建筑业协会</a></p></div>
+    <div class="card"><span class="badge b-ind">行业论坛</span><h3>建筑业全产业链数智创新论坛（服贸会）</h3><div class="date">09-09至13 / 报道09-15</div><ul><li>主题"全链赋能·智筑未来"，住建部副部长宋友春、广联达等出席。</li><li>丁烈云讲《AI赋能工程建造服务化转型》；广联达现场高坠隐患识别准确率达85%以上。</li></ul><p class="src-list"><a href="https://www.glodon.com/news/1626.html">广联达官网</a></p></div>
+    <div class="card"><span class="badge b-ind">行业观摩</span><h3>"好房子"暨绿色智能建造现场观摩会</h3><div class="date">9月质量月期间</div><ul><li>协会2026年"质量月"主题活动，聚焦"好房子"与绿色智能建造现场观摩。</li><li><span class="tag-warn">具体地点、日期与成果待核实（第三方短视频称厦门）</span>。</li></ul><p class="src-list"><a href="http://www.zgjzy.org.cn/newsList/19/1.html">中国建筑业协会通知列表</a></p></div>
+    <div class="card"><span class="badge b-ind">行业组织</span><h3>中房协公布智慧建筑评价专家组名单</h3><div class="date">2026-09-11</div><ul><li>公布智慧建筑评价专家组名单，为智慧建筑评价提供技术支撑。</li><li><span class="tag-warn">专家构成与评价指标体系全文待核实</span>。</li></ul><p class="src-list"><a href="http://member.fangchan.com/mindex">中房协官网</a></p></div>
+    <div class="card"><span class="badge b-ind">头部企业</span><h3>广联达亮相2026服贸会</h3><div class="date">2026-09-15</div><ul><li>展示全球工程数字化与 AI 整体解决方案。</li><li>"AI+PMSmart项目精细化管理"入选北京市智能建造科技创新应用场景（15项之一）。</li></ul><p class="src-list"><a href="https://m.glodon.com/mobile/news/detail/1627">广联达官网</a></p></div>
+    <div class="card"><span class="badge b-ind">头部企业</span><h3>工程数字化大会2026（PKPM体系）</h3><div class="date">2026-09-18 北京</div><ul><li>聚焦"工程软件+AI 2.0"，近千名代表参会。</li><li>发布 PKPM Agent2.5、PKPM结构/绿色低碳/BIM系列软件2027、BIMBase建模软件2027等成果。</li></ul><p class="src-list"><a href="http://m.toutiao.com/group/7686703036692988451/">中工网报道</a></p></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 五、市场影响分析 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">05</span><h2>市场影响分析</h2></div>
+  <p class="sec-desc">基于9月政策信号，沿六条主线研判对智慧建筑各细分赛道的传导路径与强度。</p>
+
+  <div class="matrix">
+    <div class="mx">
+      <h4>① 智慧建筑 / 楼宇智能化</h4>
+      <div class="lv">影响强度：中高　|　驱动来源："好房子"+数字家庭</div>
+      <p>湖南提出新建住宅预留智能家居接口、2030年数字家庭配套率60%；上海十五五规划"好房子"贯穿全生命周期。中房协智慧建筑评价专家组落地，意味着智慧建筑评价将从概念走向可量化评级，利好楼宇自控、智能家居集成、能耗管理系统厂商。</p>
+    </div>
+    <div class="mx" style="border-top-color:#b8860b">
+      <h4>② BIM / CIM / 数字孪生</h4>
+      <div class="lv">影响强度：高　|　驱动来源：标准+底座双推进</div>
+      <p>本月最强主线：</p>
+      <ul>
+        <li>北京电子文件单套制 + BIM 数字孪生交付；</li>
+        <li>上海十五五深化 BIM 全生命周期；</li>
+        <li>成都"实景三维"数字底座、重庆数字孪生智能时空底座；</li>
+        <li>河南 CIM 汇聚/共享交换两项地标；</li>
+        <li>深圳轨交 BIM 算量、北京 BIM 细度标准实施。</li>
+      </ul>
+      <p style="margin-top:6px">BIM 从"建模应用"转向"高质量设计与优化建造"（广联达语），CIM 进入数据互通标准制定期。</p>
+    </div>
+    <div class="mx" style="border-top-color:#1a7f37">
+      <h4>③ 智能建造 / 建筑机器人</h4>
+      <div class="lv">影响强度：高　|　驱动来源：试点转规模化</div>
+      <ul>
+        <li>南京明确2万㎡以上项目强制嵌入智能建造要求，并给费用、给用工创新；</li>
+        <li>深圳建筑机器人通用技术标准征求意见；</li>
+        <li>湖北122个试点、新疆推进会、重庆试点企业/项目；</li>
+        <li>上海锚定600万㎡建筑机器人应用。</li>
+      </ul>
+      <p style="margin-top:6px">从"批名单"到"定门槛、编费用、管平台"，机器人厂商与智能工地平台进入放量窗口。</p>
+    </div>
+    <div class="mx">
+      <h4>④ 绿色建筑 + 智能化融合</h4>
+      <div class="lv">影响强度：中高　|　驱动来源：双化协同</div>
+      <p>七部门双化协同方案将住建部列为联合发文部门，明确城市运行领域数字化绿色化协同；上海十五五绿建三星占比20%、湖北"绿色智能建造"试点并轨。绿色+智能从口号变为任务清单，利好绿色建材智慧监管、能耗优化、碳管理平台。</p>
+    </div>
+    <div class="mx">
+      <h4>⑤ 城市更新智能化</h4>
+      <div class="lv">影响强度：高　|　驱动来源：国务院专题学习+首部行标</div>
+      <ul>
+        <li>国务院9月8日专题学习定调城市更新为城市工作重要抓手；</li>
+        <li>住建部首部《城市更新规划编制标准》征求意见；</li>
+        <li>重庆、安徽发布省级城市更新规划，均写入 BIM/CIM/GIS；</li>
+        <li>北京场景征集明确"数字赋能城市更新"方向。</li>
+      </ul>
+      <p style="margin-top:6px">城市更新从"拆改留"转向"数智化统筹"，老旧小区数字化改造、历史建筑数字化保护、更新项目智慧运维成为新赛道。</p>
+    </div>
+    <div class="mx" style="border-top-color:#c0392b">
+      <h4>⑥ AI + 建筑</h4>
+      <div class="lv">影响强度：高　|　驱动来源：从场景征集到业务嵌入</div>
+      <ul>
+        <li>北京征集 AI+建筑创新场景清单；</li>
+        <li>广州10月1日起3000万元以下项目全面 AI 辅助评标；</li>
+        <li>福建公布第一批住建 AI 应用场景解决方案；</li>
+        <li>工程数字化大会发布 PKPM Agent2.5、广联达 AI+PMSmart。</li>
+      </ul>
+      <p style="margin-top:6px">AI 从展示走向招投标、审图、造价、工地识别等高频收费业务，建筑大模型与工程 Agent 进入商业化早期。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 六、趋势展望 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">06</span><h2>趋势展望</h2></div>
+  <p class="sec-desc">基于9月政策信号，对2026年四季度及2027年建筑智能化市场的五点判断。</p>
+  <div class="future">
+    <div class="fc"><div class="fn">1</div><h4>"数智住建"方案落地</h4><p>Q4起住建部大概率出台"数智住建"工作方案配套实施细则，BIM/CIM、城市生命线、智能家居将有专项资金或试点名录跟进。</p></div>
+    <div class="fc"><div class="fn">2</div><h4>智能建造进入放量期</h4><p>南京式"门槛+费用+用工"政策将向更多试点城市复制，建筑机器人从抹灰、地坪、测量向钢结构安装、3D打印延伸，2027年市场规模快速抬升。</p></div>
+    <div class="fc"><div class="fn">3</div><h4>AI招投标/审图常态化</h4><p>广州AI辅助评标10月1日落地后，长三角、环珠三角有望跟进；AI辅助造价、施工图合规自动审查将成为新建项目标配。</p></div>
+    <div class="fc"><div class="fn">4</div><h4>CIM标准密集出台</h4><p>河南之后，更多省份将发布 CIM 数据汇聚与共享交换地标，CIM+ 政务、防灾、城市生命线应用从试点走向平台化运营。</p></div>
+    <div class="fc"><div class="fn">5</div><h4>绿色智能并轨</h4><p>双化协同方案下，"绿色智能建造"将取代单一"绿色建筑"成为政策话语，绿色建材智慧监管、建筑能耗优化、碳管理成为集成商新卖点。</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 七、附录：全部条目明细表 ===================== -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">07</span><h2>附录：全部条目明细表</h2></div>
+  <p class="sec-desc">共45条（去重后），按国家 / 重点省市 / 其他省市与行业分组。"待核实"标注保留原始检索状态。</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <colgroup><col style="width:5%"><col style="width:13%"><col style="width:9%"><col style="width:24%"><col style="width:9%"><col style="width:32%"><col style="width:8%"></colgroup>
+    <thead><tr><th>序号</th><th>发布机构</th><th>日期</th><th>名称</th><th>形式</th><th>核心要点 / 来源</th><th>可信度</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>国新办/住建部</td><td>09-18</td><td>"开局起步'十五五'"发布会（住建部专场）</td><td>新闻发布会</td><td>"数智住建"工作方案；三化转型；完善CIM与城市运行平台；城市生命线数智化。<br><a href="http://www.scio.gov.cn/live/2026/39448/index_m.html">scio.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>2</td><td>住建部办公厅</td><td>09-04</td><td>房屋建筑赋码到套（户）导则（建办厅函〔2026〕187号）</td><td>导则</td><td>一楼一码、到套到户；市政工程赋码落图。<br><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html">mohurd.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>3</td><td>住建部标准定额司</td><td>09-03</td><td>城镇排水工程电气与智能化系统技术标准（修订征求意见稿）</td><td>行标征求意见</td><td>上海市政总院主编；反馈截止10-08。<br><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html">mohurd.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>4</td><td>住建部标准定额司</td><td>09-03</td><td>城市更新规划编制标准（征求意见稿）</td><td>行标征求意见</td><td>首部城市更新规划编制行标；中规院牵头。<br><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html">mohurd.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>5</td><td>住建部标准定额司</td><td>09-03</td><td>便携式管线探测设备技术要求（征求意见稿）</td><td>国标征求意见</td><td>中国建筑标准设计研究院牵头；支撑地下管网智能化普查。<br><a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_396a333e810a49b1bf5eb1e797a28f3f.html">mohurd.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>6</td><td>中央网信办等七部门</td><td>09-04</td><td>促进数字化绿色化协同转型发展实施方案（2026—2030）</td><td>实施方案</td><td>4方面14项任务；城市运行双化协同；绿色高效AI。<br><a href="https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm">cac.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>7</td><td>国务院</td><td>09-08</td><td>第二十一次专题学习：高质量推进城市更新</td><td>高层动态</td><td>城市更新为重要抓手；"六张网"提高设防标准；完善政策制度体系。<br><a href="http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html">people.com.cn</a></td><td>一方报道</td></tr>
+      <tr><td>8</td><td>北京市住建委/规自委</td><td>09-09</td><td>全市开展建设工程电子文件应用（京建发〔2026〕389号）</td><td>规范性文件</td><td>电子档案单套制；BIM数字孪生交付；AI+工程文件；智能建造信用激励。<br><a href="https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/744104301/index.shtml">beijing.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>9</td><td>住建部</td><td>09-15</td><td>部科学技术委员会组成人员名单（建人〔2026〕51号）</td><td>人事文件</td><td>为"数智住建"/智能建造提供科技决策支撑。<br><a href="https://www.mohurd.gov.cn/gongkai/fdzdgknr/gkml/index.html">mohurd.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>10</td><td>住建部/北京市政府</td><td>09-09至13</td><td>服贸会工程咨询与建筑服务专题展</td><td>展会</td><td>智能绿色建造区；建筑机器人；AI隐患识别；BIM+IoT+AI大模型。<br><a href="https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html">mohurd.gov.cn</a></td><td>已查证</td></tr>
+      <tr><td>11</td><td>上海市住建管理委</td><td>09-03公开</td><td>上海住建管理"十五五"规划（沪建综规〔2026〕362号）</td><td>五年规划</td><td>120个智能建造项目；600万㎡建筑机器人；装配式≥90%；三星绿建20%。<br><a href="https://zjw.sh.gov.cn/jsgl/20260902/652ccdc1039e4514a90e02c0e1e0bc98.html">zjw.sh.gov.cn</a></td><td>高</td></tr>
+      <tr><td>12</td><td>上海市住建管理委</td><td>09-17/18</td><td>工程建设项目远程异地评标</td><td>工作动态</td><td>2026年底50%、2027年底70%远程异地评标；AI辅助评标。<br><a href="https://m.thepaper.cn/newsDetail_forward_34093520">thepaper.cn</a></td><td>较高</td></tr>
+      <tr><td>13</td><td>北京市住建委</td><td>09-09</td><td>征集住建领域创新应用场景（京建发〔2026〕432号）</td><td>场景征集</td><td>BIM/数字孪生/AI+建筑/城市更新数字化场景清单；10-10截止。<br><a href="https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/744118225/index.shtml">beijing.gov.cn</a></td><td>高</td></tr>
+      <tr><td>14</td><td>北京市市监局/住建委</td><td>09-01</td><td>DB11/T 1610-2026 民用建筑BIM深化设计建模细度标准实施</td><td>地方标准</td><td>替代2018版；与电子文件、场景征集配套。<br><a href="https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html">beijing.gov.cn</a></td><td>高</td></tr>
+      <tr><td>15</td><td>广州市住建局</td><td>09-02</td><td>房屋建筑项目智能建造评价（穗建筑〔2026〕529号）</td><td>规范性文件</td><td>采用评价指引2.0；全流程线上评价。<br><a href="https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html">gz.gov.cn</a></td><td>高</td></tr>
+      <tr><td>16</td><td>广州市住建局</td><td>09-10</td><td>推广人工智能在招投标领域应用（穗建筑〔2026〕543号）</td><td>规范性文件</td><td>10-01起3000万以下施工总承包全面AI辅助评标；异常行为实时预警。<br><a href="https://zfcj.gz.gov.cn/gkmlpt/policy">gz.gov.cn</a></td><td>高</td></tr>
+      <tr><td>17</td><td>广州市住建局</td><td>09-10</td><td>数字勘察技术试点项目（穗建技〔2026〕546号）</td><td>规范性文件</td><td>13个项目为数字勘察试点。<br><a href="https://zfcj.gz.gov.cn/gkmlpt/content/11/11000/post_11000121.html">gz.gov.cn</a></td><td>高</td></tr>
+      <tr><td>18</td><td>广州市住建局</td><td>09-16</td><td>模块化建筑生产/施工方案指南转发（穗建筑〔2026〕553号）</td><td>转发通知</td><td>完善模块化建筑全链条标准体系。<br><a href="https://zfcj.gz.gov.cn/gkmlpt/policy">gz.gov.cn</a></td><td>高/附件待核</td></tr>
+      <tr><td>19</td><td>广东省住建厅</td><td>09-01</td><td>2026年"质量月"活动与现场观摩交流会</td><td>工作通知</td><td>智能建造、绿色建造、BIM应用经验交流；广州主会场+4分会场。<br><a href="https://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4949664.html">gd.gov.cn</a></td><td>高</td></tr>
+      <tr><td>20</td><td>深圳市住建局</td><td>09-03</td><td>2026年度智能建造试点项目（33个）</td><td>规范性文件</td><td>按技术目录第四版细化实施路径。<br><a href="https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12965835.html">sz.gov.cn</a></td><td>高</td></tr>
+      <tr><td>21</td><td>深圳市住建局</td><td>09-03/10</td><td>建筑机器人标准 + 轨交BIM算量标准征求意见</td><td>标准征求意见</td><td>机器人通用技术标准至10-07；SJG 232.1-2026于09-30实施。<br><a href="https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/mobile/52610">sz.gov.cn</a></td><td>高</td></tr>
+      <tr><td>22</td><td>南京市建委</td><td>09-02印发</td><td>关于进一步加强智能建造技术应用的通知</td><td>规范性文件</td><td>2万㎡以上项目强制嵌入；给费用、给用工；机器人培训上岗。<br><a href="http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html">nanjing.gov.cn</a></td><td>高</td></tr>
+      <tr><td>23</td><td>江苏省住建厅</td><td>09-10</td><td>2026年智能建造试点项目（第五批，117个）</td><td>规范性文件</td><td>通过江苏智建平台对接；2030年大中型项目应用占比70%。<br><a href="https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html">jiangsu.gov.cn</a></td><td>高</td></tr>
+      <tr><td>24</td><td>南京市建委</td><td>09-15</td><td>下达2026年度南京市建设科技计划项目</td><td>工作通知</td><td>是否含智能建造专项课题待核实。<br><a href="https://sjw.nanjing.gov.cn/tzgg/">nanjing.gov.cn</a></td><td>中</td></tr>
+      <tr><td>25</td><td>浙江省住建厅</td><td>09-10</td><td>浙江省混凝土模块化建筑技术导则（浙建管发〔2026〕118号）</td><td>技术导则</td><td>浙大建筑设计研究院负责技术解释。<br><a href="https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html">zj.gov.cn</a></td><td>高</td></tr>
+      <tr><td>26</td><td>浙江省住建厅</td><td>09-04</td><td>申报2026年度建筑工程科创中心</td><td>工作通知</td><td>为智能建造/BIM/AI+建筑提供平台载体；指南待核实。<br><a href="https://jst.zj.gov.cn/col/col1229159347/index.html">zj.gov.cn</a></td><td>中</td></tr>
+      <tr><td>27</td><td>杭州市建委</td><td>09-16</td><td>转发国家重点研发计划"城镇可持续发展"重点专项</td><td>目录核查</td><td>含智能建造/数字化方向课题；9月无新发专项文件。<br><a href="https://cxjw.hangzhou.gov.cn/col/col1692623/index.html">hangzhou.gov.cn</a></td><td>中</td></tr>
+      <tr><td>28</td><td>西安市住建局</td><td>09-08</td><td>西安市建筑业企业智能建造能力建设指南（市建发〔2026〕124号）</td><td>规范性文件</td><td>五维能力标尺；BIM、机器人、数据贯通。<br><a href="http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html">xa.gov.cn</a></td><td>高</td></tr>
+      <tr><td>29</td><td>新疆住建厅</td><td>09-09/16</td><td>自治区智能建造工作推进会</td><td>推进会</td><td>14部门协同；乌鲁木齐完成国家试点；CIM+数字底座。<br><a href="https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml">xinjiang.gov.cn</a></td><td>高</td></tr>
+      <tr><td>30</td><td>成都市住建局等11部门</td><td>09-11/17</td><td>新城建打造韧性城市实施方案</td><td>联合实施方案</td><td>实景三维成都底座；2027年一网统管；机器狗巡检、AI远程监管。<br><a href="https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html">mohurd.gov.cn</a></td><td>高</td></tr>
+      <tr><td>31</td><td>重庆市住建委</td><td>09-03</td><td>第六批试点企业/第七批试点项目（渝建科〔2026〕19号）</td><td>试点名单</td><td>2家企业、7个项目；动态监管。<br><a href="https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260903_16027723_jlb.html">cq.gov.cn</a></td><td>高</td></tr>
+      <tr><td>32</td><td>重庆市住建委</td><td>09-03</td><td>"十五五"城市更新规划（征求意见稿）</td><td>规划征求意见</td><td>BIM+CIM+GIS数字孪生时空底座；推进赋码。<br><a href="https://zfcxjw.cq.gov.cn/hdjl_166/yjzj/202609/P020260903641402930130.pdf">cq.gov.cn</a></td><td>高</td></tr>
+      <tr><td>33</td><td>泰安市政府办</td><td>08-27/9月宣贯</td><td>泰安市建筑业数智化转型工作方案（泰政办字〔2026〕7号）</td><td>市级工作方案</td><td>BIM"一模到底"；智慧工地监管全覆盖；机器人推广。<br><a href="https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_8b392a454cac4be8b2918da7d0636c64.html">mohurd.gov.cn</a></td><td>高</td></tr>
+      <tr><td>34</td><td>湖北省住建厅</td><td>09-08</td><td>2026年绿色智能建造试点项目（122个）</td><td>试点名单</td><td>依托省智能建造产业互联网平台按季报送。<br><a href="http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml">hubei.gov.cn</a></td><td>高</td></tr>
+      <tr><td>35</td><td>湖南省</td><td>09-10/16</td><td>打造"好房子"五年行动</td><td>省级行动</td><td>BIM、AI+设计；2030年数字家庭配套率60%；150个示范项目。<br><a href="https://www.hunantoday.cn/news/xhn/202609/33724760.html">hunantoday.cn</a></td><td>中高</td></tr>
+      <tr><td>36</td><td>福建省住建厅</td><td>09-04</td><td>住建领域AI应用场景解决方案（第一批）（闽建科函〔2026〕30号）</td><td>通知+清单</td><td>第一批AI场景解决方案清单；加强供需对接。<br><a href="https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm">fj.gov.cn</a></td><td>高</td></tr>
+      <tr><td>37</td><td>安徽省住建厅</td><td>09-09</td><td>安徽省城市更新"十五五"规划</td><td>省级专项规划</td><td>支持中国建造（安徽）互联网平台；BIM/物联网集成应用。<br><a href="https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml.md">sina.com.cn</a></td><td>中</td></tr>
+      <tr><td>38</td><td>河南省住建厅</td><td>09-16</td><td>CIM平台汇聚BIM数据标准 / 共享交换标准（征求意见）</td><td>地方标准征求意见</td><td>规范CIM异构数据入库、交换、共享。<br><a href="https://hnjs.henan.gov.cn/xxgk/xxgkml/zcfg/bzgg/yjzj/">henan.gov.cn</a></td><td>高</td></tr>
+      <tr><td>39</td><td>郑州市建筑业协会</td><td>09-14</td><td>郑州市建筑业"十五五"发展规划（征求意见稿）</td><td>行业规划</td><td>拟建郑州市智能建造研究院；5年突破20项关键技术。<br><a href="https://www.zzsjzyxh.com/zj/2026091414540566.pdf">zzsjzyxh.com</a></td><td>中高</td></tr>
+      <tr><td>40</td><td>中国建筑业协会</td><td>09-01实施</td><td>《建筑业企业智慧工地评价标准》（T/CCIAT 0121-2026）</td><td>团体标准</td><td>智慧工地建设与评价统一依据。<br><a href="http://www.zgjzy.org.cn/menu19/newsDetail/11876.html">zgjzy.org.cn</a></td><td>高</td></tr>
+      <tr><td>41</td><td>中国建筑业协会/广联达</td><td>09-09至13</td><td>建筑业全产业链数智创新论坛</td><td>行业论坛</td><td>AI赋能工程建造服务化；高坠识别准确率85%+。<br><a href="https://www.glodon.com/news/1626.html">glodon.com</a></td><td>高</td></tr>
+      <tr><td>42</td><td>中国建筑业协会</td><td>9月质量月</td><td>"好房子"暨绿色智能建造现场观摩会</td><td>现场观摩会</td><td>推广绿色智能建造技术与"好房子"实践；地点时间待核实。<br><a href="http://www.zgjzy.org.cn/newsList/19/1.html">zgjzy.org.cn</a></td><td>中</td></tr>
+      <tr><td>43</td><td>中国房地产业协会</td><td>09-11</td><td>公布智慧建筑评价专家组名单</td><td>名单公布</td><td>为智慧建筑评价提供技术支撑；名单全文待核实。<br><a href="http://member.fangchan.com/mindex">fangchan.com</a></td><td>中高</td></tr>
+      <tr><td>44</td><td>广联达</td><td>09-15</td><td>广联达亮相2026服贸会</td><td>企业新闻</td><td>AI+PMSmart入选北京市智能建造科技创新应用场景。<br><a href="https://m.glodon.com/mobile/news/detail/1627">glodon.com</a></td><td>高</td></tr>
+      <tr><td>45</td><td>中国建研院PKPM体系</td><td>09-18</td><td>工程数字化大会2026</td><td>行业大会</td><td>发布PKPM Agent2.5、结构/绿建/BIM系列软件2027、BIMBase 2027。<br><a href="http://m.toutiao.com/group/7686703036692988451/">toutiao.com</a></td><td>中高</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:14px">说明：本报告所有事实数据均来自三份研究文件原始记录；标注"待核实/待下载/附件待核"的条目保留原始检索状态，未做推测性补充。"数智住建"以9月18日多家权威媒体原文为准，建议以住建部后续正式文件为准。</p>
+</div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b>2026年9月建筑智能化市场信息报告</b></div>
+    <div>时间窗口：2026-09-01 至 2026-09-18　|　条目：45条（去重后）　|　生成日期：2026-09-18</div>
+  </div>
+</footer>
+
+<!-- APPEND_HERE -->
+</body>
+</html>

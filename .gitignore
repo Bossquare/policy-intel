@@ -1,0 +1,13 @@
+# 采集中间产物（不进版本库）
+agent/out/
+
+# 模型端点等本地配置（含地址/密钥，绝不入库）
+agent/llm.local.json
+*.local.json
+
+# Python
+__pycache__/
+*.pyc
+
+# 系统
+.DS_Store

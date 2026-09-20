@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+构建站点数据。
+
+输入：
+    assets/data/brief-2026-09.json   条目（由 extract_seed.py 产出）
+    agent/insights.json              强相关条目的影响分析与应对建议（人工撰写）
+    seed/2026-09-report.html         报告叙述（核心结论 / 市场影响 / 趋势展望）
+输出：
+    assets/data/brief-2026-09.json   合并后的完整简报
+    assets/data/index.json           站点索引（简报列表 + 全局统计）
+
+用法：
+    python3 agent/build_data.py
+"""
+
+import json
+import re
+import html as htmllib
+import pathlib
+import sys
+from datetime import datetime, timezone, timedelta
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+DATA = ROOT / "assets" / "data"
+BRIEF = DATA / "brief-2026-09.json"
+INSIGHTS = ROOT / "agent" / "insights.json"
+SEED = ROOT / "seed" / "2026-09-report.html"
+INDEX = DATA / "index.json"
+
+SITE = {
+    "title": "建筑智能化政策与技术情报站",
+    "subtitle": "政策跟踪 · 标准动态 · 赛道研判",
+    "owner": "Bossquare",
+}
+
+
+def strip_tags(s: str) -> str:
+    s = re.sub(r"<br\s*/?>", " ", s)
+    s = re.sub(r"<[^>]+>", "", s)
+    return re.sub(r"\s+", " ", htmllib.unescape(s)).strip()
+
+
+def extract_narrative(raw: str):
+    """从报告 HTML 抽出核心结论 / 市场影响分析 / 趋势展望。"""
+    out = {"conclusions": [], "impacts": [], "outlook": []}
+
+    m = re.search(r'class="concl"(.*?)</ol>', raw, re.S)
+    if m:
+        for li in re.findall(r"<li>(.*?)</li>", m.group(1), re.S):
+            b = re.search(r"<b>(.*?)</b>", li, re.S)
+            title = strip_tags(b.group(1)) if b else ""
+            body = strip_tags(re.sub(r"<b>.*?</b>", "", li, flags=re.S))
+            out["conclusions"].append({"title": title, "body": body})
+
+    chunks = re.split(r'<div class="mx"[^>]*>', raw)[1:]
+    for ch in chunks:
+        h = re.search(r"<h4>(.*?)</h4>", ch, re.S)
+        if not h:
+            continue
+        lv = re.search(r'<div class="lv">(.*?)</div>', ch, re.S)
+        rest = ch[h.end():]
+        rest = re.split(r"</section>", rest)[0]
+        rest = re.sub(r'<div class="lv">.*?</div>', "", rest, flags=re.S)
+        rest = re.sub(r"<h4>.*?</h4>", "", rest, flags=re.S)
+        out["impacts"].append({
+            "title": strip_tags(h.group(1)),
+            "level": strip_tags(lv.group(1)) if lv else "",
+            "body": strip_tags(rest),
+        })
+
+    for fn, h4, p in re.findall(
+            r'<div class="fc"><div class="fn">(\d+)</div><h4>(.*?)</h4><p>(.*?)</p></div>', raw, re.S):
+        out["outlook"].append({"no": int(fn), "title": strip_tags(h4), "body": strip_tags(p)})
+
+    return out
+
+
+def main():
+    files = sorted(DATA.glob("brief-*.json"))
+    if not files:
+        sys.exit("assets/data/ 下没有 brief-*.json，请先运行 extract_seed.py")
+
+    insights = json.loads(INSIGHTS.read_text(encoding="utf-8")) if INSIGHTS.exists() else {}
+    now = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
+
+    briefs = []
+    for path in files:
+        b = json.loads(path.read_text(encoding="utf-8"))
+
+        # 人工撰写的洞察优先覆盖自动生成的草稿
+        merged = 0
+        for it in b["items"]:
+            ins = insights.get(it["id"])
+            if ins and isinstance(ins, dict):
+                if ins.get("impact"):
+                    it["impact"] = ins["impact"]
+                if ins.get("action"):
+                    it["action"] = ins["action"]
+            if it.get("impact"):
+                merged += 1
+
+        # 叙述（核心结论 / 市场影响 / 趋势展望）按 meta 里声明的来源抽取
+        ns = b["meta"].get("narrative_source")
+        if ns and (ROOT / ns).exists():
+            b["narrative"] = extract_narrative((ROOT / ns).read_text(encoding="utf-8"))
+
+        b["meta"]["built_at"] = now
+        b["meta"]["insight_count"] = merged
+        path.write_text(json.dumps(b, ensure_ascii=False, indent=2), encoding="utf-8")
+        briefs.append(b)
+
+    briefs.sort(key=lambda x: x["meta"]["id"], reverse=True)
+    latest = briefs[0]
+
+    counts = {"focus": 0, "track": 0, "watch": 0}
+    for it in latest["items"]:
+        counts[it["tier"]] = counts.get(it["tier"], 0) + 1
+
+    def focus_preview(b):
+        return [
+            {"id": i["id"], "title": i["title"], "org": i["org"],
+             "date": i["date"], "relevance": i["relevance"], "tracks": i["tracks"]}
+            for i in sorted([x for x in b["items"] if x["tier"] == "focus"],
+                            key=lambda x: -x["relevance"])[:6]
+        ]
+
+    index = {
+        "site": SITE,
+        "updated_at": now,
+        "tracks": latest["tracks"],
+        "totals": {
+            "items": len(latest["items"]),
+            "focus": counts["focus"],
+            "track": counts["track"],
+            "watch": counts["watch"],
+            "insights": latest["meta"]["insight_count"],
+        },
+        "briefs": [{
+            "id": b["meta"]["id"],
+            "title": b["meta"]["title"],
+            "period": b["meta"]["period"],
+            "generated_at": b["meta"]["generated_at"],
+            "file": f"brief-{b['meta']['id']}.json",
+            "total": len(b["items"]),
+            "insights": b["meta"]["insight_count"],
+            "stats": b["stats"],
+            "conclusions": b.get("narrative", {}).get("conclusions", []),
+            "focus_preview": focus_preview(b),
+        } for b in briefs],
+    }
+    INDEX.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 前端入口：打包成单个 JS，双击本地文件打开也能跑（绕开 file:// 的 fetch 限制）
+    payload = {"index": index, "briefs": {b["meta"]["id"]: b for b in briefs}}
+    (DATA / "site-data.js").write_text(
+        "/* 由 agent/build_data.py 自动生成，请勿手改 */\n"
+        "window.INTEL_SITE = " + json.dumps(payload, ensure_ascii=False) + ";\n",
+        encoding="utf-8",
+    )
+
+    print(f"✅ 已构建 {len(briefs)} 期：{', '.join(b['meta']['id'] for b in briefs)}")
+    print(f"   最新期 {latest['meta']['id']}：{len(latest['items'])} 条，含影响分析 {latest['meta']['insight_count']} 条")
+    print(f"   叙述：结论 {len(latest.get('narrative', {}).get('conclusions', []))} / "
+          f"影响 {len(latest.get('narrative', {}).get('impacts', []))} / "
+          f"展望 {len(latest.get('narrative', {}).get('outlook', []))}")
+    print(f"✅ 站点索引：{INDEX.name}（{len(index['briefs'])} 期）  最新期分档 {counts}")
+
+
+if __name__ == "__main__":
+    main()

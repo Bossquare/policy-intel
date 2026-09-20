@@ -1,0 +1,29 @@
+{
+  "_comment": "情报采集源清单。level 取值 national / key-city / other / industry。首次部署时请逐个核对 url 是否为该单位的『信息发布/政策文件』栏目页；政府网站改版频繁，失效的源在运行日志中会标为 0 条，按提示更新即可。",
+  "sources": [
+    { "name": "住房和城乡建设部·政策文件", "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/index.html", "level": "national", "region": "全国" },
+    { "name": "住房和城乡建设部·工作动态", "url": "https://www.mohurd.gov.cn/xinwen/gzdt/index.html", "level": "national", "region": "全国" },
+    { "name": "住房和城乡建设部·地方信息", "url": "https://www.mohurd.gov.cn/xinwen/dfxx/index.html", "level": "national", "region": "全国" },
+    { "name": "国务院新闻办·发布会", "url": "http://www.scio.gov.cn/live/", "level": "national", "region": "全国" },
+    { "name": "中央网络安全和信息化委员会办公室", "url": "https://www.cac.gov.cn/", "level": "national", "region": "全国" },
+
+    { "name": "上海市住房和城乡建设管理委员会·建设管理", "url": "https://zjw.sh.gov.cn/jsgl/index.html", "level": "key-city", "region": "上海" },
+    { "name": "北京市住房和城乡建设委员会·其他政务文件", "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/index.shtml", "level": "key-city", "region": "北京" },
+    { "name": "广州市住房和城乡建设局·政策文件", "url": "https://zfcj.gz.gov.cn/gkmlpt/policy", "level": "key-city", "region": "广州" },
+    { "name": "深圳市住房和建设局·通知公告", "url": "https://zjj.sz.gov.cn/xxgk/tzgg/", "level": "key-city", "region": "深圳" },
+    { "name": "广东省住房和城乡建设厅·政策文件", "url": "https://zfcxjst.gd.gov.cn/jsgl/zcwj/", "level": "key-city", "region": "广东" },
+    { "name": "江苏省住房和城乡建设厅·建设管理", "url": "https://jsszfhcxjst.jiangsu.gov.cn/col/col49384/index.html", "level": "key-city", "region": "江苏" },
+    { "name": "南京市城乡建设委员会·通知公告", "url": "http://sjw.nanjing.gov.cn/tzgg/", "level": "key-city", "region": "南京" },
+    { "name": "浙江省住房和城乡建设厅·政策文件", "url": "https://jst.zj.gov.cn/col/col1229129246/index.html", "level": "key-city", "region": "浙江" },
+    { "name": "杭州市城乡建设委员会·通知公告", "url": "https://cxjw.hangzhou.gov.cn/col/col1692623/index.html", "level": "key-city", "region": "杭州" },
+
+    { "name": "重庆市住房和城乡建设委员会·公示公告", "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/", "level": "other", "region": "重庆" },
+    { "name": "湖北省住房和城乡建设厅·其他政务公开", "url": "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/", "level": "other", "region": "湖北" },
+    { "name": "河南省住房和城乡建设厅·标准公告与意见征集", "url": "https://hnjs.henan.gov.cn/xxgk/xxgkml/zcfg/bzgg/yjzj/", "level": "other", "region": "河南" },
+    { "name": "福建省住房和城乡建设厅·建设科技", "url": "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/", "level": "other", "region": "福建" },
+    { "name": "西安市住房和城乡建设局·部门文件", "url": "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/", "level": "other", "region": "西安" },
+    { "name": "新疆维吾尔自治区住房和城乡建设厅", "url": "https://zjt.xinjiang.gov.cn/xjzjt/c113185/list.shtml", "level": "other", "region": "新疆" },
+
+    { "name": "中国建筑业协会·通知公告", "url": "http://www.zgjzy.org.cn/newsList/19/1.html", "level": "industry", "region": "行业" }
+  ]
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>建筑智能化政策与技术情报站</title>
+<meta name="description" content="按周跟踪住建领域政策文件、标准发布与技术动态，自动摘要、相关性判定并按三档分类，对强相关条目输出影响分析与应对建议。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2c4d'/%3E%3Crect x='14' y='16' width='36' height='6' rx='3' fill='%231e6fd9'/%3E%3Crect x='14' y='28' width='24' height='6' rx='3' fill='%235b9bd5'/%3E%3Crect x='14' y='40' width='30' height='6' rx='3' fill='%230e7490'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="logo">情</span>建筑智能化情报站</a>
+    <a class="link on" href="index.html">情报看板</a>
+    <a class="link" href="items.html">条目库</a>
+    <a class="link" href="briefs.html">简报归档</a>
+    <a class="link" href="agent.html">智能体</a>
+    <a class="gh" href="https://github.com/Bossquare/policy-intel" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">WEEKLY POLICY &amp; TECH INTELLIGENCE</span>
+    <h1>建筑智能化政策与技术情报站</h1>
+    <p class="sub">政策跟踪 · 标准动态 · 赛道相关性研判 · 影响分析与应对建议</p>
+    <div class="meta">
+      <span><b>更新周期</b>　每周一期</span>
+      <span><b>数据窗口</b>　<span id="period">—</span></span>
+      <span><b>数据更新</b>　<span id="updated">—</span></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="overview">
+    <div class="ov-card">
+      <div class="n" id="ov-items">—</div>
+      <div class="l">本期收录条目</div>
+      <div class="d">去重后，覆盖国家 / 重点省市 / 其他省市 / 行业四层</div>
+    </div>
+    <div class="ov-card focus">
+      <div class="n" id="ov-focus">—</div>
+      <div class="l">重点关注</div>
+      <div class="d">其中 <b id="ov-extra">—</b> 条已出具影响分析与应对建议</div>
+    </div>
+    <div class="ov-card track">
+      <div class="n" id="ov-track">—</div>
+      <div class="l">持续跟踪</div>
+      <div class="d">标准征求意见、地方试点与规划类，纳入跟踪清单</div>
+    </div>
+    <div class="ov-card watch">
+      <div class="n" id="ov-watch">—</div>
+      <div class="l">一般了解</div>
+      <div class="d">行业动态、展会论坛、企业新闻与人事类</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><h2>本期核心结论</h2><span class="hint">来自本期简报的研判主结论</span></div>
+    <div id="conclusions"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>重点关注</h2>
+      <span class="hint"><b id="focus-count">—</b> 条 · 与主营赛道强相关，建议本周内研读</span>
+    </div>
+    <p class="sec-desc">判定口径：国家层面发布且命中核心赛道，或地方层面含强制要求与量化指标的条目。强相关条目同步输出影响分析与应对建议。</p>
+    <div class="intel-grid g2" id="focus-list"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>持续跟踪</h2>
+      <span class="hint">共 <b id="track-count">—</b> 条 · 展示相关性最高的 6 条</span>
+    </div>
+    <div class="intel-grid g3" id="track-list"></div>
+    <div style="margin-top:18px"><a class="btn ghost" href="items.html">查看全部条目 →</a></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>一般了解</h2><span class="hint"><b id="watch-count">—</b> 条</span></div>
+    <div class="intel-grid g3" id="watch-list"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="sec-head"><h2>赛道热度</h2><span class="hint">本期条目在六条主营赛道上的分布</span></div>
+    <div id="track-heat"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>市场影响分析</h2><span class="hint">沿六条赛道研判政策传导路径</span></div>
+    <div class="matrix" id="matrix"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>趋势展望</h2><span class="hint">基于本期信号的前瞻判断</span></div>
+    <div class="future" id="outlook"></div>
+  </section>
+
+  <section>
+    <div class="notice">
+      <div>
+        <b>关于数据来源与可信度</b><br>
+        所有条目均取自公开渠道（政府官网、协会官网、权威媒体），并在条目详情中保留原始来源链接与检索状态。
+        标注「待核实 / 附件待核」的条目表示正文或附件尚未逐条核验，未做推测性补充。情报内容仅供参考，正式决策请以官方原文为准。
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b>建筑智能化政策与技术情报站</b>　·　数据每周自动更新</div>
+    <div>构建于 GitHub Pages　|　<span id="foot-updated">—</span></div>
+  </div>
+</footer>
+
+<script src="assets/data/site-data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var idx = (window.INTEL_SITE || {}).index;
+  if(!idx) return;
+  var b = idx.briefs[0];
+  var set = function(id, v){ var e = document.getElementById(id); if(e) e.textContent = v; };
+  set("period", b.period);
+  set("updated", idx.updated_at);
+  set("foot-updated", "最近构建 " + idx.updated_at);
+})();
+</script>
+</body>
+</html>

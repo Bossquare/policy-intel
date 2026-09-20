@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情报条目库 · 建筑智能化政策与技术情报站</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2c4d'/%3E%3Crect x='14' y='16' width='36' height='6' rx='3' fill='%231e6fd9'/%3E%3Crect x='14' y='28' width='24' height='6' rx='3' fill='%235b9bd5'/%3E%3Crect x='14' y='40' width='30' height='6' rx='3' fill='%230e7490'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="items">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="logo">情</span>建筑智能化情报站</a>
+    <a class="link" href="index.html">情报看板</a>
+    <a class="link on" href="items.html">条目库</a>
+    <a class="link" href="briefs.html">简报归档</a>
+    <a class="link" href="agent.html">智能体</a>
+    <a class="gh" href="https://github.com/Bossquare/policy-intel" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<header class="hero" style="padding:34px 0 42px">
+  <div class="wrap">
+    <span class="tag">INTELLIGENCE LIBRARY</span>
+    <h1 style="font-size:26px">情报条目库</h1>
+    <p class="sub" style="font-size:15px">按期归档的全部条目，支持按档级、层级、赛道与关键词交叉筛选</p>
+  </div>
+</header>
+
+<main class="wrap" style="margin-top:26px">
+
+  <div class="filters">
+    <div class="f-row"><span class="f-label">档级</span><span id="f-tier"></span></div>
+    <div class="f-row"><span class="f-label">层级</span><span id="f-level"></span></div>
+    <div class="f-row"><span class="f-label">赛道</span><span id="f-track"></span></div>
+    <div class="f-row">
+      <span class="f-label">搜索</span>
+      <input id="search" class="search" type="search" placeholder="搜索标题、发布机构、摘要、影响分析…">
+      <button class="btn ghost" id="reset">重置</button>
+    </div>
+  </div>
+
+  <div class="result-line" id="result">加载中…</div>
+  <div class="intel-grid g2" id="list"></div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b>建筑智能化政策与技术情报站</b></div>
+    <div>条目来源均为公开渠道，点击条目可查看原文链接</div>
+  </div>
+</footer>
+
+<script src="assets/data/site-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
