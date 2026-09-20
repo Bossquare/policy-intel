@@ -1,15 +1,16 @@
 /* ==========================================================================
-   建筑智能化政策与技术情报站 —— 简报导出（A4 竖版 PDF / HTML）
+   建筑智能化政策与技术情报站 —— 简报导出（PDF / HTML）
    --------------------------------------------------------------------------
    依赖：
      window.INTEL_SITE       站点数据（assets/data/site-data.js）
-     window.INTEL_A4_ASSETS  A4 样式与内联徽标（assets/data/a4-assets.js，构建产物）
+     window.INTEL_A4_ASSETS  版式样式与内联徽标（assets/data/a4-assets.js，构建产物）
    对外接口（供 app.js 调用）：
      INTEL_EXPORT.pdf(id)     下载 / 导出 PDF
      INTEL_EXPORT.html(id)    下载自包含 HTML
      INTEL_EXPORT.print(id)   直接唤起打印
-     INTEL_EXPORT.open(id)    打开 A4 导出视图
+     INTEL_EXPORT.open(id)    打开导出预览页
    页面为 export.html 时自动渲染版式；?print=1 渲染后自动唤起打印对话框。
+   另外在简报相关页面自动挂载右下角浮动下载入口（.dl-dock）。
    ========================================================================== */
 (function () {
   "use strict";
@@ -176,7 +177,7 @@
     h += '<header class="dh">' + logoHtml() +
       '<div class="dh-txt"><div class="dh-org">建筑智能化政策与技术情报站' +
       "<i>POLICY &amp; TECH INTELLIGENCE</i></div></div>" +
-      '<div class="dh-date">A4 竖版 · 简报导出<br>' + esc(m.generated_at || "") + "</div>" +
+      '<div class="dh-date">简报导出<br>' + esc(m.generated_at || "") + "</div>" +
       "</header>";
 
     h += '<h1 class="d-title">' + esc(m.title || "情报简报") + "</h1>";
@@ -290,7 +291,7 @@
     var title = (b.meta && b.meta.title) || "情报简报";
     return '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="UTF-8">\n' +
       '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
-      '<meta name="generator" content="建筑智能化政策与技术情报站 · A4 竖版导出">\n' +
+      '<meta name="generator" content="建筑智能化政策与技术情报站 · 简报导出">\n' +
       "<title>" + esc(title) + "</title>\n" + styleBlock + "\n</head>\n" +
       '<body class="a4-screen">\n' +
       '<div class="a4-stage">' + docHtml(b) + "</div>\n</body>\n</html>\n";
@@ -328,7 +329,7 @@
     if (!b) { toast("未找到该期简报：" + id); return false; }
     var ok = saveBlob(standaloneHtml(b), safeName(b.meta.title) + ".html", "text/html");
     toast(ok
-      ? "已生成 A4 竖版 HTML：" + safeName(b.meta.title) + ".html"
+      ? "已开始下载：" + safeName(b.meta.title) + ".html（单文件，双击即可离线打开）"
       : "浏览器拒绝了本地下载，请改用「打印」并另存为 PDF");
     return ok;
   }
@@ -339,7 +340,7 @@
     if (onExportPage()) { window.print(); return; }
     var w = window.open("export.html?id=" + encodeURIComponent(id) + "&print=1", "_blank");
     if (!w) { toast("浏览器拦截了新窗口，请允许弹窗后重试"); return; }
-    toast("已打开 A4 竖版版式，在打印对话框中把「目标」选为「另存为 PDF」即可", 5200);
+    toast("已打开导出预览，在打印对话框中把「目标」选为「另存为 PDF」即可", 5200);
   }
 
   function savePdf(id) {
@@ -369,6 +370,122 @@
     }
   }
 
+  /* ------------------------------------------------------ 浮动下载入口 */
+  /* 在简报相关页面右下角常驻一个下载坞：不随页面滚动，任何位置都能下载 */
+  var DOCK_PAGES = { briefs: 1, brief: 1 };
+  var DL_ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true">' +
+    '<path d="M8 1.7v8.1M4.7 6.7 8 10l3.3-3.3M2.7 12.7h10.6" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" ' +
+    'stroke-linejoin="round"/></svg>';
+
+  /* 「2026-09-07 至 2026-09-13」→「9.7–9.13」，坞内一行放得下 */
+  function shortPeriod(p) {
+    var m = /(\d{4})-(\d{2})-(\d{2})\s*至\s*(\d{4})-(\d{2})-(\d{2})/.exec(String(p || ""));
+    if (!m) return String(p || "");
+    return (+m[2]) + "." + (+m[3]) + "–" + (+m[5]) + "." + (+m[6]);
+  }
+
+  function dockRowsHtml() {
+    var list = (SITE && SITE.index && SITE.index.briefs) || [];
+    /* 只有简报详情页才有「当前浏览」这一说 */
+    var cur = (document.body.dataset.page === "brief")
+      ? (qs("id") || ((list[0] || {}).id || "")) : "";
+    return list.map(function (b) {
+      var kind = /-W\d+/.test(b.id) ? "周报" : "月报";
+      var per = shortPeriod(b.period);
+      var safe = esc(b.id);
+      return '<div class="dl-dock-row' + (b.id === cur ? " cur" : "") + '" data-brief="' + safe + '">' +
+        '<div class="dl-dock-meta">' +
+          "<b>" + safe + "</b>" +
+          "<i>" + kind + (per ? " · " + esc(per) : "") + "</i>" +
+          (b.id === cur ? "<em>当前浏览</em>" : "") +
+        "</div>" +
+        '<div class="dl-dock-btns">' +
+          '<button type="button" class="dl-b pdf" data-dl="pdf" data-brief="' + safe + '" ' +
+            'title="下载 PDF' + (b.pdf === true ? "" : "（将打开导出预览，再另存为 PDF）") + '">' +
+            "PDF</button>" +
+          '<button type="button" class="dl-b html" data-dl="html" data-brief="' + safe + '" ' +
+            'title="下载单文件 HTML，含全部样式，双击即可离线打开">HTML</button>' +
+        "</div>" +
+      "</div>";
+    }).join("");
+  }
+
+  function mountDock() {
+    var page = document.body && document.body.dataset.page;
+    if (!DOCK_PAGES[page] || document.getElementById("dl-dock")) return;
+    if (!(SITE && SITE.index && SITE.index.briefs && SITE.index.briefs.length)) return;
+
+    var dock = document.createElement("div");
+    dock.className = "dl-dock";
+    dock.id = "dl-dock";
+    dock.innerHTML =
+      '<div class="dl-dock-panel" role="dialog" aria-label="简报下载">' +
+        '<div class="dl-dock-h">' +
+          '<span class="dl-dock-ht">简报下载</span>' +
+          '<span class="dl-dock-hs">选期次 · 选格式</span>' +
+          '<button type="button" class="dl-dock-x" data-dock="close" aria-label="收起">&#10005;</button>' +
+        "</div>" +
+        '<div class="dl-dock-body">' + dockRowsHtml() + "</div>" +
+        '<div class="dl-dock-f">HTML 为单文件，样式全部内联，可直接归档、转发或离线打开</div>' +
+      "</div>" +
+      '<button type="button" class="dl-dock-fab" data-dock="toggle" aria-expanded="false">' +
+        DL_ARROW + "<span>下载简报</span>" +
+      "</button>";
+    document.body.appendChild(dock);
+    document.body.classList.add("with-dl-dock");
+
+    function clearHl() {
+      [].forEach.call(dock.querySelectorAll(".dl-dock-row.hl"), function (r) {
+        r.classList.remove("hl");
+      });
+    }
+
+    function setOpen(v) {
+      dock.classList[v ? "add" : "remove"]("on");
+      var fab = dock.querySelector(".dl-dock-fab");
+      if (fab) fab.setAttribute("aria-expanded", v ? "true" : "false");
+      if (!v) clearHl();
+    }
+
+    dock.querySelector(".dl-dock-fab").addEventListener("click", function () {
+      setOpen(!dock.classList.contains("on"));
+    });
+    dock.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!(t && t.closest)) return;
+      var cl = t.closest("[data-dock]");
+      if (cl && cl.getAttribute("data-dock") === "close") { setOpen(false); return; }
+      var b = t.closest("[data-dl]");
+      if (!b) return;
+      e.preventDefault();
+      var id = b.getAttribute("data-brief");
+      if (b.getAttribute("data-dl") === "pdf") savePdf(id);
+      else saveHtml(id);
+    });
+    document.addEventListener("click", function (e) {
+      if (dock.classList.contains("on") && !dock.contains(e.target)) setOpen(false);
+    });
+    /* 列表卡片上的「↓ 下载」：展开坞并高亮对应期次 */
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!(t && t.closest)) return;
+      var o = t.closest("[data-dock-open]");
+      if (!o) return;
+      e.preventDefault();
+      var id = o.getAttribute("data-dock-open");
+      setOpen(true);
+      var row = dock.querySelector('.dl-dock-row[data-brief="' + id + '"]');
+      if (!row) return;
+      clearHl();
+      row.classList.add("hl");
+      if (row.scrollIntoView) row.scrollIntoView({ block: "nearest" });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+  }
+
   /* ------------------------------------------------------------ 导出视图 */
   function renderExportView() {
     var id = qs("id") || ((SITE.index.briefs[0] || {}).id);
@@ -381,18 +498,18 @@
         "未找到该期简报：" + esc(id) + "</div>";
       return;
     }
-    document.title = b.meta.title + " · A4 竖版导出";
+    document.title = b.meta.title + " · 简报导出";
     root.innerHTML = docHtml(b);
 
     var t = document.getElementById("a4-bar-t");
     if (t) {
       t.innerHTML = esc(b.meta.id) + " 简报导出" +
-        '<small>' + esc(b.meta.period || "") + "　·　A4 竖版 210 × 297 mm</small>";
+        '<small>' + esc(b.meta.period || "") + "</small>";
     }
     var tip = document.getElementById("a4-tip");
     if (tip) {
-      tip.textContent = "A4 竖版（210 × 297 mm）· " + b.meta.title +
-        "　|　屏幕预览为连续长纸，打印 / 导出时按 A4 自动分页";
+      tip.textContent = b.meta.title +
+        "　|　屏幕预览为连续长纸，打印或导出时自动分页";
     }
 
     var bar = document.querySelector(".a4-bar");
@@ -405,7 +522,7 @@
           if (briefMeta(id) && briefMeta(id).pdf === true) {
             savePdf(id);
           } else {
-            toast("在打印对话框把「目标」选为「另存为 PDF」，纸张 A4、纵向、边距选「默认」即可", 6000);
+            toast("在打印对话框把「目标」选为「另存为 PDF」即可", 6000);
             setTimeout(function () { window.print(); }, 260);
           }
         } else if (act === "html") { saveHtml(id); }
@@ -430,12 +547,13 @@
     standalone: standaloneHtml,
     docHtml: docHtml,
     ready: hasAssets,
+    dock: mountDock,
     toast: toast
   };
 
   if (!hasAssets()) {
-    console.warn("[export] 未找到 A4 导出资源（assets/data/a4-assets.js）。" +
-      "导出视图将缺少徽标，下载的 HTML 也不会内联样式。" +
+    console.warn("[export] 未找到导出版式资源（assets/data/a4-assets.js）。" +
+      "导出预览将缺少徽标，下载的 HTML 也不会内联样式。" +
       "请运行 python3 agent/build_data.py 重新生成。");
   }
 
@@ -443,5 +561,9 @@
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", renderExportView);
     } else { renderExportView(); }
+  } else if (document.body && DOCK_PAGES[document.body.dataset.page]) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", mountDock);
+    } else { mountDock(); }
   }
 })();

@@ -215,27 +215,108 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{
 .btn.ghost:hover{background:#eef2f7}
 .btn.sm{font-size:12.5px;padding:5px 11px}
 
-/* ============================ 简报下载 ============================ */
-.dl-group{
-  display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;
-  padding:3px 9px 3px 11px;border-radius:9px;
-  background:#f6f9fd;border:1px dashed var(--blue-line);
+/* ======================== 浮动下载坞（右下角常驻） ======================== */
+.dl-dock{
+  position:fixed;right:26px;bottom:26px;z-index:70;
+  display:flex;flex-direction:column;align-items:flex-end;gap:12px;
 }
-.dl-group .dl-label{
-  font-size:12px;color:var(--navy);font-weight:600;letter-spacing:.4px;
+
+/* 主按钮：常驻显眼，带呼吸光环 */
+.dl-dock .dl-dock-fab{
+  position:relative;isolation:isolate;
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:inherit;font-size:14.5px;font-weight:700;letter-spacing:.4px;
+  color:#fff;border:none;cursor:pointer;
+  padding:14px 22px 14px 19px;border-radius:999px;
+  background:linear-gradient(135deg,#2f7fe0 0%,#1657ab 55%,#0f2c4d 100%);
+  box-shadow:0 10px 28px rgba(15,44,77,.42),0 3px 8px rgba(15,44,77,.26);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
-.dl-group .dl-label::before{content:"↓";color:var(--blue);font-weight:700;margin-right:3px}
-.dl-group .btn.sm{padding:4px 10px;font-size:12px;background:#fff}
-.dl-group .btn.sm.primary{background:var(--blue);border-color:var(--blue);color:#fff}
-.dl-group .btn.sm.primary:hover{background:#1a63c4}
-.dl-group .dl-hint{font-size:11px;color:var(--muted);white-space:nowrap}
+.dl-dock .dl-dock-fab svg{width:17px;height:17px;flex:none}
+.dl-dock .dl-dock-fab span{white-space:nowrap}
+.dl-dock .dl-dock-fab:hover{transform:translateY(-2px);box-shadow:0 15px 36px rgba(15,44,77,.5)}
+.dl-dock .dl-dock-fab:active{transform:translateY(0) scale(.98)}
+.dl-dock .dl-dock-fab::after{
+  content:"";position:absolute;inset:-4px;border-radius:inherit;z-index:-1;
+  background:linear-gradient(135deg,#2f7fe0,#0f2c4d);
+  animation:dlPulse 2.8s ease-out infinite;
+}
+.dl-dock.on .dl-dock-fab::after{animation:none;opacity:0}
+@keyframes dlPulse{
+  0%{transform:scale(1);opacity:.34}
+  70%{transform:scale(1.18);opacity:0}
+  100%{transform:scale(1.18);opacity:0}
+}
+
+/* 展开面板 */
+.dl-dock .dl-dock-panel{
+  width:min(392px,calc(100vw - 52px));max-height:min(62vh,540px);
+  display:flex;flex-direction:column;overflow:hidden;
+  background:var(--card);border:1px solid var(--border);border-radius:15px;
+  box-shadow:0 22px 54px rgba(15,44,77,.26);
+  transform-origin:100% 100%;
+  opacity:0;transform:translateY(10px) scale(.97);pointer-events:none;
+  transition:opacity .2s ease,transform .22s cubic-bezier(.2,.9,.3,1.15);
+}
+.dl-dock.on .dl-dock-panel{opacity:1;transform:none;pointer-events:auto}
+.dl-dock-h{
+  display:flex;align-items:baseline;gap:8px;padding:13px 15px;
+  border-bottom:1px solid var(--border);background:linear-gradient(180deg,#f7faff,#fff);
+}
+.dl-dock-ht{font-size:14px;font-weight:700;color:var(--navy)}
+.dl-dock-hs{font-size:11.5px;color:var(--muted)}
+.dl-dock-x{
+  margin-left:auto;border:none;background:transparent;color:var(--muted);
+  font-size:13px;line-height:1;cursor:pointer;padding:4px 7px;border-radius:7px;
+}
+.dl-dock-x:hover{background:#eef2f7;color:var(--ink)}
+.dl-dock-body{overflow:auto;padding:6px}
+.dl-dock-row{
+  display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;
+  transition:background .15s;
+}
+.dl-dock-row:hover{background:#f4f8fd}
+.dl-dock-row.cur{background:#eef5fe;box-shadow:inset 0 0 0 1px var(--blue-line)}
+/* 从列表卡片「↓ 下载」进来时高亮该期，关闭坞即清除 */
+.dl-dock-row.hl{background:#dceafe;box-shadow:inset 0 0 0 1.5px var(--blue)}
+.dl-dock-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;flex:1;min-width:0}
+.dl-dock-meta b{font-size:13.5px;color:var(--navy);letter-spacing:.2px}
+.dl-dock-meta i{
+  font-style:normal;font-size:11.5px;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;
+}
+.dl-dock-meta em{
+  font-style:normal;font-size:10.5px;font-weight:600;color:#fff;
+  background:var(--blue);border-radius:5px;padding:1px 6px;
+}
+.dl-dock-btns{display:flex;gap:6px;flex:none}
+.dl-dock .dl-b{
+  font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.4px;cursor:pointer;
+  padding:6px 13px;border-radius:8px;border:1px solid var(--blue-line);
+  background:#fff;color:var(--blue);transition:.15s;
+}
+.dl-dock .dl-b:hover{background:var(--blue-soft)}
+.dl-dock .dl-b.pdf{background:var(--blue);border-color:var(--blue);color:#fff}
+.dl-dock .dl-b.pdf:hover{background:#1a63c4}
+.dl-dock-f{
+  padding:9px 15px;border-top:1px solid var(--border);background:#fafcff;
+  font-size:11px;color:var(--muted);line-height:1.6;
+}
+/* 坞会压住页脚，给页脚留出空间 */
+.with-dl-dock footer.foot{padding-bottom:90px}
+
+/* 详情页底部动作条 */
 .brief-actions{
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;
   padding-top:18px;border-top:1px dashed var(--border);
 }
+
 @media(max-width:720px){
-  .dl-group{width:100%}
-  .dl-group .dl-hint{width:100%}
+  .dl-dock{right:14px;bottom:14px;left:14px;align-items:stretch}
+  .dl-dock .dl-dock-fab{justify-content:center;padding:13px 18px}
+  .dl-dock .dl-dock-panel{width:auto}
+  .dl-dock-meta i{max-width:130px}
+  .with-dl-dock footer.foot{padding-bottom:120px}
 }
 
 /* ============================ 筛选栏 ============================ */

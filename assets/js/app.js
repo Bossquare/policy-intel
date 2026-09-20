@@ -156,35 +156,7 @@
   });
 
   /* ---------------------------------------------------------- 简报下载 */
-  /* 按钮本身只带 data-dl / data-brief，真正的导出逻辑在 assets/js/export.js */
-  function dlGroup(bid) {
-    return '<span class="dl-group">' +
-      '<span class="dl-label">下载</span>' +
-      '<button type="button" class="btn sm ghost" data-dl="pdf" data-brief="' + esc(bid) + '" ' +
-        'title="A4 竖版（210×297mm）PDF">PDF</button>' +
-      '<button type="button" class="btn sm ghost" data-dl="html" data-brief="' + esc(bid) + '" ' +
-        'title="自包含 A4 竖版 HTML，双击即可离线打开">HTML</button>' +
-      '<span class="dl-hint">A4 竖版</span>' +
-      "</span>";
-  }
-
-  function currentBriefId() {
-    if (document.body.dataset.page === "brief") {
-      return params().id || ((INDEX.briefs[0] || {}).id || "");
-    }
-    return "";
-  }
-
-  document.addEventListener("click", function (e) {
-    const btn = e.target && e.target.closest ? e.target.closest("[data-dl]") : null;
-    if (!btn) return;
-    e.preventDefault();
-    const id = btn.getAttribute("data-brief") || currentBriefId();
-    const api = window.INTEL_EXPORT;
-    if (!api) { alert("导出模块未加载，请刷新页面后重试"); return; }
-    if (btn.getAttribute("data-dl") === "pdf") api.pdf(id);
-    else api.html(id);
-  });
+  /* 简报下载入口已统一改为右下角浮动坞（assets/js/export.js 的 .dl-dock） */
 
   /* ---------------------------------------------------------------- 卡片 */
   function intelCard(it) {
@@ -477,7 +449,7 @@
           (b.insights ? '<span style="margin-left:auto">影响分析 <b>' + b.insights + "</b> 条</span>" : "") +
         "</div>" +
         '<div class="actions"><a class="btn sm" href="brief.html?id=' + encodeURIComponent(b.id) + '">打开简报</a>' +
-          dlGroup(b.id) + "</div>" +
+          '<button type="button" class="btn sm ghost dl-open" data-dock-open="' + esc(b.id) + '">↓ 下载</button></div>' +
       "</article>";
     }).join("");
   }
