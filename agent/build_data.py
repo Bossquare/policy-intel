@@ -4,12 +4,16 @@
 构建站点数据。
 
 输入：
-    assets/data/brief-2026-09.json   条目（由 extract_seed.py 产出）
-    agent/insights.json              强相关条目的影响分析与应对建议（人工撰写）
-    seed/2026-09-report.html         报告叙述（核心结论 / 市场影响 / 趋势展望）
+    assets/data/brief-*.json           各期简报（extract_seed.py / build_weekly.py / run_weekly.py 产出）
+    agent/insights.json                强相关条目的影响分析与应对建议（人工撰写）
+    各期 meta.narrative_source 指向的 HTML 报告（可选，抽取叙述）
 输出：
-    assets/data/brief-2026-09.json   合并后的完整简报
-    assets/data/index.json           站点索引（简报列表 + 全局统计）
+    assets/data/brief-*.json           合并后的完整简报
+    assets/data/index.json             站点索引（简报列表 + 全局统计）
+    assets/data/site-data.js           前端唯一数据入口
+
+简报排序：按覆盖周期的截止日降序（最新一期在前），而不是按 id 字典序——
+这样周报（2026-W37）与月报（2026-09）混排时依然按时间先后排列。
 
 用法：
     python3 agent/build_data.py
@@ -77,6 +81,12 @@ def extract_narrative(raw: str):
     return out
 
 
+def period_end(brief) -> str:
+    """从 meta.period（如「2026-08-31 至 2026-09-06」）取截止日，用于跨期排序。"""
+    m = re.search(r"(\d{4}-\d{2}-\d{2})\s*$", brief["meta"].get("period", ""))
+    return m.group(1) if m else brief["meta"].get("generated_at", "")
+
+
 def main():
     files = sorted(DATA.glob("brief-*.json"))
     if not files:
@@ -111,7 +121,7 @@ def main():
         path.write_text(json.dumps(b, ensure_ascii=False, indent=2), encoding="utf-8")
         briefs.append(b)
 
-    briefs.sort(key=lambda x: x["meta"]["id"], reverse=True)
+    briefs.sort(key=lambda x: (period_end(x), x["meta"]["id"]), reverse=True)
     latest = briefs[0]
 
     counts = {"focus": 0, "track": 0, "watch": 0}

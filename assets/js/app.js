@@ -17,10 +17,15 @@
   const BRIEFS = SITE.briefs;
   const TRACKS = INDEX.tracks;
 
-  /* 所有条目打平，附带所属简报 */
+  /* 所有条目打平，附带所属简报。
+     周报与月报可能共享同一条目（同 id），按 id 去重，保留先出现的一版
+     （简报按周期截止日降序排列，内容最全的一期排最前）。 */
   const ALL = [];
+  const SEEN = {};
   Object.keys(BRIEFS).forEach(function (bid) {
     BRIEFS[bid].items.forEach(function (it) {
+      if (SEEN[it.id]) return;
+      SEEN[it.id] = 1;
       ALL.push(Object.assign({}, it, { brief: bid }));
     });
   });
@@ -347,11 +352,22 @@
   /* ============================================================ 归档列表 */
   function renderBriefs() {
     $("#archive").innerHTML = INDEX.briefs.map(function (b) {
+      const isWeek = /-W\d+/.test(b.id);
+      const kind = isWeek
+        ? '<span class="badge wk">周报 · ' + esc(b.id.replace(/^20\d\d-/, "")) + "</span>"
+        : '<span class="badge mo">月报 · ' + esc(b.id) + "</span>";
+      const tier = (b.stats && b.stats.by_tier) || {};
       return '<article class="intel">' +
-        '<div><span class="badge nat">' + esc(b.id) + '</span><span class="badge">' + b.total + " 条</span></div>" +
+        '<div>' + kind + '<span class="badge">' + b.total + " 条</span></div>" +
         '<h3><a href="brief.html?id=' + encodeURIComponent(b.id) + '">' + esc(b.title) + "</a></h3>" +
         '<div class="info">时间窗口 ' + esc(b.period) + "　·　生成于 " + esc(b.generated_at) + "</div>" +
         '<p class="sum">' + (b.conclusions.length ? esc(b.conclusions[0].body) : "") + "</p>" +
+        '<div class="mini-stats">' +
+          '<span class="ms-focus">重点关注 <b>' + (tier.focus || 0) + "</b></span>" +
+          '<span class="ms-track">持续跟踪 <b>' + (tier.track || 0) + "</b></span>" +
+          '<span class="ms-watch">一般了解 <b>' + (tier.watch || 0) + "</b></span>" +
+          (b.insights ? '<span style="margin-left:auto">影响分析 <b>' + b.insights + "</b> 条</span>" : "") +
+        "</div>" +
         '<div class="actions"><a class="btn sm" href="brief.html?id=' + encodeURIComponent(b.id) + '">打开简报</a></div>' +
       "</article>";
     }).join("");

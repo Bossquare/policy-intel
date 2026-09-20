@@ -1,0 +1,555 @@
+{
+  "meta": {
+    "id": "2026-W37",
+    "title": "2026年第37周（9.7–9.13）建筑智能化政策与技术情报周报",
+    "period": "2026-09-07 至 2026-09-13",
+    "generated_at": "2026-09-20",
+    "total": 16,
+    "note": "回溯补齐：由 9 月试点报告按周拆分，条目与 9 月简报共享同一编号与内容。",
+    "built_at": "2026-09-20 14:54",
+    "insight_count": 5
+  },
+  "stats": {
+    "by_level": {
+      "other": 6,
+      "national": 3,
+      "key-city": 5,
+      "industry": 2
+    },
+    "by_tier": {
+      "track": 10,
+      "focus": 3,
+      "watch": 3
+    },
+    "by_track": {
+      "bim-cim": 8,
+      "intelligent-construction": 8,
+      "green-smart": 2,
+      "urban-renewal": 4,
+      "ai-building": 7,
+      "smart-building": 2
+    }
+  },
+  "tracks": {
+    "smart-building": {
+      "label": "智慧建筑",
+      "desc": "楼宇智能化、智能家居、数字家庭、智慧建筑评价"
+    },
+    "bim-cim": {
+      "label": "BIM/CIM",
+      "desc": "BIM、CIM、数字孪生、实景三维、电子文件、建模算量"
+    },
+    "intelligent-construction": {
+      "label": "智能建造",
+      "desc": "智能建造、建筑机器人、装配式与模块化、智能装备"
+    },
+    "green-smart": {
+      "label": "绿色智能",
+      "desc": "绿色建造、双化协同、低碳与能耗管理"
+    },
+    "urban-renewal": {
+      "label": "城市更新",
+      "desc": "城市更新、老旧小区、城市生命线、韧性城市"
+    },
+    "ai-building": {
+      "label": "AI+建筑",
+      "desc": "人工智能在招投标、审图、造价、工地识别等环节落地"
+    }
+  },
+  "items": [
+    {
+      "id": "2026-09-028",
+      "no": 1,
+      "title": "西安市建筑业企业智能建造能力建设指南（市建发〔2026〕124号）",
+      "org": "西安市住建局",
+      "date": "2026-09-08",
+      "date_raw": "09-08",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "西安",
+      "form": "规范性文件",
+      "summary": "五维能力标尺；BIM、机器人、数据贯通。",
+      "source": {
+        "label": "zjj.xa.gov.cn",
+        "url": "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-034",
+      "no": 2,
+      "title": "2026年绿色智能建造试点项目（122个）",
+      "org": "湖北省住建厅",
+      "date": "2026-09-08",
+      "date_raw": "09-08",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "湖北",
+      "form": "试点名单",
+      "summary": "依托省智能建造产业互联网平台按季报送。",
+      "source": {
+        "label": "zjt.hubei.gov.cn",
+        "url": "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction",
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-007",
+      "no": 3,
+      "title": "第二十一次专题学习：高质量推进城市更新",
+      "org": "国务院",
+      "date": "2026-09-08",
+      "date_raw": "09-08",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "高层动态",
+      "summary": "城市更新为重要抓手；\"六张网\"提高设防标准；完善政策制度体系。",
+      "source": {
+        "label": "cpc.people.com.cn",
+        "url": "http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html"
+      },
+      "confidence": "一方报道",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 65,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-008",
+      "no": 4,
+      "title": "全市开展建设工程电子文件应用（京建发〔2026〕389号）",
+      "org": "北京市住建委/规自委",
+      "date": "2026-09-09",
+      "date_raw": "09-09",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "北京",
+      "form": "规范性文件",
+      "summary": "电子档案单套制；BIM数字孪生交付；AI+工程文件；智能建造信用激励。",
+      "source": {
+        "label": "zjw.beijing.gov.cn",
+        "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/744104301/index.shtml"
+      },
+      "confidence": "已查证",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction",
+        "ai-building"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 98,
+      "impact": "BIM + 数字孪生的数字化交付从试点走向全市推开，并与智能建造试点、信用激励直接挂钩——这是目前全国范围内「数字化交付」最明确的落地信号，北京做法大概率被其他省市复制。电子档案单套制会重塑工程资料管理软件的采购逻辑，从「归档工具」变为「全生命周期数据入口」。",
+      "action": "① 立即研究京建发〔2026〕389 号对电子文件格式与交付物的具体要求，评估产品适配成本；② 把「BIM 数字孪生交付 + 电子档案单套制」做成标准化方案包，面向北京及跟进省市推广；③ 把纳入智能建造试点可获信用激励这一点写进投标材料，作为加分项。"
+    },
+    {
+      "id": "2026-09-013",
+      "no": 5,
+      "title": "征集住建领域创新应用场景（京建发〔2026〕432号）",
+      "org": "北京市住建委",
+      "date": "2026-09-09",
+      "date_raw": "09-09",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "北京",
+      "form": "场景征集",
+      "summary": "BIM/数字孪生/AI+建筑/城市更新数字化场景清单；10-10截止。",
+      "source": {
+        "label": "zjw.beijing.gov.cn",
+        "url": "https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/744118225/index.shtml"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "urban-renewal",
+        "ai-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 93,
+      "impact": "官方直接给出了六类可申报的 AI + 建筑场景清单（计算机视觉工地识别、AI 规划设计、人机协同施工、AI 造价算量、施工图合规自动审查、建筑能耗优化），等于把「什么算 AI+建筑」定义清楚了，申报截止 10-10。入选即获得官方背书，在北京市场含金量高。",
+      "action": "赶在 10 月 10 日前，从已有案例中挑选 1-2 项申报北京市智能建造科技创新应用场景；优先选「施工图合规自动审查」或「AI 造价算量」这类公司与政策双重稀缺的场景。"
+    },
+    {
+      "id": "2026-09-029",
+      "no": 6,
+      "title": "自治区智能建造工作推进会",
+      "org": "新疆住建厅",
+      "date": "2026-09-09",
+      "date_raw": "09-09/16",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "新疆",
+      "form": "推进会",
+      "summary": "14部门协同；乌鲁木齐完成国家试点；CIM+数字底座。",
+      "source": {
+        "label": "zjt.xinjiang.gov.cn",
+        "url": "https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-037",
+      "no": 7,
+      "title": "安徽省城市更新\"十五五\"规划",
+      "org": "安徽省住建厅",
+      "date": "2026-09-09",
+      "date_raw": "09-09",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "安徽",
+      "form": "省级专项规划",
+      "summary": "支持中国建造（安徽）互联网平台；BIM/物联网集成应用。",
+      "source": {
+        "label": "finance.sina.com.cn",
+        "url": "https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml.md"
+      },
+      "confidence": "中",
+      "tracks": [
+        "bim-cim",
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-010",
+      "no": 8,
+      "title": "服贸会工程咨询与建筑服务专题展",
+      "org": "住建部/北京市政府",
+      "date": "2026-09-09",
+      "date_raw": "09-09至13",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "北京",
+      "form": "展会",
+      "summary": "智能绿色建造区；建筑机器人；AI隐患识别；BIM+IoT+AI大模型。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html"
+      },
+      "confidence": "已查证",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction",
+        "green-smart",
+        "ai-building"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 45,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-041",
+      "no": 9,
+      "title": "建筑业全产业链数智创新论坛",
+      "org": "中国建筑业协会/广联达",
+      "date": "2026-09-09",
+      "date_raw": "09-09至13",
+      "level": "industry",
+      "level_label": "行业层面",
+      "region": "其他",
+      "form": "行业论坛",
+      "summary": "AI赋能工程建造服务化；高坠识别准确率85%+。",
+      "source": {
+        "label": "www.glodon.com",
+        "url": "https://www.glodon.com/news/1626.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "ai-building"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 35,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-016",
+      "no": 10,
+      "title": "推广人工智能在招投标领域应用（穗建筑〔2026〕543号）",
+      "org": "广州市住建局",
+      "date": "2026-09-10",
+      "date_raw": "09-10",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "规范性文件",
+      "summary": "10-01起3000万以下施工总承包全面AI辅助评标；异常行为实时预警。",
+      "source": {
+        "label": "zfcj.gz.gov.cn",
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/policy"
+      },
+      "confidence": "高",
+      "tracks": [
+        "ai-building"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 83,
+      "impact": "全国首个带明确金额门槛与生效日期的 AI 辅助评标强制要求（10 月 1 日起 3000 万元以下施工总承包、1000 万元以下专业承包全面执行）。AI 从展示性应用变成招投标环节的强制基础设施，「先体检再发布」「异常行为实时预警」都是可直接对标的产品形态。",
+      "action": "① 10 月 1 日前后是标杆案例窗口期，优先在广州寻找合作方落地评标辅助产品；② 跟踪长三角、环珠三角城市是否跟进同类文件，提前布局；③ 评估组建「招标文件合规检测 + AI 辅助评标 + 评标行为预警」产品线的必要性。"
+    },
+    {
+      "id": "2026-09-023",
+      "no": 11,
+      "title": "2026年智能建造试点项目（第五批，117个）",
+      "org": "江苏省住建厅",
+      "date": "2026-09-10",
+      "date_raw": "09-10",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "江苏",
+      "form": "规范性文件",
+      "summary": "通过江苏智建平台对接；2030年大中型项目应用占比70%。",
+      "source": {
+        "label": "jsszfhcxjst.jiangsu.gov.cn",
+        "url": "https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 83,
+      "impact": "一次性 117 个试点项目，且四季度起须通过「江苏智建平台」按季度上传 BIM 模型、建筑机器人及智能装备成效；2030 年目标为大中型项目应用占比 70%。平台化报送会直接创造数据对接与成效填报类需求，117 个项目是可明确触达的客户名单。",
+      "action": "① 获取 117 个项目名单，按地域与项目类型分派跟进；② 研究江苏智建平台的数据接口要求，评估产品对接工作量；③ 把「按季度成效报送」设计成增值服务，绑定客户长期关系。"
+    },
+    {
+      "id": "2026-09-035",
+      "no": 12,
+      "title": "打造\"好房子\"五年行动",
+      "org": "湖南省",
+      "date": "2026-09-10",
+      "date_raw": "09-10/16",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "湖南",
+      "form": "省级行动",
+      "summary": "BIM、AI+设计；2030年数字家庭配套率60%；150个示范项目。",
+      "source": {
+        "label": "www.hunantoday.cn",
+        "url": "https://www.hunantoday.cn/news/xhn/202609/33724760.html"
+      },
+      "confidence": "中高",
+      "tracks": [
+        "smart-building",
+        "bim-cim",
+        "ai-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 83,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-017",
+      "no": 13,
+      "title": "数字勘察技术试点项目（穗建技〔2026〕546号）",
+      "org": "广州市住建局",
+      "date": "2026-09-10",
+      "date_raw": "09-10",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "规范性文件",
+      "summary": "13个项目为数字勘察试点。",
+      "source": {
+        "label": "zfcj.gz.gov.cn",
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/11/11000/post_11000121.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-025",
+      "no": 14,
+      "title": "浙江省混凝土模块化建筑技术导则（浙建管发〔2026〕118号）",
+      "org": "浙江省住建厅",
+      "date": "2026-09-10",
+      "date_raw": "09-10",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "浙江",
+      "form": "技术导则",
+      "summary": "浙大建筑设计研究院负责技术解释。",
+      "source": {
+        "label": "jst.zj.gov.cn",
+        "url": "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-030",
+      "no": 15,
+      "title": "新城建打造韧性城市实施方案",
+      "org": "成都市住建局等11部门",
+      "date": "2026-09-11",
+      "date_raw": "09-11/17",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "成都",
+      "form": "联合实施方案",
+      "summary": "实景三维成都底座；2027年一网统管；机器狗巡检、AI远程监管。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "urban-renewal",
+        "ai-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 83,
+      "impact": "以「实景三维成都」为数字底座，到 2027 年城市运行基本「一网统管」，并试点无人机巡飞、机器狗巡检、AI 识别远程监管高处作业。官方已经把「CIM 底座 + 低空/机器人巡检」的组合场景写进实施方案，这是一个相对新的产品方向。",
+      "action": "跟踪成都 CIM 平台与城市运行平台的后续招标节奏，评估无人机/机器人巡检产品线的适配与集成可能。"
+    },
+    {
+      "id": "2026-09-043",
+      "no": 16,
+      "title": "公布智慧建筑评价专家组名单",
+      "org": "中国房地产业协会",
+      "date": "2026-09-11",
+      "date_raw": "09-11",
+      "level": "industry",
+      "level_label": "行业层面",
+      "region": "其他",
+      "form": "名单公布",
+      "summary": "为智慧建筑评价提供技术支撑；名单全文待核实。",
+      "source": {
+        "label": "member.fangchan.com",
+        "url": "http://member.fangchan.com/mindex"
+      },
+      "confidence": "中高",
+      "tracks": [
+        "smart-building"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 35,
+      "impact": "",
+      "action": ""
+    }
+  ],
+  "narrative": {
+    "conclusions": [
+      {
+        "title": "工程文件电子化在北京率先全域落地",
+        "body": "北京市住建委与规自委联合发文（京建发〔2026〕389号），在全市建设工程开展电子文件应用，重构从设计、审批到归档的全流程，是本期最强信号。"
+      },
+      {
+        "title": "AI 进入招投标核心环节",
+        "body": "广州市住建局发文推广人工智能在招投标领域的应用（穗建筑〔2026〕543号），评标从纯人工走向人机协同，投标文件的结构化程度与数据质量开始影响中标概率。"
+      },
+      {
+        "title": "智能建造试点持续放量",
+        "body": "江苏第五批试点项目 117 个、湖北绿色智能建造试点 122 个集中公布，单省单批超百个项目意味着规模化拐点临近，供应商订单池明显扩大。"
+      },
+      {
+        "title": "国务院专题学习定调城市更新，地方快速跟进",
+        "body": "国务院第二十一次专题学习聚焦高质量推进城市更新，安徽省城市更新「十五五」规划、西安智能建造能力建设指南、成都新城建韧性城市方案同周发布。"
+      },
+      {
+        "title": "模块化建造获得技术导则支撑",
+        "body": "浙江省发布混凝土模块化建筑技术导则（浙建管发〔2026〕118号），模块化从项目实践进入标准化阶段，有利于降低规模化应用的技术门槛。"
+      }
+    ],
+    "impacts": [
+      {
+        "title": "电子文件全域应用",
+        "level": "影响强度：强｜驱动：北京全市强制性文件",
+        "body": "设计、审批、归档全流程数字化后，BIM 交付从示范走向默认，不具备数字化交付能力的设计与施工企业将难以参与北京市场；对 BIM 审图、电子签章、电子档案系统是直接的订单信号。"
+      },
+      {
+        "title": "AI 辅助评标",
+        "level": "影响强度：强｜驱动：广州推广文件",
+        "body": "评标规则变化意味着投标策略需要调整：文件结构化程度、报价数据质量、历史业绩数据的机器可读性都成为竞争变量，投标部门的数字化能力需要前置建设。"
+      },
+      {
+        "title": "试点规模化的订单信号",
+        "level": "影响强度：中强｜驱动：江苏、湖北试点名单",
+        "body": "单省单批上百个试点项目，意味着智能建造软硬件与服务的需求池扩大。跟踪清单应聚焦这批项目的招标与分包信息，四季度进入转化观察窗口。"
+      },
+      {
+        "title": "城市更新顶层定调",
+        "level": "影响强度：中｜驱动：国务院专题学习",
+        "body": "更新类项目的资金与审批通道继续放宽，城市生命线、韧性城市、老旧小区改造中的智能化需求随地方规划落地逐步释放，属于中期确定性增量。"
+      }
+    ],
+    "outlook": [
+      {
+        "no": 1,
+        "title": "电子文件与赋码到套合流",
+        "body": "北京电子文件应用与上海等地赋码到套制度合流后，「工程数据资产」将从概念变成可交付、可归档、可核验的实际产物。"
+      },
+      {
+        "no": 2,
+        "title": "AI 评标向其他省市扩散",
+        "body": "广州模式大概率向珠三角、长三角其他城市扩散，建议提前评估自身投标数据的机器可读性与结构化水平。"
+      },
+      {
+        "no": 3,
+        "title": "试点项目进入集中招标期",
+        "body": "江苏、湖北等批次试点项目在四季度进入招标与实施阶段，是智能建造供应商订单转化的关键观察窗口。"
+      }
+    ]
+  }
+}

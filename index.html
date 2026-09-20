@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>建筑智能化政策与技术情报站</title>
 <meta name="description" content="按周跟踪住建领域政策文件、标准发布与技术动态，自动摘要、相关性判定并按三档分类，对强相关条目输出影响分析与应对建议。">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2c4d'/%3E%3Crect x='14' y='16' width='36' height='6' rx='3' fill='%231e6fd9'/%3E%3Crect x='14' y='28' width='24' height='6' rx='3' fill='%235b9bd5'/%3E%3Crect x='14' y='40' width='30' height='6' rx='3' fill='%230e7490'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-page="home">
 
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="index.html"><span class="logo">情</span>建筑智能化情报站</a>
+    <a class="brand" href="index.html"><img class="logo" src="assets/img/logo.svg" alt="情报站徽标"><span class="brand-t">建筑智能化情报站<i>POLICY &amp; TECH INTEL</i></span></a>
     <a class="link on" href="index.html">情报看板</a>
     <a class="link" href="items.html">条目库</a>
     <a class="link" href="briefs.html">简报归档</a>
@@ -60,12 +60,13 @@
   </div>
 
   <section>
-    <div class="sec-head"><h2>本期核心结论</h2><span class="hint">来自本期简报的研判主结论</span></div>
+    <div class="sec-head"><span class="kicker">Key Findings</span><h2>本期核心结论</h2><span class="hint">来自本期简报的研判主结论</span></div>
     <div id="conclusions"></div>
   </section>
 
   <section>
     <div class="sec-head">
+      <span class="kicker">Focus</span>
       <h2>重点关注</h2>
       <span class="hint"><b id="focus-count">—</b> 条 · 与主营赛道强相关，建议本周内研读</span>
     </div>
@@ -75,6 +76,7 @@
 
   <section>
     <div class="sec-head">
+      <span class="kicker">Tracking</span>
       <h2>持续跟踪</h2>
       <span class="hint">共 <b id="track-count">—</b> 条 · 展示相关性最高的 6 条</span>
     </div>
@@ -83,24 +85,24 @@
   </section>
 
   <section>
-    <div class="sec-head"><h2>一般了解</h2><span class="hint"><b id="watch-count">—</b> 条</span></div>
+    <div class="sec-head"><span class="kicker">Awareness</span><h2>一般了解</h2><span class="hint"><b id="watch-count">—</b> 条</span></div>
     <div class="intel-grid g3" id="watch-list"></div>
   </section>
 
   <div class="divider"></div>
 
   <section>
-    <div class="sec-head"><h2>赛道热度</h2><span class="hint">本期条目在六条主营赛道上的分布</span></div>
+    <div class="sec-head"><span class="kicker">Track Heat</span><h2>赛道热度</h2><span class="hint">本期条目在六条主营赛道上的分布</span></div>
     <div id="track-heat"></div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>市场影响分析</h2><span class="hint">沿六条赛道研判政策传导路径</span></div>
+    <div class="sec-head"><span class="kicker">Impact</span><h2>市场影响分析</h2><span class="hint">沿六条赛道研判政策传导路径</span></div>
     <div class="matrix" id="matrix"></div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>趋势展望</h2><span class="hint">基于本期信号的前瞻判断</span></div>
+    <div class="sec-head"><span class="kicker">Outlook</span><h2>趋势展望</h2><span class="hint">基于本期信号的前瞻判断</span></div>
     <div class="future" id="outlook"></div>
   </section>
 
@@ -118,7 +120,7 @@
 
 <footer class="foot">
   <div class="wrap">
-    <div><b>建筑智能化政策与技术情报站</b>　·　数据每周自动更新</div>
+    <div class="foot-brand"><img src="assets/img/logo.svg" alt="" class="foot-logo"><b>建筑智能化政策与技术情报站</b>　·　数据每周自动更新</div>
     <div>构建于 GitHub Pages　|　<span id="foot-updated">—</span></div>
   </div>
 </footer>

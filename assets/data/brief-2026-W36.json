@@ -1,0 +1,565 @@
+{
+  "meta": {
+    "id": "2026-W36",
+    "title": "2026年第36周（8.31–9.6）建筑智能化政策与技术情报周报",
+    "period": "2026-08-31 至 2026-09-06",
+    "generated_at": "2026-09-20",
+    "total": 17,
+    "note": "回溯补齐：由 9 月试点报告按周拆分，条目与 9 月简报共享同一编号与内容。",
+    "built_at": "2026-09-20 14:54",
+    "insight_count": 5
+  },
+  "stats": {
+    "by_level": {
+      "key-city": 8,
+      "industry": 1,
+      "other": 3,
+      "national": 5
+    },
+    "by_tier": {
+      "track": 13,
+      "focus": 4
+    },
+    "by_track": {
+      "bim-cim": 6,
+      "intelligent-construction": 8,
+      "green-smart": 2,
+      "urban-renewal": 2,
+      "ai-building": 3
+    }
+  },
+  "tracks": {
+    "smart-building": {
+      "label": "智慧建筑",
+      "desc": "楼宇智能化、智能家居、数字家庭、智慧建筑评价"
+    },
+    "bim-cim": {
+      "label": "BIM/CIM",
+      "desc": "BIM、CIM、数字孪生、实景三维、电子文件、建模算量"
+    },
+    "intelligent-construction": {
+      "label": "智能建造",
+      "desc": "智能建造、建筑机器人、装配式与模块化、智能装备"
+    },
+    "green-smart": {
+      "label": "绿色智能",
+      "desc": "绿色建造、双化协同、低碳与能耗管理"
+    },
+    "urban-renewal": {
+      "label": "城市更新",
+      "desc": "城市更新、老旧小区、城市生命线、韧性城市"
+    },
+    "ai-building": {
+      "label": "AI+建筑",
+      "desc": "人工智能在招投标、审图、造价、工地识别等环节落地"
+    }
+  },
+  "items": [
+    {
+      "id": "2026-09-019",
+      "no": 1,
+      "title": "2026年\"质量月\"活动与现场观摩交流会",
+      "org": "广东省住建厅",
+      "date": "2026-09-01",
+      "date_raw": "09-01",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "工作通知",
+      "summary": "智能建造、绿色建造、BIM应用经验交流；广州主会场+4分会场。",
+      "source": {
+        "label": "zfcxjst.gd.gov.cn",
+        "url": "https://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4949664.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction",
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 93,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-014",
+      "no": 2,
+      "title": "DB11/T 1610-2026 民用建筑BIM深化设计建模细度标准实施",
+      "org": "北京市市监局/住建委",
+      "date": "2026-09-01",
+      "date_raw": "09-01",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "北京",
+      "form": "地方标准",
+      "summary": "替代2018版；与电子文件、场景征集配套。",
+      "source": {
+        "label": "scjgj.beijing.gov.cn",
+        "url": "https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-040",
+      "no": 3,
+      "title": "《建筑业企业智慧工地评价标准》（T/CCIAT 0121-2026）",
+      "org": "中国建筑业协会",
+      "date": "2026-09-01",
+      "date_raw": "09-01实施",
+      "level": "industry",
+      "level_label": "行业层面",
+      "region": "其他",
+      "form": "团体标准",
+      "summary": "智慧工地建设与评价统一依据。",
+      "source": {
+        "label": "www.zgjzy.org.cn",
+        "url": "http://www.zgjzy.org.cn/menu19/newsDetail/11876.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 58,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-022",
+      "no": 4,
+      "title": "关于进一步加强智能建造技术应用的通知",
+      "org": "南京市建委",
+      "date": "2026-09-02",
+      "date_raw": "09-02印发",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "南京",
+      "form": "规范性文件",
+      "summary": "2万㎡以上项目强制嵌入；给费用、给用工；机器人培训上岗。",
+      "source": {
+        "label": "sjw.nanjing.gov.cn",
+        "url": "http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 83,
+      "impact": "把「2 万㎡ 以上政府投资项目必须明确智能建造要求」写成硬门槛，并配套「补充定额足额编列费用 + 机器人操作人员培训上岗」，是从「给名单」到「给门槛、给钱、给人」的完整闭环。南京是全国首批智能建造试点城市，做法具备强示范效应，大概率被其他试点城市复制。",
+      "action": "① 重点研究江苏省智能建造补充定额的费用构成，明确公司哪些产品/服务能被定额覆盖（这直接决定可报价空间）；② 针对招标文件中「明确智能建造要求」的条款，提前准备技术方案模板；③ 评估是否切入机器人操作人员培训与认证业务。"
+    },
+    {
+      "id": "2026-09-015",
+      "no": 5,
+      "title": "房屋建筑项目智能建造评价（穗建筑〔2026〕529号）",
+      "org": "广州市住建局",
+      "date": "2026-09-02",
+      "date_raw": "09-02",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "规范性文件",
+      "summary": "采用评价指引2.0；全流程线上评价。",
+      "source": {
+        "label": "zfcj.gz.gov.cn",
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-011",
+      "no": 6,
+      "title": "上海住建管理\"十五五\"规划（沪建综规〔2026〕362号）",
+      "org": "上海市住建管理委",
+      "date": "2026-09-03",
+      "date_raw": "09-03公开",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "上海",
+      "form": "五年规划",
+      "summary": "120个智能建造项目；600万㎡建筑机器人；装配式≥90%；三星绿建20%。",
+      "source": {
+        "label": "zjw.sh.gov.cn",
+        "url": "https://zjw.sh.gov.cn/jsgl/20260902/652ccdc1039e4514a90e02c0e1e0bc98.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 83,
+      "impact": "上海给出长三角最明确的量化牵引：到 2030 年累计 120 个智能建造项目、建筑机器人应用不少于 600 万㎡、装配式占比 ≥90%、三星级绿建占比 20%。这是可倒推市场规模的硬指标，且上海作为风向标城市，指标会被长三角其他城市参照。",
+      "action": "① 按 600 万㎡ 建筑机器人应用倒推逐年市场规模，重排上海及长三角的资源投放节奏；② 梳理公司产品与「危、繁、脏、重」四类机器人应用场景的匹配度，明确主攻场景；③ 跟踪 120 个智能建造项目的批次名单，提前做客户触达与方案预埋。"
+    },
+    {
+      "id": "2026-09-021",
+      "no": 7,
+      "title": "建筑机器人标准 + 轨交BIM算量标准征求意见",
+      "org": "深圳市住建局",
+      "date": "2026-09-03",
+      "date_raw": "09-03/10",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "标准征求意见",
+      "summary": "机器人通用技术标准至10-07；SJG 232.1-2026于09-30实施。",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/mobile/52610"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 83,
+      "impact": "《建筑机器人应用通用技术标准》征求意见（截止 10-07），机器人进入「有标可依」阶段。标准既会倒逼厂商产品规范化，也可能形成准入壁垒——早期参与反馈的企业更容易把自身技术路线写进标准。",
+      "action": "在 10 月 7 日前研读征求意见稿，评估是否提出有利于自身产品形态的反馈意见；若公司有机器人相关产品或合作生态，务必抓住这次窗口。"
+    },
+    {
+      "id": "2026-09-020",
+      "no": 8,
+      "title": "2026年度智能建造试点项目（33个）",
+      "org": "深圳市住建局",
+      "date": "2026-09-03",
+      "date_raw": "09-03",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "规范性文件",
+      "summary": "按技术目录第四版细化实施路径。",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12965835.html"
+      },
+      "confidence": "高",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-032",
+      "no": 9,
+      "title": "\"十五五\"城市更新规划（征求意见稿）",
+      "org": "重庆市住建委",
+      "date": "2026-09-03",
+      "date_raw": "09-03",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "重庆",
+      "form": "规划征求意见",
+      "summary": "BIM+CIM+GIS数字孪生时空底座；推进赋码。",
+      "source": {
+        "label": "zfcxjw.cq.gov.cn",
+        "url": "https://zfcxjw.cq.gov.cn/hdjl_166/yjzj/202609/P020260903641402930130.pdf"
+      },
+      "confidence": "高",
+      "tracks": [
+        "bim-cim",
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 73,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-004",
+      "no": 10,
+      "title": "城市更新规划编制标准（征求意见稿）",
+      "org": "住建部标准定额司",
+      "date": "2026-09-03",
+      "date_raw": "09-03",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "行标征求意见",
+      "summary": "首部城市更新规划编制行标；中规院牵头。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html"
+      },
+      "confidence": "已查证",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 65,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-003",
+      "no": 11,
+      "title": "城镇排水工程电气与智能化系统技术标准（修订征求意见稿）",
+      "org": "住建部标准定额司",
+      "date": "2026-09-03",
+      "date_raw": "09-03",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "行标征求意见",
+      "summary": "上海市政总院主编；反馈截止10-08。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html"
+      },
+      "confidence": "已查证",
+      "tracks": [],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-005",
+      "no": 12,
+      "title": "便携式管线探测设备技术要求（征求意见稿）",
+      "org": "住建部标准定额司",
+      "date": "2026-09-03",
+      "date_raw": "09-03",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "国标征求意见",
+      "summary": "中国建筑标准设计研究院牵头；支撑地下管网智能化普查。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_396a333e810a49b1bf5eb1e797a28f3f.html"
+      },
+      "confidence": "已查证",
+      "tracks": [],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-031",
+      "no": 13,
+      "title": "第六批试点企业/第七批试点项目（渝建科〔2026〕19号）",
+      "org": "重庆市住建委",
+      "date": "2026-09-03",
+      "date_raw": "09-03",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "重庆",
+      "form": "试点名单",
+      "summary": "2家企业、7个项目；动态监管。",
+      "source": {
+        "label": "zfcxjw.cq.gov.cn",
+        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260903_16027723_jlb.html"
+      },
+      "confidence": "高",
+      "tracks": [],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 35,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-006",
+      "no": 14,
+      "title": "促进数字化绿色化协同转型发展实施方案（2026—2030）",
+      "org": "中央网信办等七部门",
+      "date": "2026-09-04",
+      "date_raw": "09-04",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "实施方案",
+      "summary": "4方面14项任务；城市运行双化协同；绿色高效AI。",
+      "source": {
+        "label": "www.cac.gov.cn",
+        "url": "https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm"
+      },
+      "confidence": "已查证",
+      "tracks": [
+        "green-smart",
+        "ai-building"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 93,
+      "impact": "住建部作为七部门联合发文单位之一，意味着「城市运行领域数字化绿色化协同」正式进入国家任务清单，绿色高效 AI 被点名。绿色建材智慧监管、建筑能耗优化、碳管理平台这三类需求将由政策直接创造，而非自发形成。",
+      "action": "① 在既有智慧建筑/能耗管理方案中补齐「碳排放核算与监管」能力，形成「绿色 + 智能」组合卖点；② 跟踪七部门后续配套细则与试点名录，优先争取入选；③ 关注「绿色高效 AI」对算力能耗的约束，评估对自研模型选型的影响。"
+    },
+    {
+      "id": "2026-09-026",
+      "no": 15,
+      "title": "申报2026年度建筑工程科创中心",
+      "org": "浙江省住建厅",
+      "date": "2026-09-04",
+      "date_raw": "09-04",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "浙江",
+      "form": "工作通知",
+      "summary": "为智能建造/BIM/AI+建筑提供平台载体；指南待核实。",
+      "source": {
+        "label": "jst.zj.gov.cn",
+        "url": "https://jst.zj.gov.cn/col/col1229159347/index.html"
+      },
+      "confidence": "中",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction",
+        "ai-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 93,
+      "impact": "",
+      "action": ""
+    },
+    {
+      "id": "2026-09-002",
+      "no": 16,
+      "title": "房屋建筑赋码到套（户）导则（建办厅函〔2026〕187号）",
+      "org": "住建部办公厅",
+      "date": "2026-09-04",
+      "date_raw": "09-04",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "导则",
+      "summary": "一楼一码、到套到户；市政工程赋码落图。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html"
+      },
+      "confidence": "已查证",
+      "tracks": [
+        "bim-cim"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 83,
+      "impact": "房屋「一楼一码、到套到户」是建筑数据底座的操作层文件，为后续所有 BIM/CIM 数据挂接提供唯一标识。已赋码地区须完成机制调整与成果转换，会释放一批数据治理与系统对接需求；市政工程（道路、桥梁、给排水、燃气、供热）赋码落图属于新增市场。",
+      "action": "① 排查在服项目所在城市是否已启动赋码，提前对接当地赋码规则；② 评估自有平台对「到套到户」编码体系的支持度，做接口预留；③ 把「赋码 + 落图」打包进城市数字底座解决方案，作为切入市政存量设施的抓手。"
+    },
+    {
+      "id": "2026-09-036",
+      "no": 17,
+      "title": "住建领域AI应用场景解决方案（第一批）（闽建科函〔2026〕30号）",
+      "org": "福建省住建厅",
+      "date": "2026-09-04",
+      "date_raw": "09-04",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "福建",
+      "form": "通知+清单",
+      "summary": "第一批AI场景解决方案清单；加强供需对接。",
+      "source": {
+        "label": "zjt.fj.gov.cn",
+        "url": "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm"
+      },
+      "confidence": "高",
+      "tracks": [
+        "ai-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 63,
+      "impact": "",
+      "action": ""
+    }
+  ],
+  "narrative": {
+    "conclusions": [
+      {
+        "title": "智能建造从「鼓励试点」转向「准入约束」",
+        "body": "南京市建委发文将智能建造技术应用纳入项目管理硬性要求，试点逻辑开始让位于准入逻辑——这类文件一旦在长三角形成示范，没有智能建造技术储备的企业将被挤出政府投资项目。"
+      },
+      {
+        "title": "地方「十五五」规划进入密集发布期，量化指标成为标配",
+        "body": "上海市住建管理「十五五」规划（沪建综规〔2026〕362号）率先给出可考核的指标体系，为其他地区提供了模板，也为企业测算区域市场容量提供了依据。"
+      },
+      {
+        "title": "房屋全生命周期数字化的基础制度落地",
+        "body": "住建部办公厅印发房屋建筑赋码到套（户）导则（建办厅函〔2026〕187号），统一「一套房一个码」的编码规则，为 CIM 平台、房屋档案与运维数据归集奠定数据底座。"
+      },
+      {
+        "title": "数字化绿色化协同上升为跨部门国家行动",
+        "body": "中央网信办等七部门联合印发促进数字化绿色化协同转型发展实施方案（2026—2030），绿色建造与数字化被打包推进，能耗管理与碳排放监测类系统获得政策通道。"
+      },
+      {
+        "title": "标准供给加速，覆盖智慧工地与 BIM 深化设计",
+        "body": "北京民用建筑 BIM 深化设计建模细度标准（DB11/T 1610-2026）正式实施，中国建筑业协会发布智慧工地评价标准（T/CCIAT 0121-2026），参编与对标是建立话语权的时间窗口。"
+      }
+    ],
+    "impacts": [
+      {
+        "title": "智能建造「准入化」",
+        "level": "影响强度：强｜驱动：地方强制性文件（南京）",
+        "body": "南京将智能建造应用写入项目管理硬要求，是首个把「试点倡导」变成「准入约束」的省会城市信号。若该模式在长三角扩散，智能建造能力将从加分项变成投标门槛，技术储备与案例包装需要提前就位。"
+      },
+      {
+        "title": "BIM／CIM 数据底座",
+        "level": "影响强度：强｜驱动：国家层面制度（赋码到套导则）",
+        "body": "赋码到套为房屋建立统一数字身份，直接拉动 CIM 平台、电子档案、运维数据归集三类需求。平台型产品应优先适配导则编码规则，抢占数据入口。"
+      },
+      {
+        "title": "双化协同打开绿色智能化增量",
+        "level": "影响强度：中强｜驱动：七部门联合方案",
+        "body": "数字化与绿色化打包推进后，能耗管理、碳排放监测、绿色建材追溯等系统从「可选项」变为「政策通道项」，可结合双碳项目包装申报。"
+      },
+      {
+        "title": "标准参编窗口期",
+        "level": "影响强度：中｜驱动：地方与协会标准密集出台",
+        "body": "建模细度、智慧工地评价等标准集中发布，参编单位与首批对标案例将在后续招投标中获得隐性加分，建议评估参编或试点申报的可行性。"
+      }
+    ],
+    "outlook": [
+      {
+        "no": 1,
+        "title": "「十五五」规划四季度集中发布",
+        "body": "上海之后，预计更多省市住建领域「十五五」规划在四季度落地，建议按省建立量化指标对照台账，跟踪市场容量信号。"
+      },
+      {
+        "no": 2,
+        "title": "赋码到套与后续制度合流",
+        "body": "赋码导则与电子文件、竣工归档制度合流后，工程数据资产化路径将进一步清晰，数据治理能力成为交付能力的组成部分。"
+      },
+      {
+        "no": 3,
+        "title": "智能建造评价标准外溢",
+        "body": "南京的评价口径与协会智慧工地标准可能被其他城市借鉴为试点验收模板，提前对标可减少后续整改成本。"
+      }
+    ]
+  }
+}

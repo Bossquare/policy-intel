@@ -42,10 +42,11 @@
 policy-intel/
 ├── index.html / items.html / item.html / briefs.html / brief.html / agent.html
 ├── assets/
+│   ├── img/                     主题 Logo 与 favicon（SVG）
 │   ├── css/style.css            样式系统
 │   ├── js/app.js                前端逻辑（按页面分派渲染）
 │   └── data/                    站点数据（构建产物）
-│       ├── brief-<期>.json      各期简报数据
+│       ├── brief-<期>.json      各期简报数据（月报 2026-09 / 周报 2026-W36、W37…）
 │       ├── index.json           站点索引
 │       └── site-data.js         前端唯一数据入口
 ├── agent/                       情报智能体
@@ -54,9 +55,11 @@ policy-intel/
 │   ├── analyze.py               摘要 / 相关性 / 分档 / 影响分析（调用大模型）
 │   ├── llm.local.json           模型端点配置（本地文件，不入库）
 │   ├── insights.json            人工撰写的影响分析（优先级高于模型草稿）
+│   ├── weekly_narratives.json   周报的结论 / 影响 / 展望（人工撰写）
 │   ├── extract_seed.py          从原始报告抽取种子数据
+│   ├── build_weekly.py          按周拆分简报（回溯补齐历史周报）
 │   ├── build_data.py            合并数据、生成站点数据
-│   └── run_weekly.py            每周流水线入口
+│   └── run_weekly.py            每周流水线入口（每周一 08:30 定时运行，生成前一周周报）
 └── seed/                        原始资料（首期报告）
 ```
 
@@ -73,6 +76,9 @@ python3 agent/run_weekly.py --dry-run
 
 # 只重建站点数据（改了 insights.json 或样式后）
 python3 agent/build_data.py
+
+# 回溯补齐历史周报（按周拆分月报数据，叙述写在 weekly_narratives.json）
+python3 agent/build_weekly.py
 
 # 本地预览
 python3 -m http.server 8000

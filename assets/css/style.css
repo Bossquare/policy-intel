@@ -50,17 +50,23 @@ a:hover{text-decoration:underline}
   background:rgba(15,44,77,.96);backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
-.nav .wrap{display:flex;align-items:center;gap:8px;height:58px}
-.nav .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:15px;letter-spacing:.5px;margin-right:auto}
-.nav .brand .logo{
-  width:26px;height:26px;border-radius:7px;flex:none;
-  background:linear-gradient(135deg,var(--blue),var(--teal));
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;color:#fff;
+.nav .wrap{display:flex;align-items:center;gap:8px;height:60px}
+.nav .brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:700;font-size:15px;letter-spacing:.5px;margin-right:auto}
+.nav .brand:hover{text-decoration:none}
+.nav .brand img.logo{
+  width:32px;height:32px;flex:none;display:block;border-radius:9px;
+  box-shadow:0 2px 8px rgba(0,0,0,.28);
+  transition:transform .2s ease;
+}
+.nav .brand:hover img.logo{transform:scale(1.06)}
+.nav .brand .brand-t{display:flex;flex-direction:column;line-height:1.25}
+.nav .brand .brand-t i{
+  font-style:normal;font-size:9.5px;font-weight:600;letter-spacing:2.2px;
+  color:rgba(255,255,255,.45);margin-top:2px;
 }
 .nav a.link{
   color:rgba(255,255,255,.78);font-size:14px;padding:7px 12px;border-radius:7px;
-  transition:.15s;white-space:nowrap;
+  transition:.15s;white-space:nowrap;position:relative;
 }
 .nav a.link:hover{background:rgba(255,255,255,.1);color:#fff;text-decoration:none}
 .nav a.link.on{background:rgba(30,111,217,.9);color:#fff}
@@ -73,14 +79,27 @@ a:hover{text-decoration:underline}
 
 /* ============================ Hero ============================ */
 .hero{
-  background:linear-gradient(135deg,#0f2c4d 0%,#163e6b 55%,#1e5aa8 100%);
-  color:#fff;padding:52px 0 46px;position:relative;overflow:hidden;
+  background:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px) 0 0/100% 34px,
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px) 0 0/34px 100%,
+    linear-gradient(135deg,#0f2c4d 0%,#163e6b 55%,#1e5aa8 100%);
+  color:#fff;padding:56px 0 50px;position:relative;overflow:hidden;
 }
-.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:380px;height:380px;border:1px solid rgba(255,255,255,.08);border-radius:50%}
-.hero::before{content:"";position:absolute;right:-30px;bottom:-140px;width:320px;height:320px;border:1px solid rgba(255,255,255,.06);border-radius:50%}
+.hero::after{ /* 徽标水印 */
+  content:"";position:absolute;right:-46px;top:50%;transform:translateY(-50%);
+  width:340px;height:340px;pointer-events:none;
+  background:url("../img/logo.svg") center/contain no-repeat;
+  opacity:.1;filter:saturate(1.1);
+}
+.hero::before{ /* 信号弧光 */
+  content:"";position:absolute;right:120px;top:-160px;width:420px;height:420px;
+  background:radial-gradient(circle, rgba(45,212,191,.16), transparent 62%);
+  pointer-events:none;
+}
 .hero .tag{
   display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
   padding:4px 14px;border-radius:20px;font-size:12.5px;letter-spacing:1.5px;margin-bottom:16px;
+  backdrop-filter:blur(4px);
 }
 .hero h1{font-size:34px;font-weight:700;letter-spacing:.5px;line-height:1.3;margin-bottom:12px;position:relative;z-index:1}
 .hero .sub{font-size:16px;opacity:.85;position:relative;z-index:1}
@@ -106,10 +125,20 @@ a:hover{text-decoration:underline}
 /* ============================ 通用区块 ============================ */
 section{padding:42px 0 6px}
 .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.sec-head .kicker{
+  flex:none;font-size:11px;font-weight:700;letter-spacing:2.4px;color:var(--blue);
+  text-transform:uppercase;align-self:center;
+}
 .sec-head h2{font-size:23px;color:var(--navy);font-weight:700}
 .sec-head .hint{font-size:13px;color:var(--muted);margin-left:auto}
 .sec-desc{color:var(--muted);font-size:14px;margin-bottom:20px}
 .divider{height:1px;background:var(--border);margin:38px 0}
+
+/* 细节质感 */
+::selection{background:rgba(30,111,217,.18)}
+a:focus-visible,.btn:focus-visible,.chip:focus-visible{
+  outline:2px solid var(--blue);outline-offset:2px;border-radius:6px;
+}
 
 /* ============================ 徽标 ============================ */
 .badge{
@@ -123,6 +152,17 @@ section{padding:42px 0 6px}
 .badge.tier-focus{background:var(--t-focus-bg);color:var(--t-focus);border-color:#f6cfc9;font-weight:600}
 .badge.tier-track{background:var(--t-track-bg);color:var(--t-track);border-color:#c5d9f2;font-weight:600}
 .badge.tier-watch{background:var(--t-watch-bg);color:var(--t-watch);border-color:#e2e8f0;font-weight:600}
+
+/* 期号徽标：周报 / 月报 */
+.badge.wk{background:#eef7f0;color:#1a7f37;border-color:#cdebd8;font-weight:600;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px}
+.badge.mo{background:#fdf6e6;color:#8a6508;border-color:#f0e0b8;font-weight:600;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px}
+
+/* 归档卡片的档级迷你统计 */
+.mini-stats{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}
+.mini-stats b{font-weight:700;font-variant-numeric:tabular-nums}
+.mini-stats .ms-focus b{color:var(--t-focus)}
+.mini-stats .ms-track b{color:var(--t-track)}
+.mini-stats .ms-watch b{color:var(--t-watch)}
 
 .tag-warn{
   font-size:12px;color:var(--gold);background:#fdf8ec;
@@ -329,6 +369,8 @@ tbody tr:last-child td{border-bottom:none}
 .foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot b{color:#fff}
 .foot a{color:rgba(255,255,255,.8)}
+.foot-brand{display:flex;align-items:center;gap:9px}
+.foot-logo{width:22px;height:22px;border-radius:6px;display:block;opacity:.95}
 
 /* ============================ 加载态 ============================ */
 .loading{text-align:center;padding:60px;color:var(--muted)}
