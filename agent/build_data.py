@@ -13,6 +13,8 @@
     assets/data/brief-*.json           合并后的完整简报
     assets/data/index.json             站点索引（简报列表 + 全局统计）
     assets/data/site-data.js           前端唯一数据入口
+    assets/data/a4-assets.js           A4 导出样式与内联徽标（由 a4.css / logo.svg 生成，
+                                       供「下载 HTML」离线自包含使用）
 
 简报排序：按覆盖周期的截止日降序（最新一期在前），而不是按 id 字典序——
 这样周报（2026-W37）与月报（2026-09）混排时依然按时间先后排列。
@@ -36,6 +38,9 @@ SOURCE_FIXES = ROOT / "agent" / "source_fixes.json"
 SOURCE_HEALTH = DATA / "source-health.json"
 SEED = ROOT / "seed" / "2026-09-report.html"
 INDEX = DATA / "index.json"
+A4_CSS = ROOT / "assets" / "css" / "a4.css"
+LOGO_SVG = ROOT / "assets" / "img" / "logo.svg"
+PDF_DIR = ROOT / "assets" / "briefs"
 
 SITE = {
     "title": "建筑智能化政策与技术情报站",
@@ -177,6 +182,9 @@ def main():
                             key=lambda x: -x["relevance"])[:6]
         ]
 
+    # 已预渲染的 A4 静态 PDF（由 agent/build_pdf.py 产出），用于前端「一键下载 PDF」
+    pdf_ids = {p.stem for p in PDF_DIR.glob("*.pdf")} if PDF_DIR.exists() else set()
+
     index = {
         "site": SITE,
         "updated_at": now,
@@ -199,6 +207,8 @@ def main():
             "stats": b["stats"],
             "conclusions": b.get("narrative", {}).get("conclusions", []),
             "focus_preview": focus_preview(b),
+            # A4 静态 PDF 是否已生成（true 直接下载；false 走「打印 → 另存为 PDF」）
+            "pdf": b["meta"]["id"] in pdf_ids,
         } for b in briefs],
     }
     INDEX.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -218,6 +228,18 @@ def main():
         encoding="utf-8",
     )
 
+    # A4 导出资源：把样式表与徽标内联成 JS，让「下载 HTML」产出的文件在没有
+    # 网络、没有 assets/ 目录的情况下也能独立打开（file:// 下无法 fetch 外部文件）。
+    css_text = A4_CSS.read_text(encoding="utf-8") if A4_CSS.exists() else ""
+    logo_text = LOGO_SVG.read_text(encoding="utf-8") if LOGO_SVG.exists() else ""
+    (DATA / "a4-assets.js").write_text(
+        "/* 由 agent/build_data.py 自动生成，请勿手改。\n"
+        "   源：assets/css/a4.css + assets/img/logo.svg */\n"
+        "window.INTEL_A4_ASSETS = "
+        + json.dumps({"css": css_text, "logo": logo_text}, ensure_ascii=False) + ";\n",
+        encoding="utf-8",
+    )
+
     dead = sum(1 for v in health.values() if v.get("status") == "dead")
     listy = sum(1 for b in briefs for i in b["items"] if i.get("source", {}).get("kind") == "list")
 
@@ -229,6 +251,13 @@ def main():
     print(f"   来源修正：{fixed} 条（其中标注为栏目页 {listy} 条）"
           + (f"，健康检查已失效 {dead} 条" if health else "，尚未运行来源健康检查"))
     print(f"✅ 站点索引：{INDEX.name}（{len(index['briefs'])} 期）  最新期分档 {counts}")
+    print(f"✅ A4 导出资源：a4-assets.js（样式 {len(css_text)} 字符，徽标 {'已内联' if logo_text else '缺失'}）")
+    if pdf_ids:
+        got = [b["meta"]["id"] for b in briefs if b["meta"]["id"] in pdf_ids]
+        print(f"   静态 PDF：{len(got)} 期已就绪（{'、'.join(got)}），归档页可一键下载")
+    else:
+        print("   静态 PDF：尚未生成，导出 PDF 走「打印 → 另存为 PDF」；"
+              "运行 agent/build_pdf.py 可预渲染")
 
 
 if __name__ == "__main__":

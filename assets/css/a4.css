@@ -1,0 +1,311 @@
+/* ==========================================================================
+   建筑智能化政策与技术情报站 —— A4 竖版导出样式
+   --------------------------------------------------------------------------
+   用途：export.html（导出视图）与「下载 HTML」产出的独立文档共用这一份样式。
+   要点：
+     1. 版心 210mm × 297mm（A4 竖版），打印边距 16mm / 15mm；
+     2. 屏幕上按真实纸张比例预览（白纸 + 投影），打印时自动去壳；
+     3. 分页控制靠 break-inside / break-before，不手工切页；
+     4. 自包含：不依赖 style.css，字体只用系统内置中文字体。
+   注意：本文件是导出样式的唯一来源。build_data.py 会把它的内容内联成
+        assets/data/a4-css.js，供「下载 HTML」在离线（file://）场景下取用。
+   ========================================================================== */
+
+:root{
+  --d-navy:#0f2c4d;
+  --d-navy-2:#163e6b;
+  --d-blue:#1e6fd9;
+  --d-blue-soft:#e8f1fc;
+  --d-blue-line:#c5d9f2;
+  --d-teal:#0e7490;
+  --d-gold:#b8860b;
+  --d-ink:#1f2937;
+  --d-ink-2:#414c5c;
+  --d-muted:#6b7280;
+  --d-border:#dfe5ee;
+  --d-focus:#c0392b;
+  --d-focus-bg:#fdf3f1;
+  --d-track:#1e6fd9;
+  --d-track-bg:#f2f7fe;
+  --d-watch:#64748b;
+  --d-watch-bg:#f6f8fa;
+
+  /* 字体：标题黑体、正文宋体（公文规范）。
+     注意别把 PingFang SC 放在正文/标题里——Chrome 导出 PDF 时无法嵌入它，
+     会把每个字转成 Type3 矢量轮廓，文件体积翻数倍且文字不可检索。
+     实测：Heiti SC / Songti SC → FontFile2 正常嵌入；PingFang SC → Type3（避免）。
+     界面控件（工具条）另用无衬线栈，不受此限。 */
+  --d-hei:"Heiti SC","STHeiti","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  --d-song:"Songti SC","STSong","Songti TC","SimSun","Noto Serif CJK SC",serif;
+  --d-ui:"PingFang SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+/* A4 竖版：210 × 297 mm */
+@page{ size:A4 portrait; margin:16mm 15mm 15mm }
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+.a4-screen{
+  font-family:var(--d-song);
+  color:var(--d-ink);background:#5b6472;line-height:1.75;font-size:10.5pt;
+  -webkit-font-smoothing:antialiased;
+}
+.a4-screen a{color:var(--d-blue);text-decoration:none}
+
+/* 标题统一用黑体 */
+.dh-org,.d-title,.ds > h2,.d-item h3,.d-mx h3,.d-fc h3,
+.d-concl li b,.d-foot b,.d-meta dd,.d-tbl thead th,.a4-tip b{
+  font-family:var(--d-hei);
+}
+
+
+/* ============================== 屏幕：工具条 ============================== */
+.a4-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:99;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:rgba(15,44,77,.97);color:#fff;
+  padding:11px 20px;font-size:13px;font-family:var(--d-ui);
+  box-shadow:0 -4px 18px rgba(0,0,0,.3);
+  backdrop-filter:blur(8px);
+}
+.a4-bar .bar-t{font-weight:600;margin-right:auto;display:flex;align-items:center;gap:9px;line-height:1.35}
+.a4-bar .bar-t small{display:block;font-weight:400;font-size:11.5px;opacity:.62}
+.a4-bar .bar-t img{width:22px;height:22px;border-radius:6px;flex:none}
+.a4-bar button,.a4-bar a.b{
+  font-family:var(--d-ui);font-size:13px;padding:7px 14px;border-radius:8px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);color:#fff;
+  transition:.15s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;
+}
+.a4-bar button:hover,.a4-bar a.b:hover{background:rgba(255,255,255,.22);text-decoration:none}
+.a4-bar button.pri{background:var(--d-blue);border-color:var(--d-blue)}
+.a4-bar button.pri:hover{background:#1a63c4}
+
+/* ============================== 屏幕：纸张舞台 ============================ */
+.a4-stage{padding:26px 0 96px}
+.a4-doc{
+  width:210mm;min-height:297mm;margin:0 auto;background:#fff;
+  padding:16mm 15mm 18mm;
+  box-shadow:0 12px 44px rgba(0,0,0,.34);
+  font-size:10.5pt;line-height:1.75;color:var(--d-ink);
+}
+
+/* ============================== 文档页眉 ================================= */
+.dh{
+  display:flex;gap:13px;align-items:center;
+  padding-bottom:11px;border-bottom:2.5px solid var(--d-navy);
+  margin-bottom:16px;break-inside:avoid;
+}
+.dh-logo{width:44px;height:44px;flex:none;display:block;border-radius:11px}
+.dh-txt{min-width:0}
+.dh-org{font-size:13.5pt;font-weight:700;color:var(--d-navy);letter-spacing:.4px;line-height:1.3}
+.dh-org i{
+  display:block;font-style:normal;font-size:7.5pt;font-weight:600;
+  letter-spacing:2.2px;color:var(--d-muted);margin-top:2px;
+}
+.dh-date{margin-left:auto;text-align:right;font-size:8.5pt;color:var(--d-muted);line-height:1.6;flex:none}
+
+/* 标题区 */
+.d-title{
+  font-size:19pt;font-weight:700;color:var(--d-navy);line-height:1.4;
+  letter-spacing:.3px;margin:4px 0 12px;break-after:avoid;
+}
+.d-meta{
+  display:grid;grid-template-columns:1.2fr 1fr .85fr .85fr;gap:1px;
+  background:var(--d-border);border:1px solid var(--d-border);
+  border-radius:7px;overflow:hidden;margin-bottom:8px;break-inside:avoid;
+}
+.d-meta div{background:#f8fafd;padding:7px 10px}
+.d-meta dt{font-size:7.8pt;color:var(--d-muted);letter-spacing:.5px;margin-bottom:2px}
+.d-meta dd{font-size:10pt;font-weight:700;color:var(--d-navy);line-height:1.4}
+/* 日期保持原子性：换行只发生在「至」前后的空格处，不把 2026-09-13 拆成两行 */
+.d-meta dd .dt{white-space:nowrap}
+.d-note{
+  font-size:8.5pt;color:var(--d-muted);background:#f8fafd;
+  border-left:2.5px solid var(--d-blue-line);padding:6px 10px;border-radius:0 5px 5px 0;
+  break-inside:avoid;
+}
+
+/* ============================== 章节 ==================================== */
+.ds{margin-top:20px}
+/* 注意：这里不能用 display:flex —— flex 容器上 break-after:avoid 不生效，
+   会导致章节标题孤零零落在页尾、正文跑到下一页。改用块级 + 绝对定位右端计数。 */
+.ds > h2{
+  position:relative;padding-right:74px;
+  font-size:13pt;font-weight:700;color:var(--d-navy);
+  padding-bottom:6px;margin-bottom:11px;
+  border-bottom:1px solid var(--d-border);
+  break-after:avoid;break-inside:avoid;page-break-after:avoid;
+}
+.ds > h2 em{
+  font-style:normal;font-size:8.5pt;font-weight:600;color:var(--d-blue);
+  background:var(--d-blue-soft);border:1px solid var(--d-blue-line);
+  border-radius:4px;padding:1px 7px;letter-spacing:.4px;
+  margin-left:8px;vertical-align:2px;
+}
+.ds > h2 span.n{
+  position:absolute;right:0;bottom:8px;
+  font-size:8.5pt;font-weight:500;color:var(--d-muted);
+}
+.ds-desc{
+  font-size:9pt;color:var(--d-muted);margin:-5px 0 11px;line-height:1.6;
+  break-after:avoid;page-break-after:avoid;
+}
+
+/* ============================== 核心结论 ================================= */
+.d-concl{list-style:none;counter-reset:dc;border:1px solid var(--d-border);border-radius:8px;overflow:hidden}
+.d-concl li{
+  counter-increment:dc;position:relative;
+  padding:10px 13px 11px 40px;
+  border-bottom:1px dashed var(--d-border);
+  font-size:9.6pt;color:var(--d-ink-2);line-height:1.72;
+  break-inside:avoid;
+}
+.d-concl li:last-child{border-bottom:none}
+.d-concl li:nth-child(odd){background:#fafcfe}
+.d-concl li::before{
+  content:counter(dc);position:absolute;left:12px;top:11px;
+  width:19px;height:19px;border-radius:50%;background:var(--d-blue);color:#fff;
+  font-size:9pt;font-weight:700;text-align:center;line-height:19px;
+}
+.d-concl li b{display:block;color:var(--d-navy);font-size:10.3pt;margin-bottom:2px}
+
+/* ============================== 条目卡 ================================== */
+.d-list{display:flex;flex-direction:column;gap:9px}
+.d-list.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+
+.d-item{
+  border:1px solid var(--d-border);border-radius:7px;padding:10px 12px 10px 14px;
+  position:relative;break-inside:avoid;background:#fff;
+}
+.d-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:7px 0 0 7px}
+.d-item.tf::before{background:var(--d-focus)}
+.d-item.tt::before{background:var(--d-track)}
+.d-item.tw::before{background:var(--d-watch)}
+.d-item.tf{background:linear-gradient(90deg,var(--d-focus-bg) 0%,#fff 34%)}
+.d-item.tt{background:linear-gradient(90deg,var(--d-track-bg) 0%,#fff 34%)}
+.d-item.tw{background:linear-gradient(90deg,var(--d-watch-bg) 0%,#fff 34%)}
+
+.d-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:5px}
+.d-tag{
+  font-size:7.6pt;line-height:1.55;padding:0 6px;border-radius:3.5px;
+  background:#f0f3f8;color:var(--d-ink-2);border:1px solid #e2e8f0;white-space:nowrap;
+}
+.d-tag.tf{background:#fbe6e2;color:var(--d-focus);border-color:#f3ccc5;font-weight:700}
+.d-tag.tt{background:var(--d-blue-soft);color:var(--d-track);border-color:var(--d-blue-line);font-weight:700}
+.d-tag.tw{background:#eef1f5;color:var(--d-watch);border-color:#dde3ea;font-weight:700}
+.d-tag.no{background:transparent;border-color:transparent;color:var(--d-muted);padding:0;font-variant-numeric:tabular-nums}
+
+.d-item h3{font-size:10.6pt;font-weight:700;color:var(--d-navy);line-height:1.5;margin-bottom:3px}
+.d-item .d-info{font-size:8.4pt;color:var(--d-muted);margin-bottom:5px}
+.d-item .d-sum{font-size:9.4pt;color:var(--d-ink-2);line-height:1.68}
+.d-item .d-sub{
+  margin-top:6px;font-size:9.1pt;line-height:1.65;color:var(--d-ink-2);
+  padding:6px 9px;border-radius:5px;border:1px solid transparent;break-inside:avoid;
+}
+.d-item .d-sub b{display:block;font-size:8.4pt;letter-spacing:.4px;margin-bottom:2px}
+.d-item .d-sub.imp{background:#fdf5f4;border-color:#f2d9d4}
+.d-item .d-sub.imp b{color:var(--d-focus)}
+.d-item .d-sub.act{background:#f2f9f4;border-color:#d3ecdb}
+.d-item .d-sub.act b{color:#15803d}
+.d-item .d-src{
+  margin-top:6px;padding-top:5px;border-top:1px dashed var(--d-border);
+  font-size:8.1pt;color:var(--d-muted);line-height:1.6;word-break:break-all;
+}
+.d-item .d-src b{color:var(--d-ink-2);font-weight:600}
+.d-item .d-src .u{color:var(--d-blue)}
+.d-item .d-rep{
+  font-size:8.2pt;color:var(--d-track);margin-top:4px;
+  background:var(--d-blue-soft);border:1px dashed var(--d-blue-line);
+  border-radius:4px;padding:3px 7px;
+}
+
+/* 紧凑版（持续跟踪 / 一般了解） */
+.d-item.compact .d-sum{font-size:8.9pt}
+.d-item.compact h3{font-size:9.9pt}
+
+/* ============================== 影响分析 ================================= */
+.d-matrix{display:flex;flex-direction:column;gap:9px}
+.d-mx{
+  border:1px solid var(--d-border);border-radius:7px;padding:10px 13px;
+  break-inside:avoid;background:#fff;
+}
+.d-mx::before{content:"";display:block;height:0}
+.d-mx h3{font-size:10.6pt;color:var(--d-navy);margin-bottom:3px;line-height:1.5}
+.d-mx .d-lv{
+  font-size:8.4pt;color:var(--d-muted);margin-bottom:6px;padding-bottom:5px;
+  border-bottom:1px dashed var(--d-border);
+}
+.d-mx p{font-size:9.5pt;color:var(--d-ink-2);line-height:1.72}
+
+/* ============================== 趋势展望 ================================= */
+.d-future{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.d-fc{
+  border:1px solid var(--d-border);border-radius:7px;padding:10px 12px;
+  break-inside:avoid;background:#fafcfe;
+}
+.d-fc .d-fn{
+  width:18px;height:18px;border-radius:5px;background:var(--d-blue);color:#fff;
+  font-size:8.6pt;font-weight:700;text-align:center;line-height:18px;margin-bottom:5px;
+}
+.d-fc h3{font-size:10.2pt;color:var(--d-navy);margin-bottom:3px;line-height:1.5}
+.d-fc p{font-size:9.2pt;color:var(--d-ink-2);line-height:1.7}
+
+/* ============================== 附表 ==================================== */
+.d-tbl{width:100%;border-collapse:collapse;font-size:8.6pt;line-height:1.55}
+.d-tbl thead th{
+  background:#eef3f9;color:var(--d-navy);font-weight:700;text-align:left;
+  padding:5px 6px;border:1px solid var(--d-border);white-space:nowrap;
+}
+.d-tbl td{padding:4px 6px;border:1px solid var(--d-border);vertical-align:top;color:var(--d-ink-2)}
+.d-tbl tbody tr:nth-child(even){background:#fafcfe}
+.d-tbl td.n{text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.d-tbl td.tier{white-space:nowrap;font-weight:700}
+.d-tbl td.tier.focus{color:var(--d-focus)}
+.d-tbl td.tier.track{color:var(--d-track)}
+.d-tbl td.tier.watch{color:var(--d-watch)}
+.d-tbl td.src{word-break:break-all;font-size:7.8pt;color:var(--d-muted)}
+.d-tbl td.src a{color:var(--d-blue)}
+.d-tbl tr{break-inside:avoid}
+.d-tbl thead{display:table-header-group}
+
+/* ============================== 文末声明 ================================= */
+.d-foot{
+  margin-top:20px;padding-top:10px;border-top:1.5px solid var(--d-navy);
+  display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap;
+  font-size:8.2pt;color:var(--d-muted);line-height:1.65;break-inside:avoid;
+}
+.d-foot b{color:var(--d-navy);display:block;font-size:8.8pt;margin-bottom:2px}
+
+/* 统计小条 */
+.d-strip{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.d-strip span{
+  font-size:8.6pt;padding:3px 9px;border-radius:5px;border:1px solid var(--d-border);
+  background:#fafcfe;color:var(--d-ink-2);
+}
+.d-strip b{font-variant-numeric:tabular-nums}
+.d-strip .s-focus{border-color:#f3ccc5;color:var(--d-focus);background:var(--d-focus-bg)}
+.d-strip .s-track{border-color:var(--d-blue-line);color:var(--d-track);background:var(--d-track-bg)}
+.d-strip .s-watch{border-color:#dde3ea;color:var(--d-watch);background:var(--d-watch-bg)}
+
+/* ============================== 打印 =================================== */
+@media print{
+  .a4-screen{background:#fff}
+  .a4-bar,.a4-tip{display:none!important}
+  .a4-stage{padding:0}
+  .a4-doc{
+    width:auto;min-height:0;padding:0;margin:0;
+    box-shadow:none;font-size:10.5pt;
+  }
+  /* 让色块、浅底在纸上照常输出 */
+  .a4-doc,.a4-doc *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ds{break-inside:auto}
+  .ds > h2{break-after:avoid}
+  /* 章节尽量不从页中间断开标题 */
+  .d-title,.dh,.d-meta{break-inside:avoid}
+}
+
+/* 屏幕预览提示 */
+.a4-tip{
+  max-width:210mm;margin:0 auto 14px;font-size:12px;color:rgba(255,255,255,.72);
+  display:flex;align-items:center;gap:8px;padding:0 4px;
+}

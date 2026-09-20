@@ -150,6 +150,14 @@ def main():
 
     run([PY, AGENT / "build_data.py"])
 
+    # A4 竖版静态 PDF（可选步骤：浏览器缺失或渲染失败只提示，不中断流水线）
+    # 顺序说明：build_data 先产出 site-data.js（导出视图要读），
+    #           渲染完 PDF 后再跑一次 build_data 把 pdf 可用标记回填到 index.json。
+    print("\n▶ 预渲染 A4 竖版 PDF")
+    r = subprocess.run([str(PY), str(AGENT / "build_pdf.py")], cwd=str(ROOT))
+    if r.returncode == 0:
+        run([PY, AGENT / "build_data.py"])
+
     print("\n" + "=" * 60)
     print("流水线完成。")
     print("  本地预览：python3 -m http.server 8000")

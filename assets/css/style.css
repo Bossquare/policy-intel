@@ -215,6 +215,29 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{
 .btn.ghost:hover{background:#eef2f7}
 .btn.sm{font-size:12.5px;padding:5px 11px}
 
+/* ============================ 简报下载 ============================ */
+.dl-group{
+  display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;
+  padding:3px 9px 3px 11px;border-radius:9px;
+  background:#f6f9fd;border:1px dashed var(--blue-line);
+}
+.dl-group .dl-label{
+  font-size:12px;color:var(--navy);font-weight:600;letter-spacing:.4px;
+}
+.dl-group .dl-label::before{content:"↓";color:var(--blue);font-weight:700;margin-right:3px}
+.dl-group .btn.sm{padding:4px 10px;font-size:12px;background:#fff}
+.dl-group .btn.sm.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.dl-group .btn.sm.primary:hover{background:#1a63c4}
+.dl-group .dl-hint{font-size:11px;color:var(--muted);white-space:nowrap}
+.brief-actions{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;
+  padding-top:18px;border-top:1px dashed var(--border);
+}
+@media(max-width:720px){
+  .dl-group{width:100%}
+  .dl-group .dl-hint{width:100%}
+}
+
 /* ============================ 筛选栏 ============================ */
 .filters{
   background:var(--card);border:1px solid var(--border);border-radius:11px;

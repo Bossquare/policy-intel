@@ -4,7 +4,7 @@
     "subtitle": "政策跟踪 · 标准动态 · 赛道研判",
     "owner": "Bossquare"
   },
-  "updated_at": "2026-09-20 15:25",
+  "updated_at": "2026-09-20 16:28",
   "tracks": {
     "smart-building": {
       "label": "智慧建筑",
@@ -156,7 +156,8 @@
             "ai-building"
           ]
         }
-      ]
+      ],
+      "pdf": true
     },
     {
       "id": "2026-W37",
@@ -242,7 +243,8 @@
             "intelligent-construction"
           ]
         }
-      ]
+      ],
+      "pdf": true
     },
     {
       "id": "2026-W36",
@@ -335,7 +337,8 @@
             "bim-cim"
           ]
         }
-      ]
+      ],
+      "pdf": true
     }
   ]
 }
