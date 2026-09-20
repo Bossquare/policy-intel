@@ -79,6 +79,82 @@
     return m ? m[1] + "-" + m[2] + "-" + m[3] : d;
   }
 
+  /* ---------------------------------------------------------- 来源链接 */
+  /* 链接可用性由 agent/check_sources.py 联网探测产出（打包在 site-data.js 的 source_health） */
+  const HEALTH = (SITE.source_health && SITE.source_health.items) || {};
+  const HEALTH_AT = (SITE.source_health && SITE.source_health.checked_at) || "";
+
+  function healthTag(url) {
+    const h = HEALTH[url];
+    if (!h || h.status === "ok") return "";
+    if (h.status === "dead") {
+      return '<span class="src-status dead" title="最近一次检查返回 ' + esc(h.code) + '，链接可能已失效">链接失效</span>';
+    }
+    return '<span class="src-status warn" title="站点拒绝脚本访问，用浏览器通常可正常打开">请用浏览器打开</span>';
+  }
+
+  function kindTag(sp) {
+    return sp.kind === "list"
+      ? '<span class="src-kind" title="原报告只记录到栏目页，需在该栏目内按标题或文号检索">栏目页</span>'
+      : "";
+  }
+
+  /* 详情页「来源与可信度」区块 */
+  function sourceBlock(it) {
+    const sp = it.source || {};
+    if (!sp.url) {
+      return "<p>来源：未记录　｜　可信度：" + esc(it.confidence || "未标注") + "</p>";
+    }
+    let h = '<div class="src-box">';
+    h += '<div class="src-main">' + kindTag(sp) + healthTag(sp.url) +
+      '<a href="' + esc(sp.url) + '" target="_blank" rel="noopener">' + esc(sp.label || sp.url) + "</a></div>";
+    h += '<div class="src-url"><code>' + esc(sp.url) + "</code>" +
+      '<button type="button" class="src-copy" data-copy="' + esc(sp.url) + '">复制链接</button></div>';
+    if (sp.note) h += '<div class="src-note">' + esc(sp.note) + "</div>";
+    if (sp.alt && sp.alt.length) {
+      h += '<div class="src-alt">备用来源：' + sp.alt.map(function (a) {
+        return '<a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.label) + "</a>" + healthTag(a.url);
+      }).join("　") + "</div>";
+    }
+    h += '<p class="src-conf">可信度：' + esc(it.confidence || "未标注") +
+      '<span class="src-hint">可信度沿用原始检索状态；标注「待核实」的条目表示附件或正文尚未逐条核验。' +
+      (HEALTH_AT ? "链接可用性最近检查于 " + esc(HEALTH_AT) + "。" : "") + "</span></p>";
+    h += "</div>";
+    return h;
+  }
+
+  /* 复制到剪贴板：https 下用 clipboard API，file:// 打开时降级到 execCommand */
+  function copyText(text, btn) {
+    const old = btn.textContent;
+    function done(ok) {
+      btn.textContent = ok ? "已复制" : "复制失败";
+      btn.classList.toggle("ok", ok);
+      setTimeout(function () { btn.textContent = old; btn.classList.remove("ok"); }, 1600);
+    }
+    function fallback() {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        return ok;
+      } catch (e) { return false; }
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallback()); });
+    } else {
+      done(fallback());
+    }
+  }
+  document.addEventListener("click", function (e) {
+    const b = e.target && e.target.closest ? e.target.closest(".src-copy") : null;
+    if (b) copyText(b.getAttribute("data-copy") || "", b);
+  });
+
   /* ---------------------------------------------------------------- 卡片 */
   function intelCard(it) {
     const hasInsight = !!(it.impact || it.action);
@@ -91,7 +167,10 @@
         '<div class="actions">' +
           '<a class="btn sm" href="item.html?id=' + encodeURIComponent(it.id) + '">查看详情</a>' +
           (hasInsight ? '<a class="btn sm ghost" href="item.html?id=' + encodeURIComponent(it.id) + '#insight">影响分析</a>' : "") +
-          (it.source && it.source.url ? '<a class="btn sm ghost" href="' + esc(it.source.url) + '" target="_blank" rel="noopener">原文</a>' : "") +
+          (it.source && it.source.url
+            ? '<a class="btn sm ghost" href="' + esc(it.source.url) + '" target="_blank" rel="noopener">' +
+              (it.source.kind === "list" ? "栏目页" : "原文") + healthTag(it.source.url) + "</a>"
+            : "") +
         "</div>" +
         '<div class="intel-foot"><span>' + esc(it.confidence || "") + "</span>" +
           '<span class="rel">相关性 ' + it.relevance + '<i class="rel-bar"><i style="width:' + it.relevance + '%"></i></i></span>' +
@@ -261,10 +340,6 @@
     }
     document.title = it.title + " · 情报条目";
 
-    const src = it.source && it.source.url
-      ? '<a href="' + esc(it.source.url) + '" target="_blank" rel="noopener">' + esc(it.source.label || it.source.url) + "</a>"
-      : "<span>未记录</span>";
-
     root.innerHTML =
       "<div>" + tierBadge(it) + levelBadge(it) + trackBadges(it, 6) + "</div>" +
       "<h1>" + esc(it.title) + "</h1>" +
@@ -282,8 +357,7 @@
       (it.action
         ? '<div class="block action-block"><h4>应对建议</h4><p>' + esc(it.action) + "</p></div>"
         : "") +
-      '<div class="block"><h4>来源与可信度</h4><p>来源：' + src + "　｜　可信度：" + esc(it.confidence || "未标注") +
-        '<br><span style="color:var(--muted);font-size:13px">可信度沿用原始检索状态；标注「待核实」的条目表示附件或正文尚未逐条核验。</span></p></div>' +
+      '<div class="block"><h4>来源与可信度</h4>' + sourceBlock(it) + '</div>' +
       '<div class="block"><h4>归档信息</h4><p style="font-size:13px;color:var(--muted)">条目编号 ' + esc(it.id) +
         "　｜　所属简报：" + esc(it.brief) + '</p></div>' +
       '<div style="margin-top:22px"><a class="btn ghost" href="items.html">← 返回条目库</a> ' +
@@ -342,7 +416,10 @@
         return "<tr><td>" + i.no + "</td><td>" + TIERS[i.tier].label + "</td><td>" + esc(i.org) +
           "</td><td>" + esc(i.date_raw) + '</td><td><a href="item.html?id=' + encodeURIComponent(i.id) + '">' +
           esc(i.title) + "</a></td><td>" + esc(i.form) + "</td><td>" + i.relevance + "</td><td>" +
-          (i.source && i.source.url ? '<a href="' + esc(i.source.url) + '" target="_blank" rel="noopener">链接</a>' : "-") +
+          (i.source && i.source.url
+            ? '<a href="' + esc(i.source.url) + '" target="_blank" rel="noopener">' +
+              (i.source.kind === "list" ? "栏目页" : "链接") + "</a>" + healthTag(i.source.url)
+            : "-") +
           "</td></tr>";
       }).join("") + "</tbody></table></div></div>";
 

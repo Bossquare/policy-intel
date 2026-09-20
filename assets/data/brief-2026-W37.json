@@ -6,8 +6,9 @@
     "generated_at": "2026-09-20",
     "total": 16,
     "note": "回溯补齐：由 9 月试点报告按周拆分，条目与 9 月简报共享同一编号与内容。",
-    "built_at": "2026-09-20 14:54",
-    "insight_count": 5
+    "built_at": "2026-09-20 15:25",
+    "insight_count": 5,
+    "source_fixed": 3
   },
   "stats": {
     "by_level": {
@@ -71,7 +72,9 @@
       "summary": "五维能力标尺；BIM、机器人、数据贯通。",
       "source": {
         "label": "zjj.xa.gov.cn",
-        "url": "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html"
+        "url": "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -98,7 +101,9 @@
       "summary": "依托省智能建造产业互联网平台按季报送。",
       "source": {
         "label": "zjt.hubei.gov.cn",
-        "url": "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml"
+        "url": "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -125,7 +130,9 @@
       "summary": "城市更新为重要抓手；\"六张网\"提高设防标准；完善政策制度体系。",
       "source": {
         "label": "cpc.people.com.cn",
-        "url": "http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html"
+        "url": "http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "一方报道",
       "tracks": [
@@ -151,7 +158,9 @@
       "summary": "电子档案单套制；BIM数字孪生交付；AI+工程文件；智能建造信用激励。",
       "source": {
         "label": "zjw.beijing.gov.cn",
-        "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/744104301/index.shtml"
+        "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/744104301/index.shtml",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [
@@ -179,7 +188,9 @@
       "summary": "BIM/数字孪生/AI+建筑/城市更新数字化场景清单；10-10截止。",
       "source": {
         "label": "zjw.beijing.gov.cn",
-        "url": "https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/744118225/index.shtml"
+        "url": "https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/744118225/index.shtml",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -207,7 +218,9 @@
       "summary": "14部门协同；乌鲁木齐完成国家试点；CIM+数字底座。",
       "source": {
         "label": "zjt.xinjiang.gov.cn",
-        "url": "https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml"
+        "url": "https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -234,7 +247,10 @@
       "summary": "支持中国建造（安徽）互联网平台；BIM/物联网集成应用。",
       "source": {
         "label": "finance.sina.com.cn",
-        "url": "https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml.md"
+        "url": "https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml",
+        "note": "原报告链接尾部误带「.md」后缀，已修正。",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "中",
       "tracks": [
@@ -261,7 +277,9 @@
       "summary": "智能绿色建造区；建筑机器人；AI隐患识别；BIM+IoT+AI大模型。",
       "source": {
         "label": "www.mohurd.gov.cn",
-        "url": "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html"
+        "url": "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [
@@ -290,7 +308,9 @@
       "summary": "AI赋能工程建造服务化；高坠识别准确率85%+。",
       "source": {
         "label": "www.glodon.com",
-        "url": "https://www.glodon.com/news/1626.html"
+        "url": "https://www.glodon.com/news/1626.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -316,7 +336,17 @@
       "summary": "10-01起3000万以下施工总承包全面AI辅助评标；异常行为实时预警。",
       "source": {
         "label": "zfcj.gz.gov.cn",
-        "url": "https://zfcj.gz.gov.cn/gkmlpt/policy"
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/policy",
+        "kind": "list",
+        "note": "原报告记录的是广州市住建局政策文件栏目页。可在站内按文号「穗建筑〔2026〕543号」检索。",
+        "alt": [
+          {
+            "label": "广州交通电台 · 报道",
+            "url": "https://www.toutiao.com/article/7687509370703299126/"
+          }
+        ],
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -342,7 +372,9 @@
       "summary": "通过江苏智建平台对接；2030年大中型项目应用占比70%。",
       "source": {
         "label": "jsszfhcxjst.jiangsu.gov.cn",
-        "url": "https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html"
+        "url": "https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -368,7 +400,9 @@
       "summary": "BIM、AI+设计；2030年数字家庭配套率60%；150个示范项目。",
       "source": {
         "label": "www.hunantoday.cn",
-        "url": "https://www.hunantoday.cn/news/xhn/202609/33724760.html"
+        "url": "https://www.hunantoday.cn/news/xhn/202609/33724760.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "中高",
       "tracks": [
@@ -396,7 +430,9 @@
       "summary": "13个项目为数字勘察试点。",
       "source": {
         "label": "zfcj.gz.gov.cn",
-        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/11/11000/post_11000121.html"
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/11/11000/post_11000121.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -422,7 +458,9 @@
       "summary": "浙大建筑设计研究院负责技术解释。",
       "source": {
         "label": "jst.zj.gov.cn",
-        "url": "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html"
+        "url": "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -448,7 +486,9 @@
       "summary": "实景三维成都底座；2027年一网统管；机器狗巡检、AI远程监管。",
       "source": {
         "label": "www.mohurd.gov.cn",
-        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html"
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -476,7 +516,11 @@
       "summary": "为智慧建筑评价提供技术支撑；名单全文待核实。",
       "source": {
         "label": "member.fangchan.com",
-        "url": "http://member.fangchan.com/mindex"
+        "url": "http://member.fangchan.com/mindex",
+        "kind": "list",
+        "note": "原报告记录的是中国房地产业协会会员服务入口，非名单本身。可在协会官网按「智慧建筑评价专家组」检索。",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "中高",
       "tracks": [

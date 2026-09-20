@@ -339,6 +339,46 @@ tbody tr:last-child td{border-bottom:none}
 }
 .block p{font-size:14.3px;color:var(--ink-2)}
 .block.focus-block > h4{border-left-color:var(--t-focus)}
+
+/* ======================= 来源与可信度 ======================= */
+.src-box{
+  background:#f7fafd;border:1px solid var(--border);border-radius:9px;
+  padding:13px 15px;font-size:13.5px;color:var(--ink-2);
+}
+.src-main{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14.5px}
+.src-main a{font-weight:600;word-break:break-all}
+.src-kind{
+  font-size:11.5px;padding:1px 7px;border-radius:5px;flex:none;
+  background:#eef2f7;color:var(--muted);border:1px solid var(--border);
+}
+.src-status{font-size:11.5px;padding:1px 7px;border-radius:5px;flex:none;border:1px solid}
+.src-status.dead{background:var(--t-focus-bg);color:var(--t-focus);border-color:#f6cfc9}
+.src-status.warn{background:#fff8e6;color:var(--gold);border-color:#f0e0b8}
+.btn .src-status{margin-left:6px;vertical-align:1px}
+.src-url{
+  display:flex;align-items:center;gap:9px;margin-top:9px;
+  background:#fff;border:1px solid var(--border);border-radius:7px;padding:7px 10px;
+}
+.src-url code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.3px;
+  color:var(--ink-2);flex:1;word-break:break-all;line-height:1.55;
+  -webkit-user-select:all;user-select:all;
+}
+.src-copy{
+  flex:none;font-size:12px;padding:4px 10px;border-radius:6px;cursor:pointer;
+  background:var(--blue-soft);color:var(--blue);border:1px solid var(--blue-line);
+  font-family:inherit;transition:.15s;white-space:nowrap;
+}
+.src-copy:hover{background:#dbe9fa}
+.src-copy.ok{background:#e6f4ea;color:var(--green);border-color:#bfe3c9}
+.src-note{margin-top:9px;font-size:12.8px;color:var(--muted);line-height:1.65}
+.src-alt{margin-top:8px;font-size:13px}
+.src-alt a{font-weight:500}
+.block .src-conf{
+  margin-top:10px;padding-top:9px;border-top:1px dashed var(--border);
+  font-size:13.2px;color:var(--ink-2);
+}
+.src-hint{display:block;margin-top:3px;font-size:12.3px;color:var(--muted);line-height:1.6}
 .block.action-block > h4{border-left-color:var(--green)}
 .block.action-block{background:#f4fbf6;border:1px solid #d9f0e0;border-radius:10px;padding:16px 20px}
 .block.focus-block{background:#fdf6f5;border:1px solid #f6dcd8;border-radius:10px;padding:16px 20px}

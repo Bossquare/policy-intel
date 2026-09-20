@@ -56,6 +56,8 @@ policy-intel/
 │   ├── llm.local.json           模型端点配置（本地文件，不入库）
 │   ├── insights.json            人工撰写的影响分析（优先级高于模型草稿）
 │   ├── weekly_narratives.json   周报的结论 / 影响 / 展望（人工撰写）
+│   ├── source_fixes.json        来源链接修正表（改链接 / 标注栏目页 / 补备用来源）
+│   ├── check_sources.py         来源链接健康检查（联网探测，产出 source-health.json）
 │   ├── extract_seed.py          从原始报告抽取种子数据
 │   ├── build_weekly.py          按周拆分简报（回溯补齐历史周报）
 │   ├── build_data.py            合并数据、生成站点数据
@@ -79,6 +81,9 @@ python3 agent/build_data.py
 
 # 回溯补齐历史周报（按周拆分月报数据，叙述写在 weekly_narratives.json）
 python3 agent/build_weekly.py
+
+# 来源链接健康检查（会联网探测，产出 assets/data/source-health.json）
+python3 agent/check_sources.py
 
 # 本地预览
 python3 -m http.server 8000
@@ -110,11 +115,16 @@ python3 -m http.server 8000
 
 1. **采集源需要定期校准。** 政府网站改版频繁，`agent/sources.json` 里失效的源在
    `collect.py` 运行日志中会显示为「0 条」并单独列出，按提示更新栏目地址即可。
-2. **自动生成的影响分析是草稿。** `analyze.py` 产出的 `impact` / `action` 需要人工复核。
+   也可以用 `python3 agent/check_sources.py` 一次性探测全部采集源与条目来源的可用性。
+2. **来源链接可人工修正。** 原始报告记录的部分链接只到栏目页、或带了错误后缀，
+   统一在 `agent/source_fixes.json` 中按条目 id 修正（替换链接 / 标注为栏目页 / 补充备用来源），
+   `build_data.py` 构建时合并。站点上的「来源与可信度」会展示完整地址、复制按钮、
+   备用来源，并对探测失效的链接标出「链接失效」。
+3. **自动生成的影响分析是草稿。** `analyze.py` 产出的 `impact` / `action` 需要人工复核。
    复核后的结论请写进 `agent/insights.json`，它会按条目 id 覆盖模型草稿；重跑 `build_data.py` 生效。
-3. **业务口径可调。** 六条赛道的定义与关键词表分别在 `agent/analyze.py`（TRACKS / TRACK_KEYWORDS）
+4. **业务口径可调。** 六条赛道的定义与关键词表分别在 `agent/analyze.py`（TRACKS / TRACK_KEYWORDS）
    和 `agent/extract_seed.py` 中，业务方向调整时同步修改这两处。
-4. **分档规则透明可复核。** 规则位于 `analyze.py` 的 SYSTEM_PROMPT 与 `rule_fallback()`，
+5. **分档规则透明可复核。** 规则位于 `analyze.py` 的 SYSTEM_PROMPT 与 `rule_fallback()`，
    条目的分档理由记录在 `tier_reason` 字段中。
 
 ## 数据与可信度

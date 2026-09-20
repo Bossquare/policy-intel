@@ -1,10 +1,10 @@
 {
-  "_comment": "情报采集源清单。level 取值 national / key-city / other / industry。首次部署时请逐个核对 url 是否为该单位的『信息发布/政策文件』栏目页；政府网站改版频繁，失效的源在运行日志中会标为 0 条，按提示更新即可。",
+  "_comment": "情报采集源清单。level 取值 national / key-city / other / industry。首次部署时请逐个核对 url 是否为该单位的『信息发布/政策文件』栏目页；政府网站改版频繁，失效的源在运行日志中会标为 0 条，按提示更新即可。说明：原「国务院新闻办·发布会」（scio.gov.cn）在部分网络环境返回 521 无法采集，已替换为住建部「建设要闻」栏目；「中央网信办」cac.gov.cn 存在间歇性访问失败，采集时偶发 0 条属正常，可用 agent/check_sources.py 复核。",
   "sources": [
     { "name": "住房和城乡建设部·政策文件", "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/index.html", "level": "national", "region": "全国" },
     { "name": "住房和城乡建设部·工作动态", "url": "https://www.mohurd.gov.cn/xinwen/gzdt/index.html", "level": "national", "region": "全国" },
     { "name": "住房和城乡建设部·地方信息", "url": "https://www.mohurd.gov.cn/xinwen/dfxx/index.html", "level": "national", "region": "全国" },
-    { "name": "国务院新闻办·发布会", "url": "http://www.scio.gov.cn/live/", "level": "national", "region": "全国" },
+    { "name": "住房和城乡建设部·建设要闻", "url": "https://www.mohurd.gov.cn/xinwen/jsyw/index.html", "level": "national", "region": "全国" },
     { "name": "中央网络安全和信息化委员会办公室", "url": "https://www.cac.gov.cn/", "level": "national", "region": "全国" },
 
     { "name": "上海市住房和城乡建设管理委员会·建设管理", "url": "https://zjw.sh.gov.cn/jsgl/index.html", "level": "key-city", "region": "上海" },

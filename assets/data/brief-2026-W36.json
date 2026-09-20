@@ -6,8 +6,9 @@
     "generated_at": "2026-09-20",
     "total": 17,
     "note": "回溯补齐：由 9 月试点报告按周拆分，条目与 9 月简报共享同一编号与内容。",
-    "built_at": "2026-09-20 14:54",
-    "insight_count": 5
+    "built_at": "2026-09-20 15:25",
+    "insight_count": 5,
+    "source_fixed": 2
   },
   "stats": {
     "by_level": {
@@ -69,7 +70,9 @@
       "summary": "智能建造、绿色建造、BIM应用经验交流；广州主会场+4分会场。",
       "source": {
         "label": "zfcxjst.gd.gov.cn",
-        "url": "https://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4949664.html"
+        "url": "https://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4949664.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -97,7 +100,9 @@
       "summary": "替代2018版；与电子文件、场景征集配套。",
       "source": {
         "label": "scjgj.beijing.gov.cn",
-        "url": "https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html"
+        "url": "https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -123,7 +128,9 @@
       "summary": "智慧工地建设与评价统一依据。",
       "source": {
         "label": "www.zgjzy.org.cn",
-        "url": "http://www.zgjzy.org.cn/menu19/newsDetail/11876.html"
+        "url": "http://www.zgjzy.org.cn/menu19/newsDetail/11876.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -149,7 +156,9 @@
       "summary": "2万㎡以上项目强制嵌入；给费用、给用工；机器人培训上岗。",
       "source": {
         "label": "sjw.nanjing.gov.cn",
-        "url": "http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html"
+        "url": "http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -175,7 +184,9 @@
       "summary": "采用评价指引2.0；全流程线上评价。",
       "source": {
         "label": "zfcj.gz.gov.cn",
-        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html"
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -201,7 +212,9 @@
       "summary": "120个智能建造项目；600万㎡建筑机器人；装配式≥90%；三星绿建20%。",
       "source": {
         "label": "zjw.sh.gov.cn",
-        "url": "https://zjw.sh.gov.cn/jsgl/20260902/652ccdc1039e4514a90e02c0e1e0bc98.html"
+        "url": "https://zjw.sh.gov.cn/jsgl/20260902/652ccdc1039e4514a90e02c0e1e0bc98.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -227,7 +240,10 @@
       "summary": "机器人通用技术标准至10-07；SJG 232.1-2026于09-30实施。",
       "source": {
         "label": "zjj.sz.gov.cn",
-        "url": "https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/mobile/52610"
+        "url": "https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/52610",
+        "note": "原链接为移动版页面（/mobile/），已替换为桌面版地址。",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -254,7 +270,9 @@
       "summary": "按技术目录第四版细化实施路径。",
       "source": {
         "label": "zjj.sz.gov.cn",
-        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12965835.html"
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12965835.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -280,7 +298,9 @@
       "summary": "BIM+CIM+GIS数字孪生时空底座；推进赋码。",
       "source": {
         "label": "zfcxjw.cq.gov.cn",
-        "url": "https://zfcxjw.cq.gov.cn/hdjl_166/yjzj/202609/P020260903641402930130.pdf"
+        "url": "https://zfcxjw.cq.gov.cn/hdjl_166/yjzj/202609/P020260903641402930130.pdf",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [
@@ -307,7 +327,9 @@
       "summary": "首部城市更新规划编制行标；中规院牵头。",
       "source": {
         "label": "www.mohurd.gov.cn",
-        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html"
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [
@@ -333,7 +355,9 @@
       "summary": "上海市政总院主编；反馈截止10-08。",
       "source": {
         "label": "www.mohurd.gov.cn",
-        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html"
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [],
@@ -357,7 +381,9 @@
       "summary": "中国建筑标准设计研究院牵头；支撑地下管网智能化普查。",
       "source": {
         "label": "www.mohurd.gov.cn",
-        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_396a333e810a49b1bf5eb1e797a28f3f.html"
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_396a333e810a49b1bf5eb1e797a28f3f.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [],
@@ -381,7 +407,9 @@
       "summary": "2家企业、7个项目；动态监管。",
       "source": {
         "label": "zfcxjw.cq.gov.cn",
-        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260903_16027723_jlb.html"
+        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260903_16027723_jlb.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [],
@@ -405,7 +433,9 @@
       "summary": "4方面14项任务；城市运行双化协同；绿色高效AI。",
       "source": {
         "label": "www.cac.gov.cn",
-        "url": "https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm"
+        "url": "https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm",
+        "status": "dead",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [
@@ -432,7 +462,11 @@
       "summary": "为智能建造/BIM/AI+建筑提供平台载体；指南待核实。",
       "source": {
         "label": "jst.zj.gov.cn",
-        "url": "https://jst.zj.gov.cn/col/col1229159347/index.html"
+        "url": "https://jst.zj.gov.cn/col/col1229159347/index.html",
+        "kind": "list",
+        "note": "原报告记录的是浙江省住建厅栏目页。可在站内按「建筑工程科创中心 2026年度」检索。",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "中",
       "tracks": [
@@ -460,7 +494,9 @@
       "summary": "一楼一码、到套到户；市政工程赋码落图。",
       "source": {
         "label": "www.mohurd.gov.cn",
-        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html"
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "已查证",
       "tracks": [
@@ -486,7 +522,9 @@
       "summary": "第一批AI场景解决方案清单；加强供需对接。",
       "source": {
         "label": "zjt.fj.gov.cn",
-        "url": "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm"
+        "url": "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm",
+        "status": "ok",
+        "checked_at": null
       },
       "confidence": "高",
       "tracks": [

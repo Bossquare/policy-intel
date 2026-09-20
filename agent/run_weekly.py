@@ -142,6 +142,12 @@ def main():
         sys.exit(f"未找到分析结果：{analyzed}")
     promote(analyzed)
 
+    # 来源链接健康检查（可选步骤：发现失效只提示，不中断流水线）
+    print("\n▶ 来源链接健康检查")
+    r = subprocess.run([str(PY), str(AGENT / "check_sources.py"), "--quiet"], cwd=str(ROOT))
+    if r.returncode != 0:
+        print("  ⚠ 存在失效链接（清单见上），已记入 source-health.json，站点会标出「链接失效」；不影响本期成稿。")
+
     run([PY, AGENT / "build_data.py"])
 
     print("\n" + "=" * 60)
