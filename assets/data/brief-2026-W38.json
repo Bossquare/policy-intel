@@ -1,0 +1,492 @@
+{
+  "meta": {
+    "id": "2026-W38",
+    "title": "2026年第38周（9.14–9.20）建筑智能化政策与技术情报周报",
+    "period": "2026-09-14 至 2026-09-20",
+    "generated_at": "2026-09-21",
+    "total": 15,
+    "note": "自动生成（分析器：llm）。影响分析为草稿，建议人工复核后发布。",
+    "built_at": "2026-09-21 09:06",
+    "insight_count": 0,
+    "source_fixed": 0
+  },
+  "stats": {
+    "by_level": {
+      "key-city": 7,
+      "other": 6,
+      "industry": 1,
+      "national": 1
+    },
+    "by_tier": {
+      "track": 8,
+      "watch": 7
+    },
+    "by_track": {
+      "smart-building": 3,
+      "bim-cim": 5,
+      "intelligent-construction": 6,
+      "green-smart": 1,
+      "urban-renewal": 1
+    }
+  },
+  "tracks": {
+    "smart-building": {
+      "label": "智慧建筑",
+      "desc": "楼宇智能化、智能家居、数字家庭、智慧建筑评价"
+    },
+    "bim-cim": {
+      "label": "BIM/CIM",
+      "desc": "BIM、CIM、数字孪生、实景三维、电子文件、建模算量"
+    },
+    "intelligent-construction": {
+      "label": "智能建造",
+      "desc": "智能建造、建筑机器人、装配式与模块化、智能装备"
+    },
+    "green-smart": {
+      "label": "绿色智能",
+      "desc": "绿色建造、双化协同、低碳与能耗管理"
+    },
+    "urban-renewal": {
+      "label": "城市更新",
+      "desc": "城市更新、老旧小区、城市生命线、韧性城市"
+    },
+    "ai-building": {
+      "label": "AI+建筑",
+      "desc": "人工智能在招投标、审图、造价、工地识别等环节落地"
+    }
+  },
+  "items": [
+    {
+      "id": "2026-W38-001",
+      "no": 1,
+      "title": "深圳市住房和建设局关于发布《深圳市建设工程新技术推广目录（2026年）》的通知",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳市住建局发布《深圳市建设工程新技术推广目录（2026年）》通知；发布单位为深圳市住房和建设局，栏目为通知公告；信息层级为 key-city（深圳）；正文未抓取，目录具体技术类别与要求材料不足",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12989402.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "smart-building",
+        "bim-cim",
+        "intelligent-construction",
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 70,
+      "impact": "",
+      "action": "",
+      "tier_reason": "深圳发布建设工程新技术推广目录，属地方推荐性目录，无强制指标，暂列持续跟踪"
+    },
+    {
+      "id": "2026-W38-002",
+      "no": 2,
+      "title": "建筑业新技术应用示范工程",
+      "org": "北京市住房和城乡建设委员会·其他政务文件",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "北京",
+      "form": "自动采集",
+      "summary": "北京市住建委发布「建筑业新技术应用示范工程」相关栏目信息。；材料仅含标题与栏目层级，正文未抓取，具体内容与要求不明。；发布日期未知，无法判断时效性与申报周期。；材料不足，无法确认涉及的具体技术方向与量化指标。",
+      "source": {
+        "label": "zjw.beijing.gov.cn",
+        "url": "https://zjw.beijing.gov.cn/bjjs/kjcxytg/jzyxjsyysfgc/index.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction",
+        "bim-cim"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 60,
+      "impact": "",
+      "action": "",
+      "tier_reason": "北京地方示范工程栏目，正文缺失，属试点示范类，暂列持续跟踪。"
+    },
+    {
+      "id": "2026-W38-003",
+      "no": 3,
+      "title": "深圳市住房和建设局关于公布2026年深圳市工程建设领域科技计划项目立项的通知",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳住建局公布2026年工程建设领域科技计划项目立项；正文未抓取，具体项目名单、方向与要求材料不足；属地方科技计划立项类通知，非强制性政策文件；是否涉及BIM、智能建造等具体赛道无法确认",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12983908.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "bim-cim",
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方科技计划立项名单类通知，正文缺失，无强制要求或量化指标"
+    },
+    {
+      "id": "2026-W38-004",
+      "no": 4,
+      "title": "深圳市住房和建设局关于《加快建筑业提质升级跟踪管理服务项目》的采购公告",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳住建局发布采购公告，项目为加快建筑业提质升级跟踪管理服务项目；发布栏目为通知公告，层级属重点城市深圳；正文未抓取，采购内容、金额、服务要求等材料不足；发布日期未知，无法判断时效性与当前进展",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12985571.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 35,
+      "impact": "",
+      "action": "",
+      "tier_reason": "仅为采购公告，正文缺失，无强制要求或量化指标，属事务性信息"
+    },
+    {
+      "id": "2026-W38-005",
+      "no": 5,
+      "title": "深圳市住房和建设局关于组织开展2026年度工程建设省级工法申报工作的通知",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳市住建局发布2026年度工程建设省级工法申报通知；材料仅含标题，未抓取正文，申报条件与要求不明；发布日期未知，无法判断申报截止时限；工法申报或涉及施工技术，与智能化赛道关联材料不足",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12987701.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 25,
+      "impact": "",
+      "action": "",
+      "tier_reason": "仅标题的常规工法申报通知，无强制要求或量化指标，智能化关联材料不足"
+    },
+    {
+      "id": "2026-W38-006",
+      "no": 6,
+      "title": "招投标流程及业务办理指南",
+      "org": "北京市住房和城乡建设委员会·其他政务文件",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "北京",
+      "form": "自动采集",
+      "summary": "北京市住建委发布招投标流程及业务办理指南；栏目层级为key-city（北京），属地方政务文件；发布日期未知，正文未抓取，仅凭标题判断；材料不足，无法判断具体流程内容与强制要求",
+      "source": {
+        "label": "zjw.beijing.gov.cn",
+        "url": "https://zjw.beijing.gov.cn/bjjs/zbtb0/ztblcjywblzn/index.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 15,
+      "impact": "",
+      "action": "",
+      "tier_reason": "仅为招投标办事指南，未涉及智能化或AI技术，材料不足"
+    },
+    {
+      "id": "2026-W38-007",
+      "no": 7,
+      "title": "福建省城乡规划设计...",
+      "org": "福建省住房和城乡建设厅·建设科技",
+      "date": "",
+      "date_raw": "",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "福建",
+      "form": "自动采集",
+      "summary": "标题仅显示“福建省城乡规划设计...”，信息不完整。；发布单位为福建省住建厅建设科技，栏目层级为 other（福建）。；日期未知，正文未抓取，无法判断具体政策内容。；仅凭现有材料无法确认是否涉及建筑智能化、BIM/CIM、智能建造等赛道。",
+      "source": {
+        "label": "fjplan.cn",
+        "url": "https://fjplan.cn/",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 10,
+      "impact": "",
+      "action": "",
+      "tier_reason": "材料仅标题且不完整，无正文与日期，无法判断政策实质，仅作一般了解。"
+    },
+    {
+      "id": "2026-W38-008",
+      "no": 8,
+      "title": "上海市住房和城乡建设管理委员会关于印发《上海市既有多层住宅加装电梯工程质量安全监督要点（试行）》的通知",
+      "org": "上海市住房和城乡建设管理委员会·建设管理",
+      "date": "2026-09-15",
+      "date_raw": "2026-09-15",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "上海",
+      "form": "自动采集",
+      "summary": "上海住建委印发《既有多层住宅加装电梯工程质量安全监督要点（试行）》；文件归入建设管理栏目，发布日期为2026年9月15日；正文未抓取，具体监督要求与量化指标材料不足；加装电梯属老旧小区改造与城市更新范畴",
+      "source": {
+        "label": "zjw.sh.gov.cn",
+        "url": "https://zjw.sh.gov.cn/jsgl/20260915/d71e3f76afd34551b99a794ad91c62b0.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方城市更新配套监管要点，非智能化核心赛道，正文缺失暂列跟踪"
+    },
+    {
+      "id": "2026-W38-009",
+      "no": 9,
+      "title": "关于河南省工程建设地方标准 《河南省城市信息模型(CIM)平台汇聚BIM...",
+      "org": "河南省住房和城乡建设厅·标准公告与意见征集",
+      "date": "2026-09-16",
+      "date_raw": "2026-09-16",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "河南",
+      "form": "自动采集",
+      "summary": "河南住建厅发布工程建设地方标准相关公告，涉及CIM平台汇聚BIM；标准名称被截断，全称为《河南省城市信息模型(CIM)平台汇聚BIM…》；栏目为标准公告与意见征集，正文未抓取，具体条款材料不足；发布日期2026-09-16，发布单位为河南省住房和城乡建设厅",
+      "source": {
+        "label": "hnjs.henan.gov.cn",
+        "url": "http://hnjs.henan.gov.cn/2026/09-16/3422380.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "bim-cim"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 82,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方CIM/BIM标准征求意见，命中核心赛道但暂无强制要求或量化指标"
+    },
+    {
+      "id": "2026-W38-010",
+      "no": 10,
+      "title": "关于河南省工程建设地方标准 《河南省城市信息模型（CIM）平台共享交换标...",
+      "org": "河南省住房和城乡建设厅·标准公告与意见征集",
+      "date": "2026-09-16",
+      "date_raw": "2026-09-16",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "河南",
+      "form": "自动采集",
+      "summary": "河南住建厅就《河南省城市信息模型（CIM）平台共享交换标准》征求意见；该文件属河南省工程建设地方标准，现处于意见征集阶段；正文未抓取，具体技术条款、指标与实施要求材料不足；发布栏目为标准公告与意见征集，日期为2026-09-16",
+      "source": {
+        "label": "hnjs.henan.gov.cn",
+        "url": "http://hnjs.henan.gov.cn/2026/09-16/3422376.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "bim-cim"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 78,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方CIM标准征求意见，命中BIM/CIM赛道但无强制要求，暂不紧急"
+    },
+    {
+      "id": "2026-W38-011",
+      "no": 11,
+      "title": "自治区召开智能建造工作推进会",
+      "org": "新疆维吾尔自治区住房和城乡建设厅",
+      "date": "2026-09-16",
+      "date_raw": "2026-09-16",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "新疆",
+      "form": "自动采集",
+      "summary": "新疆维吾尔自治区住建厅召开智能建造工作推进会；发布日期为2026年9月16日，属地方住建部门动态；未抓取正文，会议具体内容、目标与要求材料不足；是否含强制要求或量化指标，材料不足",
+      "source": {
+        "label": "zjt.xinjiang.gov.cn",
+        "url": "https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 62,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方智能建造推进会，仅标题无正文，无量化指标或强制要求，暂列持续跟踪"
+    },
+    {
+      "id": "2026-W38-012",
+      "no": 12,
+      "title": "关于河南省工程建设地方标准 《消防控制室管理技术标准（征求意见稿）》公开...",
+      "org": "河南省住房和城乡建设厅·标准公告与意见征集",
+      "date": "2026-09-16",
+      "date_raw": "2026-09-16",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "河南",
+      "form": "自动采集",
+      "summary": "河南省住建厅就工程建设地方标准《消防控制室管理技术标准（征求意见稿）》公开征求意见。；发布栏目为标准公告与意见征集，发布日期为2026-09-16。；正文未抓取，具体条款、强制要求及量化指标材料不足。；消防控制室管理属楼宇智能化与智慧消防范畴，与智慧建筑相关。",
+      "source": {
+        "label": "hnjs.henan.gov.cn",
+        "url": "http://hnjs.henan.gov.cn/2026/09-16/3422390.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "smart-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 58,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方标准征求意见稿，相关但无强制要求或量化指标，暂不紧急。"
+    },
+    {
+      "id": "2026-W38-013",
+      "no": 13,
+      "title": "关于举办2026年全国行业职业技能竞赛——第三届全国数字化机房安装技能竞赛的通知",
+      "org": "中国建筑业协会·通知公告",
+      "date": "2026-09-18",
+      "date_raw": "2026-09-18",
+      "level": "industry",
+      "level_label": "行业层面",
+      "region": "行业",
+      "form": "自动采集",
+      "summary": "中国建筑业协会发布通知，举办2026年全国行业职业技能竞赛。；竞赛具体名称为第三届全国数字化机房安装技能竞赛。；发布日期为2026-09-18，栏目层级为行业通知公告。；未抓取正文，赛程、报名条件与考核要求材料不足。",
+      "source": {
+        "label": "mp.weixin.qq.com",
+        "url": "https://mp.weixin.qq.com/s/a_9T1KeLNvW1EP5QjwiUtw",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "smart-building"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 35,
+      "impact": "",
+      "action": "",
+      "tier_reason": "属行业协会技能竞赛活动，非政策强制要求，与主营赛道关联有限。"
+    },
+    {
+      "id": "2026-W38-014",
+      "no": 14,
+      "title": "国家互联网信息办公室关于《国务院关于保障未成年人健康安全使用网络的规定（征求意见稿）》公开征求意见的通知",
+      "org": "中央网络安全和信息化委员会办公室",
+      "date": "2026-09-18",
+      "date_raw": "2026-09-18",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "国家网信办就未成年人健康安全使用网络规定公开征求意见；发布单位为中央网信办，栏目层级为全国；发布日期2026-09-18，正文未抓取，材料不足；内容属未成年人网络保护，与建筑智能化无直接关联",
+      "source": {
+        "label": "www.cac.gov.cn",
+        "url": "https://www.cac.gov.cn/2026-09/18/c_1791482017777471.htm",
+        "status": "dead",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 2,
+      "impact": "",
+      "action": "",
+      "tier_reason": "未成年人网络保护政策，与建筑智能化主营赛道无关，仅一般了解"
+    },
+    {
+      "id": "2026-W38-015",
+      "no": 15,
+      "title": "关于公布2026年第十一批建设工程勘察设计企业资质名单的通知",
+      "org": "重庆市住房和城乡建设委员会·公示公告",
+      "date": "2026-09-20",
+      "date_raw": "2026-09-20",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "重庆",
+      "form": "自动采集",
+      "summary": "重庆市住建委公示公告栏目发布2026年第十一批建设工程勘察设计企业资质名单通知。；发布单位为重庆市住房和城乡建设委员会，日期为2026年9月20日。；正文未抓取，仅凭标题判断，具体企业名单与资质类别材料不足。；未涉及建筑智能化、BIM或智能建造等具体政策要求，材料不足。",
+      "source": {
+        "label": "zfcxjw.cq.gov.cn",
+        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260920_16103539.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 10,
+      "impact": "",
+      "action": "",
+      "tier_reason": "仅为地方勘察设计企业资质名单公示，属行政名单类，与主营赛道无直接关联。"
+    }
+  ]
+}

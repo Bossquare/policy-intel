@@ -4,7 +4,7 @@
     "subtitle": "政策跟踪 · 标准动态 · 赛道研判",
     "owner": "Bossquare"
   },
-  "updated_at": "2026-09-20 16:28",
+  "updated_at": "2026-09-21 09:06",
   "tracks": {
     "smart-building": {
       "label": "智慧建筑",
@@ -32,13 +32,44 @@
     }
   },
   "totals": {
-    "items": 45,
-    "focus": 8,
-    "track": 30,
+    "items": 15,
+    "focus": 0,
+    "track": 8,
     "watch": 7,
-    "insights": 12
+    "insights": 0
   },
   "briefs": [
+    {
+      "id": "2026-W38",
+      "title": "2026年第38周（9.14–9.20）建筑智能化政策与技术情报周报",
+      "period": "2026-09-14 至 2026-09-20",
+      "generated_at": "2026-09-21",
+      "file": "brief-2026-W38.json",
+      "total": 15,
+      "insights": 0,
+      "stats": {
+        "by_level": {
+          "key-city": 7,
+          "other": 6,
+          "industry": 1,
+          "national": 1
+        },
+        "by_tier": {
+          "track": 8,
+          "watch": 7
+        },
+        "by_track": {
+          "smart-building": 3,
+          "bim-cim": 5,
+          "intelligent-construction": 6,
+          "green-smart": 1,
+          "urban-renewal": 1
+        }
+      },
+      "conclusions": [],
+      "focus_preview": [],
+      "pdf": true
+    },
     {
       "id": "2026-09",
       "title": "2026年9月 建筑智能化政策与技术情报简报",

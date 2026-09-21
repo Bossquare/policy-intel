@@ -1,35 +1,12 @@
 {
-  "_checked_at": "2026-09-20 15:25",
+  "_checked_at": "2026-09-21 09:06",
   "_items": {
-    "https://www.mohurd.gov.cn/xinwen/jsyw/art/2026/art_ddc584f13eaf4d02958ff8a2b8ad441a.html": {
+    "https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm": {
       "status": "ok",
       "code": "206",
       "used_by": [
-        "2026-09:2026-09-001"
-      ]
-    },
-    "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-002",
-        "2026-W36:2026-09-002"
-      ]
-    },
-    "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-004",
-        "2026-W36:2026-09-004"
-      ]
-    },
-    "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-003",
-        "2026-W36:2026-09-003"
+        "2026-09:2026-09-006",
+        "2026-W36:2026-09-006"
       ]
     },
     "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_396a333e810a49b1bf5eb1e797a28f3f.html": {
@@ -40,11 +17,27 @@
         "2026-W36:2026-09-005"
       ]
     },
-    "https://news.cctv.com/2026/09/18/ARTI98kniITqcIchTCADQcAg260918.shtml": {
+    "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_641d53a8891345dfaa31350e84917000.html": {
       "status": "ok",
-      "code": "200",
+      "code": "206",
       "used_by": [
-        "2026-09:2026-09-001(备用)"
+        "2026-09:2026-09-003",
+        "2026-W36:2026-09-003"
+      ]
+    },
+    "https://www.mohurd.gov.cn/xinwen/jsyw/art/2026/art_ddc584f13eaf4d02958ff8a2b8ad441a.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-001"
+      ]
+    },
+    "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_8d1fc145d3d14198a75ee3fdbd020611.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-004",
+        "2026-W36:2026-09-004"
       ]
     },
     "https://www.gov.cn/lianbo/202609/content_7081478.htm": {
@@ -54,12 +47,19 @@
         "2026-09:2026-09-001(备用)"
       ]
     },
-    "http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html": {
+    "https://news.cctv.com/2026/09/18/ARTI98kniITqcIchTCADQcAg260918.shtml": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-001(备用)"
+      ]
+    },
+    "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_52379faf79c441b088bdffd7c407f1df.html": {
       "status": "ok",
       "code": "206",
       "used_by": [
-        "2026-09:2026-09-007",
-        "2026-W37:2026-09-007"
+        "2026-09:2026-09-002",
+        "2026-W36:2026-09-002"
       ]
     },
     "https://zjw.sh.gov.cn/jsgl/20260902/652ccdc1039e4514a90e02c0e1e0bc98.html": {
@@ -70,42 +70,11 @@
         "2026-W36:2026-09-011"
       ]
     },
-    "https://www.mohurd.gov.cn/gongkai/fdzdgknr/gkml/index.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-009"
-      ]
-    },
-    "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-010",
-        "2026-W37:2026-09-010"
-      ]
-    },
     "https://m.thepaper.cn/newsDetail_forward_34093520": {
       "status": "ok",
       "code": "206",
       "used_by": [
         "2026-09:2026-09-012"
-      ]
-    },
-    "https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-014",
-        "2026-W36:2026-09-014"
-      ]
-    },
-    "https://www.toutiao.com/article/7687509370703299126/": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-016(备用)",
-        "2026-W37:2026-09-016(备用)"
       ]
     },
     "https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/744118225/index.shtml": {
@@ -116,6 +85,14 @@
         "2026-W37:2026-09-013"
       ]
     },
+    "https://scjgj.beijing.gov.cn/bsfw/bmfw/bzhzl/dfbz/202606/t20260608_4691339.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-014",
+        "2026-W36:2026-09-014"
+      ]
+    },
     "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/744104301/index.shtml": {
       "status": "ok",
       "code": "200",
@@ -124,12 +101,27 @@
         "2026-W37:2026-09-008"
       ]
     },
-    "https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html": {
+    "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_f6f6ac9bde02495c8440d82bec6a1ed7.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-010",
+        "2026-W37:2026-09-010"
+      ]
+    },
+    "https://www.mohurd.gov.cn/gongkai/fdzdgknr/gkml/index.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-009"
+      ]
+    },
+    "https://www.toutiao.com/article/7687509370703299126/": {
       "status": "ok",
       "code": "200",
       "used_by": [
-        "2026-09:2026-09-015",
-        "2026-W36:2026-09-015"
+        "2026-09:2026-09-016(备用)",
+        "2026-W37:2026-09-016(备用)"
       ]
     },
     "https://zfcj.gz.gov.cn/gkmlpt/policy": {
@@ -140,22 +132,6 @@
         "2026-09:2026-09-018",
         "2026-W37:2026-09-016",
         "采集源:广州市住房和城乡建设局·政策文件"
-      ]
-    },
-    "http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-022",
-        "2026-W36:2026-09-022"
-      ]
-    },
-    "https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-023",
-        "2026-W37:2026-09-023"
       ]
     },
     "https://zfcj.gz.gov.cn/gkmlpt/content/11/11000/post_11000121.html": {
@@ -174,11 +150,43 @@
         "2026-W36:2026-09-019"
       ]
     },
+    "https://zfcj.gz.gov.cn/gkmlpt/content/10/10989/post_10989156.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-015",
+        "2026-W36:2026-09-015"
+      ]
+    },
     "https://sjw.nanjing.gov.cn/tzgg/": {
       "status": "ok",
       "code": "200",
       "used_by": [
         "2026-09:2026-09-024"
+      ]
+    },
+    "https://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/10/art_49384_11827850.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-023",
+        "2026-W37:2026-09-023"
+      ]
+    },
+    "http://sjw.nanjing.gov.cn/tzgg/202609/t20260902_5904391.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-022",
+        "2026-W36:2026-09-022"
+      ]
+    },
+    "http://cpc.people.com.cn/n1/2026/0909/c64094-40795125.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-007",
+        "2026-W37:2026-09-007"
       ]
     },
     "https://cxjw.hangzhou.gov.cn/col/col1692623/index.html": {
@@ -189,22 +197,6 @@
         "采集源:杭州市城乡建设委员会·通知公告"
       ]
     },
-    "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-028",
-        "2026-W37:2026-09-028"
-      ]
-    },
-    "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html": {
-      "status": "ok",
-      "code": "206",
-      "used_by": [
-        "2026-09:2026-09-025",
-        "2026-W37:2026-09-025"
-      ]
-    },
     "https://jst.zj.gov.cn/col/col1229159347/index.html": {
       "status": "ok",
       "code": "206",
@@ -213,11 +205,12 @@
         "2026-W36:2026-09-026"
       ]
     },
-    "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_8b392a454cac4be8b2918da7d0636c64.html": {
+    "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html": {
       "status": "ok",
       "code": "206",
       "used_by": [
-        "2026-09:2026-09-033"
+        "2026-09:2026-09-030",
+        "2026-W37:2026-09-030"
       ]
     },
     "https://zfcxjw.cq.gov.cn/hdjl_166/yjzj/202609/P020260903641402930130.pdf": {
@@ -236,20 +229,28 @@
         "2026-W36:2026-09-031"
       ]
     },
-    "https://www.hunantoday.cn/news/xhn/202609/33724760.html": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-035",
-        "2026-W37:2026-09-035"
-      ]
-    },
-    "https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml": {
+    "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_dfb778cac42edd2c794aec508f3813eb.html": {
       "status": "ok",
       "code": "206",
       "used_by": [
-        "2026-09:2026-09-037",
-        "2026-W37:2026-09-037"
+        "2026-09:2026-09-025",
+        "2026-W37:2026-09-025"
+      ]
+    },
+    "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_8b392a454cac4be8b2918da7d0636c64.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-033"
+      ]
+    },
+    "https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-029",
+        "2026-W37:2026-09-029",
+        "2026-W38:2026-W38-011"
       ]
     },
     "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12965835.html": {
@@ -260,36 +261,20 @@
         "2026-W36:2026-09-020"
       ]
     },
-    "https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/52610": {
+    "https://finance.sina.com.cn/stock/estate/integration/2026-09-09/doc-iniresya5717508.shtml": {
       "status": "ok",
-      "code": "200",
+      "code": "206",
       "used_by": [
-        "2026-09:2026-09-021",
-        "2026-W36:2026-09-021"
+        "2026-09:2026-09-037",
+        "2026-W37:2026-09-037"
       ]
     },
-    "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml": {
+    "https://www.hunantoday.cn/news/xhn/202609/33724760.html": {
       "status": "ok",
       "code": "200",
       "used_by": [
-        "2026-09:2026-09-034",
-        "2026-W37:2026-09-034"
-      ]
-    },
-    "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-036",
-        "2026-W36:2026-09-036"
-      ]
-    },
-    "http://www.zgjzy.org.cn/menu19/newsDetail/11876.html": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-040",
-        "2026-W36:2026-09-040"
+        "2026-09:2026-09-035",
+        "2026-W37:2026-09-035"
       ]
     },
     "https://hnjs.henan.gov.cn/xxgk/xxgkml/zcfg/bzgg/yjzj/": {
@@ -300,6 +285,37 @@
         "采集源:河南省住房和城乡建设厅·标准公告与意见征集"
       ]
     },
+    "http://www.zgjzy.org.cn/menu19/newsDetail/11876.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-040",
+        "2026-W36:2026-09-040"
+      ]
+    },
+    "https://www.zzsjzyxh.com/zj/2026091414540566.pdf": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-09:2026-09-039"
+      ]
+    },
+    "https://www.glodon.com/news/1626.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-041",
+        "2026-W37:2026-09-041"
+      ]
+    },
+    "https://zjj.sz.gov.cn/hdjlpt/yjzj/answer/52610": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-09:2026-09-021",
+        "2026-W36:2026-09-021"
+      ]
+    },
     "http://www.zgjzy.org.cn/newsList/19/1.html": {
       "status": "ok",
       "code": "200",
@@ -308,19 +324,50 @@
         "采集源:中国建筑业协会·通知公告"
       ]
     },
-    "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_4c12396832954da59506cb790ac2c843.html": {
+    "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/dfxfgzfgzhgfxwj/jskj_3794/202609/t20260904_7209280.htm": {
       "status": "ok",
-      "code": "206",
+      "code": "200",
       "used_by": [
-        "2026-09:2026-09-030",
-        "2026-W37:2026-09-030"
+        "2026-09:2026-09-036",
+        "2026-W36:2026-09-036"
       ]
     },
-    "https://www.zzsjzyxh.com/zj/2026091414540566.pdf": {
+    "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html": {
       "status": "ok",
-      "code": "206",
+      "code": "200",
       "used_by": [
-        "2026-09:2026-09-039"
+        "2026-09:2026-09-028",
+        "2026-W37:2026-09-028"
+      ]
+    },
+    "https://zjw.beijing.gov.cn/bjjs/kjcxytg/jzyxjsyysfgc/index.shtml": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-002"
+      ]
+    },
+    "https://m.glodon.com/mobile/news/detail/1627": {
+      "status": "ok",
+      "code": "200",
+      "final": "https://www.glodon.com/news/1627",
+      "used_by": [
+        "2026-09:2026-09-044"
+      ]
+    },
+    "http://m.toutiao.com/group/7686703036692988451/": {
+      "status": "ok",
+      "code": "200",
+      "final": "https://www.toutiao.com/article/7686703036692988451/?&source=m_redirect",
+      "used_by": [
+        "2026-09:2026-09-045"
+      ]
+    },
+    "https://zjw.beijing.gov.cn/bjjs/zbtb0/ztblcjywblzn/index.shtml": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-006"
       ]
     },
     "http://member.fangchan.com/mindex": {
@@ -331,12 +378,78 @@
         "2026-W37:2026-09-043"
       ]
     },
-    "https://www.glodon.com/news/1626.html": {
+    "https://zjw.sh.gov.cn/jsgl/20260915/d71e3f76afd34551b99a794ad91c62b0.html": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-W38:2026-W38-008"
+      ]
+    },
+    "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml": {
       "status": "ok",
       "code": "200",
       "used_by": [
-        "2026-09:2026-09-041",
-        "2026-W37:2026-09-041"
+        "2026-09:2026-09-034",
+        "2026-W37:2026-09-034"
+      ]
+    },
+    "http://hnjs.henan.gov.cn/2026/09-16/3422376.html": {
+      "status": "ok",
+      "code": "200",
+      "final": "https://hnjs.henan.gov.cn:443/2026/09-16/3422376.html",
+      "used_by": [
+        "2026-W38:2026-W38-010"
+      ]
+    },
+    "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12985571.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-004"
+      ]
+    },
+    "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12983908.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-003"
+      ]
+    },
+    "https://fjplan.cn/": {
+      "status": "ok",
+      "code": "206",
+      "used_by": [
+        "2026-W38:2026-W38-007"
+      ]
+    },
+    "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12987701.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-005"
+      ]
+    },
+    "http://hnjs.henan.gov.cn/2026/09-16/3422380.html": {
+      "status": "ok",
+      "code": "200",
+      "final": "https://hnjs.henan.gov.cn:443/2026/09-16/3422380.html",
+      "used_by": [
+        "2026-W38:2026-W38-009"
+      ]
+    },
+    "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12989402.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-001"
+      ]
+    },
+    "http://hnjs.henan.gov.cn/2026/09-16/3422390.html": {
+      "status": "ok",
+      "code": "200",
+      "final": "https://hnjs.henan.gov.cn:443/2026/09-16/3422390.html",
+      "used_by": [
+        "2026-W38:2026-W38-012"
       ]
     },
     "https://www.mohurd.gov.cn/xinwen/gzdt/index.html": {
@@ -353,11 +466,25 @@
         "采集源:住房和城乡建设部·政策文件"
       ]
     },
+    "https://www.mohurd.gov.cn/xinwen/jsyw/index.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "采集源:住房和城乡建设部·建设要闻"
+      ]
+    },
     "https://www.mohurd.gov.cn/xinwen/dfxx/index.html": {
       "status": "ok",
       "code": "200",
       "used_by": [
         "采集源:住房和城乡建设部·地方信息"
+      ]
+    },
+    "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260920_16103539.html": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-015"
       ]
     },
     "https://zjw.sh.gov.cn/jsgl/index.html": {
@@ -367,41 +494,11 @@
         "采集源:上海市住房和城乡建设管理委员会·建设管理"
       ]
     },
-    "http://m.toutiao.com/group/7686703036692988451/": {
-      "status": "ok",
-      "code": "200",
-      "final": "https://www.toutiao.com/article/7686703036692988451/?&source=m_redirect",
-      "used_by": [
-        "2026-09:2026-09-045"
-      ]
-    },
-    "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/index.shtml": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "采集源:北京市住房和城乡建设委员会·其他政务文件"
-      ]
-    },
-    "https://www.mohurd.gov.cn/xinwen/jsyw/index.html": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "采集源:住房和城乡建设部·建设要闻"
-      ]
-    },
     "https://jsszfhcxjst.jiangsu.gov.cn/col/col49384/index.html": {
       "status": "ok",
       "code": "206",
       "used_by": [
         "采集源:江苏省住房和城乡建设厅·建设管理"
-      ]
-    },
-    "https://zjt.xinjiang.gov.cn/xjzjt/c113185/202609/e13db01fb6534921b3e5fe7a56a9ddd9.shtml": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "2026-09:2026-09-029",
-        "2026-W37:2026-09-029"
       ]
     },
     "http://sjw.nanjing.gov.cn/tzgg/": {
@@ -411,19 +508,11 @@
         "采集源:南京市城乡建设委员会·通知公告"
       ]
     },
-    "https://m.glodon.com/mobile/news/detail/1627": {
-      "status": "ok",
-      "code": "200",
-      "final": "https://www.glodon.com/news/1627",
-      "used_by": [
-        "2026-09:2026-09-044"
-      ]
-    },
-    "https://zfcxjst.gd.gov.cn/jsgl/zcwj/": {
+    "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/index.shtml": {
       "status": "ok",
       "code": "200",
       "used_by": [
-        "采集源:广东省住房和城乡建设厅·政策文件"
+        "采集源:北京市住房和城乡建设委员会·其他政务文件"
       ]
     },
     "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/": {
@@ -433,25 +522,18 @@
         "采集源:重庆市住房和城乡建设委员会·公示公告"
       ]
     },
+    "https://zfcxjst.gd.gov.cn/jsgl/zcwj/": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "采集源:广东省住房和城乡建设厅·政策文件"
+      ]
+    },
     "https://jst.zj.gov.cn/col/col1229129246/index.html": {
       "status": "ok",
       "code": "206",
       "used_by": [
         "采集源:浙江省住房和城乡建设厅·政策文件"
-      ]
-    },
-    "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "采集源:福建省住房和城乡建设厅·建设科技"
-      ]
-    },
-    "https://zjj.sz.gov.cn/xxgk/tzgg/": {
-      "status": "ok",
-      "code": "200",
-      "used_by": [
-        "采集源:深圳市住房和建设局·通知公告"
       ]
     },
     "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/": {
@@ -461,6 +543,27 @@
         "采集源:湖北省住房和城乡建设厅·其他政务公开"
       ]
     },
+    "https://zjt.fj.gov.cn/xxgk/zfxxgkzl/xxgkml/": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "采集源:福建省住房和城乡建设厅·建设科技"
+      ]
+    },
+    "https://mp.weixin.qq.com/s/a_9T1KeLNvW1EP5QjwiUtw": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "2026-W38:2026-W38-013"
+      ]
+    },
+    "https://zjj.sz.gov.cn/xxgk/tzgg/": {
+      "status": "ok",
+      "code": "200",
+      "used_by": [
+        "采集源:深圳市住房和建设局·通知公告"
+      ]
+    },
     "https://zjt.xinjiang.gov.cn/xjzjt/c113185/list.shtml": {
       "status": "ok",
       "code": "200",
@@ -468,12 +571,11 @@
         "采集源:新疆维吾尔自治区住房和城乡建设厅"
       ]
     },
-    "https://www.cac.gov.cn/2026-09/04/c_1790271981702331.htm": {
+    "https://www.cac.gov.cn/2026-09/18/c_1791482017777471.htm": {
       "status": "dead",
       "code": "000",
       "used_by": [
-        "2026-09:2026-09-006",
-        "2026-W36:2026-09-006"
+        "2026-W38:2026-W38-014"
       ]
     },
     "https://www.cac.gov.cn/": {

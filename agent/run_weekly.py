@@ -51,8 +51,14 @@ def promote(analyzed_path: pathlib.Path):
     """把分析结果转成站点消费的简报结构，写入 assets/data/brief-<期>.json"""
     raw = json.loads(analyzed_path.read_text(encoding="utf-8"))
     now = datetime.now(CST)
-    year, week, _ = now.isocalendar()
+    # 期号取「窗口最后一天」所属的 ISO 周。周一早上跑时窗口是上周一~上周日，
+    # 若直接用 now.isocalendar() 会把上周数据标成本周期号（W39 而非 W38）。
+    ref = now - timedelta(days=1)
+    year, week, _ = ref.isocalendar()
     pid = f"{year}-W{week:02d}"
+    days = int(raw.get("window_days", 7) or 7)
+    start = (now - timedelta(days=days)).replace(
+        hour=0, minute=0, second=0, microsecond=0)
 
     rows = sorted(raw["items"], key=lambda v: (v.get("date") or "", -int(v.get("relevance", 0))))
     items = []
@@ -95,8 +101,10 @@ def promote(analyzed_path: pathlib.Path):
     brief = {
         "meta": {
             "id": pid,
-            "title": f"{now:%Y年%m月} 第 {week} 周 建筑智能化政策与技术情报简报",
-            "period": f"{now - timedelta(days=raw.get('window_days', 7)):%Y-%m-%d} 至 {now:%Y-%m-%d}",
+            # 标题与人工补齐的 W36/W37 保持同一写法，归档页看起来才连贯
+            "title": (f"{year}年第{week}周（{start.month}.{start.day}–"
+                      f"{ref.month}.{ref.day}）建筑智能化政策与技术情报周报"),
+            "period": f"{start:%Y-%m-%d} 至 {ref:%Y-%m-%d}",
             "generated_at": now.strftime("%Y-%m-%d"),
             "total": len(items),
             "note": f"自动生成（分析器：{raw.get('analyzer', 'rule')}）。影响分析为草稿，建议人工复核后发布。",
