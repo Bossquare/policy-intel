@@ -1,13 +1,13 @@
 {
   "meta": {
     "id": "2026-09",
-    "title": "2026年9月 建筑智能化政策与技术情报简报",
+    "title": "2026年9月 建筑智能化市场洞察·政策情报简报",
     "period": "2026-09-01 至 2026-09-18",
     "generated_at": "2026-09-18",
     "total": 45,
     "note": "首期种子数据，取自 9 月试点报告（去重后 45 条）。",
     "narrative_source": "seed/2026-09-report.html",
-    "built_at": "2026-09-21 11:36",
+    "built_at": "2026-09-21 16:25",
     "insight_count": 12,
     "source_fixed": 12
   },

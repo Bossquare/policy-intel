@@ -1,5 +1,5 @@
 /* ==========================================================================
-   建筑智能化政策与技术情报站 —— 简报导出（PDF / HTML）
+   建筑智能化市场洞察·政策情报分析 —— 简报导出（PDF / HTML）
    --------------------------------------------------------------------------
    依赖：
      window.INTEL_SITE       站点数据（assets/data/site-data.js）
@@ -175,8 +175,8 @@
 
     /* —— 文档头 —— */
     h += '<header class="dh">' + logoHtml() +
-      '<div class="dh-txt"><div class="dh-org">建筑智能化政策与技术情报站' +
-      "<i>POLICY &amp; TECH INTELLIGENCE</i></div></div>" +
+      '<div class="dh-txt"><div class="dh-org">建筑智能化市场洞察·政策情报分析' +
+      "<i>MARKET &amp; POLICY INSIGHT</i></div></div>" +
       '<div class="dh-date">简报导出<br>' + esc(m.generated_at || "") + "</div>" +
       "</header>";
 
@@ -261,7 +261,7 @@
 
     /* —— 文末声明 —— */
     h += '<footer class="d-foot">' +
-      "<div><b>建筑智能化政策与技术情报站</b>本简报按期冻结归档，内容不再回改，历史可追溯。</div>" +
+      "<div><b>建筑智能化市场洞察·政策情报分析</b>本简报按期冻结归档，内容不再回改，历史可追溯。</div>" +
       "<div><b>数据说明</b>条目检索自公开渠道，链接可用性定期体检；正式决策请以官方原文为准。</div>" +
       "</footer>";
 
@@ -291,7 +291,7 @@
     var title = (b.meta && b.meta.title) || "情报简报";
     return '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="UTF-8">\n' +
       '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
-      '<meta name="generator" content="建筑智能化政策与技术情报站 · 简报导出">\n' +
+      '<meta name="generator" content="建筑智能化市场洞察·政策情报分析 · 简报导出">\n' +
       "<title>" + esc(title) + "</title>\n" + styleBlock + "\n</head>\n" +
       '<body class="a4-screen">\n' +
       '<div class="a4-stage">' + docHtml(b) + "</div>\n</body>\n</html>\n";

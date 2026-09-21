@@ -43,7 +43,7 @@ LOGO_SVG = ROOT / "assets" / "img" / "logo.svg"
 PDF_DIR = ROOT / "assets" / "briefs"
 
 SITE = {
-    "title": "建筑智能化政策与技术情报站",
+    "title": "建筑智能化市场洞察·政策情报分析",
     "subtitle": "政策跟踪 · 标准动态 · 赛道研判",
     "owner": "Bossquare",
 }

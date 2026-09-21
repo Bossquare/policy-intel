@@ -103,7 +103,7 @@ def promote(analyzed_path: pathlib.Path):
             "id": pid,
             # 标题与人工补齐的 W36/W37 保持同一写法，归档页看起来才连贯
             "title": (f"{year}年第{week}周（{start.month}.{start.day}–"
-                      f"{ref.month}.{ref.day}）建筑智能化政策与技术情报周报"),
+                      f"{ref.month}.{ref.day}）建筑智能化市场洞察·政策情报周报"),
             "period": f"{start:%Y-%m-%d} 至 {ref:%Y-%m-%d}",
             "generated_at": now.strftime("%Y-%m-%d"),
             "total": len(items),
