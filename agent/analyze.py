@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 情报分析：调用大模型完成摘要提取、赛道相关性判定与三档分类；
-对判定为「重点关注」的条目，追加产出影响分析与应对建议草稿（供人工复核）。
+对判定为「重点关注」的条目，追加产出影响分析与应对建议草稿（供人工复核）；
+最后汇总本期三块研判——核心结论 / 市场影响 / 趋势展望（站点首页与 A4 版式都要用）。
+
+研判的覆盖顺序：agent/weekly_narratives.json 里人工撰写的版本优先，
+没有人工版本时才用这里生成的模型草稿（由 run_weekly.py 的 promote() 执行覆盖）。
 
 模型端点不做任何硬编码，按以下优先级读取（三级都读不到时自动降级为规则打分）：
     1. 环境变量 INTEL_LLM_URL / INTEL_LLM_MODEL / INTEL_LLM_KEY
@@ -239,12 +243,117 @@ def make_insight(it, analysis):
     return r.get("impact", ""), r.get("action", "")
 
 
+NARRATIVE_PROMPT = """你是建筑智能化行业的政策情报分析师，为公司（主营：建筑智能化、智能建造、BIM 与工程数字化）撰写一份周报的研判部分。
+
+基于给定的本期条目清单，输出三块内容：
+
+1. conclusions：核心结论，4-6 条。每条给出研判标题（不超过 18 字）与说明（60-110 字）。
+   这是本期的「主结论」：要归纳信号背后的趋势判断（例如「从鼓励试点转向准入约束」），
+   而不是复述某一条文件；标题要带观点，不要照抄条目名。
+2. impacts：市场影响分析，3-4 条。每条给出短标题（不超过 12 字）、
+   level（格式固定为「影响强度：强／中强／中／弱｜驱动：<驱动因素，不超过 20 字>」）、
+   说明（80-130 字），讲清这条线怎样传导到行业与公司业务。
+3. outlook：趋势展望，3 条。每条给出 title（不超过 18 字）与 body（60-100 字），
+   指向未来 1-2 个季度可验证的走向或观察窗口。
+
+要求：
+- 只依据给定材料推断，不得编造未提及的数据、文号或机构名；
+- 判断要具体、有取舍，避免「需持续关注」「具有重要意义」这类空话；
+- 优先采信「重点关注」条目，但结论要体现全期格局，不要只围绕一条文件展开。
+
+严格输出 JSON，不要任何多余文字。格式：
+{"conclusions":[{"title":"...","body":"..."}],"impacts":[{"title":"...","level":"影响强度：强｜驱动：...","body":"..."}],"outlook":[{"no":1,"title":"...","body":"..."}]}"""
+
+
+def build_digest(items, period=""):
+    """把本期条目压成模型可读的清单：重点条目带要点，其余只给标题。"""
+    focus = [x for x in items if x.get("tier") == "focus"]
+    track = [x for x in items if x.get("tier") == "track"]
+    watch = [x for x in items if x.get("tier") == "watch"]
+    lines = [f"时间窗口：{period}", f"条目总数：{len(items)}"]
+
+    def key(x):
+        return -int(x.get("relevance", 0))
+
+    if focus:
+        lines.append(f"\n【重点关注】{len(focus)} 条")
+        for it in sorted(focus, key=key):
+            lines.append(
+                f"- [{it.get('date') or '无日期'}] {it['title']}（{it.get('source_name', '')}）"
+                f"相关性 {it.get('relevance')}｜赛道 {','.join(it.get('tracks', [])) or '无'}")
+            sm = "；".join(it.get("summary", []))
+            if sm:
+                lines.append(f"  要点：{sm[:300]}")
+    if track:
+        lines.append(f"\n【持续跟踪】{len(track)} 条")
+        for it in sorted(track, key=key)[:24]:
+            lines.append(f"- [{it.get('date') or '无日期'}] {it['title']}"
+                         f"（{it.get('source_name', '')}）")
+    if watch:
+        lines.append(f"\n【一般了解】{len(watch)} 条")
+        for it in sorted(watch, key=key)[:16]:
+            lines.append(f"- {it['title']}")
+    return "\n".join(lines)
+
+
+def _norm_narrative(r):
+    """校验并归整模型返回的研判结构，顺手兜住缺字段/超量。"""
+    def txt(v, limit):
+        return str(v or "").strip()[:limit]
+
+    conclusions = []
+    for c in (r.get("conclusions") or [])[:6]:
+        if not isinstance(c, dict):
+            continue
+        t, b = txt(c.get("title"), 40), txt(c.get("body"), 400)
+        if t and b:
+            conclusions.append({"title": t, "body": b})
+
+    impacts = []
+    for x in (r.get("impacts") or [])[:4]:
+        if not isinstance(x, dict):
+            continue
+        t, b = txt(x.get("title"), 30), txt(x.get("body"), 400)
+        if t and b:
+            impacts.append({"title": t, "level": txt(x.get("level"), 60), "body": b})
+
+    outlook = []
+    for i, o in enumerate((r.get("outlook") or [])[:3], 1):
+        if not isinstance(o, dict):
+            continue
+        t, b = txt(o.get("title"), 40), txt(o.get("body"), 400)
+        if t and b:
+            outlook.append({"no": i, "title": t, "body": b})
+
+    if not conclusions:
+        raise ValueError("模型未给出可用的核心结论")
+    return {"conclusions": conclusions, "impacts": impacts, "outlook": outlook}
+
+
+def make_narrative(items, period=""):
+    """生成周报的三块研判（核心结论 / 市场影响 / 趋势展望）。"""
+    digest = build_digest(items, period)
+    last = None
+    for _ in range(2):
+        try:
+            content = chat([
+                {"role": "system", "content": NARRATIVE_PROMPT},
+                {"role": "user", "content": digest},
+            ], temperature=0.4, max_tokens=4000)
+            return _norm_narrative(parse_json(content))
+        except Exception as e:                                # noqa: BLE001
+            last = e
+            time.sleep(2)
+    raise RuntimeError(f"研判生成失败：{last}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", default="", help="raw JSON 路径，默认取 out/ 下最新一份")
     ap.add_argument("--dry-run", action="store_true", help="不调模型，仅用规则打分")
     ap.add_argument("--limit", type=int, default=0, help="只处理前 N 条（调试用）")
     ap.add_argument("--no-insight", action="store_true", help="跳过影响分析生成")
+    ap.add_argument("--no-narrative", action="store_true", help="跳过核心结论/影响/展望研判生成")
     args = ap.parse_args()
 
     use_rule = args.dry_run or not LLM_READY
@@ -304,20 +413,54 @@ def main():
                 print(f"  [{i}/{len(focus)}] ! 生成失败：{e}")
             time.sleep(0.8)
 
+    # 本期窗口：写进分析结果，成稿阶段据此写 period。
+    # 这样「隔几天重新成稿」（run_weekly --skip-analyze）不会把时间口径算漂移。
+    now0 = datetime.now(CST)
+    ref0 = now0 - timedelta(days=1)
+    d0 = int(raw.get("window_days", 7) or 7)
+    start0 = (now0 - timedelta(days=d0)).replace(hour=0, minute=0, second=0, microsecond=0)
+    period0 = f"{start0:%Y-%m-%d} 至 {ref0:%Y-%m-%d}"
+    window = {"days": d0, "start": f"{start0:%Y-%m-%d}", "end": f"{ref0:%Y-%m-%d}"}
+
+    # 本期三块研判（核心结论 / 市场影响 / 趋势展望）——站点首页与 A4 版式都要用。
+    # 人工精修优先：run_weekly 的 promote() 会用 agent/weekly_narratives.json 覆盖本结果。
+    narrative, narrative_mode = {"conclusions": [], "impacts": [], "outlook": []}, "none"
+    if use_rule:
+        narrative_mode = "rule"
+    elif args.no_narrative:
+        print("\n已跳过研判生成（--no-narrative）")
+    else:
+        print(f"\n生成本期研判（核心结论 / 市场影响 / 趋势展望），窗口 {period0}")
+        try:
+            narrative = make_narrative(results, period0)
+            narrative_mode = "llm"
+            print(f"  ✓ 结论 {len(narrative['conclusions'])} / "
+                  f"影响 {len(narrative['impacts'])} / "
+                  f"展望 {len(narrative['outlook'])}")
+        except Exception as e:                                # noqa: BLE001
+            narrative_mode = "failed"
+            print(f"  ! 研判生成失败，本期首页核心结论将留空：{e}")
+
     out = OUTDIR / src_path.name.replace("raw-", "analyzed-")
     now = datetime.now(CST)
     out.write_text(json.dumps({
         "generated_at": now.strftime("%Y-%m-%d %H:%M"),
         "source_file": src_path.name,
         "analyzer": "rule" if use_rule else "llm",
+        "model": "" if use_rule else LLM_MODEL,
         "count": len(results),
         "failed": failed,
+        "window": window,
+        "narrative": narrative,
+        "narrative_mode": narrative_mode,
         "items": results,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 
     focus_n = sum(1 for x in results if x["tier"] == "focus")
     print(f"\n✅ 写出 {out}")
     print(f"   共 {len(results)} 条：重点关注 {focus_n} / 其余 {len(results) - focus_n}")
+    print(f"   研判：{narrative_mode}（结论 {len(narrative['conclusions'])} / "
+          f"影响 {len(narrative['impacts'])} / 展望 {len(narrative['outlook'])}）")
     if failed:
         print(f"   ⚠️ {failed} 条因模型调用失败走了规则兜底，建议复核")
 

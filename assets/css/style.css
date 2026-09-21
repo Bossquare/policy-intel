@@ -380,6 +380,12 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{
 .mx li{margin-bottom:3px}
 
 /* ============================ 结论 / 展望 ============================ */
+/* 研判来源提示：模型草稿需人工复核，见 agent/analyze.py 的 narrative */
+.narr-note{margin:10px 2px 0;font-size:12.5px;color:var(--muted)}
+.narr-tag{
+  margin-left:8px;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;
+  background:var(--bg);border:1px solid var(--border);color:var(--muted);
+}
 .concl{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:26px 30px}
 .concl ol{list-style:none;counter-reset:c}
 .concl li{

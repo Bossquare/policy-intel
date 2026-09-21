@@ -194,15 +194,20 @@
     $("#ov-watch").textContent = t.watch;
     $("#ov-extra").textContent = t.insights;
 
-    // 核心结论
+    // 核心结论（模型生成或人工撰写；两处都没有时给空状态提示，别留一块白）
     const concl = $("#conclusions");
-    if (concl && brief.conclusions) {
-      concl.innerHTML =
-        '<div class="concl"><ol>' +
-        brief.conclusions.map(function (c) {
-          return "<li><b>" + esc(c.title) + "</b>" + esc(c.body) + "</li>";
-        }).join("") +
-        "</ol></div>";
+    if (concl) {
+      const cs = brief.conclusions || [];
+      concl.innerHTML = cs.length
+        ? '<div class="concl"><ol>' +
+            cs.map(function (c) {
+              return "<li><b>" + esc(c.title) + "</b>" + esc(c.body) + "</li>";
+            }).join("") +
+          "</ol></div>" +
+          (brief.narrative_mode === "llm"
+            ? '<p class="narr-note">本期研判为模型草稿，待人工复核。</p>' : "")
+        : '<div class="empty">本期尚未生成核心结论。' +
+          "流水线会在分析阶段自动汇总，也可在 agent/weekly_narratives.json 人工撰写后重建。</div>";
     }
 
     // 重点关注
@@ -240,15 +245,19 @@
 
     // 影响矩阵
     const impacts = (body.narrative && body.narrative.impacts) || [];
-    $("#matrix").innerHTML = impacts.map(function (m) {
-      return '<div class="mx"><h4>' + esc(m.title) + '</h4><div class="lv">' + esc(m.level) + "</div><p>" + esc(m.body) + "</p></div>";
-    }).join("");
+    $("#matrix").innerHTML = impacts.length
+      ? impacts.map(function (m) {
+          return '<div class="mx"><h4>' + esc(m.title) + '</h4><div class="lv">' + esc(m.level) + "</div><p>" + esc(m.body) + "</p></div>";
+        }).join("")
+      : '<div class="empty">本期尚未生成市场影响分析（随核心结论一并产出）。</div>';
 
     // 趋势
     const outlook = (body.narrative && body.narrative.outlook) || [];
-    $("#outlook").innerHTML = outlook.map(function (o) {
-      return '<div class="fc"><div class="fn">' + o.no + "</div><h4>" + esc(o.title) + "</h4><p>" + esc(o.body) + "</p></div>";
-    }).join("");
+    $("#outlook").innerHTML = outlook.length
+      ? outlook.map(function (o) {
+          return '<div class="fc"><div class="fn">' + o.no + "</div><h4>" + esc(o.title) + "</h4><p>" + esc(o.body) + "</p></div>";
+        }).join("")
+      : '<div class="empty">本期尚未生成趋势展望（随核心结论一并产出）。</div>';
   }
 
   /* ============================================================ 条目库 */
@@ -387,10 +396,15 @@
     const n = b.narrative || {};
     let html = "";
 
-    html += '<div class="block"><h4>核心结论</h4><div class="concl" style="box-shadow:none;padding:6px 0"><ol>' +
-      (n.conclusions || []).map(function (c) {
-        return "<li><b>" + esc(c.title) + "</b>" + esc(c.body) + "</li>";
-      }).join("") + "</ol></div></div>";
+    const cs = n.conclusions || [];
+    html += '<div class="block"><h4>核心结论' +
+      (b.meta.narrative_mode === "llm" ? '<span class="narr-tag">模型草稿</span>' : "") +
+      "</h4>" + (cs.length
+        ? '<div class="concl" style="box-shadow:none;padding:6px 0"><ol>' +
+          cs.map(function (c) {
+            return "<li><b>" + esc(c.title) + "</b>" + esc(c.body) + "</li>";
+          }).join("") + "</ol></div>"
+        : '<div class="empty">本期尚未生成核心结论。</div>') + "</div>";
 
     ["focus", "track", "watch"].forEach(function (k) {
       html += '<div class="block"><h4>' + TIERS[k].label + "（" + byTier[k].length + " 条）</h4>" +
@@ -437,11 +451,13 @@
         ? '<span class="badge wk">周报 · ' + esc(b.id.replace(/^20\d\d-/, "")) + "</span>"
         : '<span class="badge mo">月报 · ' + esc(b.id) + "</span>";
       const tier = (b.stats && b.stats.by_tier) || {};
+      const cs = b.conclusions || [];
       return '<article class="intel">' +
         '<div>' + kind + '<span class="badge">' + b.total + " 条</span></div>" +
         '<h3><a href="brief.html?id=' + encodeURIComponent(b.id) + '">' + esc(b.title) + "</a></h3>" +
         '<div class="info">时间窗口 ' + esc(b.period) + "　·　生成于 " + esc(b.generated_at) + "</div>" +
-        '<p class="sum">' + (b.conclusions.length ? esc(b.conclusions[0].body) : "") + "</p>" +
+        '<p class="sum">' + (cs.length ? esc(cs[0].body)
+          : '<span style="color:var(--muted)">本期核心结论待生成</span>') + "</p>" +
         '<div class="mini-stats">' +
           '<span class="ms-focus">重点关注 <b>' + (tier.focus || 0) + "</b></span>" +
           '<span class="ms-track">持续跟踪 <b>' + (tier.track || 0) + "</b></span>" +

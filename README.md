@@ -72,10 +72,10 @@ policy-intel/
 ├── agent/                       情报智能体
 │   ├── sources.json             采集源清单
 │   ├── collect.py               采集
-│   ├── analyze.py               摘要 / 相关性 / 分档 / 影响分析（调用大模型）
+│   ├── analyze.py               摘要 / 相关性 / 分档 / 影响分析 / 本期研判（调用大模型）
 │   ├── llm.local.json           模型端点配置（本地文件，不入库）
-│   ├── insights.json            人工撰写的影响分析（优先级高于模型草稿）
-│   ├── weekly_narratives.json   周报的结论 / 影响 / 展望（人工撰写）
+│   ├── insights.json            人工撰写的条目级影响分析（优先级高于模型草稿）
+│   ├── weekly_narratives.json   人工撰写的期级研判：核心结论 / 影响 / 展望（优先级高于模型草稿）
 │   ├── source_fixes.json        来源链接修正表（改链接 / 标注栏目页 / 补备用来源）
 │   ├── check_sources.py         来源链接健康检查（联网探测，产出 source-health.json）
 │   ├── extract_seed.py          从原始报告抽取种子数据
@@ -96,6 +96,9 @@ python3 agent/run_weekly.py
 
 # 离线演练：不调模型，仅用关键词规则打分
 python3 agent/run_weekly.py --dry-run
+
+# 跳过采集 / 跳过分析，只重跑成稿（改完叙述或洞察后省一次模型分析）
+python3 agent/run_weekly.py --skip-collect --skip-analyze
 
 # 只重建站点数据（改了 insights.json 或样式后）
 python3 agent/build_data.py
@@ -146,6 +149,12 @@ python3 -m http.server 8000
    备用来源，并对探测失效的链接标出「链接失效」。
 3. **自动生成的影响分析是草稿。** `analyze.py` 产出的 `impact` / `action` 需要人工复核。
    复核后的结论请写进 `agent/insights.json`，它会按条目 id 覆盖模型草稿；重跑 `build_data.py` 生效。
+   同一份规则适用于**期级研判**（首页「本期核心结论」「市场影响分析」「趋势展望」）：
+   流水线每期自动用模型生成，落在成稿的 `narrative` 字段；
+   要人工接管就写进 `agent/weekly_narratives.json`（按期号，如 `"2026-W38": {...}`），
+   有人工版本时模型草稿不生效。成稿的 `meta.narrative_mode` 记录来源
+   （`manual` 人工 / `llm` 模型草稿 / `rule` 规则兜底 / `none` 未生成），
+   站点对模型草稿标注「模型草稿待复核」；三者都没有时区块显示空状态提示，不再是一片空白。
 4. **业务口径可调。** 六条赛道的定义与关键词表分别在 `agent/analyze.py`（TRACKS / TRACK_KEYWORDS）
    和 `agent/extract_seed.py` 中，业务方向调整时同步修改这两处。
 5. **分档规则透明可复核。** 规则位于 `analyze.py` 的 SYSTEM_PROMPT 与 `rule_fallback()`，

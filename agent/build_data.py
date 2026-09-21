@@ -206,6 +206,10 @@ def main():
             "insights": b["meta"]["insight_count"],
             "stats": b["stats"],
             "conclusions": b.get("narrative", {}).get("conclusions", []),
+            # 叙述来源：manual 人工撰写 / llm 模型草稿 / rule 规则兜底 / none 未生成
+            "narrative_mode": b["meta"].get("narrative_mode",
+                                            "manual" if b.get("narrative") and
+                                            b["narrative"].get("conclusions") else "none"),
             "focus_preview": focus_preview(b),
             # A4 静态 PDF 是否已生成（true 直接下载；false 走「打印 → 另存为 PDF」）
             "pdf": b["meta"]["id"] in pdf_ids,
