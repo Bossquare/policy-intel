@@ -4,7 +4,7 @@
     "subtitle": "政策跟踪 · 标准动态 · 赛道研判",
     "owner": "Bossquare"
   },
-  "updated_at": "2026-09-21 09:06",
+  "updated_at": "2026-09-21 11:36",
   "tracks": {
     "smart-building": {
       "label": "智慧建筑",
@@ -32,11 +32,11 @@
     }
   },
   "totals": {
-    "items": 15,
-    "focus": 0,
-    "track": 8,
-    "watch": 7,
-    "insights": 0
+    "items": 32,
+    "focus": 8,
+    "track": 11,
+    "watch": 13,
+    "insights": 8
   },
   "briefs": [
     {
@@ -45,29 +45,100 @@
       "period": "2026-09-14 至 2026-09-20",
       "generated_at": "2026-09-21",
       "file": "brief-2026-W38.json",
-      "total": 15,
-      "insights": 0,
+      "total": 32,
+      "insights": 8,
       "stats": {
         "by_level": {
-          "key-city": 7,
-          "other": 6,
-          "industry": 1,
-          "national": 1
+          "key-city": 10,
+          "other": 8,
+          "national": 13,
+          "industry": 1
         },
         "by_tier": {
-          "track": 8,
-          "watch": 7
+          "watch": 13,
+          "track": 11,
+          "focus": 8
         },
         "by_track": {
-          "smart-building": 3,
-          "bim-cim": 5,
           "intelligent-construction": 6,
-          "green-smart": 1,
-          "urban-renewal": 1
+          "green-smart": 6,
+          "urban-renewal": 9,
+          "bim-cim": 4,
+          "smart-building": 3
         }
       },
       "conclusions": [],
-      "focus_preview": [],
+      "focus_preview": [
+        {
+          "id": "2026-W38-013",
+          "title": "自治区召开智能建造工作推进会",
+          "org": "新疆维吾尔自治区住房和城乡建设厅",
+          "date": "2026-09-16",
+          "relevance": 88,
+          "tracks": [
+            "intelligent-construction",
+            "bim-cim",
+            "smart-building",
+            "green-smart"
+          ]
+        },
+        {
+          "id": "2026-W38-029",
+          "title": "改造城镇老旧小区1500个 培育建设完整社区1000个 江苏“十五五”城市更新专项规划发布",
+          "org": "住房和城乡建设部·政策文件",
+          "date": "2026-09-20",
+          "relevance": 88,
+          "tracks": [
+            "urban-renewal",
+            "smart-building",
+            "green-smart"
+          ]
+        },
+        {
+          "id": "2026-W38-024",
+          "title": "国新办举行“开局起步‘十五五’”系列主题新闻发布会 介绍“十五五”时期推进住房城乡建设事业高质量发展有关情况",
+          "org": "住房和城乡建设部·政策文件",
+          "date": "2026-09-18",
+          "relevance": 82,
+          "tracks": [
+            "intelligent-construction",
+            "green-smart",
+            "urban-renewal"
+          ]
+        },
+        {
+          "id": "2026-W38-030",
+          "title": "辽宁省已建成十二个国家级装配式建筑产业基地——让造房子跟搭积木一样简单",
+          "org": "住房和城乡建设部·政策文件",
+          "date": "2026-09-20",
+          "relevance": 82,
+          "tracks": [
+            "intelligent-construction",
+            "green-smart",
+            "urban-renewal"
+          ]
+        },
+        {
+          "id": "2026-W38-020",
+          "title": "城市更新在沈阳：从地上到地下，从房子到日子",
+          "org": "住房和城乡建设部·地方信息",
+          "date": "2026-09-17",
+          "relevance": 75,
+          "tracks": [
+            "urban-renewal"
+          ]
+        },
+        {
+          "id": "2026-W38-031",
+          "title": "西安城市更新进入片区化系统更新阶段 谋划57个更新片区和103个急需改造项目包，计划总投资307.4亿元",
+          "org": "住房和城乡建设部·政策文件",
+          "date": "2026-09-20",
+          "relevance": 72,
+          "tracks": [
+            "urban-renewal"
+          ]
+        }
+      ],
       "pdf": true
     },
     {

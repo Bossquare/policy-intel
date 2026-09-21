@@ -103,32 +103,54 @@ SYSTEM_PROMPT = """你是建筑智能化行业的政策情报分析师，为一�
    - watch 一般了解：展会论坛、企业动态、人事调整、协会名单等
 5. reason：一句话说明分档依据（不超过 50 字）。
 
+材料里若给了「正文片段」，那是详情页正文（可能被截断、可能夹带页脚文字）。
+**分档判定要优先采信正文**：正文里出现强制表述（“应当/必须/不得/自…起施行”）、
+量化指标（面积、比例、金额、期限、项目数量）或资金/考核安排时，地方条目也可判 focus；
+只有标题、没有正文（材料显示未抓取正文）时，不得臆测存在强制要求，按标题保守分档并在 reason 里注明「正文缺失」。
+正文里的会议签到、联系方式、页脚版权等无关内容一律忽略。
+
 严格输出 JSON，不要任何多余文字。格式：
 {"summary":["...","..."],"tracks":["bim-cim"],"relevance":85,"tier":"focus","reason":"..."}"""
 
 
-def chat(messages, temperature=0.2, max_tokens=1400, timeout=120, retries=2):
-    body = json.dumps({
-        "model": LLM_MODEL,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-    }).encode("utf-8")
-    headers = {"Content-Type": "application/json"}
-    if LLM_KEY:
-        headers["Authorization"] = f"Bearer {LLM_KEY}"
+def chat(messages, temperature=0.2, max_tokens=3000, timeout=200, retries=3):
+    """调用模型，返回 assistant 正文。
 
+    这个端点上的模型是「先思考后作答」，**推理 token 也计入 max_tokens**：
+    给小了会直接返回 finish_reason=length 且 content 为空字符串——看起来像
+    「模型没响应」，其实是额度被推理链吃光（实测一条分析要 ~1700 token 才吐正文）。
+    所以默认值给到 3000，遇到 length 截断再自动加倍重试。
+    """
     last = None
+    tokens = max_tokens
     for attempt in range(retries + 1):
+        body = json.dumps({
+            "model": LLM_MODEL,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": tokens,
+        }).encode("utf-8")
+        headers = {"Content-Type": "application/json"}
+        if LLM_KEY:
+            headers["Authorization"] = f"Bearer {LLM_KEY}"
         try:
             req = urllib.request.Request(LLM_URL, data=body, headers=headers)
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 data = json.loads(r.read().decode("utf-8"))
-            return data["choices"][0]["message"]["content"]
+            choice = data["choices"][0]
+            text = ((choice.get("message") or {}).get("content") or "").strip()
+            if text:
+                return text
+            fin = choice.get("finish_reason")
+            last = RuntimeError(
+                f"模型返回空正文（finish_reason={fin}，max_tokens={tokens}）")
+            if fin == "length":
+                tokens = min(tokens * 2, 12000)
         except Exception as e:                                # noqa: BLE001
             last = e
-            if attempt < retries:
-                time.sleep(2 * (attempt + 1))
+        if attempt < retries:
+            # 端点偶发 403 / 429（限流或并发过载），退避久一点再试
+            time.sleep(3 * (attempt + 1))
     raise RuntimeError(f"模型调用失败：{last}")
 
 
@@ -199,16 +221,20 @@ action：应对建议。给出 2-3 条可执行动作，用「① ② ③」编�
 
 
 def make_insight(it, analysis):
+    body = (it.get("excerpt") or "").strip()
     user = (
         f"标题：{it['title']}\n发布单位：{it.get('source_name','')}\n日期：{it.get('date') or '未知'}\n"
         f"要点：{'；'.join(analysis.get('summary', []))}\n"
         f"命中赛道：{', '.join(analysis.get('tracks', []))}\n"
         f"链接：{it['url']}"
     )
+    if body:
+        # 正文里才有具体的强制表述与量化指标，影响分析要做到具体就必须给正文
+        user += f"\n正文（可能截断）：\n{body[:900]}"
     content = chat([
         {"role": "system", "content": INSIGHT_PROMPT},
         {"role": "user", "content": user},
-    ], temperature=0.4, max_tokens=1600)
+    ], temperature=0.4, max_tokens=3000)
     r = parse_json(content)
     return r.get("impact", ""), r.get("action", "")
 
@@ -263,6 +289,8 @@ def main():
             "action": "",
         })
         results.append(it)
+        if not use_rule:
+            time.sleep(0.8)          # 别把端点打太快：连续请求会被 403 限流
 
     if not use_rule and not args.no_insight:
         focus = [x for x in results if x["tier"] == "focus"]
@@ -274,6 +302,7 @@ def main():
                 print(f"  [{i}/{len(focus)}] ✓ {it['title'][:36]}")
             except Exception as e:                            # noqa: BLE001
                 print(f"  [{i}/{len(focus)}] ! 生成失败：{e}")
+            time.sleep(0.8)
 
     out = OUTDIR / src_path.name.replace("raw-", "analyzed-")
     now = datetime.now(CST)
