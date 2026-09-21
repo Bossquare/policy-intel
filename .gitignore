@@ -11,3 +11,6 @@ __pycache__/
 
 # 系统
 .DS_Store
+
+# 本地 agent 工作数据（记忆/自动化状态），属于本机状态，不进公开仓库
+.workbuddy/
