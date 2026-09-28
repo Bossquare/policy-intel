@@ -242,6 +242,10 @@ def collect_source(src: dict, since: datetime):
 def extract_items(html: str, src: dict, since: datetime):
     """从栏目页 HTML 抽候选条目。curl 直抓与无头渲染两条路径共用此函数。"""
     base = src["url"]
+    # 先把 script/style/注释清掉再扫链接：有些栏目（如广东省住建厅政策文件）
+    # 把 <script>document.write("<img ...>")</script> 塞在 <a> 内部，
+    # 锚文本会被脚本源码撑到 90 字上限之外，整个条目的标题连带被 looks_relevant 丢掉。
+    html = STRIP_RE.sub(" ", COMMENT_RE.sub(" ", html))
     found, seen = [], set()
     for m in LINK_RE.finditer(html):
         raw_title = clean_text(m.group(2))

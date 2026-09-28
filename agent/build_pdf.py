@@ -23,6 +23,7 @@
 """
 
 import argparse
+import hashlib
 import json
 import os
 import pathlib
@@ -186,7 +187,33 @@ def main():
         print("  站点仍可用：归档页的「下载 PDF」会自动退化为「打印 → 另存为 PDF」。")
         return
 
-    todo = [i for i in ids if args.force or not (PDF_DIR / f"{i}.pdf").exists()]
+    # 内容变了就要重渲染：只判「文件存不存在」会让重跑流水线（条目数变了）静默留下
+    # 上一版 PDF，站点上的下载件与页面数据对不上，而且没人会察觉。
+    # 指纹只取条目数与标题集合 —— built_at / 链接健康状态这类每次都变的字段不该触发重渲染。
+    # 指纹落在 agent/out/（不进版本库），不污染仓库。
+    def fingerprint(bid):
+        src = DATA / f"brief-{bid}.json"
+        if not src.exists():
+            return ""
+        try:
+            b = json.loads(src.read_text(encoding="utf-8"))
+        except Exception:                                      # noqa: BLE001
+            return ""
+        titles = "\n".join(sorted(str(i.get("title", "")) for i in b.get("items", [])))
+        return f"{len(b.get('items', []))}-{hashlib.md5(titles.encode()).hexdigest()}"
+
+    FP_DIR = ROOT / "agent" / "out"
+
+    def stale(bid):
+        f = PDF_DIR / f"{bid}.pdf"
+        if not f.exists():
+            return True
+        fp_file = FP_DIR / f"pdf-fp-{bid}.txt"
+        if not fp_file.exists():
+            return True
+        return fp_file.read_text(encoding="utf-8").strip() != fingerprint(bid)
+
+    todo = [i for i in ids if args.force or stale(i)]
     if not todo:
         print("✅ 所有期次的静态 PDF 均已就绪，无需渲染（--force 可强制重渲染）")
         return
@@ -200,6 +227,10 @@ def main():
             pages = pdf_pages(out)
             print(f"  ✓ {bid}　{out.stat().st_size/1024:.0f} KB"
                   + (f"　{pages} 页" if pages else "") + f"　（{secs}s）")
+            fp = fingerprint(bid)
+            if fp:
+                FP_DIR.mkdir(parents=True, exist_ok=True)
+                (FP_DIR / f"pdf-fp-{bid}.txt").write_text(fp, encoding="utf-8")
         else:
             fail.append(bid)
             print(f"  ✗ {bid}　渲染失败或超时（{secs}s）")
