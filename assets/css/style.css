@@ -589,6 +589,98 @@ tbody tr:last-child td{border-bottom:none}
 /* 政策脉络里指向原文的链接：与正文同段，弱化为次要信息 */
 .tl-src{font-size:12px;white-space:nowrap;margin-left:4px}
 
+/* ---------------- 六张网专题：政策分析 / 市场洞察 ---------------- */
+.sub-h{font-size:15px;color:var(--navy);margin:26px 0 10px;padding-left:11px;
+  border-left:3px solid var(--teal);line-height:1.5}
+.sub-h:first-child{margin-top:14px}
+.sub-note{margin:0 0 16px;font-size:12.5px;line-height:1.75;color:var(--muted)}
+.sub-note.caveat{margin:18px 0 0;padding:12px 15px;background:#f7fafd;border:1px solid var(--border);
+  border-radius:9px;font-size:12.5px}
+
+/* 核心判断：2×2 卡片，序号做视觉锚点 */
+.verdict-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.verdict{background:var(--card);border:1px solid var(--border);border-radius:13px;
+  padding:20px 22px;box-shadow:var(--shadow);border-top:3px solid var(--blue)}
+.verdict .vn{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;
+  letter-spacing:.12em;color:var(--blue);opacity:.75}
+.verdict h4{margin:7px 0 10px;font-size:16px;line-height:1.55;color:var(--navy)}
+.verdict p{margin:0;font-size:13.5px;line-height:1.9;color:var(--ink-2)}
+
+/* 政策三阶段 */
+.phase-card{background:var(--card);border:1px solid var(--border);border-radius:13px;
+  padding:18px 20px;box-shadow:var(--shadow)}
+.phase-card .pt{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--teal)}
+.phase-card h4{margin:6px 0 4px;font-size:16px;color:var(--navy)}
+.phase-card .pd{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;
+  color:var(--muted);margin-bottom:10px}
+.phase-card p{margin:0;font-size:13px;line-height:1.85;color:var(--ink-2)}
+.phase-card .psig{margin-top:11px;padding-top:10px;border-top:1px dashed var(--border);
+  font-size:12px;line-height:1.7;color:var(--gold)}
+
+/* 工具箱/机会矩阵小表：列少，不必撑到 900px */
+.tbl-min{min-width:760px}
+.tbl-min td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
+
+/* 强制条款清单 */
+.mandate-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.mandate{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--t-focus);
+  border-radius:11px;padding:14px 16px;box-shadow:var(--shadow)}
+.mandate h5{margin:0 0 6px;font-size:13.5px;color:var(--navy);line-height:1.5}
+.mandate p{margin:0 0 8px;font-size:13px;line-height:1.8;color:var(--ink-2)}
+.mandate .msrc{font-size:11.5px;line-height:1.65;color:var(--muted);
+  padding-top:7px;border-top:1px dashed var(--border)}
+
+/* 后续观察节点 */
+.watch-list{margin:0;padding:0;list-style:none;counter-reset:w}
+.watch-list li{counter-increment:w;position:relative;padding:10px 0 10px 34px;
+  font-size:13.5px;line-height:1.8;color:var(--ink-2);border-bottom:1px dashed var(--border)}
+.watch-list li:last-child{border-bottom:none}
+.watch-list li::before{content:counter(w,decimal-leading-zero);position:absolute;left:0;top:10px;
+  font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;font-weight:700;
+  color:#fff;background:var(--navy);border-radius:5px;padding:1px 6px}
+
+/* 分网投资量级条形图 */
+.bar-chart{background:var(--card);border:1px solid var(--border);border-radius:13px;
+  padding:20px 22px;box-shadow:var(--shadow)}
+.bar-row{display:flex;align-items:center;gap:12px;padding:7px 0}
+.bar-row + .bar-row{border-top:1px dashed var(--border)}
+.bar-label{flex:0 0 104px;font-size:13px;font-weight:600;color:var(--navy)}
+.bar-mid{flex:1;min-width:0}
+.bar-track{height:11px;border-radius:6px;background:#eef2f8;overflow:hidden}
+.bar-track i{display:block;height:100%;border-radius:6px;
+  background:linear-gradient(90deg,var(--navy),var(--blue))}
+.bar-track i.zero{background:repeating-linear-gradient(90deg,#dbe4f0 0 6px,transparent 6px 11px)}
+.bar-note{font-size:11.5px;line-height:1.6;color:var(--muted);margin-top:3px}
+.bar-val{flex:0 0 132px;text-align:right;font-size:13px;font-weight:700;color:var(--blue);
+  font-variant-numeric:tabular-nums}
+.bar-val em{display:block;font-style:normal;font-size:11px;font-weight:400;color:var(--muted)}
+
+/* 确定性徽标 */
+.cert{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:5px;
+  border:1px solid;white-space:nowrap}
+.cert.c-hi{background:var(--t-focus-bg);color:var(--t-focus);border-color:#f6cfc9}
+.cert.c-mh{background:#fff8e6;color:var(--gold);border-color:#f0e0b8}
+.cert.c-mid{background:#f1f5f9;color:var(--t-watch);border-color:#e2e8f0}
+
+/* 三套打法 */
+.play-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.play-card{background:linear-gradient(160deg,var(--navy),var(--navy-2));border-radius:13px;
+  padding:20px 22px;color:#fff;box-shadow:var(--shadow-lg)}
+.play-card .pn{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;
+  letter-spacing:.12em;color:rgba(255,255,255,.6)}
+.play-card h4{margin:8px 0 10px;font-size:15.5px;line-height:1.55}
+.play-card p{margin:0;font-size:13px;line-height:1.9;color:rgba(255,255,255,.88)}
+
+/* 风险清单 */
+.risk-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.risk{background:var(--card);border:1px solid var(--border);border-radius:11px;
+  padding:14px 16px;box-shadow:var(--shadow)}
+.risk .rh{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+.risk .rw{flex:none;font-size:11px;font-weight:700;color:#fff;background:var(--t-focus);
+  border-radius:4px;padding:1px 6px;font-family:"SF Mono",ui-monospace,Menlo,monospace}
+.risk h5{margin:0;font-size:13.5px;color:var(--navy)}
+.risk p{margin:0;font-size:13px;line-height:1.85;color:var(--ink-2)}
+
 /* ============================ 响应式 ============================ */
 @media(max-width:1024px){
   .g3,.future,.flow{grid-template-columns:repeat(2,1fr)}
@@ -596,6 +688,7 @@ tbody tr:last-child td{border-bottom:none}
   .detail .kv{grid-template-columns:repeat(2,1fr)}
   .track-desc{display:none}
   .step::after{display:none}
+  .play-grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
   body{font-size:14.5px}
@@ -612,6 +705,24 @@ tbody tr:last-child td{border-bottom:none}
   .concl li{padding-left:38px}
   .wrap{padding:0 16px}
   .track-name{width:88px;font-size:13px}
+  .verdict-grid,.mandate-list,.risk-list{grid-template-columns:1fr}
+  .bar-row{flex-wrap:wrap;gap:6px}
+  .bar-label{flex:0 0 100%}
+  .bar-mid{flex:1 1 100%}
+  .bar-val{flex:0 0 100%;text-align:left}
+  .bar-val em{display:inline;margin-left:6px}
+  /* 列多且单元格是长文的表（工具箱 / 机会矩阵）在窄屏折成卡片，避免横向拖动 */
+  .tbl-min{min-width:0}
+  .tbl-min thead{display:none}
+  .tbl-min tbody tr{display:block;padding:12px 0;border-bottom:1px solid var(--border)}
+  .tbl-min tbody tr:last-child{border-bottom:none}
+  .tbl-min tbody tr:hover{background:transparent}
+  .tbl-min tbody td{display:block;border-bottom:none;padding:2px 0}
+  .tbl-min tbody td::before{content:attr(data-label);display:block;font-size:11px;
+    letter-spacing:.04em;color:var(--muted);line-height:1.5}
+  .tbl-min tbody td:first-child{padding-bottom:6px}
+  .tbl-min tbody td:first-child::before{content:none}
+  .tbl-min tbody td:first-child{font-size:14.5px;line-height:1.6;white-space:normal}
 }
 
 @media print{

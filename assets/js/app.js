@@ -52,6 +52,8 @@
   }
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  /* 静态容器写纯文本（专题页的子标题、说明文字都由数据驱动，避免 HTML 与 JSON 双份维护） */
+  function setText(sel, v) { const e = $(sel); if (e) e.textContent = v || ""; }
   function params() {
     const o = {};
     location.search.replace(/^\?/, "").split("&").forEach(function (kv) {
@@ -307,7 +309,9 @@
         box.innerHTML = '<div class="empty">六张网专题数据未加载：请确认 <code>agent/six_networks.json</code> 存在，' +
           "并重新运行 <code>python3 agent/build_data.py</code>。</div>";
       }
-      ["#six-indicators", "#six-nets", "#six-timeline", "#six-docs", "#six-items"].forEach(function (s) {
+      ["#six-indicators", "#six-nets", "#six-timeline", "#six-docs", "#six-items",
+       "#six-verdicts", "#six-phases", "#six-toolbox", "#six-mandates", "#six-watch",
+       "#six-sizing", "#six-bars", "#six-matrix", "#six-plays", "#six-risks"].forEach(function (s) {
         const e = $(s); if (e) e.innerHTML = "";
       });
       return;
@@ -382,6 +386,98 @@
             (home ? "在机构官网检索原文" : "查看原文") + "</a></div>"
           : "") +
       "</article>";
+    }).join("");
+
+    /* ---- 政策分析 ---- */
+    const AN = SIX.analysis || {};
+    setText("#six-analysis-desc", AN.desc);
+    setText("#six-phase-title", AN.phase_title);
+    setText("#six-toolbox-title", AN.toolbox_title);
+    setText("#six-mandates-title", AN.mandates_title);
+    setText("#six-mandates-note", AN.mandates_note);
+    setText("#six-watch-title", AN.watch_title);
+
+    $("#six-verdicts").innerHTML = (AN.verdicts || []).map(function (v) {
+      return '<article class="verdict"><div class="vn">' + esc(v.n) + "</div>" +
+        "<h4>" + esc(v.h) + "</h4><p>" + esc(v.p) + "</p></article>";
+    }).join("");
+
+    $("#six-phases").innerHTML = (AN.phases || []).map(function (p) {
+      return '<div class="phase-card"><div class="pt">' + esc(p.tag) + "</div>" +
+        "<h4>" + esc(p.name) + '</h4><div class="pd">' + esc(p.period) + "</div>" +
+        "<p>" + esc(p.body) + "</p>" +
+        (p.signal ? '<div class="psig">观察点：' + esc(p.signal) + "</div>" : "") +
+        "</div>";
+    }).join("");
+
+    /* data-label 供窄屏把表格折成卡片（见 style.css 的 ≤720px 段），空值不能省。 */
+    const cells = function (pairs) {
+      return pairs.map(function (p) {
+        return '<td data-label="' + esc(p[0]) + '">' + esc(p[1]) + "</td>";
+      }).join("");
+    };
+    $("#six-toolbox").innerHTML = (AN.toolbox || []).map(function (t) {
+      return "<tr>" + cells([["工具类型", t.k], ["文件形态", t.v],
+        ["决定什么", t.effect], ["对我们的用法", t.use]]) + "</tr>";
+    }).join("");
+
+    $("#six-mandates").innerHTML = (AN.mandates || []).map(function (m) {
+      return '<article class="mandate"><h5>' + esc(m.k) + "</h5><p>" + esc(m.v) +
+        '</p><div class="msrc">出处：' + esc(m.src) + "</div></article>";
+    }).join("");
+
+    $("#six-watch").innerHTML = (AN.watch || []).map(function (w) {
+      return "<li>" + esc(w) + "</li>";
+    }).join("");
+
+    /* ---- 市场洞察 ---- */
+    const IN = SIX.insight || {};
+    setText("#six-insight-desc", IN.desc);
+    setText("#six-sizing-title", IN.sizing_title);
+    setText("#six-sizing-note", IN.sizing_note);
+    setText("#six-bars-title", IN.bars_title);
+    setText("#six-matrix-title", IN.matrix_title);
+    setText("#six-matrix-note", IN.matrix_note);
+    setText("#six-plays-title", IN.plays_title);
+    setText("#six-risks-title", IN.risks_title);
+    setText("#six-caveat", IN.caveat);
+
+    $("#six-sizing").innerHTML = (IN.sizing || []).map(function (s) {
+      return '<div class="ov-card"><div class="n si-num">' + esc(s.v) + "</div>" +
+        '<div class="l">' + esc(s.k) + '</div><div class="d">' + esc(s.note) + "</div></div>";
+    }).join("");
+
+    const bars = IN.bars || [];
+    const maxV = bars.reduce(function (m, b) { return Math.max(m, b.v || 0); }, 0) || 1;
+    $("#six-bars").innerHTML = bars.map(function (b) {
+      const w = b.v ? Math.max(8, Math.round((b.v / maxV) * 100)) : 100;
+      return '<div class="bar-row"><div class="bar-label">' + esc(b.label) + "</div>" +
+        '<div class="bar-mid"><div class="bar-track"><i' + (b.v ? "" : ' class="zero"') +
+        ' style="width:' + w + '%"></i></div>' +
+        (b.note ? '<div class="bar-note">' + esc(b.note) + "</div>" : "") + "</div>" +
+        '<div class="bar-val">' + esc(b.text) + "</div></div>";
+    }).join("");
+
+    const certCls = { "高": "c-hi", "中高": "c-mh", "中": "c-mid" };
+    $("#six-matrix").innerHTML = (IN.matrix || []).map(function (m) {
+      return "<tr>" +
+        '<td data-label="机会">' + esc(m.opp) + "</td>" +
+        '<td data-label="所属网">' + esc(m.net) + "</td>" +
+        '<td data-label="政策依据">' + esc(m.basis) + "</td>" +
+        '<td data-label="确定性"><span class="cert ' + (certCls[m.cert] || "c-mid") + '">' +
+          esc(m.cert) + "</span></td>" +
+        '<td data-label="切入方式">' + esc(m.entry) + "</td>" +
+      "</tr>";
+    }).join("");
+
+    $("#six-plays").innerHTML = (IN.plays || []).map(function (p) {
+      return '<article class="play-card"><div class="pn">' + esc(p.n) + "</div>" +
+        "<h4>" + esc(p.h) + "</h4><p>" + esc(p.p) + "</p></article>";
+    }).join("");
+
+    $("#six-risks").innerHTML = (IN.risks || []).map(function (r, i) {
+      return '<article class="risk"><div class="rh"><span class="rw">R' + (i + 1) +
+        '</span><h5>' + esc(r.h) + "</h5></div><p>" + esc(r.p) + "</p></article>";
     }).join("");
 
     /* ---- 相关情报 ---- */
