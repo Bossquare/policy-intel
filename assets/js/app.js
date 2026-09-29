@@ -311,6 +311,7 @@
       }
       ["#six-indicators", "#six-nets", "#six-timeline", "#six-docs", "#six-items",
        "#six-verdicts", "#six-phases", "#six-toolbox", "#six-mandates", "#six-watch",
+       "#six-actions", "#six-moves",
        "#six-sizing", "#six-bars", "#six-matrix", "#six-plays", "#six-risks"].forEach(function (s) {
         const e = $(s); if (e) e.innerHTML = "";
       });
@@ -432,6 +433,32 @@
 
     /* ---- 市场洞察 ---- */
     const IN = SIX.insight || {};
+
+    /* 「我们能做什么」在页面上是独立一节（位于上部，页内目录第一项），数据仍来自 insight */
+    setText("#six-actions-title", IN.actions_title);
+    setText("#six-actions-note", IN.actions_note);
+    setText("#six-moves-title", IN.moves_title);
+
+    const STANCE = { "主攻": "s-main", "跟随": "s-follow", "不碰": "s-skip" };
+    $("#six-actions").innerHTML = (IN.actions || []).map(function (a) {
+      const cls = STANCE[a.stance] || "s-follow";
+      return '<article class="act ' + cls + '">' +
+        '<div class="act-head"><span class="stance ' + cls + '">' + esc(a.stance) + "</span>" +
+          "<h4>" + esc(a.h) + '</h4><span class="act-net">' + esc(a.net) + "</span></div>" +
+        '<div class="act-row"><span class="act-k">交付物</span>' +
+          '<span class="act-v">' + esc(a.sell) + "</span></div>" +
+        '<div class="act-row"><span class="act-k">客户与资金</span>' +
+          '<span class="act-v">' + esc(a.buyer) + "</span></div>" +
+        '<div class="act-row"><span class="act-k">门槛与窗口</span>' +
+          '<span class="act-v">' + esc(a.gate) + "</span></div>" +
+      "</article>";
+    }).join("");
+
+    $("#six-moves").innerHTML = (IN.moves || []).map(function (m) {
+      return '<article class="move-card"><div class="mn">' + esc(m.n) + "</div>" +
+        "<h4>" + esc(m.h) + "</h4><p>" + esc(m.p) + "</p></article>";
+    }).join("");
+
     setText("#six-insight-desc", IN.desc);
     setText("#six-sizing-title", IN.sizing_title);
     setText("#six-sizing-note", IN.sizing_note);

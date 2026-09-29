@@ -681,6 +681,51 @@ tbody tr:last-child td{border-bottom:none}
 .risk h5{margin:0;font-size:13.5px;color:var(--navy)}
 .risk p{margin:0;font-size:13px;line-height:1.85;color:var(--ink-2)}
 
+/* ==================== 页内目录（长页面导航，核心节置顶） ==================== */
+.toc-bar{position:sticky;top:60px;z-index:40;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.toc-bar .wrap{display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding-top:9px;padding-bottom:9px}
+.toc-label{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-right:2px}
+.toc-bar a{font-size:12.5px;line-height:1.6;color:var(--ink-2);padding:2px 10px;
+  border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.toc-bar a:hover{background:var(--blue-soft);color:var(--blue);border-color:var(--blue-line);
+  text-decoration:none}
+.toc-bar a.toc-key{background:var(--navy);color:#fff}
+.toc-bar a.toc-key:hover{background:var(--navy-2);color:#fff}
+/* sticky 导航 + 目录条共约 110px，锚点跳转要留出这段高度 */
+main section[id]{scroll-margin-top:126px}
+
+/* ==================== 我们能做什么（可承接动作卡片） ==================== */
+.act-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.act{background:var(--card);border:1px solid var(--border);border-left:4px solid #cbd5e1;
+  border-radius:13px;padding:17px 19px;box-shadow:var(--shadow)}
+.act.s-main{border-left-color:var(--t-focus)}
+.act.s-follow{border-left-color:var(--t-track)}
+.act.s-skip{background:#fbfcfe;border-left-color:#cbd5e1}
+.act-head{display:flex;align-items:center;flex-wrap:wrap;gap:0 8px;margin-bottom:6px}
+.act-head h4{flex:1;min-width:0;margin:0;font-size:15px;line-height:1.5;color:var(--navy)}
+.act.s-skip .act-head h4{color:var(--ink-2)}
+.act-net{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.stance{flex:none;display:inline-block;font-size:11.5px;font-weight:700;padding:1px 9px;
+  border-radius:5px;border:1px solid;white-space:nowrap}
+.stance.s-main{background:var(--t-focus-bg);color:var(--t-focus);border-color:#f6cfc9}
+.stance.s-follow{background:var(--t-track-bg);color:var(--t-track);border-color:var(--blue-line)}
+.stance.s-skip{background:#f1f5f9;color:var(--t-watch);border-color:#e2e8f0}
+.act-row{display:flex;gap:10px;padding-top:8px;margin-top:8px;
+  border-top:1px dashed var(--border);font-size:13px;line-height:1.8}
+.act-k{flex:0 0 96px;font-size:12.5px;color:var(--muted)}
+.act-v{flex:1;min-width:0;color:var(--ink-2)}
+
+/* 三种交付形态：浅色卡片，与深蓝的「三套打法」区分 */
+.move-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.move-card{background:var(--card);border:1px solid var(--border);border-radius:13px;
+  padding:18px 20px;box-shadow:var(--shadow);border-top:3px solid var(--gold)}
+.move-card .mn{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;
+  font-weight:700;letter-spacing:.12em;color:var(--gold);opacity:.85}
+.move-card h4{margin:7px 0 9px;font-size:15.5px;color:var(--navy);line-height:1.5}
+.move-card p{margin:0;font-size:13px;line-height:1.85;color:var(--ink-2)}
+
 /* ============================ 响应式 ============================ */
 @media(max-width:1024px){
   .g3,.future,.flow{grid-template-columns:repeat(2,1fr)}
@@ -689,6 +734,7 @@ tbody tr:last-child td{border-bottom:none}
   .track-desc{display:none}
   .step::after{display:none}
   .play-grid{grid-template-columns:1fr}
+  .act-list,.move-grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
   body{font-size:14.5px}
@@ -723,6 +769,14 @@ tbody tr:last-child td{border-bottom:none}
   .tbl-min tbody td:first-child{padding-bottom:6px}
   .tbl-min tbody td:first-child::before{content:none}
   .tbl-min tbody td:first-child{font-size:14.5px;line-height:1.6;white-space:normal}
+  /* 承接动作卡片窄屏改单列并让字段名单独成行；目录条不再吸顶，改横向滚动 */
+  .act-list,.move-grid{grid-template-columns:1fr}
+  .act-row{display:block}
+  .act-k{display:block;margin-bottom:1px}
+  .toc-bar{position:static}
+  .toc-bar .wrap{flex-wrap:nowrap;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+  .toc-label{display:none}
+  main section[id]{scroll-margin-top:16px}
 }
 
 @media print{
