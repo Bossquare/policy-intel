@@ -1,11 +1,36 @@
 {
   "_comment": "情报采集源清单。level 取值 national / key-city / other / industry。首次部署时请逐个核对 url 是否为该单位的『信息发布/政策文件』栏目页；政府网站改版频繁，失效的源在运行日志中会标为 0 条，按提示更新即可。说明：原「国务院新闻办·发布会」（scio.gov.cn）在部分网络环境返回 521 无法采集，已替换为住建部「建设要闻」栏目；「中央网信办」cac.gov.cn 存在间歇性访问失败，采集时偶发 0 条属正常，可用 agent/check_sources.py 复核。",
+  "_comment_six": "第二组源为基础设施「六张网」归口部门（发改委 / 能源局 / 工信部 / 国家数据局）。它们与住建系统标题风格完全不同，走 keyword_set 声明的**专用词表**（keyword_sets.six），该词表**替代**全局 KEYWORDS，只收与六张网本体相关的条目 —— 否则发改委、工信部的新闻栏目会被「规划/通知/方案」这类全局公文词整屏收进来。这类源本身发布频率低（实测约 0.5~3 条/月），当周 0 条是常态而非故障，故标 low_freq，运行时不再计入「疑似失效源」告警。",
+  "_comment_render": "标 render_week 的栏目静态 HTML 只有几百字节空壳（列表由 JS 注入），采集端会自动走 agent/render.js 无头渲染兜底，无需手工干预。",
+  "keyword_sets": {
+    "six": [
+      "六张网", "新型基础设施", "网络型基础设施",
+      "水网", "智慧水利", "数字孪生水利", "水利工程", "供水管网", "排水管网", "污水管网",
+      "泵站", "水厂", "防洪排涝", "海绵城市", "水系连通", "城乡供水", "重大水利工程",
+      "新型电网", "配电网", "智能微电网", "微电网", "虚拟电厂", "源网荷储", "新型储能",
+      "车网互动", "光储直柔", "充电桩", "充电基础设施", "配电自动化", "算电协同", "绿电直连",
+      "算力网", "算力", "智算", "智能算力", "数据中心", "算力枢纽", "东数西算",
+      "算力集群", "液冷", "边缘算力", "超算互联网",
+      "新一代通信网", "5G-A", "5G", "6G", "万兆光网", "千兆", "卫星互联网",
+      "智慧多功能杆", "多杆合一", "通信基站", "光纤", "物联网",
+      "地下管网", "综合管廊", "管廊", "燃气管网", "市政管线", "城市生命线",
+      "窨井盖", "排水防涝", "地下管线", "管线探测",
+      "物流网", "物流枢纽", "国家物流枢纽", "冷链", "多式联运", "物流园区",
+      "仓储", "配送", "货运", "快递", "物流成本"
+    ]
+  },
   "sources": [
     { "name": "住房和城乡建设部·政策文件", "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/index.html", "level": "national", "region": "全国" },
     { "name": "住房和城乡建设部·工作动态", "url": "https://www.mohurd.gov.cn/xinwen/gzdt/index.html", "level": "national", "region": "全国" },
     { "name": "住房和城乡建设部·地方信息", "url": "https://www.mohurd.gov.cn/xinwen/dfxx/index.html", "level": "national", "region": "全国" },
     { "name": "住房和城乡建设部·建设要闻", "url": "https://www.mohurd.gov.cn/xinwen/jsyw/index.html", "level": "national", "region": "全国" },
     { "name": "中央网络安全和信息化委员会办公室", "url": "https://www.cac.gov.cn/", "level": "national", "region": "全国" },
+
+    { "name": "国家发展改革委·新闻发布", "url": "https://www.ndrc.gov.cn/xwdt/xwfb/", "level": "national", "region": "全国", "keyword_set": "six", "low_freq": true },
+    { "name": "国家发展改革委·政策发布", "url": "https://www.ndrc.gov.cn/xxgk/zcfb/", "level": "national", "region": "全国", "keyword_set": "six", "low_freq": true, "render_week": true },
+    { "name": "国家能源局·能源要闻", "url": "https://www.nea.gov.cn/xwzx/nyyw.htm", "level": "national", "region": "全国", "keyword_set": "six", "low_freq": true, "render_week": true },
+    { "name": "工业和信息化部·政策文件", "url": "https://www.miit.gov.cn/zwgk/zcwj/index.html", "level": "national", "region": "全国", "keyword_set": "six", "low_freq": true, "render_week": true },
+    { "name": "国家数据局·算力与数据政策", "url": "https://www.nda.gov.cn/sjj/index_pc.html", "level": "national", "region": "全国", "keyword_set": "six", "low_freq": true },
 
     { "name": "上海市住房和城乡建设管理委员会·建设管理", "url": "https://zjw.sh.gov.cn/jsgl/index.html", "level": "key-city", "region": "上海" },
     { "name": "北京市住房和城乡建设委员会·其他政务文件", "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/index.shtml", "level": "key-city", "region": "北京" },

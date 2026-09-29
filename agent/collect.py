@@ -218,14 +218,30 @@ def date_from(url: str):
     return ""
 
 
-def looks_relevant(title: str) -> bool:
+def looks_relevant(title: str, extra=None, only=None) -> bool:
+    """标题是否值得收。extra / only 都来自源声明（source.extra_keywords / source.keywords）。
+
+    全局 KEYWORDS 是按住建领域校准的；六张网归口部门（发改委、水利部、能源局、
+    工信部等）的标题风格完全不同，有两种处理方式：
+
+    - ``extra``：在全局词表之上**追加**词。适合「住建 + 某专题」仍想收常规条目的源。
+    - ``only``：用该源的**专用词表替代**全局词表。六张网归口部门必须用这个 ——
+      否则全局公文词（规划 / 通知 / 方案 / 目录 …）会把发改委、水利部新闻栏目里
+      所有常规稿件整屏收进来，把周报冲成「部委新闻汇总」。
+
+    两种都只影响**词表匹配**这一层，长度与噪声过滤照旧生效。
+    """
     if len(title) < 8 or len(title) > 90:
         return False
     if any(n == title for n in NOISE):
         return False
     if any(n in title for n in NOISE_SUBSTR):
         return False
-    return any(k in title for k in KEYWORDS)
+    if only:
+        words = list(only)
+    else:
+        words = KEYWORDS + (list(extra) if extra else [])
+    return any(k in title for k in words)
 
 
 def collect_source(src: dict, since: datetime):
@@ -249,7 +265,7 @@ def extract_items(html: str, src: dict, since: datetime):
     found, seen = [], set()
     for m in LINK_RE.finditer(html):
         raw_title = clean_text(m.group(2))
-        if not looks_relevant(raw_title):
+        if not looks_relevant(raw_title, src.get("extra_keywords"), src.get("keywords")):
             continue
         url = urllib.parse.urljoin(base, m.group(1))
         if url in seen:
@@ -457,7 +473,17 @@ def main():
     if not SOURCES.exists():
         sys.exit(f"缺少源清单：{SOURCES}")
 
-    sources = json.loads(SOURCES.read_text(encoding="utf-8"))["sources"]
+    _src_json = json.loads(SOURCES.read_text(encoding="utf-8"))
+    sources = _src_json["sources"]
+    # 源可以声明 keyword_set，引用文件顶部的 keyword_sets（如六张网专用词表），
+    # 解析成源自己的 keywords 字段 —— extract_items 只认 src["keywords"]，不必知道集合概念。
+    ksets = _src_json.get("keyword_sets", {})
+    for s in sources:
+        k = s.get("keyword_set")
+        if k:
+            if k not in ksets:
+                sys.exit(f"源「{s['name']}」引用了未定义的 keyword_set：{k}")
+            s["keywords"] = ksets[k]
     now = datetime.now(CST)
     # 窗口口径：覆盖「上一个完整自然周」，即 [上周一 00:00, 上周日 24:00)。
     # 周一早上跑、--days 7 时，since 正好落在上周一 00:00。
@@ -514,9 +540,17 @@ def main():
     bodies = sum(1 for i in dedup if i.get("excerpt"))
     print(f"\n✅ 写出 {out}")
     print(f"   去重后 {len(dedup)} 条（含正文 {bodies} 条）")
-    if empty_srcs:
-        print(f"   ⚠️ 以下 {len(empty_srcs)} 个源本次 0 条，请核对栏目地址是否变更：")
-        for s in empty_srcs:
+    # low_freq 的源（六张网归口部门）本身发布频率就低，当周 0 条是常态，
+    # 与「栏目改版 / URL 失效」不是一回事，分开报，别让例行告警淹没真正的失效源。
+    broken = [s for s in empty_srcs if not s.get("low_freq")]
+    lowfreq = [s for s in empty_srcs if s.get("low_freq")]
+    if broken:
+        print(f"   ⚠️ 以下 {len(broken)} 个源本次 0 条，请核对栏目地址是否变更：")
+        for s in broken:
+            print(f"      - {s['name']}")
+    if lowfreq:
+        print(f"   · 另有 {len(lowfreq)} 个专题源当周无新文（发布频率低，非失效）：")
+        for s in lowfreq:
             print(f"      - {s['name']}")
 
 

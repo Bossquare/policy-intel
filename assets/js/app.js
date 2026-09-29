@@ -163,7 +163,7 @@
     const hasInsight = !!(it.impact || it.action);
     return (
       '<article class="intel tier-' + it.tier + '">' +
-        '<div>' + tierBadge(it) + levelBadge(it) + trackBadges(it, 2) + "</div>" +
+        '<div>' + tierBadge(it) + levelBadge(it) + trackBadges(it, 2) + netBadges(it, 2) + "</div>" +
         '<h3><a href="item.html?id=' + encodeURIComponent(it.id) + '">' + esc(it.title) + "</a></h3>" +
         '<div class="info">' + esc(it.org) + "　·　" + esc(it.date || it.date_raw) + "　·　" + esc(it.form) + "</div>" +
         '<p class="sum">' + esc(it.summary) + "</p>" +
@@ -260,6 +260,173 @@
       : '<div class="empty">本期尚未生成趋势展望（随核心结论一并产出）。</div>';
   }
 
+  /* ======================================================== 六张网专题 */
+  /* 口径 / 六张网界定 / 关键指标 / 政策脉络 / 主干政策清单 来自
+     agent/six_networks.json（人工维护）；条目的 nets 标签由 build_data.py
+     按关键词匹配生成。两者都在 site-data.js 的 SITE.six 里。 */
+  const SIX = SITE.six || (INDEX && INDEX.six) || null;
+  const SIX_NETS = (SIX && SIX.nets) || [];
+  /* 跨网条目（顶层部署 / 协调机制 / 投融资）不属于任何单张网，单独一个标签。
+     「逐张看」只画六张网，但筛选器与徽标要把它算进来，否则这类最重要的条目在专题页里反而找不到。 */
+  const SIX_UMB = (SIX && SIX.umbrella) || null;
+  const SIX_TAGS = (SIX_UMB ? [SIX_UMB] : []).concat(SIX_NETS);
+  const sixState = { net: "all" };
+
+  /* 「全部」指命中六张网的条目，不是条目库里的全部条目 —— 这个专题页只关心
+     与六张网相关的条目，把 132 条一般条目都列出来就失去专题的意义了。 */
+  function hasNet(it, key) {
+    if (key === "all") return (it.nets || []).length > 0;
+    return (it.nets || []).indexOf(key) >= 0;
+  }
+  function sixCount(key) {
+    return ALL.filter(function (i) { return hasNet(i, key); }).length;
+  }
+  /* 指向机构官网首页（需站内检索）还是精确原文 —— 别把首页伪装成原文链接 */
+  function isHomeUrl(u) {
+    return /^https?:\/\/[^/]+\/?$/.test(u || "");
+  }
+
+  /* 条目详情里标注该条目命中的「六张网」，便于从条目反查专题归属 */
+  function netBadges(it, limit) {
+    const ks = (it.nets || []).slice(0, limit || 6);
+    if (!ks.length) return "";
+    return ks.map(function (k) {
+      const n = SIX_TAGS.filter(function (x) { return x.key === k; })[0];
+      return '<span class="badge six" title="该条目被判定为「六张网」相关">六张网 · ' +
+        esc(n ? n.name : k) + "</span>";
+    }).join("");
+  }
+
+  function renderSix() {
+    const up = $("#six-updated");
+    if (up) up.textContent = SIX && SIX.updated_at ? "口径更新 " + SIX.updated_at : "";
+
+    if (!SIX || !SIX_NETS.length) {
+      const box = $("#six-intro");
+      if (box) {
+        box.innerHTML = '<div class="empty">六张网专题数据未加载：请确认 <code>agent/six_networks.json</code> 存在，' +
+          "并重新运行 <code>python3 agent/build_data.py</code>。</div>";
+      }
+      ["#six-indicators", "#six-nets", "#six-timeline", "#six-docs", "#six-items"].forEach(function (s) {
+        const e = $(s); if (e) e.innerHTML = "";
+      });
+      return;
+    }
+
+    /* ---- 口径 ---- */
+    const inv = SIX.investment || {};
+    $("#six-intro").innerHTML =
+      '<div class="six-intro">' +
+        "<div>" +
+          "<h3>" + esc(SIX.title) + "</h3>" +
+          '<p class="six-def">' + esc(SIX.definition) + "</p>" +
+          '<p class="six-origin">' + esc(SIX.origin) + "</p>" +
+        "</div>" +
+        '<div class="six-invest">' +
+          '<div class="si-t">投资规模</div>' +
+          '<div class="si-big">' + esc(inv.total || "—") + "</div>" +
+          "<ul>" + [inv.y2026, inv.multiplier].filter(Boolean).map(function (x) {
+            return "<li>" + esc(x) + "</li>";
+          }).join("") + "</ul>" +
+          (inv.note ? '<p class="si-note">' + esc(inv.note) + "</p>" : "") +
+        "</div>" +
+      "</div>";
+
+    /* ---- 关键指标 ---- */
+    $("#six-indicators").innerHTML = (SIX.indicators || []).map(function (k) {
+      return '<div class="ov-card"><div class="n si-num">' + esc(k.v) + "</div>" +
+        '<div class="l">' + esc(k.k) + "</div>" +
+        '<div class="d">' + esc(k.note) + "</div></div>";
+    }).join("");
+
+    /* ---- 六张网逐张 ---- */
+    $("#six-nets").innerHTML = SIX_NETS.map(function (n) {
+      const cnt = sixCount(n.key);
+      return '<article class="net-card">' +
+        '<div class="net-head"><span class="net-name">' + esc(n.name) + "</span>" +
+          '<span class="net-en">' + esc(n.en || "") + "</span></div>" +
+        '<div class="net-org">主管：' + esc(n.authority || "—") + "</div>" +
+        '<p class="net-scope">' + esc(n.scope) + "</p>" +
+        '<div class="net-row"><span class="net-k">建设规模</span><span class="net-v">' + esc(n.scale) + "</span></div>" +
+        '<div class="net-row"><span class="net-k">智能化要点</span><span class="net-v">' + esc(n.smart) + "</span></div>" +
+        '<div class="net-row net-opp"><span class="net-k">落地机会</span><span class="net-v">' + esc(n.opportunity) + "</span></div>" +
+        '<div class="net-foot"><button type="button" class="btn sm ghost" data-net="' + esc(n.key) + '">' +
+          "相关情报 " + cnt + " 条 →</button></div>" +
+      "</article>";
+    }).join("");
+
+    /* ---- 政策脉络 ---- */
+    $("#six-timeline").innerHTML = (SIX.timeline || []).map(function (t, i) {
+      return '<div class="fc"><div class="fn">' + (i + 1) + "</div>" +
+        "<h4><span class=\"badge\">" + esc(t.date) + (t.tag ? " · " + esc(t.tag) : "") + "</span> " +
+        esc(t.title) + "</h4><p>" + esc(t.body) +
+        (t.url ? ' <a class="tl-src" href="' + esc(t.url) + '" target="_blank" rel="noopener">原文</a>' : "") +
+        "</p></div>";
+    }).join("");
+
+    /* ---- 主干政策清单 ---- */
+    const docs = SIX.documents || [];
+    $("#six-doc-count").textContent = docs.length;
+    $("#six-docs").innerHTML = docs.map(function (d) {
+      const home = isHomeUrl(d.url);
+      return '<article class="doc-card">' +
+        '<div class="doc-head"><span class="doc-date">' + esc(d.date) + "</span>" +
+          "<span>" + esc(d.org) + "</span></div>" +
+        "<h4>" + esc(d.title) + "</h4>" +
+        '<ul class="doc-points">' + (d.points || []).map(function (p) {
+          return "<li>" + esc(p) + "</li>";
+        }).join("") + "</ul>" +
+        (d.url
+          ? '<div class="doc-src">' + (home ? '<span class="src-kind">官网</span>' : "") +
+            '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">' +
+            (home ? "在机构官网检索原文" : "查看原文") + "</a></div>"
+          : "") +
+      "</article>";
+    }).join("");
+
+    /* ---- 相关情报 ---- */
+    $("#six-filter").innerHTML = [["all", "全部", sixCount("all")]]
+      .concat(SIX_TAGS.map(function (n) { return [n.key, n.name, sixCount(n.key)]; }))
+      .map(function (r) {
+        return '<button class="chip' + (sixState.net === r[0] ? " on" : "") +
+          '" data-net-filter="' + esc(r[0]) + '">' + esc(r[1]) + '<span class="c">' + r[2] + "</span></button>";
+      }).join("");
+
+    $$("[data-net-filter]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        sixState.net = b.getAttribute("data-net-filter");
+        runSixFilter();
+      });
+    });
+    $$("[data-net]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        sixState.net = b.getAttribute("data-net");
+        runSixFilter();
+        const t = $("#six-items");
+        if (t && t.scrollIntoView) t.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+    runSixFilter();
+  }
+
+  function runSixFilter() {
+    $$("[data-net-filter]").forEach(function (b) {
+      b.classList.toggle("on", b.getAttribute("data-net-filter") === sixState.net);
+    });
+    const cur = SIX_TAGS.filter(function (n) { return n.key === sixState.net; })[0];
+    const list = ALL.filter(function (i) { return hasNet(i, sixState.net); })
+      .sort(function (a, b) { return (b.date || "").localeCompare(a.date || "") || b.relevance - a.relevance; });
+
+    const desc = cur ? (cur.scope || cur.note || "") : "";
+    $("#six-result").innerHTML = "共 <b>" + list.length + "</b> 条" +
+      (cur ? "　·　" + esc(cur.name) + (desc ? "：" + esc(desc).slice(0, 40) + "…" : "") : "");
+    $("#six-items").innerHTML = list.length
+      ? list.map(intelCard).join("")
+      : '<div class="empty">本站已收录条目中暂未命中该网。六张网的归口部门（水利部、国家能源局、' +
+        "工业和信息化部、国家发展改革委、国家数据局等）已纳入采集范围，但发布频率低于住建系统，" +
+        "收录量会随每周采集逐步累积。</div>";
+  }
+
   /* ============================================================ 条目库 */
   const state = { tier: "all", level: "all", track: "all", q: "" };
 
@@ -353,7 +520,7 @@
     document.title = it.title + " · 情报条目";
 
     root.innerHTML =
-      "<div>" + tierBadge(it) + levelBadge(it) + trackBadges(it, 6) + "</div>" +
+      "<div>" + tierBadge(it) + levelBadge(it) + trackBadges(it, 6) + netBadges(it) + "</div>" +
       "<h1>" + esc(it.title) + "</h1>" +
       '<div class="kv">' +
         "<div><dt>发布机构</dt><dd>" + esc(it.org) + "</dd></div>" +
@@ -476,6 +643,7 @@
     try {
       if (page === "home") renderHome();
       else if (page === "items") renderItems();
+      else if (page === "six") renderSix();
       else if (page === "item") renderItem();
       else if (page === "brief") renderBrief();
       else if (page === "briefs") renderBriefs();

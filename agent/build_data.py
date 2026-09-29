@@ -36,6 +36,7 @@ BRIEF = DATA / "brief-2026-09.json"
 INSIGHTS = ROOT / "agent" / "insights.json"
 SOURCE_FIXES = ROOT / "agent" / "source_fixes.json"
 SOURCE_HEALTH = DATA / "source-health.json"
+SIX_NETWORKS = ROOT / "agent" / "six_networks.json"
 SEED = ROOT / "seed" / "2026-09-report.html"
 INDEX = DATA / "index.json"
 A4_CSS = ROOT / "assets" / "css" / "a4.css"
@@ -185,10 +186,43 @@ def main():
     # 已预渲染的 A4 静态 PDF（由 agent/build_pdf.py 产出），用于前端「一键下载 PDF」
     pdf_ids = {p.stem for p in PDF_DIR.glob("*.pdf")} if PDF_DIR.exists() else set()
 
+    # ---- 「六张网」专题 ----------------------------------------------------
+    # 口径、主干政策与关键词表都在 agent/six_networks.json（人工维护）。
+    # 这里只做一件事：按关键词给条目打 nets 标签，供专题页分栏。
+    # 标签只进 site-data / index，**不回写 brief-*.json**，避免历史数据被反复改动。
+    six_raw = json.loads(SIX_NETWORKS.read_text(encoding="utf-8")) if SIX_NETWORKS.exists() else {}
+    six_nets = six_raw.get("nets", [])
+    # 跨网条目（顶层部署 / 协调机制 / 投融资 —— 如「国家发展改革委召开『六张网』重大项目协调推进会」）
+    # 不属于任何单张网。不给它一个归宿的话，这类最重要的条目反而不会出现在专题页里。
+    # 用独立的 umbrella 标签承载，不计入六张网各自的命中数，前端筛选项里单列一个「六网协同」。
+    umbrella = six_raw.get("umbrella") or {}
+    tag_defs = ([umbrella] if umbrella else []) + six_nets
+    net_stats = {n["key"]: 0 for n in tag_defs}
+    for b in briefs:
+        for it in b["items"]:
+            hay = " ".join([it.get("title", ""), it.get("summary", ""),
+                            it.get("org", ""), it.get("region", "")])
+            nets = [n["key"] for n in tag_defs
+                    if any(w in hay for w in n.get("keywords", []))]
+            it["nets"] = nets
+            for k in nets:
+                net_stats[k] = net_stats.get(k, 0) + 1
+
+    six_out = dict(six_raw)
+    six_out["stats"] = net_stats
+    if umbrella:
+        six_out["umbrella"] = {**{k: v for k, v in umbrella.items() if k != "keywords"},
+                               "count": net_stats.get(umbrella["key"], 0)}
+    # 关键词表只是打标签用的实现细节，不必发给前端
+    six_out["nets"] = [{**{k: v for k, v in n.items() if k != "keywords"},
+                        "count": net_stats.get(n["key"], 0)} for n in six_nets]
+
     index = {
         "site": SITE,
         "updated_at": now,
         "tracks": latest["tracks"],
+        # 「六张网」政策专题（口径 / 六张网界定 / 关键指标 / 政策脉络 / 主干文件 / 条目命中统计）
+        "six": six_out,
         "totals": {
             "items": len(latest["items"]),
             "focus": counts["focus"],
@@ -221,6 +255,7 @@ def main():
     payload = {
         "index": index,
         "briefs": {b["meta"]["id"]: b for b in briefs},
+        "six": six_out,
         "source_health": {
             "checked_at": health_raw.get("_checked_at", ""),
             "items": health,
@@ -255,6 +290,14 @@ def main():
     print(f"   来源修正：{fixed} 条（其中标注为栏目页 {listy} 条）"
           + (f"，健康检查已失效 {dead} 条" if health else "，尚未运行来源健康检查"))
     print(f"✅ 站点索引：{INDEX.name}（{len(index['briefs'])} 期）  最新期分档 {counts}")
+    if six_nets:
+        hit = sum(1 for b in briefs for i in b["items"] if i.get("nets"))
+        cross = f"（跨网 {net_stats.get(umbrella['key'], 0)}）" if umbrella else ""
+        detail = "、".join(f"{n['name']} {net_stats.get(n['key'], 0)}" for n in six_nets)
+        print(f"✅ 六张网专题：{len(six_nets)} 张网，主干政策 {len(six_raw.get('documents', []))} 份，"
+              f"条目命中 {hit} 条{cross}（{detail}）")
+    else:
+        print("   ⚠ 未找到 agent/six_networks.json，六张网专题数据为空")
     print(f"✅ A4 导出资源：a4-assets.js（样式 {len(css_text)} 字符，徽标 {'已内联' if logo_text else '缺失'}）")
     if pdf_ids:
         got = [b["meta"]["id"] for b in briefs if b["meta"]["id"] in pdf_ids]

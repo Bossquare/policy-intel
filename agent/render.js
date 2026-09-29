@@ -27,6 +27,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const net = require('net');
 const { spawn } = require('child_process');
 
 /* ---------- 参数 ---------- */
@@ -125,16 +126,54 @@ class CDP {
   }
 }
 
-async function waitForCdp(port, timeoutMs) {
+/** 端口是否可被本机绑定（占用中即返回 false）。 */
+function isPortFree(port) {
+  return new Promise((resolve) => {
+    const srv = net.createServer();
+    srv.once('error', () => resolve(false));
+    srv.once('listening', () => srv.close(() => resolve(true)));
+    srv.listen(port, '127.0.0.1');
+  });
+}
+
+/** 从 start 起找第一个空闲端口。避免连上别人已经占着的调试端口。 */
+async function pickPort(start) {
+  for (let p = start; p < start + 50; p++) {
+    if (await isPortFree(p)) return p;
+  }
+  throw new Error(`端口 ${start} 起 50 个候选全部被占用`);
+}
+
+/**
+ * 等 CDP 就绪，并**确认这个端口上的是我们自己拉起的浏览器**。
+ *
+ * 踩过的坑：本机常驻一个无头 Edge（别的工作目录）占着 9333，原实现只看
+ * `/json/version` 有没有响应就返回，于是静默连到别人的实例上、抓到错误的 DOM。
+ * 现在改为：只有出现 `url === marker`（我们以 about:blank 启动）的 page target
+ * 才算就绪；端口有响应但没有我们的 target，就继续等，直到超时并报明确错误。
+ */
+async function waitForCdp(port, timeoutMs, marker) {
   const deadline = Date.now() + timeoutMs;
+  let foreign = null;
   while (Date.now() < deadline) {
     try {
       const r = await fetch(`http://127.0.0.1:${port}/json/version`);
-      if (r.ok) return true;
+      if (r.ok) {
+        const list = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
+        const page = list.find((t) => t.type === 'page' && t.url === marker);
+        if (page) return page;
+        foreign = list.map((t) => `${t.type}:${t.url}`).join(', ') || '(无 target)';
+      }
     } catch (_) { /* 还没起来 */ }
     await sleep(300);
   }
-  return false;
+  if (foreign) {
+    throw new Error(
+      `端口 ${port} 上不是本次拉起的浏览器（现有 target：${foreign}）。` +
+      `可能被别的实例占用，请确认 --port 指向空闲端口。`,
+    );
+  }
+  return null;
 }
 
 async function main() {
@@ -153,6 +192,10 @@ async function main() {
   let child = null;
   const summary = { ok: [], failed: [] };
 
+  // 端口不能盲用：本机可能有别的无头浏览器占着 9333（会连错实例、抓到别人的 DOM）。
+  const port = await pickPort(opt.port);
+  if (port !== opt.port) console.log(`端口 ${opt.port} 已被占用，改用 ${port}`);
+
   try {
     child = spawn(browser, [
       '--headless=new',
@@ -168,18 +211,13 @@ async function main() {
       '--no-first-run',
       '--no-default-browser-check',
       `--user-data-dir=${udd}`,
-      `--remote-debugging-port=${opt.port}`,
+      `--remote-debugging-port=${port}`,
       '--window-size=1440,1200',
       'about:blank',
     ], { stdio: 'ignore' });
 
-    if (!(await waitForCdp(opt.port, 20000))) {
-      throw new Error(`浏览器 20s 内未就绪（端口 ${opt.port}）`);
-    }
-
-    const list = await (await fetch(`http://127.0.0.1:${opt.port}/json/list`)).json();
-    const page = list.find((t) => t.type === 'page');
-    if (!page) throw new Error('未找到页面 target');
+    const page = await waitForCdp(port, 20000, 'about:blank');
+    if (!page) throw new Error(`浏览器 20s 内未就绪（端口 ${port}）`);
 
     const ws = new WebSocket(page.webSocketDebuggerUrl);
     await new Promise((ok, bad) => {

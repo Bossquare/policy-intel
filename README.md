@@ -29,6 +29,7 @@
 |---|---|
 | `index.html` | 情报看板：本期概览、核心结论、三档条目、赛道热度、影响分析、趋势展望 |
 | `items.html` | 条目库：按档级 / 层级 / 赛道 / 关键词交叉筛选 |
+| `six-networks.html` | 基础设施「六张网」政策专题：口径与投资规模、13 项关键指标、六张网逐张解读、政策脉络、主干政策清单、按网筛选的相关情报 |
 | `item.html?id=` | 条目详情：完整信息、核心内容、影响分析、应对建议、来源与可信度 |
 | `briefs.html` | 简报归档列表，右下角浮动入口可下载任意一期（PDF / HTML） |
 | `brief.html?id=` | 单期简报全文，下载入口同为右下角浮动坞 |
@@ -56,6 +57,7 @@
 ```
 policy-intel/
 ├── index.html / items.html / item.html / briefs.html / brief.html / agent.html
+├── six-networks.html            基础设施「六张网」政策专题（独立版块）
 ├── export.html                  A4 竖版导出视图（打印 / 另存为 PDF 用）
 ├── assets/
 │   ├── img/                     主题 Logo 与 favicon（SVG）
@@ -70,7 +72,8 @@ policy-intel/
 │       ├── site-data.js         前端唯一数据入口
 │       └── a4-assets.js         内联的 A4 样式与徽标（供离线下载自包含 HTML）
 ├── agent/                       情报智能体
-│   ├── sources.json             采集源清单
+│   ├── sources.json             采集源清单（含六张网归口部门源与 keyword_set 专用词表）
+│   ├── six_networks.json        「六张网」专题唯一真源：口径、六张网界定、关键词表、指标、政策脉络与主干文件
 │   ├── collect.py               采集
 │   ├── analyze.py               摘要 / 相关性 / 分档 / 影响分析 / 本期研判（调用大模型）
 │   ├── llm.local.json           模型端点配置（本地文件，不入库）
@@ -167,6 +170,22 @@ python3 -m http.server 8000
 7. **PDF 预渲染依赖本机浏览器。** `build_pdf.py` 用 Edge / Chrome 的 headless 模式打印，
    机器上没装浏览器时会自动跳过并在日志中提示——站点不会因此不可用，
    只是归档页浮动坞里的「PDF」退化为「打印 → 另存为 PDF」。
+8. **「六张网」专题是独立版块，人工底图 + 自动动态流两层。**
+   - **底图**（人工维护）：口径、六张网界定、13 项关键指标、政策脉络、主干政策清单，
+     全部写在 `agent/six_networks.json`；`build_data.py` 只做读取打包，不生成内容。
+     要增删政策或改口径，改这一个文件再跑 `build_data.py` 即可。
+   - **动态流**（自动采集）：`build_data.py` 按 `six_networks.json` 各张网的 `keywords`
+     给所有条目打 `nets` 标签（只进 `site-data.js` / `index.json`，**不回写** `brief-*.json`），
+     专题页的「相关情报」据此分栏筛选。
+   - **跨网条目**：顶层部署 / 协调机制 / 投融资这类不属于任何单张网的条目，
+     由 `six_networks.json` 的 `umbrella` 词表（六张网 / 六网协同）命中，
+     归入筛选器最前的「六网协同」，不计入六张网各自的命中数。
+   - **归口部门采集源**：发改委 / 能源局 / 工信部 / 国家数据局的对应栏目已加入
+     `sources.json`。这些源用 `"keyword_set": "six"` 声明**专用词表**（文件顶部
+     `keyword_sets.six`），该词表**替代**全局 `KEYWORDS` —— 否则「规划 / 通知 / 方案」
+     这类全局公文词会把部委新闻栏目整屏收进来。同时标 `"low_freq": true`，
+     当周 0 条属常态，不会混进「疑似失效源」告警。
+     部委栏目静态 HTML 多为空壳，采集时会自动走 `agent/render.js` 无头渲染兜底。
 
 ## 数据与可信度
 
