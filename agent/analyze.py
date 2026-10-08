@@ -354,6 +354,8 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="只处理前 N 条（调试用）")
     ap.add_argument("--no-insight", action="store_true", help="跳过影响分析生成")
     ap.add_argument("--no-narrative", action="store_true", help="跳过核心结论/影响/展望研判生成")
+    ap.add_argument("--as-of", default="",
+                    help="窗口回退基准日期（YYYY-MM-DD）；仅当输入 raw 没带 window 字段时生效")
     args = ap.parse_args()
 
     use_rule = args.dry_run or not LLM_READY
@@ -414,13 +416,28 @@ def main():
             time.sleep(0.8)
 
     # 本期窗口：写进分析结果，成稿阶段据此写 period。
-    # 这样「隔几天重新成稿」（run_weekly --skip-analyze）不会把时间口径算漂移。
-    now0 = datetime.now(CST)
-    ref0 = now0 - timedelta(days=1)
+    # 口径以采集端写进 raw 的 window 为准（补跑历史周时它带着 --as-of 的日期）；
+    # 只有旧格式 raw 缺该字段时才按基准日回退推算 —— 否则补跑或隔几日重跑会把
+    # 时间口径算漂移，出现「期号 W40 而窗口写成 10-01 至 10-07」这种错位。
     d0 = int(raw.get("window_days", 7) or 7)
-    start0 = (now0 - timedelta(days=d0)).replace(hour=0, minute=0, second=0, microsecond=0)
-    period0 = f"{start0:%Y-%m-%d} 至 {ref0:%Y-%m-%d}"
-    window = {"days": d0, "start": f"{start0:%Y-%m-%d}", "end": f"{ref0:%Y-%m-%d}"}
+    win0 = raw.get("window") or {}
+    if win0.get("start") and win0.get("end"):
+        window = {
+            "days": int(win0.get("days", d0) or d0),
+            "start": win0["start"],
+            "end": win0["end"],
+        }
+    else:
+        now0 = datetime.now(CST)
+        if args.as_of:
+            try:
+                now0 = datetime.strptime(args.as_of, "%Y-%m-%d").replace(tzinfo=CST)
+            except ValueError:
+                sys.exit(f"--as-of 需要 YYYY-MM-DD 格式，收到：{args.as_of}")
+        ref0 = now0 - timedelta(days=1)
+        start0 = (now0 - timedelta(days=d0)).replace(hour=0, minute=0, second=0, microsecond=0)
+        window = {"days": d0, "start": f"{start0:%Y-%m-%d}", "end": f"{ref0:%Y-%m-%d}"}
+    period0 = f"{window['start']} 至 {window['end']}"
 
     # 本期三块研判（核心结论 / 市场影响 / 趋势展望）——站点首页与 A4 版式都要用。
     # 人工精修优先：run_weekly 的 promote() 会用 agent/weekly_narratives.json 覆盖本结果。

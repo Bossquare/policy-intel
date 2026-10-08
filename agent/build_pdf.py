@@ -187,9 +187,13 @@ def main():
         print("  站点仍可用：归档页的「下载 PDF」会自动退化为「打印 → 另存为 PDF」。")
         return
 
-    # 内容变了就要重渲染：只判「文件存不存在」会让重跑流水线（条目数变了）静默留下
-    # 上一版 PDF，站点上的下载件与页面数据对不上，而且没人会察觉。
-    # 指纹只取条目数与标题集合 —— built_at / 链接健康状态这类每次都变的字段不该触发重渲染。
+    # 内容变了就要重渲染：只判「文件存不存在」会让重跑流水线静默留下上一版 PDF，
+    # 站点上的下载件与页面数据对不上，而且没人会察觉。
+    #
+    # 指纹覆盖 PDF 里真正会变的内容：条目（标题 + 分档 + 影响分析）与期级研判。
+    # 只取标题集合是不够的 —— 补跑或复核后「条目数没变、分档从 8 变 9、期级研判从空变成
+    # 有内容」时指纹不会变，PDF 会静默留旧版（2026-10-08 补跑 W40 时实测踩到）。
+    # built_at / 链接健康状态这类每次都变的字段依旧排除在外，避免无谓重渲染。
     # 指纹落在 agent/out/（不进版本库），不污染仓库。
     def fingerprint(bid):
         src = DATA / f"brief-{bid}.json"
@@ -199,8 +203,21 @@ def main():
             b = json.loads(src.read_text(encoding="utf-8"))
         except Exception:                                      # noqa: BLE001
             return ""
-        titles = "\n".join(sorted(str(i.get("title", "")) for i in b.get("items", [])))
-        return f"{len(b.get('items', []))}-{hashlib.md5(titles.encode()).hexdigest()}"
+        parts = []
+        for i in b.get("items", []):
+            parts.append("\t".join([
+                str(i.get("title", "")),
+                str(i.get("tier", "")),
+                str(i.get("impact", "")),
+                str(i.get("action", "")),
+            ]))
+        parts.sort()
+        nv = b.get("narrative") or {}
+        for k in ("conclusions", "impacts", "outlook"):
+            for x in (nv.get(k) or []):
+                parts.append(f"{k}\t{x.get('title','')}\t{x.get('body','')}")
+        blob = "\n".join(parts)
+        return f"{len(b.get('items', []))}-{hashlib.md5(blob.encode()).hexdigest()}"
 
     FP_DIR = ROOT / "agent" / "out"
 

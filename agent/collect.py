@@ -468,6 +468,8 @@ def main():
     ap.add_argument("--no-render", action="store_true", help="不做无头渲染兜底")
     ap.add_argument("--render-all", action="store_true", help="所有源都走渲染（调试用）")
     ap.add_argument("--no-body", action="store_true", help="不抓详情页正文（调试用）")
+    ap.add_argument("--as-of", default="",
+                    help="把「现在」固定到指定日期（YYYY-MM-DD），用于补跑历史周")
     args = ap.parse_args()
 
     if not SOURCES.exists():
@@ -485,6 +487,13 @@ def main():
                 sys.exit(f"源「{s['name']}」引用了未定义的 keyword_set：{k}")
             s["keywords"] = ksets[k]
     now = datetime.now(CST)
+    # --as-of：补跑历史周时把「现在」钉在指定日期（习惯上取该周的次日周一），
+    # ref / since / 期号便全部按那一周推导，与实时运行的口径完全一致。
+    if args.as_of:
+        try:
+            now = datetime.strptime(args.as_of, "%Y-%m-%d").replace(tzinfo=CST)
+        except ValueError:
+            sys.exit(f"--as-of 需要 YYYY-MM-DD 格式，收到：{args.as_of}")
     # 窗口口径：覆盖「上一个完整自然周」，即 [上周一 00:00, 上周日 24:00)。
     # 周一早上跑、--days 7 时，since 正好落在上周一 00:00。
     # 期号取窗口最后一天所属的 ISO 周——若直接用 now.isocalendar()，
@@ -530,9 +539,16 @@ def main():
     year, week, _ = ref.isocalendar()
     out = pathlib.Path(args.out) if args.out else OUTDIR / f"raw-{year}-W{week:02d}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
+    # window 写进 raw，作为本轮窗口口径的单一真源：analyze / promote 一律沿用，
+    # 不再各自拿「当前时间」重算 —— 否则补跑或隔几日重跑会把时间口径算漂移。
     out.write_text(json.dumps({
-        "generated_at": now.strftime("%Y-%m-%d %H:%M"),
+        "generated_at": datetime.now(CST).strftime("%Y-%m-%d %H:%M"),
         "window_days": args.days,
+        "window": {
+            "days": args.days,
+            "start": f"{since:%Y-%m-%d}",
+            "end": f"{ref:%Y-%m-%d}",
+        },
         "count": len(dedup),
         "items": dedup,
     }, ensure_ascii=False, indent=2), encoding="utf-8")

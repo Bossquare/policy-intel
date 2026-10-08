@@ -1,0 +1,1466 @@
+{
+  "meta": {
+    "id": "2026-W40",
+    "title": "2026年第40周（9.28–10.4）建筑智能化市场洞察·政策情报周报",
+    "period": "2026-09-28 至 2026-10-04",
+    "generated_at": "2026-10-08",
+    "total": 47,
+    "narrative_mode": "llm",
+    "note": "自动生成（分析器：llm）。核心结论与影响分析为模型草稿，建议人工复核后发布。条目级影响分析为草稿，建议复核。",
+    "built_at": "2026-10-08 15:21",
+    "insight_count": 9,
+    "source_fixed": 0
+  },
+  "stats": {
+    "by_level": {
+      "key-city": 18,
+      "other": 11,
+      "national": 17,
+      "industry": 1
+    },
+    "by_tier": {
+      "track": 20,
+      "focus": 9,
+      "watch": 18
+    },
+    "by_track": {
+      "intelligent-construction": 6,
+      "bim-cim": 5,
+      "urban-renewal": 14,
+      "green-smart": 11,
+      "smart-building": 3,
+      "ai-building": 2
+    }
+  },
+  "tracks": {
+    "smart-building": {
+      "label": "智慧建筑",
+      "desc": "楼宇智能化、智能家居、数字家庭、智慧建筑评价"
+    },
+    "bim-cim": {
+      "label": "BIM/CIM",
+      "desc": "BIM、CIM、数字孪生、实景三维、电子文件、建模算量"
+    },
+    "intelligent-construction": {
+      "label": "智能建造",
+      "desc": "智能建造、建筑机器人、装配式与模块化、智能装备"
+    },
+    "green-smart": {
+      "label": "绿色智能",
+      "desc": "绿色建造、双化协同、低碳与能耗管理"
+    },
+    "urban-renewal": {
+      "label": "城市更新",
+      "desc": "城市更新、老旧小区、城市生命线、韧性城市"
+    },
+    "ai-building": {
+      "label": "AI+建筑",
+      "desc": "人工智能在招投标、审图、造价、工地识别等环节落地"
+    }
+  },
+  "items": [
+    {
+      "id": "2026-W40-001",
+      "no": 1,
+      "title": "深圳市住房和建设局关于发布深圳市建筑机器人产品目录（第二批）的通知",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳发布建筑机器人产品目录（第二批），共4款产品。；落实《加快推进建筑机器人应用行动计划》，推动深度应用。；要求各单位加快试点应用，形成可复制可推广示范案例。",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_13007498.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 90,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方发布机器人产品目录，无强制要求或量化指标，属试点推广，持续跟踪。"
+    },
+    {
+      "id": "2026-W40-002",
+      "no": 2,
+      "title": "西安市住房和城乡建设局关于印发《西安市建筑业企业智能建造能力建设指南》的通知",
+      "org": "西安市住房和城乡建设局·部门文件",
+      "date": "",
+      "date_raw": "",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "西安",
+      "form": "自动采集",
+      "summary": "西安市住建局印发智能建造能力建设指南；要求各区县、开发区住建局等单位遵照执行；指南自印发之日起实施；旨在推进智能建造标准化、规范化落地",
+      "source": {
+        "label": "zjj.xa.gov.cn",
+        "url": "http://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2097259574034706433.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 90,
+      "impact": "该《指南》要求各区县、开发区住建局遵照执行，意味着西安市将启动智能建造能力标准化评估与落地核查。传导路径为：主管部门据此对辖区建筑业企业进行能力引导与评价，企业在投标或资质考核中可能需符合该指南要求，从而直接带动智能建造咨询、BIM平台部署及数字化能力整改需求。公司应将其视为在西安拓展智能建造业务的准入性政策依据，聚焦能力建设配套服务，而非泛化观望。具体机会集中于企业现状诊断、能力提升方案及与政府验收衔接的数字化工具支持。",
+      "action": "① 逐条拆解《指南》的能力指标，对照公司现有BIM与数字化产品，形成差距分析表，明确可对外输出的标准化服务包。② 主动联系西安市及各区县住建局，申请作为智能建造能力建设辅导单位，参与指南配套宣贯或试点项目。③ 基于指南修订公司内部交付流程，将智能建造能力要求嵌入项目策划和验收环节，打造可复制的西安样板案例。",
+      "tier_reason": "地方住建部门文件命中智能建造核心赛道，含'遵照执行'强制表述，应重点关注"
+    },
+    {
+      "id": "2026-W40-003",
+      "no": 3,
+      "title": "深圳市住房和建设局关于发布深圳市建筑机器人需求场景清单（第二批）的通知",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳发布建筑机器人需求场景清单（第二批），含7个场景；落实广东省21个场景清单及行动计划，推动深度应用；鼓励单位研发推广建筑机器人，构建以用促研产业生态",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_13007490.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 75,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方场景清单，以鼓励为主，无强制要求或量化指标，属持续跟踪。"
+    },
+    {
+      "id": "2026-W40-004",
+      "no": 4,
+      "title": "建筑业新技术应用示范工程",
+      "org": "北京市住房和城乡建设委员会·其他政务文件",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "北京",
+      "form": "自动采集",
+      "summary": "页面为北京市住建委政务文件索引，罗列多项业务栏目，未提供具体示范工程政策内容。；新技术应用示范工程栏目位于科技创新与推广分类下，但正文实际为网站栏目导航而非政策正文。；标题涉及建筑业新技术应用示范工程，但材料未提供申报条件、流程、量化指标或强制要求。；材料不足以判断该示范工程的具体政策要求、时间节点或考核标准。",
+      "source": {
+        "label": "zjw.beijing.gov.cn",
+        "url": "https://zjw.beijing.gov.cn/bjjs/kjcxytg/jzyxjsyysfgc/index.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction",
+        "bim-cim"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 65,
+      "impact": "",
+      "action": "",
+      "tier_reason": "正文为栏目导航而非政策正文，标题相关但无强制要求或量化指标，保守按持续跟踪处理。"
+    },
+    {
+      "id": "2026-W40-005",
+      "no": 5,
+      "title": "深圳市住房和建设局关于发布《深圳市建设工程新技术推广目录（2026年）》的通知",
+      "org": "深圳市住房和建设局·通知公告",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "深圳",
+      "form": "自动采集",
+      "summary": "深圳市住建局发布2026年建设工程新技术推广目录；经评审共12项新技术列入该推广目录；要求建设工程积极选用推广目录中的新技术；依据《深圳市建设工程新技术推广应用管理办法》",
+      "source": {
+        "label": "zjj.sz.gov.cn",
+        "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12989402.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 65,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方推广目录，无强制要求，具体技术内容未披露，故持续跟踪。"
+    },
+    {
+      "id": "2026-W40-006",
+      "no": 6,
+      "title": "招投标流程及业务办理指南",
+      "org": "北京市住房和城乡建设委员会·其他政务文件",
+      "date": "",
+      "date_raw": "",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "北京",
+      "form": "自动采集",
+      "summary": "北京市住建委发布招投标流程及业务办理指南页面。；页面涵盖老旧小区改造、加装电梯、保障房等业务。；包含企业资质、施工质量、建筑绿色化等管理事项。；材料为目录列表，未提供具体政策内容与日期。",
+      "source": {
+        "label": "zjw.beijing.gov.cn",
+        "url": "https://zjw.beijing.gov.cn/bjjs/zbtb0/ztblcjywblzn/index.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal",
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方办事指南页仅列业务目录，含城更/绿色栏目，无强制要求，正文缺失。"
+    },
+    {
+      "id": "2026-W40-007",
+      "no": 7,
+      "title": "工业和信息化部等五部门关于组织开展2026年度国家绿色算力设施推荐工作的通知",
+      "org": "工业和信息化部·政策文件",
+      "date": "",
+      "date_raw": "",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "五部门组织开展2026年度国家绿色算力设施推荐工作；推荐条件含规模、能效、可再生能源占比等量化指标；申报程序为自愿参与，省级主管部门组织推荐",
+      "source": {
+        "label": "www.miit.gov.cn",
+        "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_37e463f44fbd44ed9b0fdf4833c3aacd.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 50,
+      "impact": "",
+      "action": "",
+      "tier_reason": "国家层面绿色算力政策，涉及绿色低碳但非建筑智能化核心，属持续跟踪。"
+    },
+    {
+      "id": "2026-W40-008",
+      "no": 8,
+      "title": "福建省城乡规划设计...",
+      "org": "福建省住房和城乡建设厅·建设科技",
+      "date": "",
+      "date_raw": "",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "福建",
+      "form": "自动采集",
+      "summary": "材料仅提供标题与发布单位，具体政策内容未知。；标题涉及福建省城乡规划设计，与住建领域相关。；正文缺失，无法提取要点、指标或强制要求。；建议关注后续完整信息补充后再评估。",
+      "source": {
+        "label": "fjplan.cn",
+        "url": "https://fjplan.cn/",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "bim-cim",
+        "urban-renewal"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 45,
+      "impact": "",
+      "action": "",
+      "tier_reason": "只有标题且正文缺失，无法确认具体内容，保守按一般了解处理。"
+    },
+    {
+      "id": "2026-W40-009",
+      "no": 9,
+      "title": "建设工程企业资质申请政策咨询",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "",
+      "date_raw": "",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "住建部发布建设工程企业资质申请政策咨询栏目；内容涉及企业资质申请相关咨询服务；正文未成功抓取，具体政策要点无法判断",
+      "source": {
+        "label": "zzsqzx.mohurd.gov.cn",
+        "url": "https://zzsqzx.mohurd.gov.cn/",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 25,
+      "impact": "",
+      "action": "",
+      "tier_reason": "仅标题显示为资质咨询平台，无正文信息，相关性低，按标题保守分档并注明正文缺失。"
+    },
+    {
+      "id": "2026-W40-010",
+      "no": 10,
+      "title": "建设工程消防设计审查、竣工验收、备案和抽查公告信息",
+      "org": "西安市住房和城乡建设局·部门文件",
+      "date": "",
+      "date_raw": "",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "西安",
+      "form": "自动采集",
+      "summary": "西安市住建局发布建设工程消防设计审查、验收、备案及抽查公告信息；材料仅提供标题，未包含正文内容，具体政策要求不明；无量化指标或强制条款，影响判断依据不足",
+      "source": {
+        "label": "zjj.xa.gov.cn",
+        "url": "https://zjj.xa.gov.cn/szjslhysgl/epointlhys/jgys/jsgc_xfba_gspage/jsgc_xfbags_index",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 10,
+      "impact": "",
+      "action": "",
+      "tier_reason": "正文缺失，地方一般公告，与主营赛道相关性弱。"
+    },
+    {
+      "id": "2026-W40-011",
+      "no": 11,
+      "title": "中共中央办公厅 国务院办公厅 中央军委办公厅印发《退役军人服务和保障“十五五”规划》",
+      "org": "西安市住房和城乡建设局·部门文件",
+      "date": "",
+      "date_raw": "",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "西安",
+      "form": "自动采集",
+      "summary": "中办、国办、中央军委办印发《退役军人服务和保障“十五五”规划》。；规划对“十五五”时期退役军人工作作出部署安排，强调坚持党的领导等原则。；规划部署退役军人事务治理、安置就业、拥军优属、服务保障等重点任务。",
+      "source": {
+        "label": "www.gov.cn",
+        "url": "https://www.gov.cn/yaowen/liebiao/202609/content_7081013.htm",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 0,
+      "impact": "",
+      "action": "",
+      "tier_reason": "内容为退役军人服务保障规划，与建筑智能化等主营赛道无关。"
+    },
+    {
+      "id": "2026-W40-012",
+      "no": 12,
+      "title": "关于开展2026年度市级智能建造试点事项申报的通知",
+      "org": "南京市城乡建设委员会·通知公告",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "南京",
+      "form": "自动采集",
+      "summary": "南京市开展2026年度智能建造试点申报，分试点项目和试点企业两类。；试点项目涵盖房屋建筑、市政工程和装饰装修，有面积和金额要求。；试点企业需建立数字化管理平台，并参与过智能建造项目。；申报材料需加盖公章后于指定日期前发送至指定邮箱。",
+      "source": {
+        "label": "sjw.nanjing.gov.cn",
+        "url": "http://sjw.nanjing.gov.cn/tzgg/202609/t20260928_5918756.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 90,
+      "impact": "",
+      "action": "",
+      "tier_reason": "市级试点申报通知，虽含量化要求但具体数值缺失，属地方试点申报，非强制政策，故持续跟踪。"
+    },
+    {
+      "id": "2026-W40-013",
+      "no": 13,
+      "title": "松花江畔，这座东北小城如何落笔城市更新？",
+      "org": "住房和城乡建设部·地方信息",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "松原热电联产供热工程覆盖3400万平米，惠及25万户居民；新建74.2公里长输管线及智慧供热系统，回收发电余热供暖；关停18台燃煤小锅炉，年减粉尘151吨、硫化物779吨、减亏1.32亿；海绵城市改造幸福公园，铺透水铺装2.4万平米，调蓄周边雨水",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_101a0a850ab148e18cc39a4c3d0ea061.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal",
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 80,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方城市更新实践报道，含量化成效但无强制要求，属持续跟踪"
+    },
+    {
+      "id": "2026-W40-014",
+      "no": 14,
+      "title": "石家庄：大力推进城市更新 完善城市功能布局",
+      "org": "住房和城乡建设部·地方信息",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "石家庄推进城市更新，涵盖重点片区、交通路网、轨道交通等建设。；太平河片区规划8300亩，多个项目已完工，加快六大片区建设。；轨道交通二期总里程58.85公里，预计2027年形成140公里网络。；将AI、大数据用于市容管理，并推进好房子、老旧小区改造等。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_299392959e964594a3486692586da2cf.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal",
+        "smart-building"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 80,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方城市更新动态，含量化数据但无强制要求或考核目标，正文无应当/必须等表述。"
+    },
+    {
+      "id": "2026-W40-015",
+      "no": 15,
+      "title": "关于发布《城镇排水管网更新改造技术导则》的通知",
+      "org": "重庆市住房和城乡建设委员会·公示公告",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "重庆",
+      "form": "自动采集",
+      "summary": "重庆市住建委发布《城镇排水管网更新改造技术导则》。；该导则自2026年11月1日起施行。；用于指导排水管网更新改造，规范诊断排查与技术方法。；导则由重庆市城镇排水事务中心负责具体技术内容解释。",
+      "source": {
+        "label": "zfcxjw.cq.gov.cn",
+        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260928_16138626.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 65,
+      "impact": "该导则使重庆排水管网更新改造的诊断排查与技术方法有据可依，自2026年11月起施行，将直接拉动相关工程项目的规范化实施。对建筑智能化企业而言，管网更新改造的数字化诊断、BIM建模及智能监测等环节将产生增量需求，且需符合导则规定的技术路径。公司可借此切入重庆城市更新市场，将BIM与工程数字化能力对接排水管网改造场景，形成差异化竞争力。",
+      "action": "① 联系重庆市城镇排水事务中心获取导则全文，逐条梳理与数字化、智能化相关的技术要求，评估现有产品适配度。② 将BIM建模、在线监测与诊断排查流程结合，研发面向排水管网更新改造的数字化交付方案，形成可落地的样板案例。③ 主动对接重庆区县住建部门，在导则施行后的首批项目中争取参与试点，积累本地化实施经验。",
+      "tier_reason": "地方正式发布技术导则且明确施行日期，命中城市更新赛道，正文含强制时间节点。"
+    },
+    {
+      "id": "2026-W40-016",
+      "no": 16,
+      "title": "关于对《传统风格建筑绿色施工标准（征求意见稿）》征求意见的通知",
+      "org": "中国建筑业协会·通知公告",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "industry",
+      "level_label": "行业层面",
+      "region": "行业",
+      "form": "自动采集",
+      "summary": "中国建筑业协会发布传统风格建筑绿色施工标准征求意见稿。；该标准由古建园林、绿色建造与智能建筑分会及北京建工共同主编。；征求意见截止日期为2026年10月29日，可邮寄或电邮反馈。；标准编制依据建协〔2024〕59号和54号文件要求开展。",
+      "source": {
+        "label": "www.zgjzy.org.cn",
+        "url": "http://www.zgjzy.org.cn/menu19/newsDetail/12068.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 65,
+      "impact": "",
+      "action": "",
+      "tier_reason": "团体标准征求意见，无强制要求，相关但不紧急。"
+    },
+    {
+      "id": "2026-W40-017",
+      "no": 17,
+      "title": "工程建设项目审批制度改革工作培训班在雄安新区举办",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "住建部办公厅主办工程建设项目审批制度改革培训班，在雄安举办。；专家解读审批制度改革2025年度第三方评估情况及“十五五”时期任务政策。；多地交流“高效办成一件事”、城市更新项目审批、房屋赋码落图与全生命周期数字化管理经验。；培训旨在凝聚改革共识，推动审批制度改革提质增效。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_c59f66993ae64294bbe4c409fdd23140.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "bim-cim",
+        "urban-renewal"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 65,
+      "impact": "",
+      "action": "",
+      "tier_reason": "全国性培训活动，无强制要求或量化指标，属一般动态，仅部分内容关联赋码数字化。"
+    },
+    {
+      "id": "2026-W40-018",
+      "no": 18,
+      "title": "智能经济何以塑造中国发展新优势",
+      "org": "中央网络安全和信息化委员会办公室",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "智能经济成为塑造发展新优势的战略变量，涵盖生产流通应用等经济活动；我国智算总规模全球第二，已建成12万个高质量数据集；人工智能产业规模连续多年保持20%以上高速增长；到十五五末人工智能相关产业规模有望达10万亿元以上",
+      "source": {
+        "label": "www.cac.gov.cn",
+        "url": "https://www.cac.gov.cn/2026-09/28/c_1792347294260356.htm",
+        "status": "dead",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "ai-building"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 55,
+      "impact": "",
+      "action": "",
+      "tier_reason": "国家级宏观政策论述，未涉及建筑具体领域，仅与AI赋能方向相关，非紧急跟踪。"
+    },
+    {
+      "id": "2026-W40-019",
+      "no": 19,
+      "title": "关于发布《城镇排水管渠非开挖修复技术标准》的通知",
+      "org": "重庆市住房和城乡建设委员会·公示公告",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "重庆",
+      "form": "自动采集",
+      "summary": "重庆批准发布《城镇排水管渠非开挖修复技术标准》；标准编号DBJ50/T-575-2026，自2027年1月15日起施行；标准由重庆设计集团有限公司负责技术内容解释；标准文本备案后可免费下载",
+      "source": {
+        "label": "zfcxjw.cq.gov.cn",
+        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260928_16138589.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 35,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方标准发布，涉及城市生命线相关但无强制量化要求，非核心赛道，持续跟踪。"
+    },
+    {
+      "id": "2026-W40-020",
+      "no": 20,
+      "title": "关于发布《下穿道矩形顶管工程技术标准》的通知",
+      "org": "重庆市住房和城乡建设委员会·公示公告",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "重庆",
+      "form": "自动采集",
+      "summary": "重庆市批准《下穿道矩形顶管工程技术标准》为地方标准。；标准编号为DBJ50/T-574-2026，自2027年1月15日起施行。；标准文本可免费下载，由重庆两江新区建设公司负责技术解释。",
+      "source": {
+        "label": "zfcxjw.cq.gov.cn",
+        "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202609/t20260928_16138576.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 30,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方推荐性标准发布，无强制量化指标，属持续跟踪。"
+    },
+    {
+      "id": "2026-W40-021",
+      "no": 21,
+      "title": "广东省住房和城乡建设厅关于广州市市政工程施工图审查有限公司等两家施工图审查机构评审意见的公示",
+      "org": "广东省住房和城乡建设厅·政策文件",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广东",
+      "form": "自动采集",
+      "summary": "广东住建厅公示广州市政施工图审查公司等两家机构评审意见；公示依据住建部令、建质〔2013〕111号及粤府函〔2017〕15号；公示期为2026年9月28日至10月5日，共7天；拟录入房屋建筑和市政基础设施施工图审查机构名录",
+      "source": {
+        "label": "zfcxjst.gd.gov.cn",
+        "url": "http://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4961245.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 25,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方施工图审查机构名录公示，与主营赛道关联弱，无法定强制或量化要求。"
+    },
+    {
+      "id": "2026-W40-022",
+      "no": 22,
+      "title": "“智能互联网 庭州新对话”活动在昌吉市举办",
+      "org": "中央网络安全和信息化委员会办公室",
+      "date": "2026-09-28",
+      "date_raw": "2026-09-28",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "活动在昌吉市举办，聚焦AI赋能千行百业和新疆高质量发展；为2026年新疆“人工智能+”创新融合应用大赛49个项目和10家单位颁奖；中央网信办解读数字化绿色化协同转型形势政策，企业分享经验；新疆将依托资源禀赋发展AI产业，推动产业高端化智能化绿色化",
+      "source": {
+        "label": "www.cac.gov.cn",
+        "url": "https://www.cac.gov.cn/2026-09/28/c_1792346240613004.htm",
+        "status": "dead",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 25,
+      "impact": "",
+      "action": "",
+      "tier_reason": "全国性论坛活动，主题涉及AI与双化协同，但未涉及建筑智能化具体政策或指标。"
+    },
+    {
+      "id": "2026-W40-023",
+      "no": 23,
+      "title": "守护城市生命线 湖南经验何以“出圈”",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "湖南探索“数智赋能·闭环治理”城市生命线安全路径，获住建部肯定。；近三年全省地下管网获超长期国债等约300亿元，其中15亿余元投向智能化改造。；建成省级运管服平台，覆盖燃气供水排水桥梁隧道，管线智能化改造1.6万公里。；“十五五”全国将建设改造地下管网约77万公里，投资规模超5万亿元。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_7660903a473148e98fc40339b69f5bbc.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal",
+        "bim-cim"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 85,
+      "impact": "该政策将城市生命线安全工程推向全国，十五五期间77万公里管网改造与超5万亿投资将释放大量智能化、数字化需求。湖南经验已明确“数智赋能”路径，公司主营的建筑智能化、BIM与工程数字化业务，可直接对接管线智能化改造、运管服平台及CIM底座建设，推动业务从单体项目向城市级数字孪生延伸，形成新的增长曲线。",
+      "action": "① 依托BIM/CIM技术，打造地下管网“规划-建设-运维”一体化数字交付方案，抢占智能化改造市场。② 参与省市级运管服平台或县区综合信息平台的集成开发，提供监测数据可视化、预警联动闭环功能。③ 与管线改造总包方联合试点，在燃气、供水等场景嵌入数字化交付标准，形成可复制的标杆案例。",
+      "tier_reason": "住建部发布湖南城市生命线经验，命中核心赛道且含量化指标，属国家层面重点信息。"
+    },
+    {
+      "id": "2026-W40-024",
+      "no": 24,
+      "title": "招募智慧物业综合监管服务平台技术研究与示范应用项目“揭榜挂帅”榜单",
+      "org": "西安市住房和城乡建设局·部门文件",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "西安",
+      "form": "自动采集",
+      "summary": "西安市发布智慧物业综合监管服务平台揭榜挂帅项目榜单。；聚焦智慧物业核心技术、综合监管体系与场景化示范应用。；揭榜单位需在定榜后40天内交付全部成果。；旨在实现住宅小区一网统管及多方协同治理。",
+      "source": {
+        "label": "zjj.xa.gov.cn",
+        "url": "http://zjj.xa.gov.cn/zw/zfxxgkml/zwxx/zxtz/2105185424639123457.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "smart-building"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 85,
+      "impact": "该政策以“揭榜挂帅”形式开放智慧物业监管平台建设，为建筑智能化企业提供了政府项目入口。行业竞争将从单一硬件集成转向“平台+数据+监管”综合能力比拼。公司可依托BIM与工程数字化技术切入住宅小区一网统管场景，但40天交付周期要求具备成熟产品化能力，需将既有数字化能力迁移至物业监管平台，并构建多方协同的数据中台，带动业务向运维端延伸。",
+      "action": "① 对照榜单核心任务，盘点公司现有智慧物业、BIM及监管平台模块，评估40天交付可行性；② 联合本地物业企业或数字伙伴组建联合体揭榜，补齐物业行业运营经验；③ 基于工程数字化积累，预研“一网统管”数据接口与监管驾驶舱原型，形成可落地的示范应用方案。",
+      "tier_reason": "地方发布含明确期限（40天）和可考核成果，属于重点关注。"
+    },
+    {
+      "id": "2026-W40-025",
+      "no": 25,
+      "title": "广东持续推进城市更新行动",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "广东印发城市更新实施方案，明确目标任务、实施机制、保障措施。；十五五期间每年启动60个重点片区，5年不少于300个。；设2026/2028/2030节点：建立机制、建成100个片区、形成可持续模式。；明确九大任务及20项具体指标，涵盖老旧小区改造、城中村改造等。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_97c715c4f42e40aab170fe30dfb476fd.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 80,
+      "impact": "广东每年启动60个重点片区、5年不少于300个，且2028年前建成100个片区，将直接释放大量老旧小区改造、城中村改造、既有建筑改造等城市更新项目。公司主营的智能建筑、BIM与工程数字化恰是“完整社区建设”“功能完善”等任务的关键支撑，项目前期可切入BIM建模与数字化设计，施工期应用智能建造管理，交付后提供智慧安防、能效监测等运营系统；同时审批豁免清单加速项目落地，利好公司以数字化手段快速嵌入规模化更新流程。",
+      "action": "① 对接广东省及各地市城市更新主管部门，将BIM/工程数字化平台嵌入重点片区实施方案，争取纳入项目库技术支持单位。② 围绕九大任务中的老旧小区、城中村、完整社区、既有建筑改造，封装“智能建造+智慧运维”一体化解决方案，打造2-3个样板工程以便复制推广。③ 依托审批豁免与简化报建政策，联合设计院、施工总包组建联合体，开展BIM报审和数字化交付服务，抢占首批重点片区项目。",
+      "tier_reason": "地方城市更新方案含每年60个片区等量化指标，命中核心赛道。"
+    },
+    {
+      "id": "2026-W40-026",
+      "no": 26,
+      "title": "上海市住房和城乡建设管理委员会关于批准《绿色城市轨道交通评价标准》为上海市工程建设规范的通知",
+      "org": "上海市住房和城乡建设管理委员会·建设管理",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "上海",
+      "form": "自动采集",
+      "summary": "上海批准《绿色城市轨道交通评价标准》为工程建设规范；标准编号DG/TJ08-2503-2026，自2027年3月1日实施；由申通地铁主编，市住建委负责管理和解释",
+      "source": {
+        "label": "zjw.sh.gov.cn",
+        "url": "https://zjw.sh.gov.cn/jsgl/20260929/5a7bac8ef84849449e00504af0266ad6.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 75,
+      "impact": "",
+      "action": "",
+      "tier_reason": "上海地方标准，无强制表述及量化指标，相关但暂不紧急，故为持续跟踪。"
+    },
+    {
+      "id": "2026-W40-027",
+      "no": 27,
+      "title": "安徽淮北规范老旧住房自主更新",
+      "org": "住房和城乡建设部·地方信息",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "淮北市出台老旧住房自主更新细则，按“政府引导、业主自愿、市场参与、多方共担”原则推进。；更新对象涵盖C/D级危房、2000年前多层或预制板房、无独立厨卫非成套住房等。；实施需经专有部分面积占比四分之三以上业主参与表决且四分之三以上同意。；更新方式含原址翻建、重建、异地重建、产权置换，可提取公积金支付建设费用。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_29553069ce0b4d94a51277d91f05175a.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 70,
+      "impact": "该细则为老旧住房自主更新提供了可操作的流程与政策依据，淮北市场将催生一批以原址翻建、重建为主的改造项目。此类项目涉及房屋安全体检、方案设计、报批报建及施工管理，对BIM建模、工程数字化和智能建造技术有直接需求。公司可发挥技术优势，承接房屋数字体检、改造方案BIM化表达及施工过程智慧管理，并将业务从新建延伸至存量更新领域，形成新的增长点。",
+      "action": "① 对接淮北市住建部门及街道，获取自主更新项目计划，优先投标“先体检”环节的房屋数字化检测和BIM建模服务。② 与业主委员会或拟委托的实施主体洽谈，提供基于BIM的翻建/重建方案设计与智慧工地管理平台，突出智能建造降本增效价值。③ 筛选C/D级危房集中区域，联合设计、施工企业组建城市更新联合体，争取作为实施主体承接整栋或成片改造项目。",
+      "tier_reason": "地方细则含四分之三表决、2000年前建成等量化条件及“应按原址翻建”强制表述，正文可考。"
+    },
+    {
+      "id": "2026-W40-028",
+      "no": 28,
+      "title": "广州市住房和城乡建设局关于印发《广州市建筑节能设计说明专篇（2026版）》的通知",
+      "org": "广州市住房和城乡建设局·政策文件",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "自动采集",
+      "summary": "广州住建局印发2026版建筑节能设计说明专篇；专篇依据国标GB55015及省导则通知修订；规范新建建筑太阳能系统建设，含PDF和DWG附件",
+      "source": {
+        "label": "zfcj.gz.gov.cn",
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/11/11025/post_11025122.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 70,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方层面绿色节能文件，正文仅要求参照执行，无强制条款或量化指标，故持续跟踪。"
+    },
+    {
+      "id": "2026-W40-029",
+      "no": 29,
+      "title": "广东省住房和城乡建设厅关于广东省地方标准《城市地下病害体探测与风险评估技术标准》的通告",
+      "org": "广东省住房和城乡建设厅·政策文件",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广东",
+      "form": "自动采集",
+      "summary": "广东省发布地方标准《城市地下病害体探测与风险评估技术标准》；标准编号为DB44/T 2903—2026，工程建设编号DBJ/T15-311-2026；标准由省住建厅管理，出版后公开全文；正文未提及强制实施要求或量化考核指标",
+      "source": {
+        "label": "zfcxjst.gd.gov.cn",
+        "url": "http://zfcxjst.gd.gov.cn/jsgl/zcwj/content/post_4961792.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 65,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方标准发布通告，正文无强制表述或量化指标，故按持续跟踪处理。"
+    },
+    {
+      "id": "2026-W40-030",
+      "no": 30,
+      "title": "上海市住房和城乡建设管理委员会关于印发《上海市建设工程海绵城市设计施工图审查要点》的通知",
+      "org": "上海市住房和城乡建设管理委员会·建设管理",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "上海",
+      "form": "自动采集",
+      "summary": "上海市住建委印发《上海市建设工程海绵城市设计施工图审查要点》；要求各审查单位、设计单位认真按照执行；文件编号沪建综规〔2026〕432号，2026年9月发布；发文目的为加强本市海绵城市设计施工图审查工作",
+      "source": {
+        "label": "zjw.sh.gov.cn",
+        "url": "https://zjw.sh.gov.cn/jsgl/20260929/7aafdd89e0e749d690e73ea34e971619.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方技术文件，含执行要求但正文要点缺失，无量化指标，相关暂不紧急。"
+    },
+    {
+      "id": "2026-W40-031",
+      "no": 31,
+      "title": "省住建厅关于修改《关于进一步优化全省房屋市政工程施工图联合...",
+      "org": "湖北省住房和城乡建设厅·其他政务公开",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "湖北",
+      "form": "自动采集",
+      "summary": "湖北修改施工图联合审查通知，自公布之日起施行。；审查机构须为非营利独立法人，不得违规审查。；建设单位不得压低费用或压缩周期，违规将依法处罚。；考核评价办法以厅头〔2023〕2228号文件为准。",
+      "source": {
+        "label": "zjt.hubei.gov.cn",
+        "url": "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260929_6024930.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 55,
+      "impact": "",
+      "action": "",
+      "tier_reason": "省级文件含强制表述，但未直接命中核心赛道，相关且需持续跟踪。"
+    },
+    {
+      "id": "2026-W40-032",
+      "no": 32,
+      "title": "上海市住房和城乡建设管理委员会关于进一步优化施工图设计文件免于审查执行方式的通知",
+      "org": "上海市住房和城乡建设管理委员会·建设管理",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "上海",
+      "form": "自动采集",
+      "summary": "上海优化施工图免审执行方式，自2026年12月1日起施行。；免审清单内项目可自主选择免审或“多图联审”制度。；为落实营商环境行动方案，以往不一致规定以本通知为准。；附件含可免于审查正面清单，供相关单位执行参考。",
+      "source": {
+        "label": "zjw.sh.gov.cn",
+        "url": "https://zjw.sh.gov.cn/jsgl/20260929/283e6e65d25b47088139cbe492c1fd46.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 20,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方审图便利化政策，与主营赛道关联弱，正文无量化指标，分档watch。"
+    },
+    {
+      "id": "2026-W40-033",
+      "no": 33,
+      "title": "上海市住房和城乡建设管理委员会关于批准《交通视频监控信息系统联网技术标准》为上海市工程建设规范的通知",
+      "org": "上海市住房和城乡建设管理委员会·建设管理",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "上海",
+      "form": "自动采集",
+      "summary": "上海市批准《交通视频监控信息系统联网技术标准》为工程建设规范；标准编号DG/TJ08-2319-2026，自2027年3月1日起实施；原《道路视频监控信息系统联网技术标准》DG/TJ08-2319-2020同步废止",
+      "source": {
+        "label": "zjw.sh.gov.cn",
+        "url": "https://zjw.sh.gov.cn/jsgl/20260929/a3512e1edfdd46a2a4a75aeb897d9169.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 20,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方标准但内容为交通视频监控联网，与建筑智能化核心赛道无关，仅作一般了解。"
+    },
+    {
+      "id": "2026-W40-034",
+      "no": 34,
+      "title": "甘肃兰州印发数字化城市管理指挥手册",
+      "org": "住房和城乡建设部·地方信息",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "兰州印发数字化城市管理指挥手册，梳理6大类56小类事件和城市部件问题。；明确问题处置流程、立案结案标准及处置时限，压实各方责任。；厘清市、县区、街道和部门权责，分级设定紧急、小时级、限期整改时限。；覆盖市容环卫、园林绿化、市政设施、公共秩序、施工管理、突发事件。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_599a817a58a945c4adde478e5fd3967e.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 15,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方城市管理手册，非核心业务赛道，无强制条款与可考核目标，仅一般了解。"
+    },
+    {
+      "id": "2026-W40-035",
+      "no": 35,
+      "title": "关于印发《南京市国有土地上房屋征收评估技术导则》的通知",
+      "org": "南京市城乡建设委员会·通知公告",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "南京",
+      "form": "自动采集",
+      "summary": "南京市城乡建设委员会印发房屋征收评估技术导则；导则针对国有土地上房屋征收评估事项；正文缺失，具体技术要求无法确认",
+      "source": {
+        "label": "sjw.nanjing.gov.cn",
+        "url": "http://sjw.nanjing.gov.cn/tzgg/202609/P020260929542435332405.pdf",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 10,
+      "impact": "",
+      "action": "",
+      "tier_reason": "房屋征收评估与公司业务赛道无关，正文缺失，仅作一般了解。"
+    },
+    {
+      "id": "2026-W40-036",
+      "no": 36,
+      "title": "国务院关于《医疗康复护理扩容提升工程实施方案》的批复",
+      "org": "西安市住房和城乡建设局·部门文件",
+      "date": "2026-09-29",
+      "date_raw": "2026-09-29",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "西安",
+      "form": "自动采集",
+      "summary": "国务院批复同意《医疗康复护理扩容提升工程实施方案》；要求加强组织领导，明确责任分工，细化落实举措；强调以基层为重点统筹增加医疗康复护理资源供给；国家卫健委、发改委加强统筹协调跟踪进展",
+      "source": {
+        "label": "www.gov.cn",
+        "url": "https://www.gov.cn/zhengce/content/202609/content_7082378.htm",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 10,
+      "impact": "",
+      "action": "",
+      "tier_reason": "国家层面批复但主题为医疗康复护理，未命中建筑智能化核心赛道"
+    },
+    {
+      "id": "2026-W40-037",
+      "no": 37,
+      "title": "进一步深化政银企合作 河北推动政策性金融资金支持城市更新",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "河北深化政银企合作，利用政策性金融资金支持城市更新行动。；支持既有建筑改造、老旧小区整治、老旧街区厂区和完整社区建设。；申请项目须纳入城市更新项目库，符合专项规划并明确实施主体。；国开行提供多种贷款，农发行重点支持县城项目并争取PSL等资金。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_928a3822e968423d8f773d9d9f22961d.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal",
+        "green-smart"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 90,
+      "impact": "该政策明确政策性金融资金将重点投向既有建筑改造、老旧小区整治、老旧街区更新及完整社区建设等领域，与公司建筑智能化、智能建造业务高度契合。资金支持将加速城市更新项目落地，增加对BIM设计、智慧社区系统、节能改造等数字化服务的需求，为公司带来直接市场机会。同时，项目须纳入项目库并满足财务平衡要求，促使公司需提前介入项目谋划，以技术优势助力项目达标，从而提升中标概率。",
+      "action": "① 主动对接河北省住建厅及国开行、农发行河北分行，梳理城市更新项目库中涉及智能化改造的存量项目，提供BIM+智慧社区解决方案。② 联合金融机构和设计单位，针对老旧小区、既有建筑节能改造等场景，包装符合贷款条件的项目，突出运营可持续性。③ 加强内部技术储备，重点开发适老化、适儿化智能设施及管网监测系统，以匹配政策支持的民生领域改造需求。",
+      "tier_reason": "省级政策明确城市更新支持领域和申请条件，正文含“应”等要求，命中核心赛道。"
+    },
+    {
+      "id": "2026-W40-038",
+      "no": 38,
+      "title": "关于湖北省地方标准《钢结构装配式住宅技术规程（征求意见稿）》...",
+      "org": "湖北省住房和城乡建设厅·其他政务公开",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "other",
+      "level_label": "其他省市",
+      "region": "湖北",
+      "form": "自动采集",
+      "summary": "湖北省发布《钢结构装配式住宅技术规程》征求意见稿；规程由中建科工等编制，覆盖设计、施工、运维等14章；含绿色智能建造章节，涉及数字化协同设计与数字化交付；征求意见截止2026年11月3日，面向省内有关单位",
+      "source": {
+        "label": "zjt.hubei.gov.cn",
+        "url": "http://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260930_6026616.shtml",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "intelligent-construction",
+        "green-smart",
+        "bim-cim"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 82,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方标准征求意见，无强制要求或量化指标，属于持续跟踪状态。"
+    },
+    {
+      "id": "2026-W40-039",
+      "no": 39,
+      "title": "织密安全防护网——银川城市基础设施生命线安全工程建设侧记",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "银川构建‘一委三办一平台’体系，统筹生命线工程并接入74.6万台物联感知设备。；完成51.8万项市政设施确权，推行‘一物一码’，隐患处置率达90%以上。；利用AI大模型覆盖燃气、排水、供热、供水，供热投诉连续下降，供水漏损率降至9%以内。；建立多元投入机制，储备项目278个，累计投入85.65亿元，撬动投资243.7亿元。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_425b35b5bca144e788065f38c5c461f9.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 75,
+      "impact": "银川城市生命线安全工程示范了物联感知、AI大模型、一物一码确权在市政设施运维中的落地路径，推动建筑智能化需求从新建项目向存量基础设施延伸。该模式将带动BIM+GIS数字底座、风险预警平台等工程数字化市场扩容，公司可凭借既有智能化与BIM能力切入设施普查、监测平台搭建及AI场景应用，获取城市更新类订单，并依托多元投入机制探索项目参与方式。",
+      "action": "① 以银川模式为样板，整合物联感知、数据治理与AI预警能力，形成面向城市生命线安全的工程数字化解决方案，重点对接西北地区住建部门及平台公司。② 承接市政设施普查确权与“一物一码”建档业务，发挥BIM技术在设施台账三维可视化及全链条溯源中的优势，积累存量设施数据资产。③ 针对燃气、排水、供热、供水四类场景迭代AI大模型算法，参与风险闭环管控平台建设，同时研究EPC+投资等多元合作模式，撬动项目落地。",
+      "tier_reason": "国家住建部官网刊发城市生命线安全工程案例，量化成效显著，直接命中城市更新核心赛道。"
+    },
+    {
+      "id": "2026-W40-040",
+      "no": 40,
+      "title": "西安发布城市更新片区存量资产盘活蓝皮书",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "西安发布城市更新片区存量资产盘活蓝皮书，规划2026-2028年。；以57个城市更新片区为核心，梳理108处存量资产，总面积53万平方米。；预估盘活资产价值45亿元，面向全国招商全链条专业机构。；提出优先、中期、长期三级目标，打造可复制的西安模式。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_be4e16b14e8c438d909eb40cbb5327e0.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "urban-renewal"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 60,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方蓝皮书属规划指导，无强制要求；量化数据为存量摸排非考核目标。"
+    },
+    {
+      "id": "2026-W40-041",
+      "no": 41,
+      "title": "广州市住房和城乡建设局关于进一步做好工程质量潜在缺陷保险实施工作的通知",
+      "org": "广州市住房和城乡建设局·政策文件",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "自动采集",
+      "summary": "明确新出让居住用地及保障房、安置房应投保IDI，推进应保尽保。；要求保险机构足额安排风险管理经费，不得挪用挤占。；明确行业协会推进IDI平台全流程信息化，深化智能定损与AI审核应用。；加强维保单位统一考核管理，推动承保理赔等信息共享。",
+      "source": {
+        "label": "zfcj.gz.gov.cn",
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/11/11028/post_11028538.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "smart-building",
+        "ai-building"
+      ],
+      "tier": "focus",
+      "tier_label": "重点关注",
+      "relevance": 55,
+      "impact": "该政策强制新出让居住用地及保障房、安置房投保IDI，并明确要求保险机构足额安排风险管理经费，同时推动IDI平台全流程信息化、智能定损与AI审核应用。这将直接带动工程质量风险管理数字化需求，为公司智能建造、BIM与AI技术提供落地场景。公司可依托BIM模型实现质量缺陷可视化追踪，通过AI辅助定损提升审核效率，并承接平台开发与数据共享服务，从而切入保险机构、建设单位和行业协会的数字化协作链条，形成新的业务增长点。",
+      "action": "① 开发面向IDI的全流程信息化管理平台，集成投保、风险管理、理赔定损等模块，对接保险机构与行业协会数据接口。② 基于BIM技术构建工程质量缺陷数据库，结合AI图像识别算法，提供智能定损与审核服务，形成标准化产品。③ 主动与广州市建设工程保险风险管理协会沟通，参与IDI信息化标准制定，争取试点项目，并联合维保单位建立信息共享机制，拓展后续运维服务。",
+      "tier_reason": "地方政策含强制投保及不得挪用等要求，涉及好房子与AI理赔应用，但属保险监管范畴。"
+    },
+    {
+      "id": "2026-W40-042",
+      "no": 42,
+      "title": "《重庆市城市综合治理条例》自2027年1月1日起施行",
+      "org": "住房和城乡建设部·政策文件",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "《重庆市城市综合治理条例》经市人大常委会通过，自2027年1月1日起施行。；该条例为全国首部以城市综合治理命名的省级地方性法规，聚焦超大城市治理。；条例依托数字化城市运行和治理中心，强调数智赋能和大综合一体化治理。",
+      "source": {
+        "label": "www.mohurd.gov.cn",
+        "url": "https://www.mohurd.gov.cn/xinwen/dfxx/art/2026/art_2f6475c90f10428c80d49a70f4f00e4a.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 30,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方条例聚焦城市综合治理，未直接涉及建筑智能化具体赛道，仅数智赋能间接相关。"
+    },
+    {
+      "id": "2026-W40-043",
+      "no": 43,
+      "title": "以新型电网建设促进“六张网”协同发展",
+      "org": "国家能源局·能源要闻",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "提出“六张网”协同，包括水网、新型电网、算力网、通信网、地下管网、物流网。；强调协同可放大投资效益、提升民生服务、推动产业转型、筑牢风险防线。；以新型电网为枢纽，探索与各网在智慧调度、节能降碳、数字交互等场景协同。；指出“六张网”在空间、技术、场景上具备协同基础，需健全联合规划与共享机制。",
+      "source": {
+        "label": "www.nea.gov.cn",
+        "url": "https://www.nea.gov.cn/20260930/7fe19863a1a24c2299fd06e8aac47ce8/c.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 30,
+      "impact": "",
+      "action": "",
+      "tier_reason": "国家能源局宏观基础设施政策，与公司核心业务赛道间接相关，暂无直接落地要求。"
+    },
+    {
+      "id": "2026-W40-044",
+      "no": 44,
+      "title": "【理响中国·经视图】数智化转型推动服务业扩能提质",
+      "org": "中央网络安全和信息化委员会办公室",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "national",
+      "level_label": "国家层面",
+      "region": "全国",
+      "form": "自动采集",
+      "summary": "中央网信办发文关注数智化转型；主题为服务业扩能提质；正文缺失，无具体政策细节",
+      "source": {
+        "label": "www.cac.gov.cn",
+        "url": "https://www.cac.gov.cn/2026-09/30/c_1792520279589512.htm",
+        "status": "dead",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 25,
+      "impact": "",
+      "action": "",
+      "tier_reason": "国家层面泛论服务业数智化，未涉及建筑赛道，且正文缺失，保守分档。"
+    },
+    {
+      "id": "2026-W40-045",
+      "no": 45,
+      "title": "省住房和城乡建设厅关于对无有效建筑业企业资质企业（第三批）安...",
+      "org": "江苏省住房和城乡建设厅·建设管理",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "江苏",
+      "form": "自动采集",
+      "summary": "江苏住建厅对110家无有效资质建企标记安许证；即日起实施电子证照标记，恢复需重新取得资质；需满足安管人员配备要求，可通过邮箱电话申请恢复",
+      "source": {
+        "label": "jsszfhcxjst.jiangsu.gov.cn",
+        "url": "http://jsszfhcxjst.jiangsu.gov.cn/art/2026/9/30/art_49384_11837289.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 20,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方监管公告，涉及资质与安许证联动，与主营技术赛道无直接关联。"
+    },
+    {
+      "id": "2026-W40-046",
+      "no": 46,
+      "title": "广州市住房和城乡建设局 广州市规划和自然资源局 国家金融监督管理总局广东监管局关于贯彻落实《关于完善商品住房销售制度的通知》的实施意见",
+      "org": "广州市住房和城乡建设局·政策文件",
+      "date": "2026-09-30",
+      "date_raw": "2026-09-30",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "广州",
+      "form": "自动采集",
+      "summary": "广州发布实施意见，贯彻三部委通知，推进商品住房销售制度改革。；新取得土地预售项目需完成主体结构封顶，在途项目分情形执行。；预售资金全额存入监管账户，验收及配套达标后解除监管。；新出让土地项目优先现房销售，定金不高于总价5%并专项监管。",
+      "source": {
+        "label": "zfcj.gz.gov.cn",
+        "url": "https://zfcj.gz.gov.cn/gkmlpt/content/11/11026/post_11026990.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [],
+      "tier": "watch",
+      "tier_label": "一般了解",
+      "relevance": 5,
+      "impact": "",
+      "action": "",
+      "tier_reason": "商品住房销售制度与建筑智能化赛道无关，仅作一般了解。"
+    },
+    {
+      "id": "2026-W40-047",
+      "no": 47,
+      "title": "省建设厅关于印发《建筑垃圾综合利用产品主要种类、适用工程部位、质量标准及应用规程...",
+      "org": "浙江省住房和城乡建设厅·政策文件",
+      "date": "2026-10-08",
+      "date_raw": "2026-10-08",
+      "level": "key-city",
+      "level_label": "重点省市",
+      "region": "浙江",
+      "form": "自动采集",
+      "summary": "浙江印发建筑垃圾综合利用产品目录第三版；明确主要种类、适用工程部位和质量标准；推进建筑垃圾资源化利用，赋能绿色低碳转型；依据相关法规及原实施意见修订形成",
+      "source": {
+        "label": "jst.zj.gov.cn",
+        "url": "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_957119af5ffdcfbc663ea69531f8b59a.html",
+        "status": "ok",
+        "checked_at": null
+      },
+      "confidence": "自动采集，未逐条核验",
+      "tracks": [
+        "green-smart"
+      ],
+      "tier": "track",
+      "tier_label": "持续跟踪",
+      "relevance": 75,
+      "impact": "",
+      "action": "",
+      "tier_reason": "地方政策目录，有贯彻要求但无量化强制指标，属持续跟踪"
+    }
+  ],
+  "narrative": {
+    "conclusions": [
+      {
+        "title": "城市更新进入资金与智能化双轮驱动",
+        "body": "本期河北、广东、银川等地政策显示，城市更新已从规划转向实施，政策性金融资金明确支持，同时强调智能化改造与数字化管理。资金落地与智能化需求叠加，将推动既有建筑改造、管网监测、智慧社区等细分市场加速释放，企业需把握项目库扩容机遇。"
+      },
+      {
+        "title": "智能建造从试点转向标准化约束",
+        "body": "西安发布智能建造能力建设指南，深圳发布建筑机器人产品目录，南京启动试点申报，表明智能建造正从鼓励试点走向标准化、规范化落地。地方标准将逐步成为项目准入门槛，企业需提前适配技术规范，否则面临合规风险。"
+      },
+      {
+        "title": "城市生命线工程成为投资与科技融合热点",
+        "body": "湖南、银川经验获住建部推广，全国“十五五”管网改造投资超5万亿元，其中智能化改造占比可观。物联感知、AI大模型、BIM+GIS等技术在燃气、排水、供热等场景深度应用，形成可复制的“数智赋能”模式，相关技术需求将集中释放。"
+      },
+      {
+        "title": "智慧物业监管平台建设窗口期开启",
+        "body": "西安以“揭榜挂帅”方式招募智慧物业平台研发，要求40天内交付，凸显政府推进“一网统管”的急迫性。多地已开始部署住宅小区智能化监管，平台建设周期短、示范效应强，将带动智慧社区软硬件一体化需求。"
+      },
+      {
+        "title": "工程质量保险与AI审核深度绑定",
+        "body": "广州明确IDI保险应保尽保，并要求保险机构深化智能定损与AI审核应用，推动承保理赔信息共享。这一趋势将AI技术嵌入工程质量管理全流程，为建筑智能化企业提供保险科技与工程数据服务的新赛道。"
+      }
+    ],
+    "impacts": [
+      {
+        "title": "城市更新智能化改造需求释放",
+        "level": "影响强度：强｜驱动：政策性金融资金落地",
+        "body": "河北、广东等地城市更新项目获得政策性贷款支持，资金到位将加速既有建筑改造、老旧小区整治和管网升级。这些项目普遍要求智能化系统集成、能耗监测和智慧运维，公司可依托BIM和智能化工程能力切入，预计未来1-2个季度相关招标量显著增加。"
+      },
+      {
+        "title": "智能建造标准推动BIM应用深化",
+        "level": "影响强度：中强｜驱动：地方标准密集出台",
+        "body": "西安指南、深圳机器人目录等政策要求企业采用智能建造技术，BIM模型交付、机器人施工等成为项目考核指标。公司需升级数字化交付能力，将BIM与施工管理、运维平台打通，否则在试点项目中可能失去投标资格。"
+      },
+      {
+        "title": "生命线工程带动物联感知与AI平台需求",
+        "level": "影响强度：强｜驱动：超长期国债及管网投资",
+        "body": "湖南、银川等地的生命线工程已投入数十亿元，全国管网改造投资超5万亿，其中智能化改造资金占比明确。公司可提供物联感知设备集成、数据平台开发及AI分析服务，尤其在城市级运管服平台建设中积累案例，形成可复制的产品线。"
+      },
+      {
+        "title": "智慧物业监管平台建设窗口期",
+        "level": "影响强度：中｜驱动：政府揭榜挂帅项目",
+        "body": "西安等城市通过揭榜挂帅快速推进智慧物业平台，要求40天内交付，表明政府希望快速落地示范。公司可积极参与此类项目，以平台建设撬动后续运维和增值服务，同时积累住宅小区数据资源，为拓展社区智能化业务奠定基础。"
+      }
+    ],
+    "outlook": [
+      {
+        "no": 1,
+        "title": "城市更新项目库扩容与智能化招标增加",
+        "body": "预计未来1-2个季度，河北、广东等省份将陆续发布城市更新项目库，并配套智能化改造专项招标。可关注各地住建部门项目公示，重点跟踪既有建筑节能改造、管网监测和智慧社区类标段。"
+      },
+      {
+        "no": 2,
+        "title": "智能建造地方标准将密集出台",
+        "body": "西安、深圳已发布指南和目录，预计更多城市将跟进，形成国家-地方标准体系。企业需在技术方案和人员培训上提前适配，观察各地试点项目对BIM应用和机器人施工的强制要求。"
+      },
+      {
+        "no": 3,
+        "title": "生命线工程智能化改造进入实施期",
+        "body": "湖南、银川经验推广后，各省将启动管网智能化改造项目，超长期国债资金陆续到位。可关注省级运管服平台招标和物联感知设备采购，预计2027年上半年将出现一批大型集成项目。"
+      }
+    ]
+  }
+}

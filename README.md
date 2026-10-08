@@ -85,7 +85,8 @@ policy-intel/
 │   ├── build_weekly.py          按周拆分简报（回溯补齐历史周报）
 │   ├── build_data.py            合并数据、生成站点数据与 A4 导出资源
 │   ├── build_pdf.py             用无头浏览器预渲染 A4 竖版静态 PDF
-│   └── run_weekly.py            每周流水线入口（每周一 08:30 定时运行，生成前一周周报）
+│   ├── retry_failed.py          补跑分析：只重跑「走规则兜底」的条目并重建期级研判（模型限流后救急）
+│   └── run_weekly.py            流水线入口（定时任务每天巡检、幂等补跑最近一个完整周）
 └── seed/                        原始资料（首期报告）
 ```
 
@@ -97,11 +98,23 @@ policy-intel/
 # 每周完整流水线（需已配置模型端点）
 python3 agent/run_weekly.py
 
+# 幂等补跑：算出「最近一个已完整结束的 ISO 周」，成稿已存在就直接退出。
+# 定时任务用它每天巡检一次 —— 错过一次触发也不会整期丢失。
+python3 agent/run_weekly.py --auto
+
+# 把「现在」钉到某一天，补跑对应的那一周（与 --auto 互斥）
+python3 agent/run_weekly.py --as-of 2026-10-05
+
 # 离线演练：不调模型，仅用关键词规则打分
 python3 agent/run_weekly.py --dry-run
 
 # 跳过采集 / 跳过分析，只重跑成稿（改完叙述或洞察后省一次模型分析）
 python3 agent/run_weekly.py --skip-collect --skip-analyze
+
+# 模型限流（429）导致部分条目走规则兜底、期级研判失败时，只补那几条 + 研判，
+# 不必整条重跑。补完记得再跑一次 build_data.py。
+python3 agent/retry_failed.py --dry-run   # 先看要补哪些
+python3 agent/retry_failed.py
 
 # 只重建站点数据（改了 insights.json 或样式后）
 python3 agent/build_data.py
@@ -170,6 +183,10 @@ python3 -m http.server 8000
 7. **PDF 预渲染依赖本机浏览器。** `build_pdf.py` 用 Edge / Chrome 的 headless 模式打印，
    机器上没装浏览器时会自动跳过并在日志中提示——站点不会因此不可用，
    只是归档页浮动坞里的「PDF」退化为「打印 → 另存为 PDF」。
+   **是否重渲染由内容指纹决定**：覆盖条目数与标题、每条的标题 / 分档 / 影响分析、以及期级研判；
+   刻意**不含** `built_at` 与链接健康状态（这些每次都变，纳入会导致无谓重渲染）。
+   所以「条目标题没变、但分档调整或补跑了期级研判」同样会触发重渲染；
+   `--force` 可强制全部重渲染。
 8. **「六张网」专题是独立版块，人工底图 + 自动动态流两层。**
    - **底图**（人工维护）：口径、六张网界定、13 项关键指标、政策脉络、主干政策清单，
      全部写在 `agent/six_networks.json`；`build_data.py` 只做读取打包，不生成内容。

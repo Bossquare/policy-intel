@@ -13,6 +13,11 @@ agent/weekly_narratives.json（按期号覆盖，如 {"2026-W38": {...}}），�
     python3 agent/run_weekly.py --skip-collect  # 跳过采集，直接分析已有 raw 文件
     python3 agent/run_weekly.py --no-narrative  # 不生成核心结论/影响/展望
     python3 agent/run_weekly.py --days 14       # 采集窗口改为 14 天
+    python3 agent/run_weekly.py --auto          # 幂等补跑：只补「最近一个已结束的完整周」
+    python3 agent/run_weekly.py --as-of 2026-10-05  # 把「现在」钉到该日，补跑对应的那一周
+
+--auto 供定时任务每天调用：算出的那一期已有成稿就立刻退出（日志只留一行），
+没有才按标准 7 天窗口补跑 —— 这样错过一次触发也不会整期丢失。
 
 产出：
     agent/out/raw-<期>.json / analyzed-<期>.json
@@ -81,6 +86,24 @@ def run(cmd):
     r = subprocess.run([str(c) for c in cmd], cwd=str(ROOT))
     if r.returncode != 0:
         sys.exit(f"✗ 步骤失败：{cmd[1]}")
+
+
+def period_id_of(ref_date):
+    """由「窗口末日」推出期号（如 2026-W40），与 collect.py 的口径一致。"""
+    y, w, _ = ref_date.isocalendar()
+    return f"{y}-W{w:02d}"
+
+
+def last_complete_week_as_of(now):
+    """最近一个已完整结束的 ISO 周（上周一 ~ 上周日）→ 返回该周结束后的「次日周一」。
+
+    这个日期用作 --as-of 的虚拟「现在」：collect.py 的口径是 ref = now - 1 天
+    （落到上周日）、since = now - days 天（正好上周一 00:00），所以把 now 钉在
+    该周结束的次日，整条流水线的期号与窗口就自动对齐那一周。
+    """
+    delta = now.isoweekday() % 7 or 7        # 距最近一个已过去的周日有几天
+    last_sunday = (now - timedelta(days=delta)).date()
+    return last_sunday + timedelta(days=1)
 
 
 def promote(analyzed_path: pathlib.Path):
@@ -199,26 +222,69 @@ def main():
     ap.add_argument("--no-insight", action="store_true")
     ap.add_argument("--no-narrative", action="store_true",
                     help="跳过核心结论/影响/展望研判生成（首页该区块将显示空状态）")
+    ap.add_argument("--as-of", default="",
+                    help="把「现在」固定到指定日期（YYYY-MM-DD），用于补跑某一历史周")
+    ap.add_argument("--auto", action="store_true",
+                    help="自动模式：只补「最近一个已结束的完整周」，该期成稿已存在则直接退出")
     args = ap.parse_args()
+
+    if args.auto and args.as_of:
+        sys.exit("--auto 与 --as-of 不能同时指定")
 
     OUT.mkdir(parents=True, exist_ok=True)
 
+    # --as-of / --auto 都会锁定一个期号：采集产物、分析输入、成稿判断全按它走，
+    # 不再看 out/ 目录里还剩什么（残留的旧 raw 会被 sorted()[-1] 优先选中）。
+    as_of, anchor_pid = args.as_of, ""
+    if args.auto:
+        as_of_date = last_complete_week_as_of(datetime.now(CST))
+        anchor_pid = period_id_of(as_of_date - timedelta(days=1))
+        brief = DATA / f"brief-{anchor_pid}.json"
+        if brief.exists():
+            print(f"[auto] {anchor_pid} 已有成稿（{brief.name}），本期无需补跑，退出。")
+            return
+        as_of = as_of_date.isoformat()
+        print(f"[auto] {anchor_pid} 缺少成稿，按窗口 "
+              f"{(as_of_date - timedelta(days=args.days)).isoformat()} 至 "
+              f"{(as_of_date - timedelta(days=1)).isoformat()} 补跑")
+    elif as_of:
+        try:
+            as_of_date = datetime.strptime(as_of, "%Y-%m-%d").date()
+        except ValueError:
+            sys.exit(f"--as-of 需要 YYYY-MM-DD 格式，收到：{as_of}")
+        anchor_pid = period_id_of(as_of_date - timedelta(days=1))
+
     if not args.skip_collect:
-        run([PY, AGENT / "collect.py", "--days", args.days])
+        ccmd = [PY, AGENT / "collect.py", "--days", args.days]
+        if as_of:
+            ccmd += ["--as-of", as_of, "--out", OUT / f"raw-{anchor_pid}.json"]
+        run(ccmd)
 
     if args.skip_analyze:
-        dones = sorted(OUT.glob("analyzed-*.json"))
-        if not dones:
-            sys.exit("--skip-analyze 需要 agent/out/ 下已有 analyzed-*.json")
-        raw = dones[-1]
+        if anchor_pid:
+            raw = OUT / f"analyzed-{anchor_pid}.json"
+            if not raw.exists():
+                sys.exit(f"--skip-analyze 未找到 {raw.name}，无法复用 {anchor_pid} 的分析结果")
+        else:
+            dones = sorted(OUT.glob("analyzed-*.json"))
+            if not dones:
+                sys.exit("--skip-analyze 需要 agent/out/ 下已有 analyzed-*.json")
+            raw = dones[-1]
         print(f"\n▶ 跳过分析，复用 {raw.name}")
     else:
-        raws = sorted(OUT.glob("raw-*.json"))
-        if not raws:
-            sys.exit("agent/out/ 下没有 raw-*.json，采集可能全部失败")
+        if anchor_pid:
+            raw = OUT / f"raw-{anchor_pid}.json"
+            if not raw.exists():
+                sys.exit(f"未找到采集结果 {raw.name}，{anchor_pid} 这轮采集可能失败了")
+        else:
+            raws = sorted(OUT.glob("raw-*.json"))
+            if not raws:
+                sys.exit("agent/out/ 下没有 raw-*.json，采集可能全部失败")
+            raw = raws[-1]
 
-        raw = raws[-1]
         acmd = [PY, AGENT / "analyze.py", "--input", raw]
+        if as_of:
+            acmd += ["--as-of", as_of]
         if args.dry_run:
             acmd.append("--dry-run")
         if args.no_insight:
