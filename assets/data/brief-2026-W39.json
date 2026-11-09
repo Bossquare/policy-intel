@@ -7,7 +7,7 @@
     "total": 55,
     "narrative_mode": "llm",
     "note": "自动生成（分析器：llm）。核心结论与影响分析为模型草稿，建议人工复核后发布。条目级影响分析为草稿，建议复核。",
-    "built_at": "2026-11-02 09:41",
+    "built_at": "2026-11-09 09:06",
     "insight_count": 6,
     "source_fixed": 0
   },
@@ -220,7 +220,7 @@
       "source": {
         "label": "zjj.sz.gov.cn",
         "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12985571.html",
-        "status": "ok",
+        "status": "dead",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",
@@ -413,7 +413,7 @@
       "source": {
         "label": "www.cac.gov.cn",
         "url": "https://www.cac.gov.cn/2026-09/21/c_1791740772540035.htm",
-        "status": "ok",
+        "status": "dead",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",
@@ -552,7 +552,7 @@
       "source": {
         "label": "www.cac.gov.cn",
         "url": "https://www.cac.gov.cn/2026-09/21/c_1791740760822022.htm",
-        "status": "dead",
+        "status": "ok",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",
@@ -1355,7 +1355,7 @@
       "source": {
         "label": "www.cac.gov.cn",
         "url": "https://www.cac.gov.cn/2026-09/23/c_1791913977404975.htm",
-        "status": "ok",
+        "status": "dead",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",

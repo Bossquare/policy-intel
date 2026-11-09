@@ -7,7 +7,7 @@
     "total": 56,
     "narrative_mode": "llm",
     "note": "自动生成（分析器：llm）。核心结论与影响分析为模型草稿，建议人工复核后发布。条目级影响分析为草稿，建议复核。",
-    "built_at": "2026-11-02 09:41",
+    "built_at": "2026-11-09 09:06",
     "insight_count": 11,
     "source_fixed": 0
   },
@@ -608,7 +608,7 @@
       "source": {
         "label": "sjw.nanjing.gov.cn",
         "url": "http://sjw.nanjing.gov.cn/tzgg/202610/t20261027_6026230.html",
-        "status": "ok",
+        "status": "dead",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",
@@ -635,7 +635,7 @@
       "source": {
         "label": "sjw.nanjing.gov.cn",
         "url": "http://sjw.nanjing.gov.cn/tzgg/202610/t20261027_6026236.html",
-        "status": "ok",
+        "status": "dead",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",
@@ -1514,7 +1514,7 @@
       "source": {
         "label": "jst.zj.gov.cn",
         "url": "https://jst.zj.gov.cn/col/col1229129246/art/2026/art_fcb889166408554a4ab623d469f171af.html",
-        "status": "ok",
+        "status": "dead",
         "checked_at": null
       },
       "confidence": "自动采集，未逐条核验",
